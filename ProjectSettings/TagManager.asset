@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Manager
+  - Enemy
+  - PlayerPunch
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - Ground
+  - Ladder
+  - Player
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: BackgroundFar
+    uniqueID: 3019057181
+    locked: 0
+  - name: BackgroundNear
+    uniqueID: 3880170369
+    locked: 0
+  - name: BackGroundClose
+    uniqueID: 3763232841
+    locked: 0
+  - name: PlayerLine
+    uniqueID: 2566212939
+    locked: 0
+  - name: PlayerLine+
+    uniqueID: 1321069501
+    locked: 0
+  - name: PlayerLine++
+    uniqueID: 794245159
+    locked: 0

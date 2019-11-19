@@ -1,0 +1,15 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public interface IDamage
+{
+    void TakeDamage(float amount, DamageType effect);
+}
+
+public enum DamageType
+{
+    Normal,
+    KnockBack,
+    Stun,
+};
