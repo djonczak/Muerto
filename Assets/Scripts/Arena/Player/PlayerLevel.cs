@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PlayerArenaData : MonoBehaviour
+public class PlayerLevel : MonoBehaviour
 {
     public float expPoints = 0;
     public float expPointCap = 100;

@@ -3,21 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(SpriteRenderer))]
-[RequireComponent(typeof(AudioSource))]
+[RequireComponent(typeof(Animator))]
 public class ArenaMovement : MonoBehaviour
 {
     public float moveSpeed = 0.5f;
-    public float dashSpeed = 0.0001f;
-    public float dashCooldown;
-    float timer = 0;
-    [SerializeField]
-    float dashRange = 2.5f;
 
     SpriteRenderer character;
     Animator anim;
-    Vector3 mousePosition;
-
-    public bool isDashing;
+    public Vector3 mousePosition;
 
     void Start()
     {
@@ -28,7 +21,6 @@ public class ArenaMovement : MonoBehaviour
     void FixedUpdate()
     {
         Move();
-        Dash();
     }
 
     void Move()
@@ -63,37 +55,9 @@ public class ArenaMovement : MonoBehaviour
         }
     }
 
-    private void Dash()
-    {
-        if (Input.GetKeyDown(KeyCode.Mouse0) && timer > dashCooldown && !isDashing)
-        {
-            isDashing = true;
-            StartCoroutine("EndDash");
-            anim.SetTrigger("Punch");
-            timer = 0;
-        }
-
-        if (isDashing)
-        {
-            float step = (moveSpeed * dashSpeed) * Time.fixedDeltaTime;
-            transform.position = Vector3.MoveTowards(transform.position, mousePosition, step / dashRange);
-            transform.position.Normalize();
-        }
-        else
-        {
-            timer += Time.fixedDeltaTime;
-        }
-    }
-
     private float DistanceBetween(Vector3 player, Vector3 mouse)
     {
         return Vector3.Distance(player,mouse);
-    }
-
-    IEnumerator EndDash()
-    {
-        yield return new WaitForSeconds(0.1f);
-        isDashing = false;
     }
 
 }

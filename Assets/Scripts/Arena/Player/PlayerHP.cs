@@ -11,18 +11,18 @@ public class PlayerHP : MonoBehaviour, IDamage {
     public Image[] healthBars;
     private int i = -1;
 
-    ArenaMovement player;
+    PlayerAttack player;
     bool isAlive = true;
 
 	void Start ()
     {
-        player = GetComponent<ArenaMovement>();
+        player = GetComponent<PlayerAttack>();
         minHP = maxHP;
 	}
 
     public void TakeDamage(float amount, DamageType type)
     {
-        if (player.isDashing == false && isAlive == true)
+        if (player.isDashing == true && isAlive == true)
         {
             minHP -= amount;
             i++;

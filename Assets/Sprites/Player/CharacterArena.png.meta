@@ -1,7 +1,58 @@
 fileFormatVersion: 2
 guid: 20229d4e4c960b7499933f28dfeeaa5c
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -3579073738865176749
+    second: CharacterArena_Run0
+  - first:
+      213: -5078119230015547989
+    second: CharacterArena_Run1
+  - first:
+      213: 3484073338698114615
+    second: CharacterArena_Run2
+  - first:
+      213: -7675354896614992811
+    second: CharacterArena_Run3
+  - first:
+      213: -8538699407959392202
+    second: CharacterArena_Run4
+  - first:
+      213: 4163348198060741875
+    second: CharacterArena_Punch0
+  - first:
+      213: 2495072517116770531
+    second: CharacterArena_Punch1
+  - first:
+      213: 7451195776555859065
+    second: CharacterArena_Punch2
+  - first:
+      213: -887227541450627581
+    second: CharacterArena_Punch3
+  - first:
+      213: 2005157832412973850
+    second: CharacterArena_Idle0
+  - first:
+      213: 1001215882245870195
+    second: CharacterArena_Idle1
+  - first:
+      213: -5109980680276289021
+    second: CharacterArena_Idle2
+  - first:
+      213: 4677255717330843894
+    second: CharacterArena_Idle3
+  - first:
+      213: -1009456842425580570
+    second: CharacterArena_Death0
+  - first:
+      213: -8559985762253026205
+    second: CharacterArena_Death1
+  - first:
+      213: -3618361902476245683
+    second: CharacterArena_Death2
+  - first:
+      213: -1587040818140718377
+    second: CharacterArena_Death3
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -31,7 +82,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
+    filterMode: 0
     aniso: -1
     mipBias: -100
     wrapU: 1
@@ -40,7 +91,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -70,9 +121,390 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: CharacterArena_Run0
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 103
+        width: 26
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d991831dc0d399d42927b9cdcdb05d7c
+      internalID: -3579073738865176749
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CharacterArena_Run1
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 103
+        width: 26
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa87d78f303638c4fa5d81a9f72f0cb3
+      internalID: -5078119230015547989
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CharacterArena_Run2
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 103
+        width: 26
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c68e801740250742b817eb1c284f42d
+      internalID: 3484073338698114615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CharacterArena_Run3
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 103
+        width: 26
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82884a9879b0d1c4e8e60da612d474df
+      internalID: -7675354896614992811
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CharacterArena_Run4
+      rect:
+        serializedVersion: 2
+        x: 163
+        y: 102
+        width: 25
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 472c80548ff08804c8b5b2a86556d568
+      internalID: -8538699407959392202
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CharacterArena_Punch0
+      rect:
+        serializedVersion: 2
+        x: 215
+        y: 139
+        width: 41
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce327ceacd14e7a4999933d4a83f19c5
+      internalID: 4163348198060741875
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CharacterArena_Punch1
+      rect:
+        serializedVersion: 2
+        x: 263
+        y: 142
+        width: 41
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3ec6e41fbf8d9a4d9f6fa75cf83f4d6
+      internalID: 2495072517116770531
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CharacterArena_Punch2
+      rect:
+        serializedVersion: 2
+        x: 311
+        y: 141
+        width: 41
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e08c07fa37f5d041aa1f100be79a745
+      internalID: 7451195776555859065
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CharacterArena_Punch3
+      rect:
+        serializedVersion: 2
+        x: 312
+        y: 103
+        width: 41
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c4217fba20f00c444917d04f3476d281
+      internalID: -887227541450627581
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CharacterArena_Idle0
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 61
+        width: 17
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4171ad85cc296a24fbdfb5f654d5f6d1
+      internalID: 2005157832412973850
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CharacterArena_Idle1
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 61
+        width: 17
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fecdf49d266255a4bb00976c04f724c2
+      internalID: 1001215882245870195
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CharacterArena_Idle2
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 61
+        width: 17
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cdeb016cb2e23b44eb4caaa82c6f8e37
+      internalID: -5109980680276289021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CharacterArena_Idle3
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 61
+        width: 17
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8412a0897e4edb0478d0ae30c4b7bbbb
+      internalID: 4677255717330843894
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CharacterArena_Death0
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 25
+        width: 27
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4eb147bf6e24d674eafa141b52b8abcc
+      internalID: -1009456842425580570
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CharacterArena_Death1
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 25
+        width: 27
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02d88fcd98190104d8d7e90c617a1dba
+      internalID: -8559985762253026205
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CharacterArena_Death2
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 25
+        width: 27
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a04b0304bdcb8648ba487f5dcd48ee8
+      internalID: -3618361902476245683
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CharacterArena_Death3
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 23
+        width: 27
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b6209e0d89790014a9a485ef988d8b2c
+      internalID: -1587040818140718377
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []

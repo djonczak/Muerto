@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PunchAttack : MonoBehaviour
+public class PunchAttackCollider : MonoBehaviour
 {
     AudioSource source;
 
