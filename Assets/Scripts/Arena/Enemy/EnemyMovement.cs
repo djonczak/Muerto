@@ -11,11 +11,13 @@ public class EnemyMovement : MonoBehaviour
     public bool isAlive;
 
     SpriteRenderer sprite;
-    public Transform target;
+    public GameObject target;
 
     void Start()
     {
         sprite = GetComponent<SpriteRenderer>();
+        target = GameObject.FindGameObjectWithTag("Player");
+        GetComponent<EnemyAttack>().player = target;
     }
 	
 	void FixedUpdate ()

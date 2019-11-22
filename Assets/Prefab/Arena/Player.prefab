@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7471797267798413799}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.017, y: -0.148, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7471797268637326169}
@@ -218,7 +218,7 @@ GameObject:
   - component: {fileID: 7471797268303797107}
   - component: {fileID: 7471797268303797104}
   m_Layer: 0
-  m_Name: AttackMechanics
+  m_Name: PunchCollider
   m_TagString: PlayerPunch
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -387,7 +387,7 @@ GameObject:
   - component: {fileID: 7471797268637326147}
   - component: {fileID: 7471797268637326149}
   - component: {fileID: 7471797268637326144}
-  - component: {fileID: 7471797268637326158}
+  - component: {fileID: 3395673687357957374}
   - component: {fileID: 7471797268637326148}
   - component: {fileID: 7471797268637326151}
   - component: {fileID: 7471797268637326146}
@@ -532,6 +532,7 @@ MonoBehaviour:
   - {fileID: 7471797269237157276}
   - {fileID: 7471797269215443898}
   - {fileID: 7471797267902738577}
+  isAlive: 1
 --- !u!114 &7471797268637326144
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -550,7 +551,7 @@ MonoBehaviour:
   damageColor: {r: 1, g: 0, b: 0, a: 1}
   isDamaged: 0
   canSwitchColor: 0
---- !u!114 &7471797268637326158
+--- !u!114 &3395673687357957374
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

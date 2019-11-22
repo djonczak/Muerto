@@ -59,5 +59,4 @@ public class ArenaMovement : MonoBehaviour
     {
         return Vector3.Distance(player,mouse);
     }
-
 }

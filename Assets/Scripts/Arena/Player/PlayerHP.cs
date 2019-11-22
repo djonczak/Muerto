@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PlayerHP : MonoBehaviour, IDamage {
+public class PlayerHP : MonoBehaviour, IDamage
+{
     [SerializeField]
     private float minHP = 0;
     [SerializeField]
@@ -12,7 +13,8 @@ public class PlayerHP : MonoBehaviour, IDamage {
     private int i = -1;
 
     PlayerAttack player;
-    bool isAlive = true;
+    [SerializeField]
+    private bool isAlive = true;
 
 	void Start ()
     {
@@ -22,7 +24,7 @@ public class PlayerHP : MonoBehaviour, IDamage {
 
     public void TakeDamage(float amount, DamageType type)
     {
-        if (player.isDashing == true && isAlive == true)
+        if (player.isDashing == false && isAlive == true)
         {
             minHP -= amount;
             i++;
@@ -38,6 +40,7 @@ public class PlayerHP : MonoBehaviour, IDamage {
             animator.SetBool("Run", false);
             GetComponent<Collider2D>().enabled = false;
             player.enabled = false;
+            GetComponent<ArenaMovement>().enabled = false;
             isAlive = false;
             this.enabled = false;
         }

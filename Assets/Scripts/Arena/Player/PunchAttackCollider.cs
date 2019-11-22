@@ -13,7 +13,7 @@ public class PunchAttackCollider : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.tag == "Enemy")
+        if(collision.tag == "Bat")
         {
             collision.GetComponent<IDamage>().TakeDamage(1, DamageType.Normal);
             if (!source.isPlaying)

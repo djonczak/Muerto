@@ -16,7 +16,6 @@ public class EnemyAttack : MonoBehaviour
     public void Start()
     {
         anim = GetComponent<Animator>();
-        player = GetComponent<EnemyMovement>().target.gameObject;
     }
 
     public void Update()
@@ -37,6 +36,10 @@ public class EnemyAttack : MonoBehaviour
                     player.GetComponent<IDamage>().TakeDamage(attackDamage, DamageType.Normal);
                     timer = 0f;
                 }
+            }
+            else
+            {
+                timer = 0f;
             }
         }      
     }
