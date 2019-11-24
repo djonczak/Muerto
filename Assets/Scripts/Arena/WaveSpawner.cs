@@ -57,14 +57,12 @@ public class WaveSpawner : MonoBehaviour
 
     private void CheckWave()
     {
-        Debug.Log("New wave");
         if (currentEnemy == 0)
         {
             totalEnemyNumber++;
             currentWave++;
             if(currentWave == 3)
             {
-                additionalEnemyIndex++;
                 enemyTag.Add(additionalEnemiesTag[additionalEnemyIndex]);
             }
             if (currentWave == 6)
@@ -86,10 +84,12 @@ public class WaveSpawner : MonoBehaviour
             if (currentWave == totalWaves)
             {
                 SpawnBoss();
+                Debug.Log("Boss fight !");
             }
             else
             {
                 StartCoroutine("CooldownToSpawn", timeToSpawn);
+                Debug.Log("New wave !");
             }
         }
     }

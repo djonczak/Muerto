@@ -8,6 +8,7 @@ TagManager:
   - Enemy
   - PlayerPunch
   - Bat
+  - Chupacabra
   layers:
   - Default
   - TransparentFX

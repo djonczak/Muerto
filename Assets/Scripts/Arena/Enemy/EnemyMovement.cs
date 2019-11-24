@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(AudioSource))]
 [RequireComponent(typeof(SpriteRenderer))]
 public class EnemyMovement : MonoBehaviour
 {
@@ -17,7 +16,6 @@ public class EnemyMovement : MonoBehaviour
     {
         sprite = GetComponent<SpriteRenderer>();
         target = GameObject.FindGameObjectWithTag("Player");
-        GetComponent<EnemyAttack>().player = target;
     }
 	
 	void FixedUpdate ()

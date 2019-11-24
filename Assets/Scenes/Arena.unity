@@ -677,7 +677,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyTag:
   - Bat
-  additionalEnemiesTag: []
+  additionalEnemiesTag:
+  - Chupacabra
   spawnList:
   - {fileID: 563677037}
   - {fileID: 1953713496}
@@ -1336,27 +1337,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.13, y: 0.19}
   m_EdgeRadius: 0
---- !u!1 &825534577 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7471797268637326171, guid: c731cf1cae335f14587a5d37ee7b57aa,
-    type: 3}
-  m_PrefabInstance: {fileID: 1752120942}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &825534581
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 825534577}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 03143d24a0bd9994cae93e4d6ab9211d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dustStartPoint: {fileID: 0}
-  dustPrefab: {fileID: 0}
-  amountToSpawn: 0
 --- !u!1 &887937372
 GameObject:
   m_ObjectHideFlags: 0
@@ -1753,6 +1733,10 @@ MonoBehaviour:
   itemsToPool:
   - amountToPool: 10
     objectToPool: {fileID: 4745057205292298936, guid: 6f379401cf3785a48bfb0e3e197a66c9,
+      type: 3}
+    expandable: 1
+  - amountToPool: 10
+    objectToPool: {fileID: 4677687653301165708, guid: 03fa5094796a8cb459498b790d38cf0e,
       type: 3}
     expandable: 1
 --- !u!1 &1193411497
@@ -2831,6 +2815,21 @@ PrefabInstance:
       propertyPath: levelBar
       value: 
       objectReference: {fileID: 529915560}
+    - target: {fileID: 7471797268637326151, guid: c731cf1cae335f14587a5d37ee7b57aa,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7471797268637326151, guid: c731cf1cae335f14587a5d37ee7b57aa,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 0.41
+      objectReference: {fileID: 0}
+    - target: {fileID: 7471797268637326151, guid: c731cf1cae335f14587a5d37ee7b57aa,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 0.25
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c731cf1cae335f14587a5d37ee7b57aa, type: 3}
 --- !u!1 &1753665395

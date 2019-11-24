@@ -7,14 +7,15 @@ public class DustParticles : MonoBehaviour
     public Transform dustStartPoint;
     public GameObject dustPrefab;
     public int amountToSpawn;
-    private List<GameObject> dustParticles = new List<GameObject>();
+    [SerializeField]
+    private List<GameObject> dustParticles;
 
     void Start()
     {
-        InstantianeDirt();
+        InstantiateDirt();
     }
 
-    private void InstantianeDirt()
+    private void InstantiateDirt()
     {
         for (int i = 0; i <= amountToSpawn; i++)
         {

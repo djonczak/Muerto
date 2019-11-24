@@ -9,7 +9,7 @@ public class EnemyHP : MonoBehaviour, IDamage
     [SerializeField]
     private float currentHP;
     public float xp;
-    public bool isAlive = true;
+    public bool isAlive;
 
     void Enable()
     {

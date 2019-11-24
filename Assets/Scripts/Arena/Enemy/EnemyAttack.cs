@@ -16,6 +16,7 @@ public class EnemyAttack : MonoBehaviour
     public void Start()
     {
         anim = GetComponent<Animator>();
+        player = GetComponent<EnemyMovement>().target;
     }
 
     public void Update()
