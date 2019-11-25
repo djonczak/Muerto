@@ -80,4 +80,9 @@ public class EnemyDashAttack : MonoBehaviour
         Gizmos.color = Color.blue;
         Gizmos.DrawWireSphere(transform.position, dashRadius);
     }
+
+    private void OnDisable()
+    {
+        timer = 0f;
+    }
 }

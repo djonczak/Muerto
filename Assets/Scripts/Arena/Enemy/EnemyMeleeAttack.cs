@@ -59,4 +59,9 @@ public class EnemyMeleeAttack : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, attackRadius);
     }
+
+    private void OnDisable()
+    {
+        timer = 0f;
+    }
 }

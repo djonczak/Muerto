@@ -7,7 +7,6 @@ public class WaveSpawner : MonoBehaviour
     [Header("Wave options:")]
     public List<string> enemyTag;
     public List<string> additionalEnemiesTag;
-    public List<Transform> spawnList;
     private int enemyNumber;
     private int additionalEnemyIndex = 0;
     public float timeToSpawn;
@@ -24,9 +23,6 @@ public class WaveSpawner : MonoBehaviour
     [Header("Boss options")]
     public string bossTag;
     public Transform bossSpawnSpot;
-
-    private int oldSpawnPoint;
-    private int randomNumber;
 
     private void Start()
     {
@@ -52,12 +48,11 @@ public class WaveSpawner : MonoBehaviour
         GameObject enemy = ObjectPooler.instance.GetPooledObject(enemyTag[enemyNumber]);
         if (enemy != null)
         {
-            while (randomNumber == oldSpawnPoint)
-            {
-                randomNumber = Random.Range(0, spawnList.Capacity - 1 );
-            }
-            enemy.transform.position = spawnList[randomNumber].transform.position;
-            oldSpawnPoint = randomNumber;
+
+            Vector3 minScreenBounds = Camera.main.ScreenToWorldPoint(new Vector3(3, 3, 0));
+            Vector3 maxScreenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width - 3f, Screen.height - 3f, 0));
+            Vector3 randomSpawnPoint = new Vector3(Random.Range(minScreenBounds.x, maxScreenBounds.x), Random.Range(minScreenBounds.y, maxScreenBounds.y), 0);
+            enemy.transform.position = randomSpawnPoint;
             currentEnemy++;
             enemy.SetActive(true);
         }
