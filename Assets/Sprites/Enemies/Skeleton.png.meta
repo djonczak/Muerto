@@ -1,0 +1,595 @@
+fileFormatVersion: 2
+guid: 5c82c7c12eb1b814795d8c32fbb8706b
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -3638896996221528780
+    second: SkeletonNormal_Walk0
+  - first:
+      213: -3135008273720992316
+    second: SkeletonNormal_Walk1
+  - first:
+      213: 5544501405819264799
+    second: SkeletonNormal_Walk2
+  - first:
+      213: -6809601782791360850
+    second: SkeletonNormal_Walk3
+  - first:
+      213: 1439727703089102688
+    second: SkeletonNormal_Walk4
+  - first:
+      213: 7281186004922418139
+    second: SkeletonNormal_Walk5
+  - first:
+      213: 6969316297327417895
+    second: SkeletonNormal_Attack0
+  - first:
+      213: 2091622261691532617
+    second: SkeletonNormal_Attack1
+  - first:
+      213: 6230431939130272015
+    second: SkeletonNormal_Attack2
+  - first:
+      213: 4354231566380549168
+    second: SkeletonNormal_Attack3
+  - first:
+      213: 5113904331032557898
+    second: SkeletonNormal_Attack4
+  - first:
+      213: -5734067536024389370
+    second: SkeletonGunner_Walk0
+  - first:
+      213: 6205995631249751748
+    second: SkeletonGunner_Walk1
+  - first:
+      213: 7777760763316268835
+    second: SkeletonGunner_Walk2
+  - first:
+      213: 4010823098519587650
+    second: SkeletonGunner_Walk3
+  - first:
+      213: -198580100710117803
+    second: SkeletonGunner_Walk4
+  - first:
+      213: 5080480166741595418
+    second: SkeletonGunner_Walk5
+  - first:
+      213: 4403924932257629616
+    second: SkeletonGunner_Attack0
+  - first:
+      213: -639922021948449064
+    second: SkeletonGunner_Attack1
+  - first:
+      213: 4354231566380549168
+    second: SkeletonGunner_Attack2
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: SkeletonNormal_Walk0
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 139
+        width: 17
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83c700a5070323d45a2a398561654a4d
+      internalID: -3638896996221528780
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SkeletonNormal_Walk1
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 140
+        width: 17
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af6c25589a8c91d48b8c5a9586b97210
+      internalID: -3135008273720992316
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SkeletonNormal_Walk2
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 139
+        width: 17
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29f306870ec567c42b7dab383a753b5b
+      internalID: 5544501405819264799
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SkeletonNormal_Walk3
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 140
+        width: 17
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94b02240996ad054f9a7d7c84ef9cc92
+      internalID: -6809601782791360850
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SkeletonNormal_Walk4
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 140
+        width: 17
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c4acee185ef0cf45b93df3236dcc485
+      internalID: 1439727703089102688
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SkeletonNormal_Walk5
+      rect:
+        serializedVersion: 2
+        x: 177
+        y: 139
+        width: 17
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 115caeacb8472b842b74eb572e5c8544
+      internalID: 7281186004922418139
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SkeletonNormal_Attack0
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 96
+        width: 20
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22c91da401b177343ac520879d5398e8
+      internalID: 6969316297327417895
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SkeletonNormal_Attack1
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 95
+        width: 20
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 705f55bccab8e8d4b934982360ad688f
+      internalID: 2091622261691532617
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SkeletonNormal_Attack2
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 95
+        width: 20
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cfd56eef777351340b2dbc0b453520b4
+      internalID: 6230431939130272015
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SkeletonNormal_Attack3
+      rect:
+        serializedVersion: 2
+        x: 125
+        y: 95
+        width: 20
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 204478437d856bc4eb26f0db473e2c9d
+      internalID: 4354231566380549168
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SkeletonNormal_Attack4
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 96
+        width: 20
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3858913e3202f84daf25e879e124b89
+      internalID: 5113904331032557898
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SkeletonGunner_Walk0
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 54
+        width: 21
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62eb67bc5b2df104cacfcba744f27fc6
+      internalID: -5734067536024389370
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SkeletonGunner_Walk1
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 55
+        width: 21
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f3afa540b0b39c4ca2927059249fdf8
+      internalID: 6205995631249751748
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SkeletonGunner_Walk2
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 55
+        width: 21
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4cfa7127ec4905246ad5b3d0d61b3995
+      internalID: 7777760763316268835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SkeletonGunner_Walk3
+      rect:
+        serializedVersion: 2
+        x: 124
+        y: 56
+        width: 25
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 769c4c73fcb01704da4d3676236987c6
+      internalID: 4010823098519587650
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SkeletonGunner_Walk4
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 55
+        width: 21
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 36ec47ed883616841bf18af79e95c283
+      internalID: -198580100710117803
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SkeletonGunner_Walk5
+      rect:
+        serializedVersion: 2
+        x: 190
+        y: 55
+        width: 21
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e1c6f104ce9223349a2ef25bd5013f70
+      internalID: 5080480166741595418
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SkeletonGunner_Attack0
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 14
+        width: 24
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c16c2e4469fd01b498b4586a75ffeded
+      internalID: 4403924932257629616
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SkeletonGunner_Attack1
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 14
+        width: 24
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 522e52563bbe0d74a8f1113692fb630c
+      internalID: -639922021948449064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SkeletonGunner_Attack2
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 14
+        width: 24
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e69152c063a8142429fe686c448d8d3f
+      internalID: 4354231566380549168
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

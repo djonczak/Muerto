@@ -9,6 +9,8 @@ TagManager:
   - PlayerPunch
   - Bat
   - Chupacabra
+  - SkeletonNormal
+  - SkeletonGunner
   layers:
   - Default
   - TransparentFX

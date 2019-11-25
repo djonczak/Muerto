@@ -6,14 +6,14 @@ public class PunchAttackCollider : MonoBehaviour
 {
     AudioSource source;
 
-	void Start ()
+    void Start()
     {
         source = GetComponent<AudioSource>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.tag == "Bat" || collision.tag == "Chupacabra")
+        if (collision.tag == "Bat" || collision.tag == "Chupacabra" || collision.tag == "SkeletonNormal" || collision.tag == "SkeletonGunner")
         {
             collision.GetComponent<IDamage>().TakeDamage(1, DamageType.Normal);
             if (!source.isPlaying)
