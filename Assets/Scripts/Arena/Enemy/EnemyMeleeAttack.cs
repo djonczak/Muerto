@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyAttack : MonoBehaviour
+public class EnemyMeleeAttack : MonoBehaviour
 {
     [Header("Melee Attack Settings")]
     public float attackDamage;

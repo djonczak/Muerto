@@ -7,12 +7,12 @@ public class EnemyMovement : MonoBehaviour
 {
     [SerializeField]
     private float moveSpeed = 0.7f;
-    public bool isAlive;
+    public bool canMove;
 
     SpriteRenderer sprite;
     public GameObject target;
 
-    void Start()
+    void Awake()
     {
         sprite = GetComponent<SpriteRenderer>();
         target = GameObject.FindGameObjectWithTag("Player");
@@ -25,7 +25,7 @@ public class EnemyMovement : MonoBehaviour
 
     void Move()
     {
-        if (isAlive == true)
+        if (canMove == true)
         {
             if (target != null)
             {
