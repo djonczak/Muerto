@@ -25,6 +25,9 @@ public class WaveSpawner : MonoBehaviour
     public string bossTag;
     public Transform bossSpawnSpot;
 
+    private int oldSpawnPoint;
+    private int randomNumber;
+
     private void Start()
     {
         CheckWave();
@@ -49,7 +52,12 @@ public class WaveSpawner : MonoBehaviour
         GameObject enemy = ObjectPooler.instance.GetPooledObject(enemyTag[enemyNumber]);
         if (enemy != null)
         {
-            enemy.transform.position = spawnList[Random.Range(0, spawnList.Capacity)].transform.position;
+            while (randomNumber == oldSpawnPoint)
+            {
+                randomNumber = Random.Range(0, spawnList.Capacity - 1 );
+            }
+            enemy.transform.position = spawnList[randomNumber].transform.position;
+            oldSpawnPoint = randomNumber;
             currentEnemy++;
             enemy.SetActive(true);
         }

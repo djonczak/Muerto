@@ -1,43 +1,31 @@
 fileFormatVersion: 2
-guid: 1dad063cbd7a30842833743b9d38e1cb
+guid: be6c457824864df429df0aeb2d8fd576
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3600692559463535173
-    second: Chupacabra_0
+      213: -7622090368323310314
+    second: Bat_Fly0
   - first:
-      213: 7006795554916223060
-    second: Chupacabra_1
+      213: 5578162968048070621
+    second: Bat_Fly1
   - first:
-      213: -7851356377454914995
-    second: Chupacabra_3
+      213: 337395160804875411
+    second: Bat_Fly2
   - first:
-      213: -8383850814416815416
-    second: Chupacabra_4
+      213: 5601980484465145088
+    second: Bat_Attack0
   - first:
-      213: 7852621039036536777
-    second: Chupacabra_5
+      213: 1589735301704407004
+    second: Bat_Attack1
   - first:
-      213: -6983670485964886649
-    second: Chupacabra_6
+      213: -98907733627540731
+    second: Bat_Attack2
   - first:
-      213: -8827407647635066443
-    second: Chupacabra_7
+      213: -4194293825105664058
+    second: Bat_Death0
   - first:
-      213: 576733361967239856
-    second: Chupacabra_8
-  - first:
-      213: 7490814043654700758
-    second: Chupacabra_9
-  - first:
-      213: 1680650826514469819
-    second: Chupacabra_10
-  - first:
-      213: 6846953282419172085
-    second: Chupacabra_Attack
-  - first:
-      213: -8240211573398836269
-    second: Chupacabra_12
+      213: -4582506022396760108
+    second: Bat_Death1
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -134,181 +122,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Chupacabra_0
-      rect:
-        serializedVersion: 2
-        x: 9
-        y: 129
-        width: 62
-        height: 30
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e27fde8ab494007468af479b8bad2931
-      internalID: 3600692559463535173
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Chupacabra_1
-      rect:
-        serializedVersion: 2
-        x: 87
-        y: 131
-        width: 62
-        height: 30
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 686503e48a1c5c6468d00feff6f94374
-      internalID: 7006795554916223060
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Chupacabra_3
-      rect:
-        serializedVersion: 2
-        x: 165
-        y: 131
-        width: 62
-        height: 30
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b47bf8fad783a8c49a533905663b3f9a
-      internalID: -7851356377454914995
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Chupacabra_5
-      rect:
-        serializedVersion: 2
-        x: 243
-        y: 132
-        width: 62
-        height: 30
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ab004200cc644c24385aa4a6c2daf8d2
-      internalID: 7852621039036536777
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Chupacabra_6
-      rect:
-        serializedVersion: 2
-        x: 323
-        y: 133
-        width: 62
-        height: 30
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 89b55c12c7214c84f8576143bfc5b26a
-      internalID: -6983670485964886649
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Chupacabra_7
-      rect:
-        serializedVersion: 2
-        x: 7
-        y: 75
-        width: 62
-        height: 30
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 55208ee5408385d4a8d8e284cdece0aa
-      internalID: -8827407647635066443
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Chupacabra_8
-      rect:
-        serializedVersion: 2
-        x: 86
-        y: 85
-        width: 62
-        height: 30
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1e1dbc9465a6b4746afb8965f2da413e
-      internalID: 576733361967239856
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Chupacabra_9
-      rect:
-        serializedVersion: 2
-        x: 163
-        y: 80
-        width: 62
-        height: 30
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 84ca5a585f0766f4d8e710d48921238c
-      internalID: 7490814043654700758
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Chupacabra_10
+      name: Bat_Fly0
       rect:
         serializedVersion: 2
         x: 11
-        y: 22
-        width: 63
-        height: 33
+        y: 62
+        width: 12
+        height: 12
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -316,20 +136,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 05535850fac06f44e995bfaad7a71aa8
-      internalID: 1680650826514469819
+      spriteID: a9d8c580049afd0459cb4c97e7131377
+      internalID: -7622090368323310314
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Chupacabra_Attack
+      name: Bat_Fly1
       rect:
         serializedVersion: 2
-        x: 91
-        y: 23
-        width: 64
-        height: 33
+        x: 40
+        y: 67
+        width: 12
+        height: 13
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -337,20 +157,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: df5158a60411cef40bd804a2ec2de614
-      internalID: 6846953282419172085
+      spriteID: f6e2603e5ae7ae8428a9f49628169036
+      internalID: 5578162968048070621
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Chupacabra_12
+      name: Bat_Fly2
       rect:
         serializedVersion: 2
-        x: 386
-        y: 53
-        width: 5
-        height: 4
+        x: 66
+        y: 62
+        width: 12
+        height: 12
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -358,8 +178,113 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2df97355ad8f0314ca73a7b57f75dd95
-      internalID: -8240211573398836269
+      spriteID: 33b89d543b58ba245a42749641e50bae
+      internalID: 337395160804875411
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bat_Attack0
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 30
+        width: 12
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0bf08f9164752d544906acba33711dc0
+      internalID: 5601980484465145088
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bat_Attack1
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 31
+        width: 12
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e0875bebd72fb7479c2c5fed5aeafe7
+      internalID: 1589735301704407004
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bat_Attack2
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 33
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c1e41fb08e036b4da0734e28bd611e0
+      internalID: -98907733627540731
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bat_Death0
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 7
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1640b858555bb7a4cb47ae4e1c144642
+      internalID: -4194293825105664058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bat_Death1
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 7
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 245db0b77633cba42bc8d14e790a4f0e
+      internalID: -4582506022396760108
       vertices: []
       indices: 
       edges: []

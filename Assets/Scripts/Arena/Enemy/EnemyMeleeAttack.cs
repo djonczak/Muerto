@@ -8,7 +8,8 @@ public class EnemyMeleeAttack : MonoBehaviour
     public float attackDamage;
     public float attackSpeed;
     public float attackRadius;
-    public GameObject player;
+    [SerializeField]
+    private GameObject player;
 
     private Animator anim;
     float timer;
@@ -34,6 +35,8 @@ public class EnemyMeleeAttack : MonoBehaviour
                 timer += Time.deltaTime;
                 if (timer >= attackSpeed)
                 {
+                    anim.SetTrigger("Attack");
+                    GetComponent<EnemyMovement>().canMove = false;
                     player.GetComponent<IDamage>().TakeDamage(attackDamage, DamageType.Normal);
                     timer = 0f;
                 }
@@ -43,6 +46,12 @@ public class EnemyMeleeAttack : MonoBehaviour
                 timer = 0f;
             }
         }      
+    }
+
+    public void EndAttack()
+    {
+        anim.SetBool("Run", true);
+        GetComponent<EnemyMovement>().canMove = true;
     }
 
     void OnDrawGizmos()

@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 4745057205292298918}
   - component: {fileID: 4745057205292298915}
   - component: {fileID: 4745057205292298914}
+  - component: {fileID: 1836775495}
   m_Layer: 11
   m_Name: BatEnemy
   m_TagString: Bat
@@ -75,7 +76,8 @@ SpriteRenderer:
   m_SortingLayerID: -1728754357
   m_SortingLayer: 4
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: a5790656a2865c049a3fff4b26beb653, type: 3}
+  m_Sprite: {fileID: -7622090368323310314, guid: be6c457824864df429df0aeb2d8fd576,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -99,7 +101,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 0.7
-  isAlive: 1
+  canMove: 1
   target: {fileID: 0}
 --- !u!114 &4745057205292298912
 MonoBehaviour:
@@ -150,7 +152,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.15, y: 0.1}
+    oldSize: {x: 0.12, y: 0.12}
     newSize: {x: 0.15, y: 0.1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -276,3 +278,22 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!95 &1836775495
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4745057205292298936}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a951d06d763cbf84bb1693b3c12653a4, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
