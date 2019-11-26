@@ -11,7 +11,7 @@ public class EnemyHP : MonoBehaviour, IDamage
     public float xp;
     public bool isAlive;
 
-    void Enable()
+    void OnEnable()
     {
         isAlive = true;
         currentHP = maxHP;
@@ -43,6 +43,7 @@ public class EnemyHP : MonoBehaviour, IDamage
     {
         DeathEvent.EnemyDiedShake();
         DeathEvent.EnemyDied(xp);
+        GetComponent<IReset>().OnDeathReset();
         gameObject.SetActive(false);
     }
 }

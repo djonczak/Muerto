@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyMeleeAttack : MonoBehaviour
+public class EnemyMeleeAttack : MonoBehaviour, IReset
 {
     [Header("Melee Attack Settings")]
     public float attackDamage;
@@ -60,8 +60,10 @@ public class EnemyMeleeAttack : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, attackRadius);
     }
 
-    private void OnDisable()
+    public void OnDeathReset()
     {
         timer = 0f;
+        GetComponent<EnemyMovement>().canMove = true;
+        anim.SetBool("Run", true);
     }
 }

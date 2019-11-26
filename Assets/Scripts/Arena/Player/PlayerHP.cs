@@ -34,15 +34,20 @@ public class PlayerHP : MonoBehaviour, IDamage
 
         if(minHP <= 0)
         {
-            var animator = GetComponent<Animator>();
-            animator.SetTrigger("Death");
-            animator.SetBool("Idle", false);
-            animator.SetBool("Run", false);
-            GetComponent<Collider2D>().enabled = false;
-            player.enabled = false;
-            GetComponent<ArenaMovement>().enabled = false;
-            isAlive = false;
-            this.enabled = false;
+            Death();
         }
+    }
+
+    private void Death()
+    {
+        var animator = GetComponent<Animator>();
+        animator.SetTrigger("Death");
+        animator.SetBool("Idle", false);
+        animator.SetBool("Run", false);
+        GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezePositionY;
+        player.enabled = false;
+        GetComponent<ArenaMovement>().enabled = false;
+        isAlive = false;
+        this.enabled = false;
     }
 }

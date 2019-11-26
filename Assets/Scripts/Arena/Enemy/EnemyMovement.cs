@@ -8,6 +8,7 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField]
     private float moveSpeed = 0.7f;
     public bool canMove;
+    public bool isRanged;
 
     SpriteRenderer sprite;
     public GameObject target;
@@ -21,6 +22,7 @@ public class EnemyMovement : MonoBehaviour
 	void FixedUpdate ()
     {
         Move();
+        Rotation();
 	}
 
     void Move()
@@ -30,15 +32,33 @@ public class EnemyMovement : MonoBehaviour
             if (target != null)
             {
                 transform.position = Vector3.MoveTowards(transform.position, target.transform.position, moveSpeed * Time.deltaTime);
+            }
+        }
+    }
 
-                if (target.transform.position.x > transform.position.x)
-                {
-                    sprite.flipX = false;
-                }
-                else
-                {
-                    sprite.flipX = true;
-                }
+    void Rotation()
+    {
+        if (canMove == true && isRanged == false)
+        {
+            if (target.transform.position.x > transform.position.x)
+            {
+                sprite.flipX = false;
+            }
+            else
+            {
+                sprite.flipX = true;
+            }
+        }
+
+        if (isRanged == true)
+        {
+            if (target.transform.position.x > transform.position.x)
+            {
+                transform.rotation = Quaternion.Euler(0, 0, 0);
+            }
+            else
+            {
+                transform.rotation = Quaternion.Euler(0, 180, 0);
             }
         }
     }

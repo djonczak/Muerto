@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyDashAttack : MonoBehaviour
+public class EnemyDashAttack : MonoBehaviour, IReset
 {
     [Header("Dash Attack Settings")]
     public float attackDamage;
@@ -81,8 +81,12 @@ public class EnemyDashAttack : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, dashRadius);
     }
 
-    private void OnDisable()
+    public void OnDeathReset()
     {
         timer = 0f;
+        anim.SetBool("Run", true);
+        GetComponent<EnemyMovement>().canMove = true;
+        isDashing = false;
+        canDash = true;
     }
 }
