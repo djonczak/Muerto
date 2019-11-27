@@ -7,11 +7,13 @@ public class EnemyBullet : MonoBehaviour
     public float damage = 0f;
     [SerializeField]
     private float timeToDisperse = 4f;
+    [SerializeField]
+    private float projectileSpeed = 3.5f;
 
     private void OnEnable()
     {
         Invoke("DisableObject", timeToDisperse);
-        GetComponent<Rigidbody2D>().velocity = transform.right * 2f;
+        GetComponent<Rigidbody2D>().velocity = transform.right * projectileSpeed;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

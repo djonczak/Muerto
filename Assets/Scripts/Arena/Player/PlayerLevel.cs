@@ -11,13 +11,11 @@ public class PlayerLevel : MonoBehaviour
     bool Ability1;
     bool Ability2;
 
-    public Texture2D cursorTexture;
     public Text levelText;
     public Animator levelUpAnim;
 
     private void Awake()
     {
-        Cursor.SetCursor(cursorTexture, Vector2.zero, CursorMode.Auto);
         DeathEvent.OnDeathExp += AddExp;
         levelText.text = "Level " + lvl;
     }
@@ -35,10 +33,11 @@ public class PlayerLevel : MonoBehaviour
             levelUpAnim.Play(0);
             var restExp = expPoints - expPointCap;
             lvl++;
-            expPointCap += 50;
-            expPoints = 0f;
+            expPointCap += 100;
             expPoints = restExp;
             levelText.text = "Level " + lvl;
         }
+
+       
     }
 }

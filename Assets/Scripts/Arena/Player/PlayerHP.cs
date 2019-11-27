@@ -35,6 +35,7 @@ public class PlayerHP : MonoBehaviour, IDamage
         if(minHP <= 0)
         {
             Death();
+            isAlive = false;
         }
     }
 
@@ -44,10 +45,9 @@ public class PlayerHP : MonoBehaviour, IDamage
         animator.SetTrigger("Death");
         animator.SetBool("Idle", false);
         animator.SetBool("Run", false);
-        GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezePositionY;
+        GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
         player.enabled = false;
         GetComponent<ArenaMovement>().enabled = false;
-        isAlive = false;
         this.enabled = false;
     }
 }

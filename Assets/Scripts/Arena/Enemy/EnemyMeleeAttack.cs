@@ -13,6 +13,7 @@ public class EnemyMeleeAttack : MonoBehaviour, IReset
 
     private Animator anim;
     float timer;
+    public bool isAttacking;
 
     public void Start()
     {
@@ -27,7 +28,7 @@ public class EnemyMeleeAttack : MonoBehaviour, IReset
 
     private void Attack()
     {
-        if (GetComponent<EnemyHP>().isAlive == true)
+        if (GetComponent<EnemyHP>().isAlive == true && isAttacking == false)
         {
             var distance = Vector3.Distance(transform.position, player.transform.position);
             if (distance <= attackRadius)
@@ -37,7 +38,7 @@ public class EnemyMeleeAttack : MonoBehaviour, IReset
                 {
                     anim.SetTrigger("Attack");
                     GetComponent<EnemyMovement>().canMove = false;
-                    player.GetComponent<IDamage>().TakeDamage(attackDamage, DamageType.Normal);
+                    isAttacking = true;
                     timer = 0f;
                 }
             }
@@ -51,6 +52,7 @@ public class EnemyMeleeAttack : MonoBehaviour, IReset
     public void EndAttack()
     {
         anim.SetBool("Run", true);
+        isAttacking = false;
         GetComponent<EnemyMovement>().canMove = true;
     }
 
@@ -65,5 +67,6 @@ public class EnemyMeleeAttack : MonoBehaviour, IReset
         timer = 0f;
         GetComponent<EnemyMovement>().canMove = true;
         anim.SetBool("Run", true);
+        isAttacking = false;
     }
 }

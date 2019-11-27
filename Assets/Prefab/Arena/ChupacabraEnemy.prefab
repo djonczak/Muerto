@@ -173,6 +173,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 0.5
   canMove: 1
+  isRanged: 0
   target: {fileID: 0}
 --- !u!114 &8127220844470295680
 MonoBehaviour:
@@ -187,8 +188,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackDamage: 1
-  dashCooldown: 5
-  dashRadius: 2.28
+  dashCooldown: 2.5
+  dashRadius: 2.7
   dashRange: 3
   dashSpeed: 5
   player: {fileID: 0}
@@ -207,7 +208,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHP: 1
   currentHP: 0
-  xp: 50
+  xp: 100
   isAlive: 1
 --- !u!95 &4677687653301165707
 Animator:
@@ -262,7 +263,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.0057463646}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -273,5 +274,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.42, y: 0.3}
+  m_Size: {x: 0.42, y: 0.22414923}
   m_EdgeRadius: 0

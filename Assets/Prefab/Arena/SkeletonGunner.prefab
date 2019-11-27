@@ -32,7 +32,7 @@ Transform:
   m_GameObject: {fileID: 1699717661397154288}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.37501723, y: -2.192, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.2, y: 1.2, z: 1}
   m_Children:
   - {fileID: 1699717661869018365}
   m_Father: {fileID: 0}
@@ -118,7 +118,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackDamage: 1
   attackSpeed: 0.8
-  attackRadius: 1.13
+  attackRadius: 1.76
   barrel: {fileID: 1699717661869018365}
   player: {fileID: 0}
 --- !u!114 &1699717661397154058
@@ -135,7 +135,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHP: 1
   currentHP: 0
-  xp: 80
+  xp: 135
   isAlive: 1
 --- !u!95 &1699717661397154059
 Animator:
@@ -169,7 +169,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.010572791, y: 0}
+  m_Offset: {x: 0.010572791, y: 0.00907886}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -180,7 +180,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.14999998, y: 0.3}
+  m_Size: {x: 0.14999998, y: 0.15675592}
   m_EdgeRadius: 0
 --- !u!50 &1699717661397154293
 Rigidbody2D:

@@ -32,12 +32,12 @@ public class PlayerAttack : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Mouse0) && timer > dashCooldown && !isDashing)
         {
             isDashing = true;
-            StartCoroutine("EndDash");
+          //  StartCoroutine("EndDash");
             anim.SetTrigger("Punch");
             timer = 0;
         }
 
-        if (isDashing)
+        if (isDashing == true)
         {
             float step = (movement.moveSpeed * dashSpeed) * Time.fixedDeltaTime;
             transform.position = Vector3.MoveTowards(transform.position, movement.mousePosition, step / dashRange);
@@ -49,9 +49,9 @@ public class PlayerAttack : MonoBehaviour
         }
     }
 
-    IEnumerator EndDash()
+    public void EndDash()
     {
-        yield return new WaitForSeconds(0.1f);
+      //  yield return new WaitForSeconds(0.15f);
         isDashing = false;
     }
 }

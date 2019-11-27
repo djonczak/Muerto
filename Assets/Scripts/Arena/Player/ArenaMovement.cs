@@ -11,11 +11,13 @@ public class ArenaMovement : MonoBehaviour
     SpriteRenderer character;
     Animator anim;
     public Vector3 mousePosition;
+    private PlayerAttack isDash;
 
     void Start()
     {
         character = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
+        isDash = GetComponent<PlayerAttack>();
     }
 
     void FixedUpdate()
@@ -25,17 +27,20 @@ public class ArenaMovement : MonoBehaviour
 
     void Move()
     {
-        mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        mousePosition.z = 0;
-        transform.position = Vector3.MoveTowards(transform.position, mousePosition, moveSpeed * Time.deltaTime);
+        if (isDash.isDashing == false)
+        {
+            mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            mousePosition.z = 0;
+            transform.position = Vector3.MoveTowards(transform.position, mousePosition, moveSpeed * Time.deltaTime);
 
-        if (mousePosition.x > transform.position.x)
-        {
-            character.flipX = false;
-        }
-        else
-        {
-            character.flipX = true;
+            if (mousePosition.x > transform.position.x)
+            {
+                character.flipX = false;
+            }
+            else
+            {
+                character.flipX = true;
+            }
         }
 
         Vector3 minScreenBounds = Camera.main.ScreenToWorldPoint(new Vector3(0, 0, 0));
@@ -43,6 +48,11 @@ public class ArenaMovement : MonoBehaviour
 
         transform.position = new Vector3(Mathf.Clamp(transform.position.x, minScreenBounds.x + 0.2f, maxScreenBounds.x - 0.2f), Mathf.Clamp(transform.position.y, minScreenBounds.y + 0.2f, maxScreenBounds.y - 0.2f), transform.position.z);
 
+        Animations();
+    }
+
+    private void Animations()
+    {
         if (0.01f < DistanceBetween(transform.position, mousePosition))
         {
             anim.SetBool("Run", true);

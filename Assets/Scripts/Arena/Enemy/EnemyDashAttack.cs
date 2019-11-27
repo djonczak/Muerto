@@ -50,6 +50,7 @@ public class EnemyDashAttack : MonoBehaviour, IReset
                         Debug.Log("Dash");
                         timer = 0f;
                         GetComponent<EnemyMovement>().canMove = false;
+                        canDash = false;
                     }
                 }
             }
