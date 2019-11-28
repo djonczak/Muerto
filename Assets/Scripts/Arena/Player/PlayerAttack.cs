@@ -32,7 +32,6 @@ public class PlayerAttack : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Mouse0) && timer > dashCooldown && !isDashing)
         {
             isDashing = true;
-          //  StartCoroutine("EndDash");
             anim.SetTrigger("Punch");
             timer = 0;
         }
@@ -51,7 +50,6 @@ public class PlayerAttack : MonoBehaviour
 
     public void EndDash()
     {
-      //  yield return new WaitForSeconds(0.15f);
         isDashing = false;
     }
 }

@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class WaveSpawner : MonoBehaviour
 {
-    [Header("Wave options:")]
+    [Header("Start enemey")]
     public List<string> enemyTag;
+    [Header("Additional enemies to add later")]
     public List<string> additionalEnemiesTag;
     private int enemyNumber;
     private int additionalEnemyIndex = 0;
+    [Header("Wave options")]
     public float timeToSpawn;
 
     private int totalWaves = 15;
@@ -24,10 +26,14 @@ public class WaveSpawner : MonoBehaviour
     public string bossTag;
     public Transform bossSpawnSpot;
 
+    private void OnEnable()
+    {
+        DeathEvent.OnEnemyDeath += EnemyDied;
+    }
+
     private void Start()
     {
         CheckWave();
-        DeathEvent.OnEnemyDeath += EnemyDied;
     }
 
     private void Update()
@@ -62,25 +68,7 @@ public class WaveSpawner : MonoBehaviour
     {
         if (currentEnemy == 0)
         {
-            if(currentWave == 3)
-            {
-                enemyTag.Add(additionalEnemiesTag[additionalEnemyIndex]);
-            }
-            if (currentWave == 6)
-            {
-                additionalEnemyIndex++;
-                enemyTag.Add(additionalEnemiesTag[additionalEnemyIndex]);
-            }
-            if (currentWave == 9)
-            {
-                additionalEnemyIndex++;
-                enemyTag.Add(additionalEnemiesTag[additionalEnemyIndex]);
-            }
-            if (currentWave == 12)
-            {
-                additionalEnemyIndex++;
-                enemyTag.Add(additionalEnemiesTag[additionalEnemyIndex]);
-            }
+            AddNewEnemy();
 
             if (currentWave == totalWaves)
             {
@@ -98,6 +86,29 @@ public class WaveSpawner : MonoBehaviour
         }
     }
 
+    private void AddNewEnemy()
+    {
+        if (currentWave == 3)
+        {
+            enemyTag.Add(additionalEnemiesTag[additionalEnemyIndex]);
+        }
+        if (currentWave == 6)
+        {
+            additionalEnemyIndex++;
+            enemyTag.Add(additionalEnemiesTag[additionalEnemyIndex]);
+        }
+        if (currentWave == 9)
+        {
+            additionalEnemyIndex++;
+            enemyTag.Add(additionalEnemiesTag[additionalEnemyIndex]);
+        }
+        if (currentWave == 12)
+        {
+            additionalEnemyIndex++;
+            enemyTag.Add(additionalEnemiesTag[additionalEnemyIndex]);
+        }
+    }
+
     public void EnemyDied()
     {
         currentEnemy--;
@@ -106,6 +117,7 @@ public class WaveSpawner : MonoBehaviour
 
     private void SpawnBoss()
     {
+        ArenaEvents.BossArrive();
         GameObject boss = ObjectPooler.instance.GetPooledObject(bossTag);
         if (boss != null)
         {
@@ -118,5 +130,10 @@ public class WaveSpawner : MonoBehaviour
     {
         yield return new WaitForSeconds(time);
         spawnEnemies = true;
+    }
+
+    private void OnDestroy()
+    {
+        DeathEvent.OnEnemyDeath -= EnemyDied;
     }
 }

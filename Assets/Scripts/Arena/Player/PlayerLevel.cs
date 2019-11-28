@@ -8,15 +8,19 @@ public class PlayerLevel : MonoBehaviour
     public float expPoints = 0;
     public float expPointCap = 100;
     public int lvl = 0;
-    bool Ability1;
-    bool Ability2;
+    bool Ability1unlock;
+    bool Ability2unlock;
 
     public Text levelText;
     public Animator levelUpAnim;
 
-    private void Awake()
+    private void OnEnable()
     {
         DeathEvent.OnDeathExp += AddExp;
+    }
+
+    private void Start()
+    {
         levelText.text = "Level " + lvl;
     }
 
@@ -36,8 +40,11 @@ public class PlayerLevel : MonoBehaviour
             expPointCap += 100;
             expPoints = restExp;
             levelText.text = "Level " + lvl;
-        }
+        }      
+    }
 
-       
+    private void OnDestroy()
+    {
+        DeathEvent.OnDeathExp -= AddExp;
     }
 }

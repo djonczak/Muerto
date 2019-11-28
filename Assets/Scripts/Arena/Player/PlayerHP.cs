@@ -49,5 +49,6 @@ public class PlayerHP : MonoBehaviour, IDamage
         player.enabled = false;
         GetComponent<ArenaMovement>().enabled = false;
         this.enabled = false;
+        ArenaEvents.PlayerDeath();
     }
 }

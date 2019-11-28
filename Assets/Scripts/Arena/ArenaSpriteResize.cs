@@ -11,11 +11,11 @@ public class ArenaSpriteResize : MonoBehaviour
 
         if (maxScreenBounds.x > 2.24)
         {
-            arenaSprite.transform.localScale = new Vector3(maxScreenBounds.x - 0.65f, arenaSprite.localScale.y, 0f);
+            arenaSprite.transform.localScale = new Vector3(maxScreenBounds.x - 0.65f, arenaSprite.localScale.y, 1);
         }
         else
         {
-            arenaSprite.transform.localScale = new Vector3(maxScreenBounds.x - 0.5f, arenaSprite.localScale.y, 0f);
+            arenaSprite.transform.localScale = new Vector3(maxScreenBounds.x - 0.5f, arenaSprite.localScale.y, 1);
         }
     }
 

@@ -433,7 +433,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: fe6b592820144b947a42d8ea9aad8df2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -511,7 +511,6 @@ MonoBehaviour:
   expPoints: 0
   expPointCap: 100
   lvl: 0
-  cursorTexture: {fileID: 2800000, guid: 7556e3446122856438fe42fede852628, type: 3}
   levelText: {fileID: 0}
   levelUpAnim: {fileID: 7471797268267761742}
 --- !u!114 &7471797268637326149
