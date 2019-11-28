@@ -2,20 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(SpriteRenderer))]
 [RequireComponent(typeof(Animator))]
 public class ArenaMovement : MonoBehaviour
 {
     public float moveSpeed = 0.5f;
 
-    SpriteRenderer character;
     Animator anim;
     public Vector3 mousePosition;
     private PlayerAttack isDash;
 
     void Start()
     {
-        character = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
         isDash = GetComponent<PlayerAttack>();
     }
@@ -35,11 +32,13 @@ public class ArenaMovement : MonoBehaviour
 
             if (mousePosition.x > transform.position.x)
             {
-                character.flipX = false;
+                transform.rotation = Quaternion.Euler(0, 0, 0);
+                transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y, 1);
             }
             else
             {
-                character.flipX = true;
+                transform.rotation = Quaternion.Euler(0, 180, 0);
+                transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y, -1);
             }
         }
 

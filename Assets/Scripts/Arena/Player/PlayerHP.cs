@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PlayerHP : MonoBehaviour, IDamage
+public class PlayerHP : MonoBehaviour, IDamage, IHeal
 {
     [SerializeField]
-    private float minHP = 0;
+    private float currentHP = 0;
     [SerializeField]
     private float maxHP = 2;
     public Image[] healthBars;
@@ -19,20 +19,20 @@ public class PlayerHP : MonoBehaviour, IDamage
 	void Start ()
     {
         player = GetComponent<PlayerAttack>();
-        minHP = maxHP;
+        currentHP = maxHP;
 	}
 
     public void TakeDamage(float amount, DamageType type)
     {
         if (player.isDashing == false && isAlive == true)
         {
-            minHP -= amount;
+            currentHP -= amount;
             i++;
             healthBars[i].enabled = false;
-            GetComponent<DamageEffect>().ShowEffect();
+            GetComponent<SpriteEffect>().DamageEffect();
         }
 
-        if(minHP <= 0)
+        if(currentHP <= 0)
         {
             Death();
             isAlive = false;
@@ -50,5 +50,17 @@ public class PlayerHP : MonoBehaviour, IDamage
         GetComponent<ArenaMovement>().enabled = false;
         this.enabled = false;
         ArenaEvents.PlayerDeath();
+    }
+
+    public void Heal(float amount, TacoHeal taco)
+    {
+        if(currentHP < maxHP)
+        {
+            currentHP += amount;
+            healthBars[i].enabled = true;
+            i--;
+            GetComponent<SpriteEffect>().HealEffect();
+            taco.Healed();
+        }
     }
 }

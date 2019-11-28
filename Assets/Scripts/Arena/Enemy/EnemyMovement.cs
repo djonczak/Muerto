@@ -55,10 +55,12 @@ public class EnemyMovement : MonoBehaviour
             if (target.transform.position.x > transform.position.x)
             {
                 transform.rotation = Quaternion.Euler(0, 0, 0);
+                transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y, 1);
             }
             else
             {
                 transform.rotation = Quaternion.Euler(0, 180, 0);
+                transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y, -1);
             }
         }
     }

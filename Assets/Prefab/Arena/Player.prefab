@@ -525,7 +525,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e226665e9139bac4dae643f04b0d7285, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minHP: 0
+  currentHP: 0
   maxHP: 3
   healthBars:
   - {fileID: 7471797269237157276}
@@ -545,11 +545,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   effectDuration: 1
-  damageParticle: {fileID: 0}
   normalColor: {r: 0, g: 0, b: 0, a: 0}
   damageColor: {r: 1, g: 0, b: 0, a: 1}
+  healColor: {r: 0.13440043, g: 0.8113208, b: 0, a: 1}
   isDamaged: 0
   canSwitchColor: 0
+  isHealed: 0
 --- !u!114 &3395673687357957374
 MonoBehaviour:
   m_ObjectHideFlags: 0
