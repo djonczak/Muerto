@@ -22,6 +22,9 @@ public class BossScene : MonoBehaviour
     [Header("Light source")]
     public Light sunLight;
     public Color colorToSwitch;
+    private float t;
+    private bool canSwitchColor;
+    private Color oldColor;
 
     private void OnEnable()
     {
@@ -32,6 +35,16 @@ public class BossScene : MonoBehaviour
     {
         blackBars.SetActive(false);
         bossText.SetActive(false);
+        oldColor = sunLight.color;
+    }
+
+    public void Update()
+    {
+        if(canSwitchColor == true)
+        {
+            t += Time.deltaTime / 2f;
+            sunLight.color = Color.Lerp(oldColor, colorToSwitch, t);
+        }
     }
 
     [ContextMenu("Test boss scene")]
@@ -56,6 +69,7 @@ public class BossScene : MonoBehaviour
         player.GetComponent<PlayerAttack>().enabled = true;
         sceneSound.clip = bossFightClip;
         sceneSound.Play();
+        this.enabled = false;
     }
 
     private void SecondPhaseOfScene()
@@ -65,6 +79,7 @@ public class BossScene : MonoBehaviour
         {
             stuff.SetActive(false);
         }
+        canSwitchColor = false;
     }
 
     private void FirstPhaseOfScene()
@@ -76,6 +91,7 @@ public class BossScene : MonoBehaviour
         blackBars.SetActive(true);
         blackBars.GetComponent<Animator>().SetTrigger("ShowBars");
         sunLight.color = colorToSwitch;
+        canSwitchColor = true;
     }
 
     private void OnDestroy()
