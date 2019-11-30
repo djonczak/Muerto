@@ -12,6 +12,8 @@ TagManager:
   - SkeletonNormal
   - SkeletonGunner
   - Bullet
+  - SummonParticle
+  - Taco
   layers:
   - Default
   - TransparentFX

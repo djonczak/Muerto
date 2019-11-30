@@ -13,8 +13,6 @@ public class PlayerHP : MonoBehaviour, IDamage, IHeal
     private int i = -1;
 
     PlayerAttack player;
-    [SerializeField]
-    private bool isAlive = true;
 
 	void Start ()
     {
@@ -24,7 +22,7 @@ public class PlayerHP : MonoBehaviour, IDamage, IHeal
 
     public void TakeDamage(float amount, DamageType type)
     {
-        if (player.isDashing == false && isAlive == true)
+        if (player.isDashing == false)
         {
             currentHP -= amount;
             i++;
@@ -35,7 +33,6 @@ public class PlayerHP : MonoBehaviour, IDamage, IHeal
         if(currentHP <= 0)
         {
             Death();
-            isAlive = false;
         }
     }
 

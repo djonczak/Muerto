@@ -54,13 +54,18 @@ public class WaveSpawner : MonoBehaviour
         GameObject enemy = ObjectPooler.instance.GetPooledObject(enemyTag[enemyNumber]);
         if (enemy != null)
         {
-
             Vector3 minScreenBounds = Camera.main.ScreenToWorldPoint(new Vector3(3, 3, 0));
             Vector3 maxScreenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width - 3f, Screen.height - 3f, 0));
             Vector3 randomSpawnPoint = new Vector3(Random.Range(minScreenBounds.x, maxScreenBounds.x), Random.Range(minScreenBounds.y, maxScreenBounds.y), 0);
             enemy.transform.position = randomSpawnPoint;
             currentEnemy++;
             enemy.SetActive(true);
+            GameObject summonEffect = ObjectPooler.instance.GetPooledObject("SummonParticle");
+            if (summonEffect != null)
+            {
+                summonEffect.transform.position = enemy.transform.position;
+                summonEffect.SetActive(true);
+            }
         }
     }
 
@@ -96,16 +101,29 @@ public class WaveSpawner : MonoBehaviour
         {
             additionalEnemyIndex++;
             enemyTag.Add(additionalEnemiesTag[additionalEnemyIndex]);
+            SpawnTaco();
         }
         if (currentWave == 9)
         {
             additionalEnemyIndex++;
             enemyTag.Add(additionalEnemiesTag[additionalEnemyIndex]);
+            SpawnTaco();
         }
         if (currentWave == 12)
         {
             additionalEnemyIndex++;
             enemyTag.Add(additionalEnemiesTag[additionalEnemyIndex]);
+            SpawnTaco();
+        }
+    }
+
+    private void SpawnTaco()
+    {
+        GameObject taco = ObjectPooler.instance.GetPooledObject("Taco");
+        if (taco != null)
+        {
+            taco.transform.position = bossSpawnSpot.position;
+            taco.SetActive(true);
         }
     }
 

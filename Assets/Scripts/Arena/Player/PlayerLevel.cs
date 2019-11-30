@@ -30,6 +30,11 @@ public class PlayerLevel : MonoBehaviour
         CheckLevel();
     }
 
+    void LateUpdate()
+    {
+        levelUpAnim.transform.rotation = Quaternion.identity;
+    }
+
     void CheckLevel()
     {
         if (expPoints >= expPointCap)
