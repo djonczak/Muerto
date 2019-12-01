@@ -34,11 +34,12 @@ public class PlayerAttack : MonoBehaviour
             isDashing = true;
             anim.SetTrigger("Punch");
             timer = 0;
+            GetComponent<ArenaMovement>().canMove = false;
         }
 
         if (isDashing == true)
         {
-            float step = (movement.moveSpeed * dashSpeed) * Time.fixedDeltaTime;
+            float step = (1f * dashSpeed) * Time.fixedDeltaTime;
             transform.position = Vector3.MoveTowards(transform.position, movement.mousePosition, step / dashRange);
             transform.position.Normalize();
         }
@@ -51,5 +52,6 @@ public class PlayerAttack : MonoBehaviour
     public void EndDash()
     {
         isDashing = false;
+        GetComponent<ArenaMovement>().canMove = true;
     }
 }

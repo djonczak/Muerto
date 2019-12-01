@@ -386,6 +386,7 @@ GameObject:
   - component: {fileID: 7471797268637326145}
   - component: {fileID: 7471797268637326147}
   - component: {fileID: 7471797268637326149}
+  - component: {fileID: 6711589699918948462}
   - component: {fileID: 7471797268637326144}
   - component: {fileID: 3395673687357957374}
   - component: {fileID: 7471797268637326148}
@@ -456,7 +457,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 2005157832412973850, guid: 20229d4e4c960b7499933f28dfeeaa5c,
     type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.735849, g: 0.735849, b: 0.735849, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -531,7 +532,20 @@ MonoBehaviour:
   - {fileID: 7471797269237157276}
   - {fileID: 7471797269215443898}
   - {fileID: 7471797267902738577}
-  isAlive: 1
+--- !u!114 &6711589699918948462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7471797268637326171}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5b34b14f4583c74c8f1ce3c8519b11f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isUnlocked: 0
+  damage: 1
 --- !u!114 &7471797268637326144
 MonoBehaviour:
   m_ObjectHideFlags: 0

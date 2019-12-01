@@ -8,6 +8,12 @@ TextureImporter:
   - first:
       213: 4818246708593194343
     second: BottomBar
+  - first:
+      213: -195875141812632796
+    second: HUD_AbilityLock
+  - first:
+      213: -1678676197546184788
+    second: HUD_Ability1
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -124,7 +130,7 @@ TextureImporter:
         width: 150
         height: 14
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -143,6 +149,48 @@ TextureImporter:
         x: 0
         y: 0
         width: 150
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f313ec13fb9b2c84381c46e22c1ecc6f
+      internalID: 4818246708593194343
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUD_AbilityLock
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 41
+        width: 12
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28f7e8692163e70488b7167ba5a7e84a
+      internalID: -195875141812632796
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUD_Ability1
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 39
+        width: 9
         height: 15
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -151,8 +199,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f313ec13fb9b2c84381c46e22c1ecc6f
-      internalID: 4818246708593194343
+      spriteID: e7ca90003f03a404a800394f41efd1e5
+      internalID: -1678676197546184788
       vertices: []
       indices: 
       edges: []

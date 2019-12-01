@@ -13,6 +13,7 @@ public class PlayerHP : MonoBehaviour, IDamage, IHeal
     private int i = -1;
 
     PlayerAttack player;
+    private bool isAlive = true;
 
 	void Start ()
     {
@@ -22,22 +23,26 @@ public class PlayerHP : MonoBehaviour, IDamage, IHeal
 
     public void TakeDamage(float amount, DamageType type)
     {
-        if (player.isDashing == false)
+        if (isAlive == true)
         {
-            currentHP -= amount;
-            i++;
-            healthBars[i].enabled = false;
-            GetComponent<SpriteEffect>().DamageEffect();
-        }
+            if (player.isDashing == false)
+            {
+                currentHP -= amount;
+                i++;
+                healthBars[i].enabled = false;
+                GetComponent<SpriteEffect>().DamageEffect();
+            }
 
-        if(currentHP <= 0)
-        {
-            Death();
+            if (currentHP <= 0)
+            {
+                Death();
+            }
         }
     }
 
     private void Death()
     {
+        isAlive = false;
         var animator = GetComponent<Animator>();
         animator.SetTrigger("Death");
         animator.SetBool("Idle", false);

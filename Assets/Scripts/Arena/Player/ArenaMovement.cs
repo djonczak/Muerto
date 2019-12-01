@@ -5,26 +5,27 @@ using UnityEngine;
 [RequireComponent(typeof(Animator))]
 public class ArenaMovement : MonoBehaviour
 {
-    public float moveSpeed = 0.5f;
+    [SerializeField]
+    private float moveSpeed = 1f;
 
     Animator anim;
     public Vector3 mousePosition;
-    private PlayerAttack isDash;
+    public bool canMove;
+    
 
     void Start()
     {
         anim = GetComponent<Animator>();
-        isDash = GetComponent<PlayerAttack>();
     }
 
-    void FixedUpdate()
+    void Update()
     {
         Move();
     }
 
     void Move()
     {
-        if (isDash.isDashing == false)
+        if (canMove == true)
         {
             mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             mousePosition.z = 0;
@@ -49,6 +50,7 @@ public class ArenaMovement : MonoBehaviour
 
         Animations();
     }
+
 
     private void Animations()
     {

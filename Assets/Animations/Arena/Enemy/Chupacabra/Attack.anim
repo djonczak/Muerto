@@ -39,7 +39,7 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 0.75
+        time: 0.6666667
         value: 0
         inSlope: Infinity
         outSlope: Infinity
@@ -68,10 +68,10 @@ AnimationClip:
     - time: 0.25
       value: {fileID: 5912074071479733131, guid: 356676eb66f4ba547bee8c8ed207ce48,
         type: 3}
-    - time: 0.6666667
+    - time: 0.5833333
       value: {fileID: 5912074071479733131, guid: 356676eb66f4ba547bee8c8ed207ce48,
         type: 3}
-    - time: 0.75
+    - time: 0.6666667
       value: {fileID: 2955750239160285783, guid: 356676eb66f4ba547bee8c8ed207ce48,
         type: 3}
     attribute: m_Sprite
@@ -111,7 +111,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.8333333
+    m_StopTime: 0.75
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -149,7 +149,7 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 0.75
+        time: 0.6666667
         value: 0
         inSlope: Infinity
         outSlope: Infinity
@@ -168,7 +168,7 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_Events:
-  - time: 0.75
+  - time: 0.6666667
     functionName: DashEnd
     data: 
     objectReferenceParameter: {fileID: 0}
