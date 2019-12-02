@@ -4,22 +4,14 @@ using UnityEngine;
 
 public class DivingElbowAbility : MonoBehaviour
 {
-    [SerializeField]
-    private float damage = 1f;
-    [SerializeField]
-    private float abilityCooldown = 5f;
-    [SerializeField]
-    private float abilityRange = 5f;
-    [SerializeField]
-    private float fallSpeed = 10f;
-    [SerializeField]
-    private bool canUse = true;
-    [SerializeField]
-    private bool hasJumped = false;
-    [SerializeField]
-    private bool fallDown = false;
-    [SerializeField]
-    private LayerMask enemyLayer = 11;
+    [SerializeField] private float damage = 1f;
+    [SerializeField] private float abilityCooldown = 5f;
+    [SerializeField] private float abilityRange = 5f;
+    [SerializeField] private float fallSpeed = 10f;
+    [SerializeField] private bool canUse = true;
+    [SerializeField] private bool hasJumped = false;
+    [SerializeField] private bool fallDown = false;
+    [SerializeField] private LayerMask enemyLayer = 11;
     private Animator anim;
     private Vector3 mousePosition;
 
@@ -31,6 +23,14 @@ public class DivingElbowAbility : MonoBehaviour
     public void Update()
     {
         Input();
+
+        Jump();
+
+        FallDawn();
+    }
+
+    private void Jump()
+    {
         if (hasJumped == true)
         {
             if (UnityEngine.Input.GetKeyDown(KeyCode.Mouse0))
@@ -45,8 +45,6 @@ public class DivingElbowAbility : MonoBehaviour
                 hasJumped = false;
             }
         }
-
-        FallDawn();
     }
 
     private void Input()

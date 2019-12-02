@@ -12,6 +12,10 @@ public class ArenaEvents : MonoBehaviour
     public delegate void BossSummoningEventHandler();
     public static event BossSummoningEventHandler OnBossShow;
 
+    //Triggering on player charge ability
+    public delegate void PlayerChargedEventHandler();
+    public static event PlayerChargedEventHandler OnPlayerCharge;
+
     public static void PlayerDeath()
     {
         OnPlayerDeath?.Invoke();
@@ -20,5 +24,10 @@ public class ArenaEvents : MonoBehaviour
     public static void BossArrive()
     {
         OnBossShow?.Invoke();
+    }
+
+    public static void PlayerCharge()
+    {
+        OnPlayerCharge?.Invoke();
     }
 }
