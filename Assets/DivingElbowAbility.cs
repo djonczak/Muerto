@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class DivingElbowAbility : MonoBehaviour
 {
+    public bool disable = false;
     [SerializeField] private float damage = 1f;
     [SerializeField] private float abilityCooldown = 5f;
     [SerializeField] private float abilityRange = 5f;
@@ -22,29 +23,28 @@ public class DivingElbowAbility : MonoBehaviour
 
     public void Update()
     {
-        Input();
+        if (disable == false)
+        {
+            Input();
 
-        Jump();
-
-        FallDawn();
+            FallDawn();
+        }
     }
 
     private void Jump()
     {
-        if (hasJumped == true)
-        {
-            if (UnityEngine.Input.GetKeyDown(KeyCode.Mouse0))
-            {
-                mousePosition = CalculateMousePosition();
-                Debug.Log(mousePosition);
-                transform.position = new Vector3(mousePosition.x, transform.position.y + 1.7f, transform.position.z);
-                Time.timeScale = 1f;
-                GetComponent<BoxCollider2D>().isTrigger = true;
-                GetComponent<ArenaMovement>().enabled = false;
-                fallDown = true;
-                hasJumped = false;
-            }
-        }
+        mousePosition = CalculateMousePosition();
+        Debug.Log(mousePosition);
+        transform.position = new Vector3(mousePosition.x, transform.position.y + 1.7f, transform.position.z);
+        Time.timeScale = 1f;
+        GetComponent<BoxCollider2D>().isTrigger = true;
+        GetComponent<ArenaMovement>().enabled = false;
+        GetComponent<TableChargeAbility>().disable = true;
+        fallDown = true;
+        anim.SetBool("FallAttack", true);
+        anim.SetBool("Run", false);
+        anim.SetBool("Idle", false);
+        hasJumped = false;
     }
 
     private void Input()
@@ -55,6 +55,14 @@ public class DivingElbowAbility : MonoBehaviour
             hasJumped = true;
             Time.timeScale = 0.5f;
             GetComponent<PlayerAttack>().enabled = false;
+        }
+
+        if (hasJumped == true)
+        {
+            if (UnityEngine.Input.GetKeyDown(KeyCode.Mouse0))
+            {
+                Jump();
+            }
         }
     }
 
@@ -80,11 +88,13 @@ public class DivingElbowAbility : MonoBehaviour
             enemy.GetComponent<IDamage>().TakeDamage(damage, DamageType.Normal);
         }
         fallDown = false;
+        anim.SetBool("FallAttack", false);
         StartCoroutine("Cooldown", abilityCooldown);
     }
 
     IEnumerator Cooldown(float time)
     {
+        GetComponent<TableChargeAbility>().disable = false;
         GetComponent<BoxCollider2D>().isTrigger = false;
         GetComponent<PlayerAttack>().enabled = true;
         GetComponent<ArenaMovement>().enabled = true;

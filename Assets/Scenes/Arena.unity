@@ -1257,7 +1257,7 @@ PrefabInstance:
     - target: {fileID: 4745057205292298936, guid: 6f379401cf3785a48bfb0e3e197a66c9,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4745057205292298916, guid: 6f379401cf3785a48bfb0e3e197a66c9,
         type: 3}
@@ -2379,7 +2379,7 @@ PrefabInstance:
     - target: {fileID: 4745057205292298936, guid: 6f379401cf3785a48bfb0e3e197a66c9,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4745057205292298916, guid: 6f379401cf3785a48bfb0e3e197a66c9,
         type: 3}
@@ -4633,10 +4633,20 @@ PrefabInstance:
       propertyPath: enemyLayer.m_Bits
       value: 2048
       objectReference: {fileID: 0}
+    - target: {fileID: 2587515993176634110, guid: c731cf1cae335f14587a5d37ee7b57aa,
+        type: 3}
+      propertyPath: disable
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6711589699918948462, guid: c731cf1cae335f14587a5d37ee7b57aa,
         type: 3}
       propertyPath: abilityRange
       value: 1.07
+      objectReference: {fileID: 0}
+    - target: {fileID: 6711589699918948462, guid: c731cf1cae335f14587a5d37ee7b57aa,
+        type: 3}
+      propertyPath: fallSpeed
+      value: 4.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c731cf1cae335f14587a5d37ee7b57aa, type: 3}
