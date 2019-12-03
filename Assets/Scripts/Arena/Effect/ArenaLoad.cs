@@ -6,8 +6,7 @@ using UnityEngine.UI;
 public class ArenaLoad : MonoBehaviour
 {
     public Image blackScreen;
-    [SerializeField]
-    private float blackScreenDisperseTime = 1f;
+    [SerializeField] private float blackScreenDisperseTime = 1f;
 
     private bool canColor = true;
     private Color blackScreenMainColor;

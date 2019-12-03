@@ -16,10 +16,12 @@ public class TableChargeAbility : MonoBehaviour
     [SerializeField] private LayerMask enemyLayer = 11;
     private Animator anim;
     private Vector3 mousePosition;
+    private Rigidbody2D rb;
 
     private void Start()
     {
         anim = GetComponent<Animator>();
+        rb = GetComponent<Rigidbody2D>();
     }
 
     private void Update()
@@ -42,7 +44,7 @@ public class TableChargeAbility : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.Mouse0))
                 {
                     Time.timeScale = 1f;
-                    GetComponent<Rigidbody2D>().velocity = CalculateStartDirection() * chargeSpeed;
+                    rb.velocity = CalculateStartDirection() * chargeSpeed;
                     StartCoroutine("ChargeDuration", abilityDuration);
                     anim.SetBool("Charge", true);
                     anim.SetBool("Run", false);
@@ -61,6 +63,17 @@ public class TableChargeAbility : MonoBehaviour
                     Debug.Log(enemy.gameObject.name);
                     enemy.GetComponent<IDamage>().TakeDamage(damage, DamageType.Normal);
                 }
+
+                if(rb.velocity.x > 0.1f)
+                {
+                    transform.rotation = Quaternion.Euler(0, 0, 0);
+                    transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y, 1);
+                }
+                else
+                {
+                    transform.rotation = Quaternion.Euler(0, 180, 0);
+                    transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y, -1);
+                }
             }
         }
     }
@@ -69,8 +82,7 @@ public class TableChargeAbility : MonoBehaviour
     {
         if (collision.gameObject.layer == 8)
         {
-            Debug.Log("Cyk");
-            GetComponent<Rigidbody2D>().velocity = CalculateStartDirection();
+            rb.velocity = CalculateStartDirection();
         }
     }
 
@@ -80,7 +92,7 @@ public class TableChargeAbility : MonoBehaviour
         anim.SetBool("Charge", false);
         isCharging = false;
         ArenaEvents.PlayerCharge();
-        GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+        rb.velocity = Vector2.zero;
         GetComponent<ArenaMovement>().enabled = true;
         GetComponent<PlayerAttack>().enabled = true;
         GetComponent<DivingElbowAbility>().disable = false;

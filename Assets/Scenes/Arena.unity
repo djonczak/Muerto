@@ -1254,11 +1254,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: BatEnemy
       objectReference: {fileID: 0}
-    - target: {fileID: 4745057205292298936, guid: 6f379401cf3785a48bfb0e3e197a66c9,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4745057205292298916, guid: 6f379401cf3785a48bfb0e3e197a66c9,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1312,16 +1307,6 @@ PrefabInstance:
     - target: {fileID: 4745057205292298916, guid: 6f379401cf3785a48bfb0e3e197a66c9,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2325783611186199341, guid: 6f379401cf3785a48bfb0e3e197a66c9,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3160512316347156691, guid: 6f379401cf3785a48bfb0e3e197a66c9,
-        type: 3}
-      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -2379,7 +2364,7 @@ PrefabInstance:
     - target: {fileID: 4745057205292298936, guid: 6f379401cf3785a48bfb0e3e197a66c9,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4745057205292298916, guid: 6f379401cf3785a48bfb0e3e197a66c9,
         type: 3}
@@ -2837,7 +2822,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 975185ad7d455054181b854a140a33ab, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.1
+  m_Volume: 0.05
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -3903,7 +3888,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.125, y: 0.17}
+  m_Offset: {x: 0.125, y: 0.14}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -4620,33 +4605,23 @@ PrefabInstance:
       objectReference: {fileID: 1919732165}
     - target: {fileID: 2587515993176634110, guid: c731cf1cae335f14587a5d37ee7b57aa,
         type: 3}
-      propertyPath: chargeSpeed
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2587515993176634110, guid: c731cf1cae335f14587a5d37ee7b57aa,
-        type: 3}
-      propertyPath: abilityRange
-      value: 0.28
-      objectReference: {fileID: 0}
-    - target: {fileID: 2587515993176634110, guid: c731cf1cae335f14587a5d37ee7b57aa,
-        type: 3}
-      propertyPath: enemyLayer.m_Bits
-      value: 2048
-      objectReference: {fileID: 0}
-    - target: {fileID: 2587515993176634110, guid: c731cf1cae335f14587a5d37ee7b57aa,
-        type: 3}
       propertyPath: disable
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6711589699918948462, guid: c731cf1cae335f14587a5d37ee7b57aa,
         type: 3}
-      propertyPath: abilityRange
-      value: 1.07
+      propertyPath: disable
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6711589699918948462, guid: c731cf1cae335f14587a5d37ee7b57aa,
+    - target: {fileID: 7471797267798413796, guid: c731cf1cae335f14587a5d37ee7b57aa,
         type: 3}
-      propertyPath: fallSpeed
-      value: 4.5
+      propertyPath: m_LocalPosition.x
+      value: 0.017
+      objectReference: {fileID: 0}
+    - target: {fileID: 7471797267798413796, guid: c731cf1cae335f14587a5d37ee7b57aa,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.148
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c731cf1cae335f14587a5d37ee7b57aa, type: 3}

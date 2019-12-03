@@ -5,10 +5,8 @@ using UnityEngine.UI;
 
 public class PlayerHP : MonoBehaviour, IDamage, IHeal
 {
-    [SerializeField]
-    private float currentHP = 0;
-    [SerializeField]
-    private float maxHP = 2;
+    [SerializeField] private float currentHP = 0;
+    [SerializeField] private float maxHP = 2;
     public Image[] healthBars;
     private int i = -1;
 

@@ -31,6 +31,30 @@ public class DivingElbowAbility : MonoBehaviour
         }
     }
 
+    private void Input()
+    {
+        if (UnityEngine.Input.GetKeyDown(KeyCode.Q) && canUse == true)
+        {
+            PrepareToJump();
+        }
+
+        if (hasJumped == true)
+        {
+            if (UnityEngine.Input.GetKeyDown(KeyCode.Mouse0))
+            {
+                Jump();
+            }
+        }
+    }
+
+    private void PrepareToJump()
+    {
+        canUse = false;
+        hasJumped = true;
+        Time.timeScale = 0.5f;
+        GetComponent<PlayerAttack>().enabled = false;
+    }
+
     private void Jump()
     {
         mousePosition = CalculateMousePosition();
@@ -45,25 +69,6 @@ public class DivingElbowAbility : MonoBehaviour
         anim.SetBool("Run", false);
         anim.SetBool("Idle", false);
         hasJumped = false;
-    }
-
-    private void Input()
-    {
-        if (UnityEngine.Input.GetKeyDown(KeyCode.Q) && canUse == true)
-        {
-            canUse = false;
-            hasJumped = true;
-            Time.timeScale = 0.5f;
-            GetComponent<PlayerAttack>().enabled = false;
-        }
-
-        if (hasJumped == true)
-        {
-            if (UnityEngine.Input.GetKeyDown(KeyCode.Mouse0))
-            {
-                Jump();
-            }
-        }
     }
 
     private void FallDawn()
@@ -84,8 +89,10 @@ public class DivingElbowAbility : MonoBehaviour
         Collider2D[] enemies = Physics2D.OverlapCircleAll(transform.position, abilityRange, enemyLayer);
         foreach(Collider2D enemy in enemies)
         {
-            Debug.Log(enemy.gameObject.name);
-            enemy.GetComponent<IDamage>().TakeDamage(damage, DamageType.Normal);
+            if(enemy.GetComponent<IDamage>() != null)
+            {
+                enemy.GetComponent<IDamage>().TakeDamage(damage, DamageType.Normal);
+            }
         }
         fallDown = false;
         anim.SetBool("FallAttack", false);

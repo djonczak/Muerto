@@ -5,41 +5,38 @@ using UnityEngine;
 public class EnemyMeleeAttack : MonoBehaviour, IReset
 {
     [Header("Melee Attack Settings")]
-    public float attackDamage;
-    public float attackSpeed;
-    public float attackRadius;
-    [SerializeField]
-    private GameObject player;
+    [SerializeField] private float attackDamage = 1f;
+    [SerializeField] private float attackSpeed = 0.5f;
+    [SerializeField] private float attackRadius = 0.5f;
+    [SerializeField] private GameObject target;
+    [SerializeField] private LayerMask playerLayer = 10;
 
     private Animator anim;
-    float timer;
-    public bool isAttacking;
+    private float timer;
+    private bool isAttacking;
 
     public void Start()
     {
         anim = GetComponent<Animator>();
-        player = GetComponent<EnemyMovement>().target;
+        target = GetComponent<EnemyMovement>().target;
     }
 
     public void Update()
     {
-        Attack();
+        CheckAttack();
     }
 
-    private void Attack()
+    private void CheckAttack()
     {
         if (GetComponent<EnemyHP>().isAlive == true && isAttacking == false)
         {
-            var distance = Vector3.Distance(transform.position, player.transform.position);
+            var distance = Vector3.Distance(transform.position, target.transform.position);
             if (distance <= attackRadius)
             {
                 timer += Time.deltaTime;
                 if (timer >= attackSpeed)
                 {
-                    anim.SetTrigger("Attack");
-                    GetComponent<EnemyMovement>().canMove = false;
-                    isAttacking = true;
-                    timer = 0f;
+                    StartAttack();
                 }
             }
             else
@@ -49,11 +46,31 @@ public class EnemyMeleeAttack : MonoBehaviour, IReset
         }      
     }
 
+    private void StartAttack()
+    {
+        anim.SetTrigger("Attack");
+        GetComponent<EnemyMovement>().canMove = false;
+        isAttacking = true;
+        timer = 0f;
+    }
+
     public void EndAttack()
     {
         anim.SetBool("Run", true);
         isAttacking = false;
         GetComponent<EnemyMovement>().canMove = true;
+    }
+
+    public void CastAttack()
+    {
+        Collider2D player = Physics2D.OverlapCircle(transform.position, attackRadius, playerLayer);
+        if (player != null)
+        {
+            if (player.GetComponent<IDamage>() != null)
+            {
+                player.GetComponent<IDamage>().TakeDamage(attackDamage, DamageType.Normal);
+            }
+        }
     }
 
     void OnDrawGizmos()

@@ -4,10 +4,8 @@ using UnityEngine;
 
 public class EnemyHP : MonoBehaviour, IDamage
 {
-    [SerializeField]
-    private float maxHP = 1f;
-    [SerializeField]
-    private float currentHP;
+    [SerializeField] private float maxHP = 1f;
+    [SerializeField] private float currentHP;
     public float xp;
     public bool isAlive;
 

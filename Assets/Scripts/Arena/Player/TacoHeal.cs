@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class TacoHeal : MonoBehaviour
 {
-    [SerializeField]
-    private float healAmount = 1;
+    [SerializeField] private float healAmount = 1;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

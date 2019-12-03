@@ -7,8 +7,7 @@ public class DustParticles : MonoBehaviour
     public Transform dustStartPoint;
     public GameObject dustPrefab;
     public int amountToSpawn;
-    [SerializeField]
-    private List<GameObject> dustParticles = new List<GameObject>();
+    [SerializeField] private List<GameObject> dustParticles = new List<GameObject>();
 
     void Start()
     {

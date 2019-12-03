@@ -14,8 +14,7 @@ public class WaveSpawner : MonoBehaviour
     public float timeToSpawn;
 
     private int totalWaves = 15;
-    [SerializeField]
-    private int currentWave = 0;
+    [SerializeField] private int currentWave = 0;
 
     public int totalEnemyNumber;
     private int currentEnemy;

@@ -5,10 +5,8 @@ using UnityEngine;
 public class EnemyBullet : MonoBehaviour
 {
     public float damage = 0f;
-    [SerializeField]
-    private float timeToDisperse = 4f;
-    [SerializeField]
-    private float projectileSpeed = 3.5f;
+    [SerializeField] private float timeToDisperse = 4f;
+    [SerializeField] private float projectileSpeed = 3.5f;
 
     private void OnEnable()
     {

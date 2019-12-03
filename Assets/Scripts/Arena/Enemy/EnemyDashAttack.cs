@@ -5,25 +5,23 @@ using UnityEngine;
 public class EnemyDashAttack : MonoBehaviour, IReset
 {
     [Header("Dash Attack Settings")]
-    public float attackDamage;
-    public float dashCooldown;
-    public float dashRadius;
-    [SerializeField]
-    private float dashRange = 2.5f;
-    [SerializeField]
-    private float dashSpeed = 0.5f;
-    public GameObject player;
+    public float attackDamage = 1;
+    [SerializeField] private float dashCooldown = 2.5f;
+    [SerializeField] private float dashRadius = 2.7f;
+    [SerializeField] private float dashRange = 2.5f;
+    [SerializeField] private float dashSpeed = 0.5f;
+    [SerializeField] private GameObject target;
 
     private Animator anim;
-    float timer;
+    private float timer;
     private bool canDash = true;
     public bool isDashing = false;
-    private Vector3 target;
+    private Vector3 jumpPosition;
 
     public void Start()
     {
         anim = GetComponent<Animator>();
-        player = GetComponent<EnemyMovement>().target;
+        target = GetComponent<EnemyMovement>().target;
     }
 
     public void FixedUpdate()
@@ -41,20 +39,25 @@ public class EnemyDashAttack : MonoBehaviour, IReset
                 timer += Time.deltaTime;
                 if (timer >= dashCooldown && canDash == true)
                 {
-                    var distance = Vector3.Distance(transform.position, player.transform.position);
+                    var distance = Vector3.Distance(transform.position, target.transform.position);
                     if (distance <= dashRadius)
                     {
-                        anim.SetTrigger("Attack");
-                        isDashing = true;
-                        target = new Vector3(player.transform.position.x, player.transform.position.y, 0);
-                        Debug.Log("Dash");
-                        timer = 0f;
-                        GetComponent<EnemyMovement>().canMove = false;
-                        canDash = false;
+                        StartDash();
                     }
                 }
             }
         }
+    }
+
+    private void StartDash()
+    {
+        anim.SetTrigger("Attack");
+        isDashing = true;
+        jumpPosition = new Vector3(target.transform.position.x, target.transform.position.y, 0);
+        Debug.Log("Dash");
+        timer = 0f;
+        GetComponent<EnemyMovement>().canMove = false;
+        canDash = false;
     }
 
     private void Dash()
@@ -62,7 +65,7 @@ public class EnemyDashAttack : MonoBehaviour, IReset
         if (isDashing == true)
         {
             float step = (dashSpeed) * Time.fixedDeltaTime;
-            transform.position = Vector3.MoveTowards(transform.position, target, step / dashRange);
+            transform.position = Vector3.MoveTowards(transform.position, jumpPosition, step / dashRange);
             transform.position.Normalize();
         }
     }

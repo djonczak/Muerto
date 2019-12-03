@@ -6,17 +6,13 @@ public class SpriteEffect : MonoBehaviour
 {
     [Header("Damage effect options:")]
     public float effectDuration;
-    [SerializeField]
-    private Color normalColor;
+    [SerializeField] private Color normalColor;
 
-    [SerializeField]
-    private Color damageColor = Color.white;
+    [SerializeField] private Color damageColor = Color.white;
 
     [Header("Heal effect options:")]
-    [SerializeField]
-    private Color healColor = Color.green;
-    [SerializeField]
-    private bool isDamaged, canSwitchColor, isHealed;
+    [SerializeField] private Color healColor = Color.green;
+    [SerializeField] private bool isDamaged, canSwitchColor, isHealed;
 
     private SpriteRenderer sprite;
     private float t = 0f;

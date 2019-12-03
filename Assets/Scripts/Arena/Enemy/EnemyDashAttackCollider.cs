@@ -2,8 +2,7 @@
 
 public class EnemyDashAttackCollider : MonoBehaviour
 {
-    [SerializeField]
-    private float damage;
+    [SerializeField] private float damage;
 
     private void Start()
     {

@@ -5,36 +5,34 @@ using UnityEngine;
 public class EnemyRangeAttack : MonoBehaviour, IReset
 {
     [Header("Range Attack Options")]
-
-    public float attackDamage;
-    public float attackSpeed;
-    public float attackRadius;
+    [SerializeField] private float attackDamage = 1;
+    [SerializeField] private float attackSpeed = 0.8f;
+    [SerializeField] private float attackRadius = 1.76f;
     public Transform barrel;
-    [SerializeField]
-    private GameObject player;
+    [SerializeField] private GameObject target;
 
     private Animator anim;
-    float timer;
+    private float timer;
     private bool canAttack = true;
 
     public void Start()
     {
         anim = GetComponent<Animator>();
-        player = GetComponent<EnemyMovement>().target;
+        target = GetComponent<EnemyMovement>().target;
     }
 
     public void Update()
     {
-        Attack();
+        CheckAttack();
     }
 
-    private void Attack()
+    private void CheckAttack()
     {
         if (GetComponent<EnemyHP>().isAlive == true)
         {
             if (canAttack == true)
             {
-                var distance = Vector3.Distance(transform.position, player.transform.position);
+                var distance = Vector3.Distance(transform.position, target.transform.position);
                 if (distance <= attackRadius)
                 {
                     timer += Time.deltaTime;
@@ -67,8 +65,8 @@ public class EnemyRangeAttack : MonoBehaviour, IReset
         {
             projectile.transform.position = barrel.transform.position;
             projectile.transform.rotation = barrel.transform.rotation;
-            var target = player.transform.position;
-            float rad = Mathf.Atan2(target.y - barrel.transform.position.y, target.x - barrel.transform.position.x) * Mathf.Rad2Deg;
+            var targetToShoot = target.transform.position;
+            float rad = Mathf.Atan2(targetToShoot.y - barrel.transform.position.y, targetToShoot.x - barrel.transform.position.x) * Mathf.Rad2Deg;
             projectile.transform.rotation = Quaternion.Euler(new Vector3(0, 0, rad));
       
             projectile.SetActive(true);

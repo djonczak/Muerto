@@ -4,13 +4,10 @@ using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
-    [SerializeField]
-    private float dashSpeed = 0.0001f;
-    [SerializeField]
-    private float dashCooldown = 0.5f;
+    [SerializeField] private float dashSpeed = 0.0001f;
+    [SerializeField] private float dashCooldown = 0.5f;
     float timer = 0;
-    [SerializeField]
-    private float dashRange = 2.5f;
+    [SerializeField] private float dashRange = 2.5f;
     private ArenaMovement movement;
 
     public bool isDashing = false;

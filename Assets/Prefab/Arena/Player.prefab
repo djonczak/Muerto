@@ -512,8 +512,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   expPoints: 0
-  expPointCap: 100
-  lvl: 0
+  expPointMaxCap: 100
+  playerLevel: 0
   levelText: {fileID: 0}
   levelUpAnim: {fileID: 7471797268267761742}
 --- !u!114 &7471797268637326149
@@ -546,10 +546,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5b34b14f4583c74c8f1ce3c8519b11f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  disable: 1
   damage: 1
   abilityCooldown: 5
-  abilityRange: 1.67
-  fallSpeed: 5
+  abilityRange: 1.07
+  fallSpeed: 4.5
   canUse: 1
   hasJumped: 0
   fallDown: 0
@@ -568,16 +569,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9accd275bf049b949a91d33e55f9da3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  disable: 1
   damage: 1
+  abilityRange: 0.28
   abilityCooldown: 5
   abilityDuration: 10
-  chargeSpeed: 3.5
+  chargeSpeed: 2
   canUse: 1
   hasCharged: 0
   isCharging: 0
   enemyLayer:
     serializedVersion: 2
-    m_Bits: 11
+    m_Bits: 2048
 --- !u!114 &7471797268637326144
 MonoBehaviour:
   m_ObjectHideFlags: 0

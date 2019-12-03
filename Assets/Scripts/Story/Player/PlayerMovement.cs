@@ -9,8 +9,7 @@ public class PlayerMovement : MonoBehaviour
 {
     SpriteRenderer sprite;
     Rigidbody2D rb;
-    [SerializeField]
-    private float moveSpeed = 20f;
+    [SerializeField] private float moveSpeed = 20f;
     Animator anim;
     public bool Scene = false;
 

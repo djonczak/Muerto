@@ -7,11 +7,10 @@ public class ArenaMovement : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = 1f;
 
-    Animator anim;
+    private Animator anim;
     public Vector3 mousePosition;
     public bool canMove;
     
-
     void Start()
     {
         anim = GetComponent<Animator>();
