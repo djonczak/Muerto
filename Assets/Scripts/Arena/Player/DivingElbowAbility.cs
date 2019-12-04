@@ -58,7 +58,6 @@ public class DivingElbowAbility : MonoBehaviour
     private void Jump()
     {
         mousePosition = CalculateMousePosition();
-        Debug.Log(mousePosition);
         transform.position = new Vector3(mousePosition.x, transform.position.y + 1.7f, transform.position.z);
         Time.timeScale = 1f;
         GetComponent<BoxCollider2D>().isTrigger = true;
@@ -79,7 +78,6 @@ public class DivingElbowAbility : MonoBehaviour
             if (0.01f > DistanceBetween(transform.position, mousePosition))
             {
                 PoundAttack();
-                Debug.Log("PoundAttack");
             }
         }
     }

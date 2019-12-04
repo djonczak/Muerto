@@ -26,6 +26,21 @@ TextureImporter:
   - first:
       213: 4019218243645051464
     second: CharacterAbility2_4
+  - first:
+      213: 1174409225426888350
+    second: CharacterChardgeIdle_0
+  - first:
+      213: 3405849120017556676
+    second: CharacterChardgeIdle_1
+  - first:
+      213: -5340677659178132060
+    second: CharacterChardgeIdle_2
+  - first:
+      213: -8479661718976632822
+    second: CharacterChardgeIdle_3
+  - first:
+      213: -4018478363995555172
+    second: CharacterChardgeIdle_4
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -285,6 +300,111 @@ TextureImporter:
       bones: []
       spriteID: 445333b0551069a4cb7c3bb2f84860fc
       internalID: 4019218243645051464
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CharacterChardgeIdle_0
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 59
+        width: 25
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b6310f9b96994f746829347964deb8d6
+      internalID: 1174409225426888350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CharacterChardgeIdle_1
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 60
+        width: 25
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bcdfa95a3f29ba143b37ca3e51012e1e
+      internalID: 3405849120017556676
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CharacterChardgeIdle_2
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 61
+        width: 25
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe2302c2886e35a4688b1d3f5675ca82
+      internalID: -5340677659178132060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CharacterChardgeIdle_3
+      rect:
+        serializedVersion: 2
+        x: 121
+        y: 61
+        width: 25
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c5cd50bdc7c76548bd4c67b048f04de
+      internalID: -8479661718976632822
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CharacterChardgeIdle_4
+      rect:
+        serializedVersion: 2
+        x: 163
+        y: 57
+        width: 25
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54cdc4d854506ba4db8381353261fdc0
+      internalID: -4018478363995555172
       vertices: []
       indices: 
       edges: []

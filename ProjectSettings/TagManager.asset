@@ -14,6 +14,7 @@ TagManager:
   - Bullet
   - SummonParticle
   - Taco
+  - DestructionEffect
   layers:
   - Default
   - TransparentFX

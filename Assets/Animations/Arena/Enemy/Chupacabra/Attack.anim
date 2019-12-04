@@ -30,7 +30,7 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 0.16666667
+        time: 0.33333334
         value: 1
         inSlope: Infinity
         outSlope: Infinity
@@ -62,10 +62,10 @@ AnimationClip:
     - time: 0.083333336
       value: {fileID: -7247164038600762750, guid: 356676eb66f4ba547bee8c8ed207ce48,
         type: 3}
-    - time: 0.16666667
+    - time: 0.25
       value: {fileID: 1100887346397842350, guid: 356676eb66f4ba547bee8c8ed207ce48,
         type: 3}
-    - time: 0.25
+    - time: 0.33333334
       value: {fileID: 5912074071479733131, guid: 356676eb66f4ba547bee8c8ed207ce48,
         type: 3}
     - time: 0.5833333
@@ -140,7 +140,7 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 0.16666667
+        time: 0.33333334
         value: 1
         inSlope: Infinity
         outSlope: Infinity
@@ -168,6 +168,13 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_Events:
+  - time: 0.25
+    functionName: StartDash
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
   - time: 0.6666667
     functionName: DashEnd
     data: 

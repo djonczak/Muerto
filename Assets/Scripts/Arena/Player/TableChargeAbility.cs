@@ -12,7 +12,7 @@ public class TableChargeAbility : MonoBehaviour
     [SerializeField] private float chargeSpeed = 10f;
     [SerializeField] private bool canUse = true;
     [SerializeField] private bool hasCharged = false;
-    [SerializeField] private bool isCharging = false;
+    public bool isCharging = false;
     [SerializeField] private LayerMask enemyLayer = 11;
     private Animator anim;
     private Vector3 mousePosition;
@@ -35,8 +35,10 @@ public class TableChargeAbility : MonoBehaviour
                 GetComponent<ArenaMovement>().enabled = false;
                 GetComponent<PlayerAttack>().enabled = false;
                 GetComponent<DivingElbowAbility>().disable = true;
+                anim.SetTrigger("ChargeIdle");
+                anim.SetBool("Run", false);
+                anim.SetBool("Idle", false);
                 hasCharged = true;
-
             }
 
             if (hasCharged == true)
@@ -47,8 +49,6 @@ public class TableChargeAbility : MonoBehaviour
                     rb.velocity = CalculateStartDirection() * chargeSpeed;
                     StartCoroutine("ChargeDuration", abilityDuration);
                     anim.SetBool("Charge", true);
-                    anim.SetBool("Run", false);
-                    anim.SetBool("Idle", false);
                     isCharging = true;
                     ArenaEvents.PlayerCharge();
                     hasCharged = false;

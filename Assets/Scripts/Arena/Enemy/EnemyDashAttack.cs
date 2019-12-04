@@ -42,22 +42,26 @@ public class EnemyDashAttack : MonoBehaviour, IReset
                     var distance = Vector3.Distance(transform.position, target.transform.position);
                     if (distance <= dashRadius)
                     {
-                        StartDash();
+                        PrepareForDash();
                     }
                 }
             }
         }
     }
 
-    private void StartDash()
+    private void PrepareForDash()
     {
         anim.SetTrigger("Attack");
-        isDashing = true;
         jumpPosition = new Vector3(target.transform.position.x, target.transform.position.y, 0);
-        Debug.Log("Dash");
         timer = 0f;
         GetComponent<EnemyMovement>().canMove = false;
+        anim.SetBool("Run", false);
         canDash = false;
+    }
+
+    public void StartDash()
+    {
+        isDashing = true;
     }
 
     private void Dash()
@@ -67,16 +71,27 @@ public class EnemyDashAttack : MonoBehaviour, IReset
             float step = (dashSpeed) * Time.fixedDeltaTime;
             transform.position = Vector3.MoveTowards(transform.position, jumpPosition, step / dashRange);
             transform.position.Normalize();
+
+            if (0.2f > DistanceBetween(transform.position, jumpPosition))
+            {
+                DashEnd();
+            }
         }
     }
 
     public void DashEnd()
     {
-        Debug.Log("Dash End");
+        anim.ResetTrigger("Attack");
         isDashing = false;
         canDash = true;
         anim.SetBool("Run", true);
         GetComponent<EnemyMovement>().canMove = true;
+    }
+
+    private float DistanceBetween(Vector3 enemy, Vector3 placeToJump)
+    {
+        var distance = Vector3.Distance(enemy, placeToJump);
+        return distance;
     }
 
     void OnDrawGizmos()

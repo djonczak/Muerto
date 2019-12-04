@@ -44,6 +44,9 @@ TextureImporter:
   - first:
       213: -9154163085618012115
     second: HPBar
+  - first:
+      213: 4513376685956299358
+    second: DestroyedPillar
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -379,7 +382,7 @@ TextureImporter:
         width: 14
         height: 9
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -400,7 +403,7 @@ TextureImporter:
         width: 22
         height: 7
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -421,7 +424,7 @@ TextureImporter:
         width: 6
         height: 5
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -429,6 +432,27 @@ TextureImporter:
       bones: []
       spriteID: 76dc6e4dc19c9ad47b0cb76b19b160c8
       internalID: -9154163085618012115
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DestroyedPillar
+      rect:
+        serializedVersion: 2
+        x: 244
+        y: 241
+        width: 42
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c71bd9f074c143c479173624e0ccdc2d
+      internalID: 4513376685956299358
       vertices: []
       indices: 
       edges: []
