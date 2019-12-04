@@ -58,13 +58,37 @@ public class PlayerLevel : MonoBehaviour
         {
             GetComponent<DivingElbowAbility>().disable = false;
             unlockFirstAbility = true;
+            PlayerUI.instance.UnlockAbility1(GetComponent<DivingElbowAbility>().abilityCooldown);
         }
 
         if(unlockSecondAbility == false && playerLevel == 9)
         {
             GetComponent<TableChargeAbility>().disable = false;
             unlockSecondAbility = true;
+            PlayerUI.instance.UnlockAbility2(GetComponent<TableChargeAbility>().abilityCooldown);
         }
+    }
+    [ContextMenu("AddLevel")]
+    public void AddLevel()
+    {
+        playerLevel++;
+        UnlockAbility();
+    }
+
+    [ContextMenu("Unlock first ability")]
+    void Unlock1Ability()
+    {
+        GetComponent<DivingElbowAbility>().disable = false;
+        unlockFirstAbility = true;
+        PlayerUI.instance.UnlockAbility1(GetComponent<DivingElbowAbility>().abilityCooldown);
+    }
+
+    [ContextMenu("Unlock second ability")]
+    void Unlock2Ability()
+    {
+        GetComponent<TableChargeAbility>().disable = false;
+        unlockSecondAbility = true;
+        PlayerUI.instance.UnlockAbility2(GetComponent<TableChargeAbility>().abilityCooldown);
     }
 
     private void OnDestroy()

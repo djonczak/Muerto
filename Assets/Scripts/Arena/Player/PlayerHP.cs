@@ -10,12 +10,10 @@ public class PlayerHP : MonoBehaviour, IDamage, IHeal
     public Image[] healthBars;
     private int i = -1;
 
-    PlayerAttack player;
     private bool isAlive = true;
 
 	void Start ()
     {
-        player = GetComponent<PlayerAttack>();
         currentHP = maxHP;
 	}
 
@@ -23,7 +21,7 @@ public class PlayerHP : MonoBehaviour, IDamage, IHeal
     {
         if (isAlive == true)
         {
-            if (player.isDashing == false)
+            if (GetComponent<PlayerAttack>().isDashing == false || GetComponent<TableChargeAbility>().isCharging == false)
             {
                 currentHP -= amount;
                 i++;
@@ -46,8 +44,10 @@ public class PlayerHP : MonoBehaviour, IDamage, IHeal
         animator.SetBool("Idle", false);
         animator.SetBool("Run", false);
         GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
-        player.enabled = false;
+        GetComponent<PlayerAttack>().enabled = false;
         GetComponent<ArenaMovement>().enabled = false;
+        GetComponent<TableChargeAbility>().enabled = false;
+        GetComponent<DivingElbowAbility>().enabled = false;
         this.enabled = false;
         ArenaEvents.PlayerDeath();
     }

@@ -7,7 +7,7 @@ public class TableChargeAbility : MonoBehaviour
     public bool disable = false;
     [SerializeField] private float damage = 1f;
     [SerializeField] private float abilityRange = 1f;
-    [SerializeField] private float abilityCooldown = 5f;
+    public float abilityCooldown = 15f;
     [SerializeField] private float abilityDuration = 5f;
     [SerializeField] private float chargeSpeed = 10f;
     [SerializeField] private bool canUse = true;
@@ -28,53 +28,81 @@ public class TableChargeAbility : MonoBehaviour
     {
         if (disable == false)
         {
-            if (Input.GetKeyDown(KeyCode.W) && canUse == true)
-            {
-                canUse = false;
-                Time.timeScale = 0.5f;
-                GetComponent<ArenaMovement>().enabled = false;
-                GetComponent<PlayerAttack>().enabled = false;
-                GetComponent<DivingElbowAbility>().disable = true;
-                anim.SetTrigger("ChargeIdle");
-                anim.SetBool("Run", false);
-                anim.SetBool("Idle", false);
-                hasCharged = true;
-            }
+            Input();
 
-            if (hasCharged == true)
-            {
-                if (Input.GetKeyDown(KeyCode.Mouse0))
-                {
-                    Time.timeScale = 1f;
-                    rb.velocity = CalculateStartDirection() * chargeSpeed;
-                    StartCoroutine("ChargeDuration", abilityDuration);
-                    anim.SetBool("Charge", true);
-                    isCharging = true;
-                    ArenaEvents.PlayerCharge();
-                    hasCharged = false;
-                }
-            }
+            Charge();
+        }
+    }
 
-            if (isCharging == true)
+    private void Input()
+    {
+        if (UnityEngine.Input.GetKeyDown(KeyCode.W) && canUse == true)
+        {
+            PrepareForCharge();
+        }
+
+        if (hasCharged == true)
+        {
+            if (UnityEngine.Input.GetKeyDown(KeyCode.Mouse0))
             {
-                Collider2D[] enemies = Physics2D.OverlapCircleAll(transform.position, abilityRange, enemyLayer);
+                StartCharge();
+            }
+        }
+    }
+
+    private void StartCharge()
+    {
+        Time.timeScale = 1f;
+        rb.velocity = CalculateStartDirection() * chargeSpeed;
+        StartCoroutine("ChargeDuration", abilityDuration);
+        anim.SetBool("Charge", true);
+        isCharging = true;
+        ArenaEvents.PlayerCharge();
+        hasCharged = false;
+    }
+
+    private void PrepareForCharge()
+    {
+        canUse = false;
+        Time.timeScale = 0.5f;
+        GetComponent<ArenaMovement>().enabled = false;
+        GetComponent<PlayerAttack>().enabled = false;
+        GetComponent<DivingElbowAbility>().disable = true;
+        anim.SetTrigger("ChargeIdle");
+        anim.SetBool("Run", false);
+        anim.SetBool("Idle", false);
+        hasCharged = true;
+    }
+
+    private void Charge()
+    {
+        if (isCharging == true)
+        {
+            Collider2D[] enemies = Physics2D.OverlapCircleAll(transform.position, abilityRange, enemyLayer);
+            if (enemies != null)
+            {
                 foreach (Collider2D enemy in enemies)
                 {
                     Debug.Log(enemy.gameObject.name);
                     enemy.GetComponent<IDamage>().TakeDamage(damage, DamageType.Normal);
                 }
-
-                if(rb.velocity.x > 0.1f)
-                {
-                    transform.rotation = Quaternion.Euler(0, 0, 0);
-                    transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y, 1);
-                }
-                else
-                {
-                    transform.rotation = Quaternion.Euler(0, 180, 0);
-                    transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y, -1);
-                }
             }
+
+            ChargeRotation();
+        }
+    }
+
+    private void ChargeRotation()
+    {
+        if (rb.velocity.x > 0.1f)
+        {
+            transform.rotation = Quaternion.Euler(0, 0, 0);
+            transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y, 1);
+        }
+        else
+        {
+            transform.rotation = Quaternion.Euler(0, 180, 0);
+            transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y, -1);
         }
     }
 
@@ -101,13 +129,15 @@ public class TableChargeAbility : MonoBehaviour
 
     IEnumerator AbilityCooldown(float time)
     {
+        PlayerUI.instance.Used2Ability();
         yield return new WaitForSeconds(time);
+        Debug.Log("You can use your second ability.");
         canUse = true;
     }
 
     private Vector3 CalculateStartDirection()
     {
-        var mouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        var mouse = Camera.main.ScreenToWorldPoint(UnityEngine.Input.mousePosition);
         mouse.z = 0f;
         var direction = transform.position - mouse;
         return -direction;

@@ -6,7 +6,7 @@ public class DivingElbowAbility : MonoBehaviour
 {
     public bool disable = false;
     [SerializeField] private float damage = 1f;
-    [SerializeField] private float abilityCooldown = 5f;
+    public float abilityCooldown = 5f;
     [SerializeField] private float abilityRange = 5f;
     [SerializeField] private float fallSpeed = 10f;
     [SerializeField] private bool canUse = true;
@@ -57,6 +57,7 @@ public class DivingElbowAbility : MonoBehaviour
 
     private void Jump()
     {
+        PlayerUI.instance.Used1Ability();
         mousePosition = CalculateMousePosition();
         transform.position = new Vector3(mousePosition.x, transform.position.y + 1.7f, transform.position.z);
         Time.timeScale = 1f;
@@ -104,6 +105,7 @@ public class DivingElbowAbility : MonoBehaviour
         GetComponent<PlayerAttack>().enabled = true;
         GetComponent<ArenaMovement>().enabled = true;
         yield return new WaitForSeconds(time);
+        Debug.Log("You can use your first ability.");
         canUse = true;
     }
 
