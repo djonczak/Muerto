@@ -49,4 +49,9 @@ public class PlayerData : MonoBehaviour {
         hasMask = true;
         ChecksIfGathered();
     }
+
+    private void OnDestroy()
+    {
+        ItemPickEvent.OnItemPick -= CheckWhichItem;
+    }
 }

@@ -26,4 +26,9 @@ public class SoundEffectStory : MonoBehaviour
         soundSource.PlayOneShot(pickItemClip);
     }
 
+    private void OnDestroy()
+    {
+        ItemPickEvent.OnItemPick -= PickItemSound;
+    }
+
 }

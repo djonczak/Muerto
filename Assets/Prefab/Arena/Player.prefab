@@ -572,7 +572,7 @@ MonoBehaviour:
   disable: 1
   damage: 1
   abilityRange: 0.28
-  abilityCooldown: 5
+  abilityCooldown: 20
   abilityDuration: 10
   chargeSpeed: 2
   canUse: 1

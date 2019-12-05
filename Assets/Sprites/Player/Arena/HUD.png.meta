@@ -17,6 +17,9 @@ TextureImporter:
   - first:
       213: 7881873600376309347
     second: HUD_Ability2
+  - first:
+      213: 7281908280248943017
+    second: HUD_InfoTable
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -217,7 +220,7 @@ TextureImporter:
         width: 9
         height: 17
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -225,6 +228,27 @@ TextureImporter:
       bones: []
       spriteID: e9f8680002c80e0418c3835ba16fe083
       internalID: 7881873600376309347
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUD_InfoTable
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 38
+        width: 90
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 917ba6ca8cbd6c548a98a8d248d1a80f
+      internalID: 7281908280248943017
       vertices: []
       indices: 
       edges: []

@@ -15,6 +15,10 @@ public class PlayerUI : MonoBehaviour
     public Image ability1CooldownImage;
     public Image ability2CooldownImage;
 
+    public GameObject abilityDescriptionFrame;
+    public GameObject ability1Description;
+    public GameObject ability2Description;
+
     [SerializeField] private Color cooldownColor = new Color(255f, 0f, 0f, 184f);
     [SerializeField] private Color canUseColor = new Color(0f, 255f, 0f, 184f);
 
@@ -26,6 +30,8 @@ public class PlayerUI : MonoBehaviour
 
     private bool unlockFirstAbility = false;
     private bool unlockSecondAbility = false;
+
+    private bool isPaused = false;    
 
     [SerializeField] private bool usedElbow = false;
     [SerializeField] private bool usedCharge = false;
@@ -48,6 +54,7 @@ public class PlayerUI : MonoBehaviour
         lockAbility1.enabled = false;
         ability1Image.gameObject.SetActive(true);
         ability1Cooldown = cooldown;
+        PauseGameAbility1();
     }
 
     public void UnlockAbility2(float cooldown)
@@ -56,6 +63,7 @@ public class PlayerUI : MonoBehaviour
         lockAbility2.gameObject.SetActive(false);
         ability2Image.gameObject.SetActive(true);
         ability2Cooldown = cooldown;
+        PauseGameAbility2();
     }
 
     public void Used1Ability()
@@ -72,7 +80,64 @@ public class PlayerUI : MonoBehaviour
         ability2CooldownImage.gameObject.SetActive(true);
     }
 
+    private void PauseGameAbility1()
+    {
+        abilityDescriptionFrame.SetActive(true);
+        ability1Description.SetActive(true);
+        isPaused = true;
+        Time.timeScale = 0.00001f;
+    }
+
+    private void PauseGameAbility2()
+    {
+        abilityDescriptionFrame.SetActive(true);
+        ability2Description.SetActive(true);
+        isPaused = true;
+        Time.timeScale = 0.00001f;
+    }
+
     private void Update()
+    {
+        FirstAbilityCooldown();
+
+        SecondAbilityCooldown();
+
+        if (isPaused)
+        {
+            if (Input.GetKeyDown(KeyCode.Mouse0))
+            {
+                isPaused = false;
+                Time.timeScale = 1;
+                abilityDescriptionFrame.SetActive(false);
+                ability1Description.SetActive(false);
+                ability2Description.SetActive(false);
+            }
+        }
+
+    }
+
+    private void SecondAbilityCooldown()
+    {
+        if (unlockSecondAbility == true)
+        {
+            if (usedCharge)
+            {
+                if (Time.time >= ability2End)
+                {
+                    usedCharge = false;
+                    ability2CooldownImage.color = canUseColor;
+                    ability2CooldownImage.fillAmount = 0f;
+                }
+                else
+                {
+                    ability2CooldownImage.color = cooldownColor;
+                    ability2CooldownImage.fillAmount = (ability2End - Time.time) / ability2Cooldown;
+                }
+            }
+        }
+    }
+
+    private void FirstAbilityCooldown()
     {
         if (unlockFirstAbility == true)
         {
@@ -91,24 +156,5 @@ public class PlayerUI : MonoBehaviour
                 }
             }
         }
-
-        if (unlockSecondAbility == true)
-        {
-            if (usedCharge)
-            {
-                if (Time.time >= ability2End)
-                {
-                    usedCharge = false;
-                    ability2CooldownImage.color = canUseColor;
-                    ability2CooldownImage.fillAmount = 0f;
-                }
-                else
-                {
-                    ability2CooldownImage.color = cooldownColor;
-                    ability2CooldownImage.fillAmount = (ability2End - Time.time) / ability2Cooldown;
-                }
-            }
-        }
-
     }
 }
