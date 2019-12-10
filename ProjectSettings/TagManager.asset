@@ -15,6 +15,7 @@ TagManager:
   - SummonParticle
   - Taco
   - DestructionEffect
+  - DeathEffect
   layers:
   - Default
   - TransparentFX

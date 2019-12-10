@@ -85,6 +85,7 @@ public class PlayerUI : MonoBehaviour
         abilityDescriptionFrame.SetActive(true);
         ability1Description.SetActive(true);
         isPaused = true;
+        ArenaEvents.StopCamera();
         Time.timeScale = 0.00001f;
     }
 
@@ -93,6 +94,7 @@ public class PlayerUI : MonoBehaviour
         abilityDescriptionFrame.SetActive(true);
         ability2Description.SetActive(true);
         isPaused = true;
+        ArenaEvents.StopCamera();
         Time.timeScale = 0.00001f;
     }
 

@@ -16,6 +16,10 @@ public class ArenaEvents : MonoBehaviour
     public delegate void PlayerChargedEventHandler();
     public static event PlayerChargedEventHandler OnPlayerCharge;
 
+    // Turning off camera shake
+    public delegate void TurnOffCameraShakeEventHandler();
+    public static event TurnOffCameraShakeEventHandler OnCameraStop;
+
     public static void PlayerDeath()
     {
         OnPlayerDeath?.Invoke();
@@ -29,5 +33,10 @@ public class ArenaEvents : MonoBehaviour
     public static void PlayerCharge()
     {
         OnPlayerCharge?.Invoke();
+    }
+
+    public static void StopCamera()
+    {
+        OnCameraStop?.Invoke();
     }
 }

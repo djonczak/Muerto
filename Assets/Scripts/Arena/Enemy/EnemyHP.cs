@@ -39,9 +39,20 @@ public class EnemyHP : MonoBehaviour, IDamage
 
     void Dead()
     {
+        DeathEffect();
         DeathEvent.EnemyDiedShake();
         DeathEvent.EnemyDied(xp);
         GetComponent<IReset>().OnDeathReset();
         gameObject.SetActive(false);
+    }
+
+    void DeathEffect()
+    {
+        GameObject effect = ObjectPooler.instance.GetPooledObject("DeathEffect");
+        if(effect != null)
+        {
+            effect.transform.position = transform.position;
+            effect.SetActive(true);
+        }
     }
 }
