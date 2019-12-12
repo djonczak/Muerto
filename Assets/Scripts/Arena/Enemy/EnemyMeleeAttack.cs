@@ -12,23 +12,29 @@ public class EnemyMeleeAttack : MonoBehaviour, IReset
     [SerializeField] private LayerMask playerLayer = 10;
 
     private Animator anim;
+    private AudioSource sound;
     private float timer;
     private bool isAttacking;
 
-    public void Start()
+    private void Awake()
     {
         anim = GetComponent<Animator>();
+        sound = GetComponent<AudioSource>();
+    }
+
+    private void Start()
+    {
         target = GetComponent<EnemyMovement>().target;
     }
 
-    public void Update()
+    private void Update()
     {
         CheckAttack();
     }
 
     private void CheckAttack()
     {
-        if (GetComponent<EnemyHP>().isAlive == true && isAttacking == false)
+        if (target.GetComponent<PlayerHP>().isAlive == true && isAttacking == false)
         {
             var distance = Vector3.Distance(transform.position, target.transform.position);
             if (distance <= attackRadius)
@@ -68,12 +74,13 @@ public class EnemyMeleeAttack : MonoBehaviour, IReset
         {
             if (player.GetComponent<IDamage>() != null)
             {
+                sound.PlayOneShot(sound.clip);
                 player.GetComponent<IDamage>().TakeDamage(attackDamage, DamageType.Normal);
             }
         }
     }
 
-    void OnDrawGizmos()
+    private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, attackRadius);

@@ -13,9 +13,9 @@ public class AddItem : MonoBehaviour
     public Item itemToPick;
     public GameObject button;
 
-    bool isPlayer;
+    private bool isPlayer;
 
-    void Start()
+    private void Start()
     {
         button.SetActive(false);
     }
@@ -46,7 +46,7 @@ public class AddItem : MonoBehaviour
         }
     }
 
-    public void OnTriggerExit2D(Collider2D collision)
+    private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.tag == "Player")
         {
@@ -55,7 +55,7 @@ public class AddItem : MonoBehaviour
         }
     }
 
-    void CollectItem(Item item)
+    private void CollectItem(Item item)
     {
         if(item == Item.Flower)
         {

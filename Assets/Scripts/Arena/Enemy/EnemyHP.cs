@@ -37,7 +37,7 @@ public class EnemyHP : MonoBehaviour, IDamage
 
     }
 
-    void Dead()
+    private void Dead()
     {
         DeathEffect();
         DeathEvent.EnemyDiedShake();
@@ -46,7 +46,7 @@ public class EnemyHP : MonoBehaviour, IDamage
         gameObject.SetActive(false);
     }
 
-    void DeathEffect()
+    private void DeathEffect()
     {
         GameObject effect = ObjectPooler.instance.GetPooledObject("DeathEffect");
         if(effect != null)

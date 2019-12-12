@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class PunchAttackCollider : MonoBehaviour
 {
-    AudioSource source;
+    private AudioSource source;
 
-    void Start()
+    private void Awake()
     {
         source = GetComponent<AudioSource>();
     }

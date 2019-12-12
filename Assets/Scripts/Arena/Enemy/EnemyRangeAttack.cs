@@ -14,14 +14,20 @@ public class EnemyRangeAttack : MonoBehaviour, IReset
     private Animator anim;
     private float timer;
     private bool canAttack = true;
+    private AudioSource sound;
 
-    public void Start()
+    private void Awake()
     {
         anim = GetComponent<Animator>();
+        sound = GetComponent<AudioSource>();
+    }
+
+    private void Start()
+    {
         target = GetComponent<EnemyMovement>().target;
     }
 
-    public void Update()
+    private void Update()
     {
         CheckAttack();
     }
@@ -72,6 +78,7 @@ public class EnemyRangeAttack : MonoBehaviour, IReset
             projectile.SetActive(true);
             projectile.GetComponent<EnemyBullet>().damage = attackDamage;
         }
+        sound.PlayOneShot(sound.clip);
     }
 
     public void EndAttack()
@@ -82,7 +89,7 @@ public class EnemyRangeAttack : MonoBehaviour, IReset
         GetComponent<EnemyMovement>().canMove = true;
     }
 
-    void OnDrawGizmos()
+    private void OnDrawGizmos()
     {
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, attackRadius);

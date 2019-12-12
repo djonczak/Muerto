@@ -38,7 +38,7 @@ public class BossScene : MonoBehaviour
         oldColor = sunLight.color;
     }
 
-    public void Update()
+    private void Update()
     {
         if(canSwitchColor == true)
         {

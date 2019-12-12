@@ -5,9 +5,9 @@ using UnityEngine;
 public class TableChargeAbility : MonoBehaviour
 {
     public bool disable = false;
+    public float abilityCooldown = 15f;
     [SerializeField] private float damage = 1f;
     [SerializeField] private float abilityRange = 1f;
-    public float abilityCooldown = 15f;
     [SerializeField] private float abilityDuration = 5f;
     [SerializeField] private float chargeSpeed = 10f;
     [SerializeField] private bool canUse = true;
@@ -18,7 +18,7 @@ public class TableChargeAbility : MonoBehaviour
     private Vector3 mousePosition;
     private Rigidbody2D rb;
 
-    private void Start()
+    private void Awake()
     {
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
@@ -83,8 +83,8 @@ public class TableChargeAbility : MonoBehaviour
             {
                 foreach (Collider2D enemy in enemies)
                 {
-                    Debug.Log(enemy.gameObject.name);
                     enemy.GetComponent<IDamage>().TakeDamage(damage, DamageType.Normal);
+                    GetComponent<ISoundEffect>().PlayAbility2Sound();
                 }
             }
 

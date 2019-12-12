@@ -7,21 +7,27 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    SpriteRenderer sprite;
-    Rigidbody2D rb;
-    [SerializeField] private float moveSpeed = 20f;
-    Animator anim;
     public bool Scene = false;
 
-    void Start()
+    [SerializeField] private float moveSpeed = 20f;
+
+    private SpriteRenderer sprite;
+    private Rigidbody2D rb;
+    private Animator anim;
+
+    private void Awake()
     {
         sprite = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+    }
+
+    private void Start()
+    {
         Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
     }
 
-    void FixedUpdate()
+    private void FixedUpdate()
     {
         Movement();
     }
@@ -30,8 +36,8 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Scene == false)
         {
-            float x = Input.GetAxisRaw("Horizontal");
-            Vector2 movement = new Vector2(x, rb.velocity.y);
+            float axisX = Input.GetAxisRaw("Horizontal");
+            Vector2 movement = new Vector2(axisX, rb.velocity.y);
             var moveVelocity = movement * moveSpeed;
             rb.MovePosition(rb.position + moveVelocity * Time.fixedDeltaTime);
 

@@ -119,11 +119,10 @@ MonoBehaviour:
   attackDamage: 1
   attackSpeed: 0.5
   attackRadius: 0.27
-  player: {fileID: 0}
+  target: {fileID: 0}
   playerLayer:
     serializedVersion: 2
     m_Bits: 1024
-  isAttacking: 0
 --- !u!114 &4745057205292298913
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -197,7 +196,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: e8d4f7bed1492c24fa8e9e453dac6193, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 99baa20dd790967418429959dddb7e2c, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.1
   m_Pitch: 1

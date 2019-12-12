@@ -17,13 +17,17 @@ public class SpriteEffect : MonoBehaviour
     private SpriteRenderer sprite;
     private float t = 0f;
 
-    void Start()
+    private void Awake()
     {
         sprite = GetComponent<SpriteRenderer>();
+    }
+
+    private void Start()
+    {
         normalColor = sprite.color;
     }
 
-    public void Update()
+    private void Update()
     {
         if (canSwitchColor)
         {
@@ -49,7 +53,7 @@ public class SpriteEffect : MonoBehaviour
         StartCoroutine("HealCooldown", effectDuration);
     }
 
-    IEnumerator DamageEffectCooldown(float time)
+    private IEnumerator DamageEffectCooldown(float time)
     {
         isDamaged = true;
         canSwitchColor = true;
@@ -62,7 +66,7 @@ public class SpriteEffect : MonoBehaviour
         }
     }
 
-    IEnumerator HealCooldown(float time)
+    private IEnumerator HealCooldown(float time)
     {
         isHealed = true;
         canSwitchColor = true;

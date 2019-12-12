@@ -9,12 +9,12 @@ public class PlayerData : MonoBehaviour {
 
     public bool canPass;
 
-    private void Start()
+    void OnEnable()
     {
         ItemPickEvent.OnItemPick += CheckWhichItem;
     }
 
-    void ChecksIfGathered()
+    private void ChecksIfGathered()
     {
         if(hasFlower && hasMask )
         {
@@ -26,7 +26,7 @@ public class PlayerData : MonoBehaviour {
         }
     }
 
-    void CheckWhichItem(int i)
+    private void CheckWhichItem(int i)
     {
         if(i == 1)
         {

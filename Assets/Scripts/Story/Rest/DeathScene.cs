@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class DeathScene : MonoBehaviour {
 
     public GameObject reaper;
-    AudioSource source;
+    private AudioSource source;
     public AudioClip monster;
     public AudioClip slash;
     public AudioClip soul;
@@ -19,21 +19,21 @@ public class DeathScene : MonoBehaviour {
     public GameObject bloodMoon;
     public Text endText;
 
-    Color thunderColor = new Color(255f, 255f, 255f, 255f);
-    Color deadColor = new Color(0f, 0f, 0f, 255f);
-    Color FadeColor = new Color(0f, 0f, 0f, 0f);
-    Color textColor = new Color(171f, 45f, 45f, 255f);
+    private Color thunderColor = new Color(255f, 255f, 255f, 255f);
+    private Color deadColor = new Color(0f, 0f, 0f, 255f);
+    private Color FadeColor = new Color(0f, 0f, 0f, 0f);
+    private Color textColor = new Color(171f, 45f, 45f, 255f);
 
-    bool showed = false;
-    bool isDead = false;
-    bool showText = false;
+    private bool showed = false;
+    private bool isDead = false;
+    private bool showText = false;
 
-    void Start ()
+    private void Awake ()
     {
         source = GetComponent<AudioSource>();
     }
 	
-	void Update ()
+	private void Update ()
     {
         SceneEffect();
     }
@@ -56,7 +56,7 @@ public class DeathScene : MonoBehaviour {
         }
     }
 
-    IEnumerator Action(float timer, float timers)
+    private IEnumerator Action(float timer, float timers)
     {
         yield return new WaitForSeconds(timer);
         showed = true;

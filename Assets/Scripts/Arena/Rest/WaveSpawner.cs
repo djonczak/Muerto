@@ -48,7 +48,7 @@ public class WaveSpawner : MonoBehaviour
         }
     }
 
-    void SpawnEnemy()
+    private void SpawnEnemy()
     {
         GameObject enemy = ObjectPooler.instance.GetPooledObject(enemyTag[enemyNumber]);
         if (enemy != null)
@@ -110,8 +110,6 @@ public class WaveSpawner : MonoBehaviour
         }
         if (currentWave == 12)
         {
-            additionalEnemyIndex++;
-            enemyTag.Add(additionalEnemiesTag[additionalEnemyIndex]);
             SpawnTaco();
         }
     }

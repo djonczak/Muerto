@@ -18,13 +18,17 @@ public class EnemyDashAttack : MonoBehaviour, IReset
     public bool isDashing = false;
     private Vector3 jumpPosition;
 
-    public void Start()
+    private void Awake()
     {
         anim = GetComponent<Animator>();
+    }
+
+    private void Start()
+    {
         target = GetComponent<EnemyMovement>().target;
     }
 
-    public void FixedUpdate()
+    private void FixedUpdate()
     {
         DashCooldown();
         Dash();
@@ -94,7 +98,7 @@ public class EnemyDashAttack : MonoBehaviour, IReset
         return distance;
     }
 
-    void OnDrawGizmos()
+    private void OnDrawGizmos()
     {
         Gizmos.color = Color.blue;
         Gizmos.DrawWireSphere(transform.position, dashRadius);

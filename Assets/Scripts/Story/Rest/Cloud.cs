@@ -7,7 +7,7 @@ public class Cloud : MonoBehaviour
     public Transform startPoint;
     public float moveSpeed;
 
-    void Start()
+    private void Awake()
     {
         GetComponent<Rigidbody2D>().velocity = transform.right * moveSpeed;  
     }

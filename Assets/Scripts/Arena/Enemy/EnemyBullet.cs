@@ -28,7 +28,7 @@ public class EnemyBullet : MonoBehaviour
         CancelInvoke();
     }
 
-    void DisableObject()
+    private void DisableObject()
     {
         gameObject.SetActive(false);
     }

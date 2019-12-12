@@ -13,13 +13,13 @@ public class ArenaLoad : MonoBehaviour
     private Color alphaColor = new Color(0f, 0f, 0f, 0f);
     private float t;
 
-    public void Start()
+    private void Start()
     {
         blackScreenMainColor = blackScreen.color;
         StartCoroutine("BlackScreenDisperse", blackScreenDisperseTime);
     }
 
-    public void Update()
+    private void Update()
     {
         if (canColor)
         {
@@ -28,7 +28,7 @@ public class ArenaLoad : MonoBehaviour
         }
     }
 
-    IEnumerator BlackScreenDisperse(float time)
+    private IEnumerator BlackScreenDisperse(float time)
     {
         yield return new WaitForSeconds(time);
         gameObject.SetActive(false);

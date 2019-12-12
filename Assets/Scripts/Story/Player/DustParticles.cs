@@ -9,7 +9,7 @@ public class DustParticles : MonoBehaviour
     public int amountToSpawn;
     [SerializeField] private List<GameObject> dustParticles = new List<GameObject>();
 
-    void Start()
+    private void Start()
     {
         InstantiateDirt();
     }
@@ -34,7 +34,7 @@ public class DustParticles : MonoBehaviour
         }
     }
 
-    GameObject ReturnDirt()
+    private GameObject ReturnDirt()
     {
         for (int i = 0; i <= dustParticles.Count; i++)
         {

@@ -16,7 +16,7 @@ public class DivingElbowAbility : MonoBehaviour
     private Animator anim;
     private Vector3 mousePosition;
 
-    private void Start()
+    private void Awake()
     {
         anim = GetComponent<Animator>();
     }
@@ -94,6 +94,7 @@ public class DivingElbowAbility : MonoBehaviour
             }
         }
         fallDown = false;
+        GetComponent<ISoundEffect>().PlayAbility1Sound();
         anim.SetBool("FallAttack", false);
         StartCoroutine("Cooldown", abilityCooldown);
     }

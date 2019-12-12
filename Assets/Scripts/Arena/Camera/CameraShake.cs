@@ -22,7 +22,7 @@ public class CameraShake : MonoBehaviour
         ArenaEvents.OnCameraStop += StopCamerShake;
     }
 
-    public void Start()
+    private void Start()
     {
         oldPosition = transform.position;
     }
@@ -40,7 +40,7 @@ public class CameraShake : MonoBehaviour
         StartCoroutine("BossShakeDuration");
     }
 
-    public IEnumerator ShakeDuration()
+    private IEnumerator ShakeDuration()
     {
         var timer = 0f;
         while (timer < shakeTime)
@@ -53,7 +53,7 @@ public class CameraShake : MonoBehaviour
         transform.position = oldPosition;
     }
 
-    IEnumerator BossShakeDuration()
+    private IEnumerator BossShakeDuration()
     {
         var timer = 0f;
         while (timer < shakeTime)
@@ -66,7 +66,7 @@ public class CameraShake : MonoBehaviour
         transform.position = oldPosition;
     }
 
-    void StopCamerShake()
+    private void StopCamerShake()
     {
         Debug.Log("Stop");
         transform.position = oldPosition;
@@ -75,7 +75,7 @@ public class CameraShake : MonoBehaviour
         StartCoroutine("ShakeCooldown", 5f);
     }
 
-    IEnumerator ShakeCooldown(float time)
+    private IEnumerator ShakeCooldown(float time)
     {
         yield return new WaitForSeconds(time);
         canShake = true;

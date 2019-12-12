@@ -10,7 +10,7 @@ public class PlayerHP : MonoBehaviour, IDamage, IHeal
     public Image[] healthBars;
     private int i = -1;
 
-    private bool isAlive = true;
+    public bool isAlive = true;
 
 	void Start ()
     {
@@ -48,6 +48,7 @@ public class PlayerHP : MonoBehaviour, IDamage, IHeal
         GetComponent<ArenaMovement>().enabled = false;
         GetComponent<TableChargeAbility>().enabled = false;
         GetComponent<DivingElbowAbility>().enabled = false;
+        GetComponent<ISoundEffect>().PlayDeathSound();
         this.enabled = false;
         ArenaEvents.PlayerDeath();
     }

@@ -11,7 +11,7 @@ public class ArenaMovement : MonoBehaviour
     public Vector3 mousePosition;
     public bool canMove;
     
-    void Start()
+    void Awake()
     {
         anim = GetComponent<Animator>();
     }

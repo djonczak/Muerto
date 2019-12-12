@@ -21,14 +21,14 @@ public class DeathScreen : MonoBehaviour
         ArenaEvents.OnPlayerDeath += PlayerDeath;
     }
 
-    public void Start()
+    private void Start()
     {
         blackScreenMainColor = blackScreen.color;
         fontNormalColor = endText.color;
         endText.color = alphaColor;
     }
 
-    public void Update()
+    private void Update()
     {
         if (canColor)
         {
@@ -56,7 +56,7 @@ public class DeathScreen : MonoBehaviour
         StartCoroutine("BlackScreenShow", 1f);
     }
 
-    IEnumerator BlackScreenShow(float time)
+    private IEnumerator BlackScreenShow(float time)
     {
         canColor = true;
         yield return new WaitForSeconds(time);

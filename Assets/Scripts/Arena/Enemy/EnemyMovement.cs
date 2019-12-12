@@ -13,19 +13,19 @@ public class EnemyMovement : MonoBehaviour
     SpriteRenderer sprite;
     public GameObject target;
 
-    void Awake()
+    private void Awake()
     {
         sprite = GetComponent<SpriteRenderer>();
         target = GameObject.FindGameObjectWithTag("Player");
     }
 	
-	void FixedUpdate ()
+	private void FixedUpdate ()
     {
         Move();
         Rotation();
 	}
 
-    void Move()
+    private void Move()
     {
         if (canMove == true)
         {
@@ -36,7 +36,7 @@ public class EnemyMovement : MonoBehaviour
         }
     }
 
-    void Rotation()
+    private void Rotation()
     {
         if (canMove == true && isRanged == false)
         {

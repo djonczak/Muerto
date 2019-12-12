@@ -3,6 +3,12 @@
 public class EnemyDashAttackCollider : MonoBehaviour
 {
     [SerializeField] private float damage;
+    private AudioSource sound;
+
+    private void Awake()
+    {
+        sound = GetComponent<AudioSource>();
+    }
 
     private void Start()
     {
@@ -13,7 +19,11 @@ public class EnemyDashAttackCollider : MonoBehaviour
     {
         if(collision.tag == "Player" && GetComponentInParent<EnemyDashAttack>().isDashing == true)
         {
-            collision.GetComponent<IDamage>().TakeDamage(damage, DamageType.Normal);
+            if (collision.GetComponent<PlayerHP>().isAlive == true)
+            {
+                collision.GetComponent<IDamage>().TakeDamage(damage, DamageType.Normal);
+                sound.PlayOneShot(sound.clip);
+            }
         }
     }
 }

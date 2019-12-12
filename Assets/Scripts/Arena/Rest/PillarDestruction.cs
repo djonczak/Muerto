@@ -7,7 +7,7 @@ public class PillarDestruction : MonoBehaviour
     public Sprite destroyedPillar;
     private bool isDestroyed = false;
 
-    public void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player" && isDestroyed == false)
         {
@@ -49,7 +49,7 @@ public class PillarDestruction : MonoBehaviour
         }
     }
 
-    IEnumerator StartParticle(float time)
+    private IEnumerator StartParticle(float time)
     {
         DestroyPillar();
         yield return new WaitForSeconds(time);

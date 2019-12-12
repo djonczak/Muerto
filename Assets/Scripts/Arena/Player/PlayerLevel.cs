@@ -8,8 +8,8 @@ public class PlayerLevel : MonoBehaviour
     public float expPoints = 0;
     public float expPointMaxCap = 100;
     public int playerLevel = 0;
-    bool Ability1unlock;
-    bool Ability2unlock;
+    private bool Ability1unlock;
+    private bool Ability2unlock;
 
     public Text levelText;
     public Animator levelUpAnim;

@@ -18,7 +18,7 @@ public class EdgeCollider : MonoBehaviour
         ArenaEvents.OnPlayerCharge += ActivateColliders;
     }
 
-    void Start()
+    private void Start()
     {
         CreateColliders();
     }
@@ -57,7 +57,7 @@ public class EdgeCollider : MonoBehaviour
     }
 
 
-    void ActivateColliders()
+    public void ActivateColliders()
     {
         if(isOn == false)
         {

@@ -36,7 +36,7 @@ public class PlayerUI : MonoBehaviour
     [SerializeField] private bool usedElbow = false;
     [SerializeField] private bool usedCharge = false;
 
-    private void Start()
+    private void Awake()
     {
         if (instance == null)
         {

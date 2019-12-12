@@ -6,7 +6,7 @@ public class EyeRotation : MonoBehaviour
 {
     public float rotationAmount;
 
-    void FixedUpdate()
+    private void FixedUpdate()
     {
         transform.Rotate(0, 0, rotationAmount * Time.fixedDeltaTime);
     }

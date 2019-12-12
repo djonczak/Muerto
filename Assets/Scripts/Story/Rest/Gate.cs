@@ -10,10 +10,14 @@ public class Gate : MonoBehaviour {
     PlayerData data;
     public Text text;
 
-	void Start ()
+    private void Awake ()
     {
         player = GameObject.FindGameObjectWithTag("Manager");
         data = player.GetComponent<PlayerData>();
+    }
+
+    private void Start()
+    {
         text.enabled = false;
     }
 

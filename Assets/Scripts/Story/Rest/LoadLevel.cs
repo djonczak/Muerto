@@ -10,7 +10,7 @@ public class LoadLevel : MonoBehaviour {
 
     private bool isColliding = false;
 
-	void Update ()
+	private void Update ()
     {
         if (isColliding == true)
         {

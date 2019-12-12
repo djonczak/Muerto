@@ -10,9 +10,13 @@ public class SoundEffectStory : MonoBehaviour
     public AudioClip walkClip;
     public AudioClip pickItemClip;
 
-    private void Start()
+    private void OnEnable()
     {
         ItemPickEvent.OnItemPick += PickItemSound;
+    }
+
+    private void Awake()
+    {
         soundSource = GetComponent<AudioSource>();
     }
 

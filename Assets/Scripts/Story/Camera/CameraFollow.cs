@@ -7,7 +7,7 @@ public class CameraFollow : MonoBehaviour {
     public Vector3 mapMin;
     public Vector3 mapMax;
 
-    void Update()
+    private void Update()
     {
         if (myTarget != null)
         {

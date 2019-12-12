@@ -5,7 +5,7 @@ public class CursorOptions : MonoBehaviour
 {
     public Texture2D cursorTexture;
 
-    void Start()
+    private void Start()
     {
         Cursor.SetCursor(cursorTexture, Vector2.zero, CursorMode.Auto);
     }
