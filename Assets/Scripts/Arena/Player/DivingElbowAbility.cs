@@ -53,6 +53,7 @@ public class DivingElbowAbility : MonoBehaviour
         hasJumped = true;
         Time.timeScale = 0.5f;
         GetComponent<PlayerAttack>().enabled = false;
+        GetComponent<TableChargeAbility>().disable = true;
     }
 
     private void Jump()
@@ -63,7 +64,6 @@ public class DivingElbowAbility : MonoBehaviour
         Time.timeScale = 1f;
         GetComponent<BoxCollider2D>().isTrigger = true;
         GetComponent<ArenaMovement>().enabled = false;
-        GetComponent<TableChargeAbility>().disable = true;
         fallDown = true;
         anim.SetBool("FallAttack", true);
         anim.SetBool("Run", false);
@@ -93,6 +93,7 @@ public class DivingElbowAbility : MonoBehaviour
                 enemy.GetComponent<IDamage>().TakeDamage(damage, DamageType.Normal);
             }
         }
+        ParticleEffect();
         fallDown = false;
         GetComponent<ISoundEffect>().PlayAbility1Sound();
         anim.SetBool("FallAttack", false);
@@ -120,6 +121,16 @@ public class DivingElbowAbility : MonoBehaviour
         var mouse = Camera.main.ScreenToWorldPoint(UnityEngine.Input.mousePosition);
         mouse.z = 0f;
         return mouse;
+    }
+
+    private void ParticleEffect()
+    {
+        GameObject effect = ObjectPooler.instance.GetPooledObject("DustWave");
+        if (effect != null)
+        {
+            effect.transform.position = transform.position;
+            effect.SetActive(true);
+        }
     }
 
     private void OnDrawGizmos()
