@@ -47,6 +47,30 @@ TextureImporter:
   - first:
       213: 4513376685956299358
     second: DestroyedPillar
+  - first:
+      213: -6666958688862885279
+    second: AztecCircle_0
+  - first:
+      213: 7841677480042946177
+    second: AztecCircle_1
+  - first:
+      213: 8481646957674302249
+    second: AztecCircle_2
+  - first:
+      213: -7288342272843777129
+    second: AztecCircle_3
+  - first:
+      213: -3168684974354064706
+    second: AztecCircle_4
+  - first:
+      213: 1087125972963018970
+    second: AztecCircle_5
+  - first:
+      213: -7489045358296756671
+    second: AztecCircle_6
+  - first:
+      213: 6900123992495996446
+    second: AztecCircle_7
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -108,7 +132,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -120,7 +144,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -132,7 +156,19 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -453,6 +489,174 @@ TextureImporter:
       bones: []
       spriteID: c71bd9f074c143c479173624e0ccdc2d
       internalID: 4513376685956299358
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AztecCircle_0
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 136
+        width: 51
+        height: 52
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 33562c1fb10b27f459958abb8b3c058e
+      internalID: -6666958688862885279
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AztecCircle_1
+      rect:
+        serializedVersion: 2
+        x: 109
+        y: 134
+        width: 51
+        height: 52
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d5668231b40ced4c9984e4972b68474
+      internalID: 7841677480042946177
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AztecCircle_2
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 135
+        width: 51
+        height: 52
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c9c0d8a08bd79943954425fa2f7face
+      internalID: 8481646957674302249
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AztecCircle_3
+      rect:
+        serializedVersion: 2
+        x: 242
+        y: 134
+        width: 51
+        height: 52
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26be84bdb2f710e40879d9f28fdedf15
+      internalID: -7288342272843777129
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AztecCircle_4
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 67
+        width: 51
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba9eeeeac140ef943af050ea7813ec0a
+      internalID: -3168684974354064706
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AztecCircle_5
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 67
+        width: 51
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0996404d714d1b34ca1f7c3c352eea20
+      internalID: 1087125972963018970
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AztecCircle_6
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 67
+        width: 51
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a9c6aac0c6d0c274184c03a729a4272a
+      internalID: -7489045358296756671
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AztecCircle_7
+      rect:
+        serializedVersion: 2
+        x: 213
+        y: 68
+        width: 51
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 814ae5649c177aa429815e5f8de4c5b8
+      internalID: 6900123992495996446
       vertices: []
       indices: 
       edges: []

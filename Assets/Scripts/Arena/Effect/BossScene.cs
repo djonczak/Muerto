@@ -7,6 +7,7 @@ public class BossScene : MonoBehaviour
     [Header("Boss cutscene elements")]
     public GameObject bossText;
     public GameObject blackBars;
+    public GameObject bloodCircle;
 
     [Header("Player to freeze")]
     public GameObject player;
@@ -80,6 +81,7 @@ public class BossScene : MonoBehaviour
             stuff.SetActive(false);
         }
         canSwitchColor = false;
+        bloodCircle.GetComponent<Animator>().SetTrigger("Fill");
     }
 
     private void FirstPhaseOfScene()

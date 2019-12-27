@@ -5,12 +5,12 @@ using UnityEngine;
 public class CameraShake : MonoBehaviour
 {
     [Header("Normal camera shake")]
-    public float shakeTime;
-    public float shakeStrenght;
+    [SerializeField] private float shakeTime = 0.1f;
+    [SerializeField] private float shakeStrenght = 20f;
 
     [Header("Boss camera shake")]
-    public float bossShakeTime;
-    public float bossShakeStrenght;
+    [SerializeField] private float bossShakeTime = 0.1f;
+    [SerializeField] private float bossShakeStrenght = 20f;
 
     private Vector3 oldPosition;
     private bool canShake = true;

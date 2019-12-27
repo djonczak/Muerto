@@ -1,37 +1,46 @@
 fileFormatVersion: 2
-guid: 75f5d72c53a688346bfd464ecf3c46b0
+guid: 930c692dc8b55c0488bbce98d43871ac
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -457940210739788191
-    second: DustWave_0
+      213: 8300364495666094508
+    second: SoulParticle_0
   - first:
-      213: 7444963222930685896
-    second: DustWave_1
+      213: 905963225525806107
+    second: SoulParticle_1
   - first:
-      213: -2828350046264787116
-    second: DustWave_2
+      213: -7871119879837234117
+    second: SoulParticle_2
   - first:
-      213: -6258023591920723443
-    second: DustWave_3
+      213: -5150448953254461228
+    second: SoulParticle_3
   - first:
-      213: -3185417445529550544
-    second: DustWave_4
+      213: -8804293308421806826
+    second: SoulParticle_Hit0
   - first:
-      213: -695238749323039859
-    second: DustWave_5
+      213: -3217088074538607545
+    second: SoulParticle_Hit1
   - first:
-      213: 488762302887591688
-    second: DustWave_6
+      213: -517595007373546969
+    second: SoulParticle_Hit2
   - first:
-      213: -85916042012221844
-    second: DustWave_7
+      213: -8105024859415936635
+    second: SoulParticle_Hit3
   - first:
-      213: -8106673207965860134
-    second: DustWave_8
+      213: -73137048083620330
+    second: SoulParticle_Disperse0
   - first:
-      213: 151108546689878544
-    second: DustWave_9
+      213: 6021276077267424109
+    second: SoulParticle_Disperse1
+  - first:
+      213: -8691051466002218197
+    second: SoulParticle_Disperse2
+  - first:
+      213: -8047636305839725982
+    second: SoulParticle_Disperse4
+  - first:
+      213: -257024194659712642
+    second: SoulParticle_4
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -93,7 +102,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -105,7 +114,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -117,7 +126,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -129,7 +138,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -140,13 +149,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: DustWave_0
+      name: SoulParticle_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 246
-        width: 67
-        height: 49
+        x: 14
+        y: 60
+        width: 7
+        height: 10
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -154,20 +163,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b830475d65438f945ad0021367dc3edf
-      internalID: -457940210739788191
+      spriteID: 9097e75fa1abeb144aa6060e52650bb3
+      internalID: 8300364495666094508
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DustWave_1
+      name: SoulParticle_1
       rect:
         serializedVersion: 2
-        x: 42
-        y: 246
-        width: 92
-        height: 49
+        x: 34
+        y: 60
+        width: 7
+        height: 10
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -175,20 +184,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c24be0f97f6f9854e8b6c29ac2d74bbe
-      internalID: 7444963222930685896
+      spriteID: 745f90dcc5e72d743afbd9a1116268fa
+      internalID: 905963225525806107
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DustWave_2
+      name: SoulParticle_2
       rect:
         serializedVersion: 2
-        x: 134
-        y: 246
-        width: 92
-        height: 49
+        x: 55
+        y: 60
+        width: 7
+        height: 10
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -196,20 +205,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1aaedd8769214c54dbd899a5a5cad041
-      internalID: -2828350046264787116
+      spriteID: bb29a3ff529182d4ead1a150162af14e
+      internalID: -7871119879837234117
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DustWave_3
+      name: SoulParticle_3
       rect:
         serializedVersion: 2
-        x: 18
-        y: 171
-        width: 92
-        height: 49
+        x: 80
+        y: 60
+        width: 7
+        height: 10
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -217,20 +226,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7411a819e14b5a94181ee1fbe1af1a28
-      internalID: -6258023591920723443
+      spriteID: 2c7df4e0c4a7e8645ae0d93c4bf846c3
+      internalID: -5150448953254461228
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DustWave_4
+      name: SoulParticle_Hit0
       rect:
         serializedVersion: 2
-        x: 157
-        y: 175
-        width: 92
-        height: 49
+        x: 7
+        y: 31
+        width: 19
+        height: 19
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -238,41 +247,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ecd9762e2a8d75a4d8d6cf57e79729ad
-      internalID: -3185417445529550544
+      spriteID: 9369ddd194c22b64daeb1f7ba564a731
+      internalID: -8804293308421806826
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DustWave_5
+      name: SoulParticle_Hit1
       rect:
         serializedVersion: 2
-        x: 23
-        y: 85
-        width: 92
-        height: 49
-      alignment: 9
-      pivot: {x: 0.50267905, y: 0.48410407}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 454404878a3049a4c848af905778ee5c
-      internalID: -695238749323039859
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: DustWave_6
-      rect:
-        serializedVersion: 2
-        x: 176
-        y: 94
-        width: 92
-        height: 49
+        x: 34
+        y: 31
+        width: 19
+        height: 19
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -280,20 +268,83 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e239c3c8e93ea79468529860f5cebf22
-      internalID: 488762302887591688
+      spriteID: e7b0a96fa40471b4e9e7884e77e9885b
+      internalID: -3217088074538607545
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DustWave_7
+      name: SoulParticle_Hit2
       rect:
         serializedVersion: 2
-        x: 18
+        x: 61
+        y: 31
+        width: 19
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32a5f695caa8b7243a117da5523c5275
+      internalID: -517595007373546969
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SoulParticle_Hit3
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 31
+        width: 19
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 468bf1ea4c2a8b6448af1d180e16f7ab
+      internalID: -8105024859415936635
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SoulParticle_Disperse0
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 3
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed37170030d8f5b4d8fb3f820b3807fe
+      internalID: -73137048083620330
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SoulParticle_Disperse1
+      rect:
+        serializedVersion: 2
+        x: 33
         y: 6
-        width: 92
-        height: 49
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -301,20 +352,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 723ae5beef5476a428a846d1d9d6082c
-      internalID: -85916042012221844
+      spriteID: 892ef08fac96f1844a77ce3a07e90dd0
+      internalID: 6021276077267424109
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DustWave_8
+      name: SoulParticle_Disperse2
       rect:
         serializedVersion: 2
-        x: 175
-        y: 6
-        width: 92
-        height: 49
+        x: 66
+        y: 4
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -322,29 +373,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7d2ab8da45063b041bad98d5a5c96e05
-      internalID: -8106673207965860134
+      spriteID: ac2b8cb9973393049a7b80178e6c5256
+      internalID: -8691051466002218197
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DustWave_9
+      name: SoulParticle_Disperse4
       rect:
         serializedVersion: 2
-        x: 140
-        y: 64
-        width: 4
-        height: 7
+        x: 3
+        y: 4
+        width: 22
+        height: 22
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 38f0e297c8614944aaa9f276d8772159
-      internalID: 151108546689878544
+      spriteID: 6a985e1e7495e824492a520e66e68c4e
+      internalID: -8047636305839725982
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SoulParticle_4
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 61
+        width: 3
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f9d94155842ebf468d03b491063d73f
+      internalID: -257024194659712642
       vertices: []
       indices: 
       edges: []
