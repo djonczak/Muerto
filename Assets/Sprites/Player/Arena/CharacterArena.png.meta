@@ -114,7 +114,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 3
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -126,7 +126,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 3
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -138,7 +138,19 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 3
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 3
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -152,10 +164,10 @@ TextureImporter:
       name: CharacterArena_Run0
       rect:
         serializedVersion: 2
-        x: 8
-        y: 103
-        width: 26
-        height: 24
+        x: 4
+        y: 102
+        width: 30
+        height: 25
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -173,10 +185,10 @@ TextureImporter:
       name: CharacterArena_Run1
       rect:
         serializedVersion: 2
-        x: 48
-        y: 103
-        width: 26
-        height: 24
+        x: 46
+        y: 102
+        width: 30
+        height: 25
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -194,10 +206,10 @@ TextureImporter:
       name: CharacterArena_Run2
       rect:
         serializedVersion: 2
-        x: 86
-        y: 103
-        width: 26
-        height: 24
+        x: 84
+        y: 102
+        width: 30
+        height: 25
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -215,10 +227,10 @@ TextureImporter:
       name: CharacterArena_Run3
       rect:
         serializedVersion: 2
-        x: 128
-        y: 103
-        width: 26
-        height: 24
+        x: 124
+        y: 102
+        width: 30
+        height: 25
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -236,9 +248,9 @@ TextureImporter:
       name: CharacterArena_Run4
       rect:
         serializedVersion: 2
-        x: 163
+        x: 159
         y: 102
-        width: 25
+        width: 30
         height: 24
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -258,9 +270,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 215
-        y: 139
+        y: 137
         width: 41
-        height: 25
+        height: 27
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -279,9 +291,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 263
-        y: 142
+        y: 140
         width: 41
-        height: 25
+        height: 27
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -300,9 +312,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 311
-        y: 141
+        y: 140
         width: 41
-        height: 25
+        height: 26
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -321,9 +333,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 312
-        y: 103
+        y: 101
         width: 41
-        height: 25
+        height: 27
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -342,9 +354,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 11
-        y: 61
+        y: 59
         width: 17
-        height: 29
+        height: 31
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -363,9 +375,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 39
-        y: 61
+        y: 59
         width: 17
-        height: 29
+        height: 31
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -384,9 +396,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 75
-        y: 61
+        y: 59
         width: 17
-        height: 29
+        height: 31
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -405,9 +417,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 108
-        y: 61
+        y: 59
         width: 17
-        height: 29
+        height: 31
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -426,11 +438,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 6
-        y: 25
-        width: 27
-        height: 22
+        y: 23
+        width: 28
+        height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -446,12 +458,12 @@ TextureImporter:
       name: CharacterArena_Death1
       rect:
         serializedVersion: 2
-        x: 47
-        y: 25
-        width: 27
-        height: 22
+        x: 46
+        y: 23
+        width: 28
+        height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -468,11 +480,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 88
-        y: 25
-        width: 27
-        height: 22
+        y: 23
+        width: 28
+        height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -488,12 +500,12 @@ TextureImporter:
       name: CharacterArena_Death3
       rect:
         serializedVersion: 2
-        x: 129
+        x: 128
         y: 23
-        width: 27
+        width: 30
         height: 22
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

@@ -161,10 +161,10 @@ TextureImporter:
       name: SkeletonNormal_Walk0
       rect:
         serializedVersion: 2
-        x: 15
-        y: 139
-        width: 17
-        height: 30
+        x: 13
+        y: 138
+        width: 20
+        height: 31
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -182,10 +182,10 @@ TextureImporter:
       name: SkeletonNormal_Walk1
       rect:
         serializedVersion: 2
-        x: 49
-        y: 140
-        width: 17
-        height: 30
+        x: 47
+        y: 138
+        width: 19
+        height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -203,10 +203,10 @@ TextureImporter:
       name: SkeletonNormal_Walk2
       rect:
         serializedVersion: 2
-        x: 81
-        y: 139
-        width: 17
-        height: 30
+        x: 79
+        y: 137
+        width: 19
+        height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -224,10 +224,10 @@ TextureImporter:
       name: SkeletonNormal_Walk3
       rect:
         serializedVersion: 2
-        x: 113
-        y: 140
-        width: 17
-        height: 30
+        x: 110
+        y: 138
+        width: 20
+        height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -245,10 +245,10 @@ TextureImporter:
       name: SkeletonNormal_Walk4
       rect:
         serializedVersion: 2
-        x: 147
-        y: 140
-        width: 17
-        height: 30
+        x: 144
+        y: 138
+        width: 20
+        height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -266,10 +266,10 @@ TextureImporter:
       name: SkeletonNormal_Walk5
       rect:
         serializedVersion: 2
-        x: 177
-        y: 139
-        width: 17
-        height: 30
+        x: 175
+        y: 138
+        width: 19
+        height: 31
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -287,10 +287,10 @@ TextureImporter:
       name: SkeletonNormal_Attack0
       rect:
         serializedVersion: 2
-        x: 14
-        y: 96
-        width: 20
-        height: 31
+        x: 13
+        y: 95
+        width: 21
+        height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -308,10 +308,10 @@ TextureImporter:
       name: SkeletonNormal_Attack1
       rect:
         serializedVersion: 2
-        x: 51
-        y: 95
-        width: 20
-        height: 31
+        x: 48
+        y: 94
+        width: 23
+        height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -329,10 +329,10 @@ TextureImporter:
       name: SkeletonNormal_Attack2
       rect:
         serializedVersion: 2
-        x: 87
-        y: 95
-        width: 20
-        height: 31
+        x: 85
+        y: 94
+        width: 23
+        height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -350,10 +350,10 @@ TextureImporter:
       name: SkeletonNormal_Attack3
       rect:
         serializedVersion: 2
-        x: 125
-        y: 95
-        width: 20
-        height: 31
+        x: 123
+        y: 94
+        width: 22
+        height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -371,10 +371,10 @@ TextureImporter:
       name: SkeletonNormal_Attack4
       rect:
         serializedVersion: 2
-        x: 168
-        y: 96
-        width: 20
-        height: 31
+        x: 167
+        y: 95
+        width: 21
+        height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -392,10 +392,10 @@ TextureImporter:
       name: SkeletonGunner_Walk0
       rect:
         serializedVersion: 2
-        x: 10
-        y: 54
-        width: 21
-        height: 30
+        x: 9
+        y: 52
+        width: 24
+        height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -413,10 +413,10 @@ TextureImporter:
       name: SkeletonGunner_Walk1
       rect:
         serializedVersion: 2
-        x: 40
-        y: 55
-        width: 21
-        height: 30
+        x: 39
+        y: 52
+        width: 22
+        height: 33
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -434,10 +434,10 @@ TextureImporter:
       name: SkeletonGunner_Walk2
       rect:
         serializedVersion: 2
-        x: 82
-        y: 55
-        width: 21
-        height: 31
+        x: 79
+        y: 52
+        width: 25
+        height: 34
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -455,10 +455,10 @@ TextureImporter:
       name: SkeletonGunner_Walk3
       rect:
         serializedVersion: 2
-        x: 124
-        y: 56
-        width: 25
-        height: 31
+        x: 122
+        y: 53
+        width: 28
+        height: 34
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -476,10 +476,10 @@ TextureImporter:
       name: SkeletonGunner_Walk4
       rect:
         serializedVersion: 2
-        x: 159
-        y: 55
-        width: 21
-        height: 31
+        x: 157
+        y: 52
+        width: 23
+        height: 34
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -497,10 +497,10 @@ TextureImporter:
       name: SkeletonGunner_Walk5
       rect:
         serializedVersion: 2
-        x: 190
-        y: 55
-        width: 21
-        height: 31
+        x: 189
+        y: 53
+        width: 22
+        height: 33
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -519,9 +519,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 10
-        y: 14
+        y: 12
         width: 24
-        height: 28
+        height: 30
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -539,10 +539,10 @@ TextureImporter:
       name: SkeletonGunner_Attack1
       rect:
         serializedVersion: 2
-        x: 50
-        y: 14
-        width: 24
-        height: 28
+        x: 49
+        y: 12
+        width: 26
+        height: 30
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -560,10 +560,10 @@ TextureImporter:
       name: SkeletonGunner_Attack2
       rect:
         serializedVersion: 2
-        x: 92
-        y: 14
-        width: 24
-        height: 28
+        x: 90
+        y: 12
+        width: 27
+        height: 30
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}

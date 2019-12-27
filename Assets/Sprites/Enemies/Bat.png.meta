@@ -26,6 +26,9 @@ TextureImporter:
   - first:
       213: -4582506022396760108
     second: Bat_Death1
+  - first:
+      213: 3034710590335989477
+    second: BatShadow
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -285,6 +288,27 @@ TextureImporter:
       bones: []
       spriteID: 245db0b77633cba42bc8d14e790a4f0e
       internalID: -4582506022396760108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BatShadow
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 8
+        width: 10
+        height: 3
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c4d0c080a0da88f4fa7a4c5f5b327ee6
+      internalID: 3034710590335989477
       vertices: []
       indices: 
       edges: []

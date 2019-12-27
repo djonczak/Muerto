@@ -204,9 +204,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 3
-        y: 103
-        width: 33
-        height: 24
+        y: 99
+        width: 34
+        height: 28
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -225,9 +225,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 58
-        y: 103
-        width: 33
-        height: 24
+        y: 99
+        width: 35
+        height: 28
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -246,9 +246,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 111
-        y: 103
+        y: 99
         width: 33
-        height: 24
+        height: 28
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -267,9 +267,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 160
-        y: 101
+        y: 97
         width: 33
-        height: 24
+        height: 28
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -288,9 +288,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 212
-        y: 100
+        y: 97
         width: 33
-        height: 24
+        height: 27
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -308,9 +308,9 @@ TextureImporter:
       name: CharacterChardgeIdle_0
       rect:
         serializedVersion: 2
-        x: 9
+        x: 8
         y: 59
-        width: 25
+        width: 26
         height: 30
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -329,10 +329,10 @@ TextureImporter:
       name: CharacterChardgeIdle_1
       rect:
         serializedVersion: 2
-        x: 45
-        y: 60
-        width: 25
-        height: 30
+        x: 44
+        y: 59
+        width: 26
+        height: 31
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -350,10 +350,10 @@ TextureImporter:
       name: CharacterChardgeIdle_2
       rect:
         serializedVersion: 2
-        x: 85
-        y: 61
-        width: 25
-        height: 30
+        x: 84
+        y: 60
+        width: 26
+        height: 31
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -371,10 +371,10 @@ TextureImporter:
       name: CharacterChardgeIdle_3
       rect:
         serializedVersion: 2
-        x: 121
-        y: 61
-        width: 25
-        height: 30
+        x: 120
+        y: 60
+        width: 26
+        height: 31
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -392,10 +392,10 @@ TextureImporter:
       name: CharacterChardgeIdle_4
       rect:
         serializedVersion: 2
-        x: 163
-        y: 57
-        width: 25
-        height: 30
+        x: 162
+        y: 56
+        width: 28
+        height: 31
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
