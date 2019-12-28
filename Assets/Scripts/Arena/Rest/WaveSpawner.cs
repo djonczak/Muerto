@@ -130,15 +130,10 @@ public class WaveSpawner : MonoBehaviour
         CheckWave();
     }
 
+    [ContextMenu("SpawnBoss")]
     private void SpawnBoss()
     {
         ArenaEvents.BossArrive();
-        GameObject boss = ObjectPooler.instance.GetPooledObject(bossTag);
-        if (boss != null)
-        {
-            boss.transform.position = bossSpawnSpot.transform.position;
-            boss.SetActive(true);
-        }
     }
 
     private IEnumerator CooldownToSpawn(float time)

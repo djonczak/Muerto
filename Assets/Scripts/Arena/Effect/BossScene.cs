@@ -15,7 +15,6 @@ public class BossScene : MonoBehaviour
     [Header("Sound change")]
     public AudioSource sceneSound;
     public AudioClip bossFightClip;
-    public AudioClip darkLordClip;
 
     [Header("Objects to hide")]
     public GameObject[] hudToHide;
@@ -76,10 +75,6 @@ public class BossScene : MonoBehaviour
     private void SecondPhaseOfScene()
     {
         bossText.SetActive(true);
-        foreach (GameObject stuff in hudToHide)
-        {
-            stuff.SetActive(false);
-        }
         canSwitchColor = false;
         bloodCircle.GetComponent<Animator>().SetTrigger("Fill");
     }
@@ -94,6 +89,10 @@ public class BossScene : MonoBehaviour
         blackBars.GetComponent<Animator>().SetTrigger("ShowBars");
         sunLight.color = colorToSwitch;
         canSwitchColor = true;
+        foreach (GameObject stuff in hudToHide)
+        {
+            stuff.SetActive(false);
+        }
     }
 
     private void OnDestroy()

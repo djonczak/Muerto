@@ -19,7 +19,7 @@ public class EffectExpire : StateMachineBehaviour
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        if (animator.transform.parent != null)
+        if (animator.transform.parent != null && animator.transform.parent.name != "ObjectPooler")
         {
             animator.gameObject.SetActive(false);
             animator.transform.parent.gameObject.SetActive(false);

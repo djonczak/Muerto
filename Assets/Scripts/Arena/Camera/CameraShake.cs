@@ -9,8 +9,7 @@ public class CameraShake : MonoBehaviour
     [SerializeField] private float shakeStrenght = 20f;
 
     [Header("Boss camera shake")]
-    [SerializeField] private float bossShakeTime = 0.1f;
-    [SerializeField] private float bossShakeStrenght = 20f;
+    [SerializeField] private float bossShakeTime = 0.4f;
 
     private Vector3 oldPosition;
     private bool canShake = true;
@@ -49,26 +48,23 @@ public class CameraShake : MonoBehaviour
             timer += Time.deltaTime;
             yield return null;
         }
-        timer = 0f;
         transform.position = oldPosition;
     }
 
     private IEnumerator BossShakeDuration()
     {
-        var timer = 0f;
-        while (timer < shakeTime)
+        var timerBoss = 0f;
+        while (timerBoss < bossShakeTime)
         {
-            transform.position = Vector3.Lerp(transform.position, transform.position + Random.insideUnitSphere * 0.1f, bossShakeStrenght);
-            timer += Time.deltaTime;
+            transform.position = Vector3.Lerp(transform.position, transform.position + Random.insideUnitSphere * 0.05f, shakeStrenght);
+            timerBoss += Time.deltaTime;
             yield return null;
         }
-        timer = 0f;
         transform.position = oldPosition;
     }
 
     private void StopCamerShake()
     {
-        Debug.Log("Stop");
         transform.position = oldPosition;
         StopAllCoroutines();
         canShake = false;

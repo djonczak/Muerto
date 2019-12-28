@@ -1,7 +1,3 @@
-/*
-	Michał Dominik 21965 CDV
-*/
-
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -27,6 +23,7 @@ public class ObjectPooler : MonoBehaviour
 		}
 		else if (instance != this)
 		{
+            Debug.Log("There was other");
 			Destroy(gameObject);
 		}
 	}
