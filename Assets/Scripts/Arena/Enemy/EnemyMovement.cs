@@ -5,12 +5,11 @@ using UnityEngine;
 [RequireComponent(typeof(SpriteRenderer))]
 public class EnemyMovement : MonoBehaviour
 {
-    [SerializeField]
-    private float moveSpeed = 0.7f;
+    [SerializeField] private float moveSpeed = 0.7f;
     public bool canMove;
     public bool isRanged;
 
-    SpriteRenderer sprite;
+    private SpriteRenderer sprite;
     public GameObject target;
 
     private void Awake()

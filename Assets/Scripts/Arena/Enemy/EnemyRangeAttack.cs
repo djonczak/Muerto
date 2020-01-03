@@ -71,14 +71,19 @@ public class EnemyRangeAttack : MonoBehaviour, IReset
         {
             projectile.transform.position = barrel.transform.position;
             projectile.transform.rotation = barrel.transform.rotation;
-            var targetToShoot = target.transform.position;
-            float rad = Mathf.Atan2(targetToShoot.y - barrel.transform.position.y, targetToShoot.x - barrel.transform.position.x) * Mathf.Rad2Deg;
-            projectile.transform.rotation = Quaternion.Euler(new Vector3(0, 0, rad));
-      
+            projectile.transform.rotation = CalculateDirection();
+            MuzzleFlashEffect();
             projectile.SetActive(true);
             projectile.GetComponent<EnemyBullet>().damage = attackDamage;
         }
         sound.PlayOneShot(sound.clip);
+    }
+
+    private Quaternion CalculateDirection()
+    {
+        var targetToShoot = target.transform.position;
+        float rad = Mathf.Atan2(targetToShoot.y - barrel.transform.position.y, targetToShoot.x - barrel.transform.position.x) * Mathf.Rad2Deg;
+        return Quaternion.Euler(new Vector3(0, 0, rad));
     }
 
     public void EndAttack()
@@ -87,6 +92,16 @@ public class EnemyRangeAttack : MonoBehaviour, IReset
         anim.SetBool("Idle", false);
         canAttack = true;
         GetComponent<EnemyMovement>().canMove = true;
+    }
+
+    private void MuzzleFlashEffect()
+    {
+        GameObject flash = ObjectPooler.instance.GetPooledObject("MuzzleFlash");
+        if (flash != null)
+        {
+            flash.transform.position = barrel.transform.position;
+            flash.SetActive(true);
+        }
     }
 
     private void OnDrawGizmos()

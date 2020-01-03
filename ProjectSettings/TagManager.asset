@@ -17,6 +17,9 @@ TagManager:
   - DestructionEffect
   - DeathEffect
   - DustWave
+  - MuzzleFlash
+  - BossBullet
+  - BossPoolAttack
   layers:
   - Default
   - TransparentFX

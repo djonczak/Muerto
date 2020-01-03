@@ -86,6 +86,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: BloodPoolAttack
       objectReference: {fileID: 0}
+    - target: {fileID: 2519490872421747122, guid: b23a2c7f0fa2ee54a88436f9af40f6ad,
+        type: 3}
+      propertyPath: m_TagString
+      value: BossPoolAttack
+      objectReference: {fileID: 0}
     - target: {fileID: 2519490872421747127, guid: b23a2c7f0fa2ee54a88436f9af40f6ad,
         type: 3}
       propertyPath: m_LocalPosition.x

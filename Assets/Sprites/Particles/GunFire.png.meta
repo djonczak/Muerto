@@ -1,19 +1,13 @@
 fileFormatVersion: 2
-guid: 406f947af6c23504eb2bb78cae26d74c
+guid: 7c3fe8d6396cd65449208d43ab0a6fec
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4220094406203204666
-    second: DeathAttack_0
+      213: -4184198333713266514
+    second: GunFire_0
   - first:
-      213: -4980048396665184830
-    second: DeathAttack_1
-  - first:
-      213: 5341068718484454156
-    second: DeathAttack_2
-  - first:
-      213: -4207658340068907829
-    second: DeathAttack_3
+      213: 7274602591221919480
+    second: GunFire_1
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -75,7 +69,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -87,7 +81,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -99,7 +93,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -111,7 +105,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -122,85 +116,43 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: DeathAttack_0
+      name: GunFire_0
       rect:
         serializedVersion: 2
-        x: 43
-        y: 143
-        width: 62
-        height: 85
+        x: 8
+        y: 60
+        width: 8
+        height: 6
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bb453c53ef668a3478f4310954e568d8
-      internalID: -4220094406203204666
+      spriteID: 33c1ab0d5e31889449904a8aa5280ca9
+      internalID: -4184198333713266514
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DeathAttack_1
+      name: GunFire_1
       rect:
         serializedVersion: 2
-        x: 163
-        y: 145
-        width: 62
-        height: 85
+        x: 33
+        y: 60
+        width: 8
+        height: 6
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 969608afb0369a64eaf11d6958c977bd
-      internalID: -4980048396665184830
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: DeathAttack_2
-      rect:
-        serializedVersion: 2
-        x: 43
-        y: 17
-        width: 62
-        height: 85
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 50af8f05e7870104f9d43d9f198992e5
-      internalID: 5341068718484454156
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: DeathAttack_3
-      rect:
-        serializedVersion: 2
-        x: 163
-        y: 17
-        width: 62
-        height: 84
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 530e5f81d071f1544bbfeb2ad844d127
-      internalID: -4207658340068907829
+      spriteID: cc530072a2c53e048928e8cbdbfbaee6
+      internalID: 7274602591221919480
       vertices: []
       indices: 
       edges: []

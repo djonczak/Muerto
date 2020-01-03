@@ -16,14 +16,10 @@ public class WaveSpawner : MonoBehaviour
     private int totalWaves = 15;
     [SerializeField] private int currentWave = 0;
 
-    public int totalEnemyNumber;
-    private int currentEnemy;
+    [SerializeField] private int totalEnemyNumber = 3;
+    [SerializeField] private int currentEnemy = 0;
 
-    private bool spawnEnemies;
-
-    [Header("Boss options")]
-    public string bossTag;
-    public Transform bossSpawnSpot;
+    [SerializeField] private bool spawnEnemies;
 
     private void OnEnable()
     {
@@ -77,7 +73,6 @@ public class WaveSpawner : MonoBehaviour
             if (currentWave == totalWaves)
             {
                 SpawnBoss();
-                currentWave++;
                 Debug.Log("Boss fight !");
             }
             else
@@ -100,28 +95,23 @@ public class WaveSpawner : MonoBehaviour
         {
             additionalEnemyIndex++;
             enemyTag.Add(additionalEnemiesTag[additionalEnemyIndex]);
-            SpawnTaco();
+            SpawnHealPack();
         }
         if (currentWave == 9)
         {
             additionalEnemyIndex++;
             enemyTag.Add(additionalEnemiesTag[additionalEnemyIndex]);
-            SpawnTaco();
+            SpawnHealPack();
         }
         if (currentWave == 12)
         {
-            SpawnTaco();
+            SpawnHealPack();
         }
     }
 
-    private void SpawnTaco()
+    private void SpawnHealPack()
     {
-        GameObject taco = ObjectPooler.instance.GetPooledObject("Taco");
-        if (taco != null)
-        {
-            taco.transform.position = bossSpawnSpot.position;
-            taco.SetActive(true);
-        }
+        ArenaEvents.SpawnTaco();
     }
 
     public void EnemyDied()

@@ -20,6 +20,10 @@ public class ArenaEvents : MonoBehaviour
     public delegate void TurnOffCameraShakeEventHandler();
     public static event TurnOffCameraShakeEventHandler OnCameraStop;
 
+    // Spawning taco 
+    public delegate void SpawningTacoEventHandler();
+    public static event SpawningTacoEventHandler OnSpawnTaco;
+
     public static void PlayerDeath()
     {
         OnPlayerDeath?.Invoke();
@@ -38,5 +42,10 @@ public class ArenaEvents : MonoBehaviour
     public static void StopCamera()
     {
         OnCameraStop?.Invoke();
+    }
+
+    public static void SpawnTaco()
+    {
+        OnSpawnTaco?.Invoke();
     }
 }
