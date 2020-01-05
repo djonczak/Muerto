@@ -8,6 +8,10 @@ public class ArenaEvents : MonoBehaviour
     public delegate void PlayerDeathEventHandler();
     public static event PlayerDeathEventHandler OnPlayerDeath;
 
+    //On boss defeat
+    public delegate void PlayerVictoryEventHandler();
+    public static event PlayerDeathEventHandler OnPlayerVictory;
+
     //Triggering when its wave 15 on boss summon
     public delegate void BossSummoningEventHandler();
     public static event BossSummoningEventHandler OnBossShow;
@@ -27,6 +31,11 @@ public class ArenaEvents : MonoBehaviour
     public static void PlayerDeath()
     {
         OnPlayerDeath?.Invoke();
+    }
+
+    public static void PlayerVictory()
+    {
+        OnPlayerVictory?.Invoke();
     }
 
     public static void BossArrive()

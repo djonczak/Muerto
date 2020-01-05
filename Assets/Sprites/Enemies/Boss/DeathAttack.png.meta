@@ -1,16 +1,19 @@
 fileFormatVersion: 2
-guid: eaf275f76b6e51d46bebafd8fcb9af6c
+guid: 74959893fc7890149a2c573b37b107d0
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6983494092925124647
-    second: NameBar
+      213: -4220094406203204666
+    second: DeathAttack_0
   - first:
-      213: -9154163085618012115
-    second: HPBar
+      213: -4980048396665184830
+    second: DeathAttack_1
   - first:
-      213: 6774551916773101306
-    second: BossHUD_HealthBar
+      213: 5341068718484454156
+    second: DeathAttack_2
+  - first:
+      213: -4207658340068907829
+    second: DeathAttack_3
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -72,7 +75,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -84,7 +87,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -96,7 +99,19 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -107,13 +122,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: NameBar
+      name: DeathAttack_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 150
-        height: 13
+        x: 43
+        y: 140
+        width: 65
+        height: 88
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -121,20 +136,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6c7e25e06bc116b4e826f0886dffb629
-      internalID: 6983494092925124647
+      spriteID: 99489a33f353266458408e4d28216299
+      internalID: -4220094406203204666
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HPBar
+      name: DeathAttack_1
       rect:
         serializedVersion: 2
-        x: 0
-        y: 32
-        width: 150
-        height: 10
+        x: 166
+        y: 142
+        width: 65
+        height: 88
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -142,29 +157,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f905cb765b1d638458bccb6c19fb9d52
-      internalID: -9154163085618012115
+      spriteID: a60e83ed4cc4e174a89adda240709354
+      internalID: -4980048396665184830
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BossHUD_HealthBar
+      name: DeathAttack_2
       rect:
         serializedVersion: 2
-        x: 0
-        y: 80
-        width: 150
-        height: 9
+        x: 43
+        y: 14
+        width: 65
+        height: 88
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 631d84e2eb4d4c54995d8cdb841758d6
-      internalID: 6774551916773101306
+      spriteID: d296226ea679ef34abb24cfb18241b5b
+      internalID: 5341068718484454156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DeathAttack_3
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 14
+        width: 65
+        height: 88
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b0886a1118d7a3c4c8f5975029ad64ca
+      internalID: -4207658340068907829
       vertices: []
       indices: 
       edges: []

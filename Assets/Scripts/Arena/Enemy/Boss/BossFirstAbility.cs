@@ -6,7 +6,7 @@ public class BossFirstAbility : MonoBehaviour
 {
     [Header("Range Attack Options")]
     [SerializeField] private float activateRadius = 1.76f;
-    [SerializeField] private int amountBulletsToSpawn = 3;
+    [SerializeField] private int amountBulletsToSpawn = 1;
     [SerializeField] private GameObject target;
 
     public AudioClip abilitySound;
@@ -41,41 +41,31 @@ public class BossFirstAbility : MonoBehaviour
             if (distance > activateRadius)
             {
                 bossMove.canMove = false;
-                anim.SetBool("Idle", true);
-                anim.SetBool("Run", false);
-                anim.SetTrigger("Attack");
                 canUseAbility = false;
-            }
-            else
-            {
-                anim.SetBool("Idle", false);
-                anim.SetBool("Run", true);
-                bossMove.canMove = true;
+                anim.SetTrigger("Ability");
             }
         }
     }
 
     public void ShootProjectile()
     {
-        for (int i = 0; i <= amountBulletsToSpawn; i++)
+        for (int i = 0; i < amountBulletsToSpawn; i++)
         {
-            GameObject projectile = ObjectPooler.instance.GetPooledObject("SoulBullet");
+            GameObject projectile = ObjectPooler.instance.GetPooledObject("BossBullet");
             if (projectile != null)
             {
-                var posX = Random.Range(transform.position.x - 3, transform.position.x + 3);
-                var posY = Random.Range(transform.position.y - 3, transform.position.y + 3);
+                var posX = Random.Range(transform.position.x - 0.5f, transform.position.x + 0.5f);
+                var posY = Random.Range(transform.position.y - 0.5f, transform.position.y + 0.5f);
                 projectile.transform.position = new Vector2(posX, posY);
                 projectile.SetActive(true);
                 projectile.GetComponent<BossBullet>().target = target;
             }
         }
-        sound.PlayOneShot(abilitySound);
+     //   sound.PlayOneShot(abilitySound);
     }
 
-    public void EndAttack()
+    public void EndAbility()
     {
-        anim.SetBool("Run", true);
-        anim.SetBool("Idle", false);
         canUseAbility = true;
         bossMove.canMove = true;
     }

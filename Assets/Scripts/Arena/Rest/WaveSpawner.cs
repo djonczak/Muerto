@@ -73,7 +73,6 @@ public class WaveSpawner : MonoBehaviour
             if (currentWave == totalWaves)
             {
                 SpawnBoss();
-                Debug.Log("Boss fight !");
             }
             else
             {

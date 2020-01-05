@@ -8,6 +8,7 @@ public class BossScene : MonoBehaviour
     public GameObject bossText;
     public GameObject blackBars;
     public GameObject bloodCircle;
+    public GameObject boss;
 
     [Header("Player to freeze")]
     public GameObject player;
@@ -69,6 +70,7 @@ public class BossScene : MonoBehaviour
         player.GetComponent<PlayerAttack>().enabled = true;
         sceneSound.clip = bossFightClip;
         sceneSound.Play();
+        boss.SetActive(true);
         this.enabled = false;
     }
 

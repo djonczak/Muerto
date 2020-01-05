@@ -8,13 +8,7 @@ public class BossSecondAbility : MonoBehaviour
 
     [SerializeField] private float abilityCooldown = 5f;
 
-    private Transform target;
     private float timer;
-
-    private void Start()
-    {
-        target = GetComponent<BossMovement>().target.transform;
-    }
 
     private void Update()
     {
@@ -39,8 +33,8 @@ public class BossSecondAbility : MonoBehaviour
         GameObject waveAttack = ObjectPooler.instance.GetPooledObject("BossPoolAttack");
         if (waveAttack != null)
         {
-            waveAttack.GetComponent<BloodPillar>().target = target;
             waveAttack.SetActive(true);
+            waveAttack.GetComponent<BloodPillar>().UsePillar(GetComponent<BossMovement>().target.transform);
         }
     }
 }

@@ -7,7 +7,10 @@ public class BossHP : MonoBehaviour, IDamage
 {
     [SerializeField] private float maxHP = 15f;
     [SerializeField] private float currentHP = 0f;
+    [SerializeField] private float damageCooldown = 0.4f;
     private bool isAlive = true;
+    private bool isSecondPhase = false;
+    private bool isHurt = false;
 
     public Image healthBar;
 
@@ -18,8 +21,9 @@ public class BossHP : MonoBehaviour, IDamage
 
     public void TakeDamage(float amount, DamageType type)
     {
-        if (isAlive == true)
+        if (isAlive == true && isHurt == false)
         {
+            healthBar.fillAmount = currentHP / maxHP;
             currentHP -= amount;
             GetComponent<SpriteEffect>().DamageEffect();
             CheckSecondPhase();
@@ -27,6 +31,7 @@ public class BossHP : MonoBehaviour, IDamage
             {
                 Death();
             }
+            StartCoroutine("DamageCooldown", damageCooldown);
         }
     }
 
@@ -41,9 +46,18 @@ public class BossHP : MonoBehaviour, IDamage
 
     private void CheckSecondPhase()
     {
-        if(currentHP <= 8)
+        if(currentHP <= 8 && isSecondPhase == false)
         {
             GetComponent<BossSecondAbility>().unlock = true;
+            ArenaEvents.SpawnTaco();
+            isSecondPhase = true;
         }
+    }
+
+    private IEnumerator DamageCooldown(float time)
+    {
+        isHurt = true;
+        yield return new WaitForSeconds(time);
+        isHurt = false;
     }
 }

@@ -1,16 +1,22 @@
 fileFormatVersion: 2
-guid: eaf275f76b6e51d46bebafd8fcb9af6c
+guid: 4b4854239cf65b346b72855dcebeacea
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6983494092925124647
-    second: NameBar
+      213: -218145114058907528
+    second: DeathWalk_0
   - first:
-      213: -9154163085618012115
-    second: HPBar
+      213: 9210599329901819442
+    second: DeathWalk_1
   - first:
-      213: 6774551916773101306
-    second: BossHUD_HealthBar
+      213: 1161718103607359496
+    second: BossNormal
+  - first:
+      213: 1161718103607359496
+    second: DeathWalk_2
+  - first:
+      213: -4972035367904299079
+    second: DeathWalk_4
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -72,7 +78,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -84,7 +90,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -96,7 +102,19 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -107,13 +125,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: NameBar
+      name: DeathWalk_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 150
-        height: 13
+        x: 76
+        y: 151
+        width: 64
+        height: 77
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -121,20 +139,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6c7e25e06bc116b4e826f0886dffb629
-      internalID: 6983494092925124647
+      spriteID: c1653fa59910ec34987dbf5d821a7262
+      internalID: -218145114058907528
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HPBar
+      name: DeathWalk_1
       rect:
         serializedVersion: 2
-        x: 0
-        y: 32
-        width: 150
-        height: 10
+        x: 146
+        y: 154
+        width: 64
+        height: 75
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -142,29 +160,92 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f905cb765b1d638458bccb6c19fb9d52
-      internalID: -9154163085618012115
+      spriteID: fbdd64f1d6d3f604f96251fca26fd818
+      internalID: 9210599329901819442
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BossHUD_HealthBar
+      name: DeathWalk_3
       rect:
         serializedVersion: 2
-        x: 0
-        y: 80
-        width: 150
-        height: 9
+        x: 78
+        y: 63
+        width: 64
+        height: 78
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 631d84e2eb4d4c54995d8cdb841758d6
-      internalID: 6774551916773101306
+      spriteID: 04b9c1cf93e55ac41a5a4b9ea9b3b8ae
+      internalID: 1161718103607359496
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossNormal
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 150
+        width: 64
+        height: 77
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 839248370eecb424cb00e532d47e37ba
+      internalID: 1161718103607359496
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DeathWalk_2
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 66
+        width: 64
+        height: 77
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d9d4def729547f4d9e52627f88355bc
+      internalID: 1161718103607359496
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DeathWalk_4
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 63
+        width: 64
+        height: 78
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63cedbb933e4911478ae657ac10d2493
+      internalID: -4972035367904299079
       vertices: []
       indices: 
       edges: []

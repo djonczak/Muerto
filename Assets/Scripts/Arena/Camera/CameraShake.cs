@@ -56,7 +56,7 @@ public class CameraShake : MonoBehaviour
         var timerBoss = 0f;
         while (timerBoss < bossShakeTime)
         {
-            transform.position = Vector3.Lerp(transform.position, transform.position + Random.insideUnitSphere * 0.05f, shakeStrenght);
+            transform.position = Vector3.Lerp(transform.position, transform.position + Random.insideUnitSphere * 0.01f, shakeStrenght);
             timerBoss += Time.deltaTime;
             yield return null;
         }

@@ -10,7 +10,6 @@ public class TacoHeal : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
-            Debug.Log("Heal");
             collision.GetComponent<IHeal>().Heal(healAmount, this);
         }
     }

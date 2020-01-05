@@ -1,19 +1,37 @@
 fileFormatVersion: 2
-guid: 406f947af6c23504eb2bb78cae26d74c
+guid: 502ddca669ed5034494ff1e56c64f0c1
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4220094406203204666
-    second: DeathAttack_0
+      213: -4381368740626211654
+    second: DeathFirstAbility_0
   - first:
-      213: -4980048396665184830
-    second: DeathAttack_1
+      213: -6565353845273711591
+    second: DeathFirstAbility_1
   - first:
-      213: 5341068718484454156
-    second: DeathAttack_2
+      213: 2630123534767861354
+    second: DeathFirstAbility_2
   - first:
-      213: -4207658340068907829
-    second: DeathAttack_3
+      213: -2115237554531735708
+    second: DeathFirstAbility_3
+  - first:
+      213: -7207832697545093107
+    second: DeathFirstAbility_4
+  - first:
+      213: -8032587068448852872
+    second: DeathFirstAbility_5
+  - first:
+      213: -484217366298309721
+    second: DeathFirstAbility_6
+  - first:
+      213: 4324877744681687514
+    second: DeathFirstAbility_7
+  - first:
+      213: 8986756304345909597
+    second: DeathFirstAbility_8
+  - first:
+      213: -3814809672830481246
+    second: DeathFirstAbility_9
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -122,13 +140,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: DeathAttack_0
+      name: DeathFirstAbility_0
       rect:
         serializedVersion: 2
-        x: 43
-        y: 143
-        width: 62
-        height: 84
+        x: 13
+        y: 163
+        width: 63
+        height: 77
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -136,20 +154,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bb453c53ef668a3478f4310954e568d8
-      internalID: -4220094406203204666
+      spriteID: 38653445b64133345990ac645b79f1e6
+      internalID: -4381368740626211654
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DeathAttack_1
+      name: DeathFirstAbility_1
       rect:
         serializedVersion: 2
-        x: 167
-        y: 145
-        width: 62
-        height: 84
+        x: 99
+        y: 162
+        width: 63
+        height: 77
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -157,20 +175,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 969608afb0369a64eaf11d6958c977bd
-      internalID: -4980048396665184830
+      spriteID: d1b7c021837485f409b94cdd0bad3a2e
+      internalID: -6565353845273711591
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DeathAttack_2
+      name: DeathFirstAbility_2
       rect:
         serializedVersion: 2
-        x: 43
-        y: 16
-        width: 62
-        height: 84
+        x: 169
+        y: 162
+        width: 63
+        height: 77
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -178,20 +196,125 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 50af8f05e7870104f9d43d9f198992e5
-      internalID: 5341068718484454156
+      spriteID: 24ba63bed5213df4f9fc7d545879519e
+      internalID: 2630123534767861354
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DeathAttack_3
+      name: DeathFirstAbility_3
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 80
+        width: 63
+        height: 77
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62cab06a906b6b246b2bc6bcb513029d
+      internalID: -2115237554531735708
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DeathFirstAbility_4
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 80
+        width: 63
+        height: 77
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6bad20dffcb33df4ba6559c1f4e7b434
+      internalID: -7207832697545093107
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DeathFirstAbility_5
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 80
+        width: 63
+        height: 77
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c828be2b6a8343847bb0f88ff853f660
+      internalID: -8032587068448852872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DeathFirstAbility_7
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 1
+        width: 63
+        height: 77
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 114338967929c9c429bd59f9c0ea9d0d
+      internalID: 4324877744681687514
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DeathFirstAbility_8
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 1
+        width: 63
+        height: 77
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 42c83d3e20d72e84898fd370e2d0fb1b
+      internalID: 8986756304345909597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DeathFirstAbility_9
       rect:
         serializedVersion: 2
         x: 163
-        y: 17
-        width: 62
-        height: 84
+        y: 1
+        width: 64
+        height: 77
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -199,8 +322,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 530e5f81d071f1544bbfeb2ad844d127
-      internalID: -4207658340068907829
+      spriteID: d5327828dfe341d45bfbeb3147ad2db0
+      internalID: -3814809672830481246
       vertices: []
       indices: 
       edges: []

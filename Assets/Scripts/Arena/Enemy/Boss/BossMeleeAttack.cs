@@ -11,8 +11,10 @@ public class BossMeleeAttack : MonoBehaviour
     [SerializeField] private GameObject target;
     [SerializeField] private LayerMask playerLayer = 10;
 
+    public Transform attackAreaPoint;
+
     private Animator anim;
-    private Animator attackWaveEffect;
+    [SerializeField] private Animator attackWaveEffect;
     private AudioSource sound;
     private float timer;
     private bool isAttacking;
@@ -21,7 +23,7 @@ public class BossMeleeAttack : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         sound = GetComponent<AudioSource>();
-        attackWaveEffect = GetComponentInChildren<Animator>();
+        attackWaveEffect = transform.GetChild(1).gameObject.GetComponent<Animator>();
     }
 
     private void Start()
@@ -56,7 +58,7 @@ public class BossMeleeAttack : MonoBehaviour
 
     private void StartAttack()
     {
-       // anim.SetTrigger("Attack");
+        anim.SetTrigger("Attack");
         GetComponent<BossMovement>().canMove = false;
         isAttacking = true;
         timer = 0f;
@@ -69,19 +71,18 @@ public class BossMeleeAttack : MonoBehaviour
 
     public void EndAttack()
     {
-       // anim.SetBool("Run", true);
         isAttacking = false;
         GetComponent<BossMovement>().canMove = true;
     }
 
     public void CastAttack()
     {
-        Collider2D player = Physics2D.OverlapCircle(transform.position, attackRange, playerLayer);
+        Collider2D player = Physics2D.OverlapCircle(attackAreaPoint.position, attackRange, playerLayer);
         if (player != null)
         {
             if (player.GetComponent<IDamage>() != null)
             {
-                sound.PlayOneShot(sound.clip);
+              //  sound.PlayOneShot(sound.clip);
                 player.GetComponent<IDamage>().TakeDamage(attackDamage, DamageType.Normal);
             }
         }
@@ -90,6 +91,6 @@ public class BossMeleeAttack : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, attackRange);
+        Gizmos.DrawWireSphere(attackAreaPoint.position, attackRange);
     }
 }

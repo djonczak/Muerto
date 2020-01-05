@@ -5,14 +5,10 @@ using UnityEngine;
 public class BloodPillar : MonoBehaviour
 {
     [SerializeField] private float damage = 1f;
-    public Transform target;
 
-    private void OnEnable()
+    public void UsePillar(Transform target)
     {
-        if (target != null)
-        {
-            transform.position = target.position;
-        }
+        transform.position = target.transform.position;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

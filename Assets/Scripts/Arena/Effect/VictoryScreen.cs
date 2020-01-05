@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class DeathScreen : MonoBehaviour
+public class VictoryScreen : MonoBehaviour
 {
     public Image blackScreen;
     public Text endText;
@@ -19,7 +19,7 @@ public class DeathScreen : MonoBehaviour
 
     private void OnEnable()
     {
-        ArenaEvents.OnPlayerDeath += PlayerDeath;
+        ArenaEvents.OnPlayerVictory += PlayerVictory;
     }
 
     private void Start()
@@ -37,14 +37,9 @@ public class DeathScreen : MonoBehaviour
             blackScreen.color = Color.Lerp(alphaColor, blackScreenMainColor, t);
             endText.color = Color.Lerp(alphaColor, fontNormalColor, t);
         }
-        
+
         if (canPressButtons == true)
         {
-            if (Input.GetKeyDown(KeyCode.R))
-            {
-                UnityEngine.SceneManagement.SceneManager.LoadScene("Arena");
-            }
-
             if (Input.GetKeyDown(KeyCode.M))
             {
                 UnityEngine.SceneManagement.SceneManager.LoadScene("Menu");
@@ -52,7 +47,7 @@ public class DeathScreen : MonoBehaviour
         }
     }
 
-    public void PlayerDeath()
+    public void PlayerVictory()
     {
         StartCoroutine("BlackScreenShow", 1f);
         endText.text = text;
@@ -63,7 +58,7 @@ public class DeathScreen : MonoBehaviour
         canColor = true;
         yield return new WaitForSeconds(time);
         canColor = false;
-        foreach(GameObject button in textToActive)
+        foreach (GameObject button in textToActive)
         {
             button.SetActive(true);
         }
@@ -72,6 +67,6 @@ public class DeathScreen : MonoBehaviour
 
     private void OnDestroy()
     {
-        ArenaEvents.OnPlayerDeath -= PlayerDeath;
+        ArenaEvents.OnPlayerVictory -= PlayerVictory;
     }
 }

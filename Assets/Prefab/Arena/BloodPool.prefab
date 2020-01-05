@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2519490872421747125}
   m_Layer: 0
   m_Name: BloodPool
-  m_TagString: Untagged
+  m_TagString: BossPoolAttack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28,7 +28,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -35.421715, y: -2.089505, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 4946382063953527631}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -101,3 +102,84 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!1001 &1936028986
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 2519490872421747127}
+    m_Modifications:
+    - target: {fileID: 4946382064236967536, guid: 3ba105b4c6aed804dbc2f6f9648594f7,
+        type: 3}
+      propertyPath: m_Name
+      value: BloodPillar
+      objectReference: {fileID: 0}
+    - target: {fileID: 4946382064236967536, guid: 3ba105b4c6aed804dbc2f6f9648594f7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4946382064236967541, guid: 3ba105b4c6aed804dbc2f6f9648594f7,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.02508545
+      objectReference: {fileID: 0}
+    - target: {fileID: 4946382064236967541, guid: 3ba105b4c6aed804dbc2f6f9648594f7,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.22600007
+      objectReference: {fileID: 0}
+    - target: {fileID: 4946382064236967541, guid: 3ba105b4c6aed804dbc2f6f9648594f7,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4946382064236967541, guid: 3ba105b4c6aed804dbc2f6f9648594f7,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4946382064236967541, guid: 3ba105b4c6aed804dbc2f6f9648594f7,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4946382064236967541, guid: 3ba105b4c6aed804dbc2f6f9648594f7,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4946382064236967541, guid: 3ba105b4c6aed804dbc2f6f9648594f7,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4946382064236967541, guid: 3ba105b4c6aed804dbc2f6f9648594f7,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4946382064236967541, guid: 3ba105b4c6aed804dbc2f6f9648594f7,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4946382064236967541, guid: 3ba105b4c6aed804dbc2f6f9648594f7,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4946382064236967541, guid: 3ba105b4c6aed804dbc2f6f9648594f7,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 4946382064236967547, guid: 3ba105b4c6aed804dbc2f6f9648594f7, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: 3ba105b4c6aed804dbc2f6f9648594f7, type: 3}
+--- !u!4 &4946382063953527631 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4946382064236967541, guid: 3ba105b4c6aed804dbc2f6f9648594f7,
+    type: 3}
+  m_PrefabInstance: {fileID: 1936028986}
+  m_PrefabAsset: {fileID: 0}

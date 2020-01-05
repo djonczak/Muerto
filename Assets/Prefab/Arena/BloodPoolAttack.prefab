@@ -1,79 +1,18 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &5019579353222085864
-PrefabInstance:
+--- !u!114 &2451939871413342741
+MonoBehaviour:
   m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 7448434034046337125}
-    m_Modifications:
-    - target: {fileID: 4946382064236967536, guid: 3ba105b4c6aed804dbc2f6f9648594f7,
-        type: 3}
-      propertyPath: m_Name
-      value: BloodPillar
-      objectReference: {fileID: 0}
-    - target: {fileID: 4946382064236967536, guid: 3ba105b4c6aed804dbc2f6f9648594f7,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4946382064236967541, guid: 3ba105b4c6aed804dbc2f6f9648594f7,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.02508545
-      objectReference: {fileID: 0}
-    - target: {fileID: 4946382064236967541, guid: 3ba105b4c6aed804dbc2f6f9648594f7,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.22600007
-      objectReference: {fileID: 0}
-    - target: {fileID: 4946382064236967541, guid: 3ba105b4c6aed804dbc2f6f9648594f7,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4946382064236967541, guid: 3ba105b4c6aed804dbc2f6f9648594f7,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4946382064236967541, guid: 3ba105b4c6aed804dbc2f6f9648594f7,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4946382064236967541, guid: 3ba105b4c6aed804dbc2f6f9648594f7,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4946382064236967541, guid: 3ba105b4c6aed804dbc2f6f9648594f7,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4946382064236967541, guid: 3ba105b4c6aed804dbc2f6f9648594f7,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4946382064236967541, guid: 3ba105b4c6aed804dbc2f6f9648594f7,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4946382064236967541, guid: 3ba105b4c6aed804dbc2f6f9648594f7,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4946382064236967541, guid: 3ba105b4c6aed804dbc2f6f9648594f7,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 3ba105b4c6aed804dbc2f6f9648594f7, type: 3}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7448434034046337120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5184fbfcd1cb22d4db7ebdf4bfddb364, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 1
 --- !u!1001 &5019579354012355026
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -85,11 +24,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: BloodPoolAttack
-      objectReference: {fileID: 0}
-    - target: {fileID: 2519490872421747122, guid: b23a2c7f0fa2ee54a88436f9af40f6ad,
-        type: 3}
-      propertyPath: m_TagString
-      value: BossPoolAttack
       objectReference: {fileID: 0}
     - target: {fileID: 2519490872421747127, guid: b23a2c7f0fa2ee54a88436f9af40f6ad,
         type: 3}
@@ -146,11 +80,51 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2519490872421747124, guid: b23a2c7f0fa2ee54a88436f9af40f6ad,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.31132078
+      objectReference: {fileID: 0}
+    - target: {fileID: 2519490872421747124, guid: b23a2c7f0fa2ee54a88436f9af40f6ad,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2519490872421747124, guid: b23a2c7f0fa2ee54a88436f9af40f6ad,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4946382063953527628, guid: b23a2c7f0fa2ee54a88436f9af40f6ad,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: 1321069501
+      objectReference: {fileID: 0}
+    - target: {fileID: 4946382063953527628, guid: b23a2c7f0fa2ee54a88436f9af40f6ad,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4946382063953527628, guid: b23a2c7f0fa2ee54a88436f9af40f6ad,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.30980393
+      objectReference: {fileID: 0}
+    - target: {fileID: 4946382063953527628, guid: b23a2c7f0fa2ee54a88436f9af40f6ad,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4946382063953527628, guid: b23a2c7f0fa2ee54a88436f9af40f6ad,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b23a2c7f0fa2ee54a88436f9af40f6ad, type: 3}
---- !u!4 &7448434034046337125 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2519490872421747127, guid: b23a2c7f0fa2ee54a88436f9af40f6ad,
+--- !u!1 &7448434034046337120 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2519490872421747122, guid: b23a2c7f0fa2ee54a88436f9af40f6ad,
     type: 3}
   m_PrefabInstance: {fileID: 5019579354012355026}
   m_PrefabAsset: {fileID: 0}
