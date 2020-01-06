@@ -6,9 +6,8 @@ using UnityEngine.UI;
 public class VictoryScreen : MonoBehaviour
 {
     public Image blackScreen;
-    public Text endText;
-    public string text;
-    public GameObject[] textToActive;
+    public Text[] endTexts;
+    public GameObject menuText;
 
     private bool canColor = false;
     private Color blackScreenMainColor;
@@ -25,17 +24,23 @@ public class VictoryScreen : MonoBehaviour
     private void Start()
     {
         blackScreenMainColor = blackScreen.color;
-        fontNormalColor = endText.color;
-        endText.color = alphaColor;
+        fontNormalColor = endTexts[0].color;
+        foreach (Text text in endTexts)
+        { 
+            text.color = alphaColor;
+        }
     }
 
     private void Update()
-    {
+    {   
         if (canColor)
         {
             t += Time.deltaTime / 1f;
             blackScreen.color = Color.Lerp(alphaColor, blackScreenMainColor, t);
-            endText.color = Color.Lerp(alphaColor, fontNormalColor, t);
+            foreach (Text text in endTexts)
+            {
+                text.color = Color.Lerp(alphaColor, fontNormalColor, t);
+            }
         }
 
         if (canPressButtons == true)
@@ -47,21 +52,18 @@ public class VictoryScreen : MonoBehaviour
         }
     }
 
+    [ContextMenu("Show victory screen")]
     public void PlayerVictory()
     {
         StartCoroutine("BlackScreenShow", 1f);
-        endText.text = text;
     }
 
     private IEnumerator BlackScreenShow(float time)
     {
         canColor = true;
         yield return new WaitForSeconds(time);
+        menuText.SetActive(true);
         canColor = false;
-        foreach (GameObject button in textToActive)
-        {
-            button.SetActive(true);
-        }
         canPressButtons = true;
     }
 

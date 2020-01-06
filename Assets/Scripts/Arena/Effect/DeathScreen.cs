@@ -52,6 +52,7 @@ public class DeathScreen : MonoBehaviour
         }
     }
 
+    [ContextMenu("Show death screen")]
     public void PlayerDeath()
     {
         StartCoroutine("BlackScreenShow", 1f);

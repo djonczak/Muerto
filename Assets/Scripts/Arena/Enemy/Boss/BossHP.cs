@@ -17,31 +17,38 @@ public class BossHP : MonoBehaviour, IDamage
     private void Start()
     {
         currentHP = maxHP;
+        healthBar.fillAmount = currentHP / maxHP;
     }
 
     public void TakeDamage(float amount, DamageType type)
     {
         if (isAlive == true && isHurt == false)
         {
-            healthBar.fillAmount = currentHP / maxHP;
             currentHP -= amount;
+            healthBar.fillAmount = currentHP / maxHP;
             GetComponent<SpriteEffect>().DamageEffect();
             CheckSecondPhase();
             if (currentHP <= 0)
             {
                 Death();
             }
-            StartCoroutine("DamageCooldown", damageCooldown);
+            else
+            {
+                StartCoroutine("DamageCooldown", damageCooldown);
+            }
         }
     }
 
     private void Death()
     {
+        healthBar.transform.parent.gameObject.SetActive(false);
         GetComponent<BossMeleeAttack>().enabled = false;
         GetComponent<BossMovement>().enabled = false;
         GetComponent<BossFirstAbility>().enabled = false;
         GetComponent<BossSecondAbility>().enabled = false;
-        enabled = false;  
+        ArenaEvents.PlayerVictory();
+        enabled = false;
+        this.gameObject.SetActive(false);
     }
 
     private void CheckSecondPhase()

@@ -1219,6 +1219,85 @@ CircleCollider2D:
   m_Offset: {x: 0.12, y: 0.12}
   serializedVersion: 2
   m_Radius: 0.33
+--- !u!1 &310672726
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 310672727}
+  - component: {fileID: 310672729}
+  - component: {fileID: 310672728}
+  m_Layer: 5
+  m_Name: VictoryTextRest
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &310672727
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 310672726}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.28, y: 0.3, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2007155433}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -815, y: 293}
+  m_SizeDelta: {x: -1748, y: -1078}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &310672728
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 310672726}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.7735849, g: 0, b: 0, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 7fb9e421e82694c4cbbaffa89c00628f, type: 3}
+    m_FontSize: 300
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 300
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
+    m_LineSpacing: 1
+  m_Text: "You have defeated God Of Death Tzontemoc.\n\n "
+--- !u!222 &310672729
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 310672726}
+  m_CullTransparentMesh: 0
 --- !u!1 &322370309
 GameObject:
   m_ObjectHideFlags: 0
@@ -1461,7 +1540,7 @@ RectTransform:
   m_LocalScale: {x: 0.3, y: 0.3, z: 1}
   m_Children: []
   m_Father: {fileID: 2007155433}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
@@ -1864,6 +1943,22 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 275122903532457463}
   m_PrefabAsset: {fileID: 0}
+--- !u!58 &554705953
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 554705952}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.09}
+  serializedVersion: 2
+  m_Radius: 0.2
 --- !u!1 &590306531
 GameObject:
   m_ObjectHideFlags: 0
@@ -2303,6 +2398,85 @@ CircleCollider2D:
   m_Offset: {x: 0.12, y: 0.12}
   serializedVersion: 2
   m_Radius: 0.33
+--- !u!1 &871614902
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 871614903}
+  - component: {fileID: 871614905}
+  - component: {fileID: 871614904}
+  m_Layer: 5
+  m_Name: VictoryTextMain
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &871614903
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 871614902}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2007155433}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -626, y: 489}
+  m_SizeDelta: {x: -1748, y: -1078}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &871614904
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 871614902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.7735849, g: 0, b: 0, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 7fb9e421e82694c4cbbaffa89c00628f, type: 3}
+    m_FontSize: 300
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 300
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
+    m_LineSpacing: 1
+  m_Text: "CONGRATULATIONS !\n "
+--- !u!222 &871614905
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 871614902}
+  m_CullTransparentMesh: 0
 --- !u!1 &887937372
 GameObject:
   m_ObjectHideFlags: 0
@@ -2474,11 +2648,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blackScreen: {fileID: 2103778223}
-  endText: {fileID: 1332457567}
-  text: 'Congratulations !! '
-  textToActive:
-  - {fileID: 447636638}
-  - {fileID: 1564951913}
+  endTexts:
+  - {fileID: 871614904}
+  - {fileID: 310672728}
+  menuText: {fileID: 1564951913}
 --- !u!1 &967181501
 GameObject:
   m_ObjectHideFlags: 0
@@ -2533,7 +2706,7 @@ MonoBehaviour:
   - {fileID: 2057584832}
   - {fileID: 223783308}
   sunLight: {fileID: 1525086114}
-  colorToSwitch: {r: 1, g: 0.24056602, b: 0.24056602, a: 1}
+  colorToSwitch: {r: 1, g: 0.4481132, b: 0.4481132, a: 1}
 --- !u!1 &982979010
 GameObject:
   m_ObjectHideFlags: 0
@@ -3891,7 +4064,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: You have died !
+  m_Text: You shall die !!
 --- !u!222 &1332457568
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4112,7 +4285,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.7924528, g: 0, b: 0.7924528, a: 1}
+  m_Color: {r: 1, g: 0.6748456, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -4486,7 +4659,7 @@ RectTransform:
   m_LocalScale: {x: 0.3, y: 0.3, z: 1}
   m_Children: []
   m_Father: {fileID: 2007155433}
-  m_RootOrder: 3
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -5889,6 +6062,8 @@ RectTransform:
   m_Children:
   - {fileID: 2103778222}
   - {fileID: 1332457566}
+  - {fileID: 871614903}
+  - {fileID: 310672727}
   - {fileID: 447636639}
   - {fileID: 1564951914}
   m_Father: {fileID: 1722483104}
@@ -6143,6 +6318,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tzontemoc
       objectReference: {fileID: 0}
+    - target: {fileID: 275122903394631256, guid: ad5b72488feba69489ca097aaf08e3d6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 275122903394631238, guid: ad5b72488feba69489ca097aaf08e3d6,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6203,5 +6383,41 @@ PrefabInstance:
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 1454501480}
-    m_RemovedComponents: []
+    - target: {fileID: 275122903394631236, guid: ad5b72488feba69489ca097aaf08e3d6,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 275122903394631232, guid: ad5b72488feba69489ca097aaf08e3d6,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 275122903394631233, guid: ad5b72488feba69489ca097aaf08e3d6,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 275122903394631234, guid: ad5b72488feba69489ca097aaf08e3d6,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 275122903394631235, guid: ad5b72488feba69489ca097aaf08e3d6,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 275122903394631247, guid: ad5b72488feba69489ca097aaf08e3d6,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 239554542236356377, guid: ad5b72488feba69489ca097aaf08e3d6,
+        type: 3}
+      propertyPath: m_Radius
+      value: 0.17
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 239554542236356377, guid: ad5b72488feba69489ca097aaf08e3d6, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: ad5b72488feba69489ca097aaf08e3d6, type: 3}

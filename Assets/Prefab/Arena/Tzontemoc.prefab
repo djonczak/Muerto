@@ -54,7 +54,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &275122903394631238
 Transform:
   m_ObjectHideFlags: 0
@@ -149,7 +149,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackDamage: 1
-  attackSpeed: 0.8
+  attackSpeed: 0.6
   attackRange: 0.38
   target: {fileID: 0}
   playerLayer:
@@ -169,7 +169,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26a4e3d33917f2242b6f79e538c927ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activateRadius: 2.15
+  activateRadius: 1.85
   amountBulletsToSpawn: 1
   target: {fileID: 0}
   abilitySound: {fileID: 0}
@@ -186,7 +186,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unlock: 0
-  abilityCooldown: 4
+  abilityCooldown: 2
 --- !u!114 &275122903394631236
 MonoBehaviour:
   m_ObjectHideFlags: 0
