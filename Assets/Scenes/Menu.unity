@@ -5351,10 +5351,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterName: Ricardo
-  controllerData: {fileID: 0}
   unlockInfo: {fileID: 302460126}
   normalColor: {r: 255, g: 255, b: 255, a: 255}
-  isUnlocked: 0
+  isUnlocked: 1
 --- !u!1 &1104909486
 GameObject:
   m_ObjectHideFlags: 0
@@ -8080,7 +8079,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterName: Huan
-  controllerData: {fileID: 0}
   unlockInfo: {fileID: 989143603}
   normalColor: {r: 255, g: 255, b: 255, a: 255}
   isUnlocked: 1

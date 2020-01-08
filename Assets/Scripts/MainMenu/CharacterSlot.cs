@@ -5,7 +5,6 @@ using UnityEngine;
 public class CharacterSlot : MonoBehaviour
 {
     public string characterName = "name";
-    public RuntimeAnimatorController controllerData;
     public GameObject unlockInfo;
     [SerializeField] private Color normalColor = new Color(255,255,255,255);
 
@@ -13,6 +12,11 @@ public class CharacterSlot : MonoBehaviour
 
     public void Start()
     {
+        if(PlayerPrefs.GetString("Boss") == "Yes")
+        {
+            isUnlocked = true;
+        }
+
         if(isUnlocked == true)
         {
             unlockInfo.SetActive(false);

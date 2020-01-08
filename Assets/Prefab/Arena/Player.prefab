@@ -382,6 +382,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7471797268637326169}
   - component: {fileID: 7471797268637326168}
+  - component: {fileID: 2466534594181289415}
   - component: {fileID: 7471797268637326150}
   - component: {fileID: 7471797268637326145}
   - component: {fileID: 7471797268637326147}
@@ -470,6 +471,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2466534594181289415
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7471797268637326171}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c976ec28ed79b81489c220691886a0a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Huan: {fileID: 9100000, guid: 6a0728508affba94cb3f61ce7bd28f2d, type: 2}
+  Ricardo: {fileID: 9100000, guid: cba0c9b742eb2f74f98c9e36bf982cc2, type: 2}
 --- !u!114 &7471797268637326150
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -666,7 +681,7 @@ Animator:
   m_GameObject: {fileID: 7471797268637326171}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: cba0c9b742eb2f74f98c9e36bf982cc2, type: 2}
+  m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

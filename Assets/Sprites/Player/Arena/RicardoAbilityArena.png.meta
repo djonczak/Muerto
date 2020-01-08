@@ -1,7 +1,46 @@
 fileFormatVersion: 2
 guid: 18aedd23d18e30e45ac74530369df0d8
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: 3935196583151508489
+    second: RicardoAbilityArena_FallAttack0
+  - first:
+      213: -5467840130327957457
+    second: RicardoAbilityArena_FallAttack1
+  - first:
+      213: 1100261978553523153
+    second: RicardoAbilityArena_FallAttack3
+  - first:
+      213: 7120503401350134732
+    second: RicardoAbilityArena_ChargePreparations0
+  - first:
+      213: -6760396786389981331
+    second: RicardoAbilityArena_ChargePreparations1
+  - first:
+      213: 7591145223722639306
+    second: RicardoAbilityArena_ChargePreparations2
+  - first:
+      213: 2933204973496571891
+    second: RicardoAbilityArena_ChargePreparations3
+  - first:
+      213: -3952726692834322326
+    second: RicardoAbilityArena_ChargePreparations4
+  - first:
+      213: -7174561789983995898
+    second: RicardoAbilityArena_Charge0
+  - first:
+      213: -4997315039725464034
+    second: RicardoAbilityArena_Charge1
+  - first:
+      213: 4144411938568640991
+    second: RicardoAbilityArena_Charge2
+  - first:
+      213: -7743826286050722228
+    second: RicardoAbilityArena_Charge3
+  - first:
+      213: -3235858910803176864
+    second: RicardoAbilityArena_Charge4
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -31,7 +70,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
+    filterMode: 0
     aniso: -1
     mipBias: -100
     wrapU: 1
@@ -40,7 +79,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -70,9 +109,318 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: RicardoAbilityArena_FallAttack0
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 146
+        width: 25
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e73ef715403af0468cf5f10b7b11140
+      internalID: 3935196583151508489
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RicardoAbilityArena_FallAttack1
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 145
+        width: 25
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d7f7141709c40e94c9e29cf35e929b15
+      internalID: -5467840130327957457
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RicardoAbilityArena_FallAttack3
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 145
+        width: 25
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f810ac6161304a4a91dbfbb6b012b38
+      internalID: 1100261978553523153
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RicardoAbilityArena_ChargePreparations0
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 59
+        width: 28
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2f4e5501a410034bae8f3bbd1a088aa
+      internalID: 7120503401350134732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RicardoAbilityArena_ChargePreparations1
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 59
+        width: 28
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68d58a5c257955a499525de3f332dadc
+      internalID: -6760396786389981331
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RicardoAbilityArena_ChargePreparations2
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 60
+        width: 28
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47e4f1217dd24234193bf5e1176124e1
+      internalID: 7591145223722639306
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RicardoAbilityArena_ChargePreparations3
+      rect:
+        serializedVersion: 2
+        x: 122
+        y: 60
+        width: 28
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32450247138b8f74bb4d3d4c4dfd37f0
+      internalID: 2933204973496571891
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RicardoAbilityArena_ChargePreparations4
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 56
+        width: 28
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a28dbfebb47ca2d4493940af3e161549
+      internalID: -3952726692834322326
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RicardoAbilityArena_Charge0
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 100
+        width: 36
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e36b19415b56cc04fa6abcd72d0c11f1
+      internalID: -7174561789983995898
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RicardoAbilityArena_Charge1
+      rect:
+        serializedVersion: 2
+        x: 57
+        y: 99
+        width: 36
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6f2eca1e204eb641bd959fec0eaf1e4
+      internalID: -4997315039725464034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RicardoAbilityArena_Charge2
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 99
+        width: 36
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 547b32b2738a00349a34a257d8ddfb16
+      internalID: 4144411938568640991
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RicardoAbilityArena_Charge3
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 97
+        width: 36
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c3521ba0243df94cb1f7dc0b84fb392
+      internalID: -7743826286050722228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RicardoAbilityArena_Charge4
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 97
+        width: 36
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 646ad3514bf043b499c66a57e6e9f1fa
+      internalID: -3235858910803176864
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []

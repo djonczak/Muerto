@@ -8,7 +8,7 @@ public class CharacterSelection : MonoBehaviour
     private int index = 0;
     public GameObject message;
 
-    void Start()
+    private void Start()
     {
         foreach(Transform child in transform)
         {
@@ -47,6 +47,8 @@ public class CharacterSelection : MonoBehaviour
         {
             message.GetComponent<Animator>().SetTrigger("Show");
             message.GetComponentInChildren<UnityEngine.UI.Text>().text = "You have chosen " + character.characterName + ".";
+            PlayerPrefs.SetString("Name", character.name);
+            Debug.Log(PlayerPrefs.GetString("Name"));
         }
         else
         {

@@ -47,6 +47,7 @@ public class BossHP : MonoBehaviour, IDamage
         GetComponent<BossFirstAbility>().enabled = false;
         GetComponent<BossSecondAbility>().enabled = false;
         ArenaEvents.PlayerVictory();
+        PlayerPrefs.SetString("Boss", "Yes");
         enabled = false;
         this.gameObject.SetActive(false);
     }
