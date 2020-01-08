@@ -46,15 +46,16 @@ GameObject:
   - component: {fileID: 275122903394631235}
   - component: {fileID: 275122903394631236}
   - component: {fileID: 275122903394631246}
+  - component: {fileID: 5250832116999269460}
   - component: {fileID: 275122903394631247}
-  - component: {fileID: 239554542236356377}
+  - component: {fileID: 554705953}
   m_Layer: 11
   m_Name: Tzontemoc
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &275122903394631238
 Transform:
   m_ObjectHideFlags: 0
@@ -68,6 +69,7 @@ Transform:
   m_Children:
   - {fileID: 275122903083257172}
   - {fileID: 1871594324231525507}
+  - {fileID: 2243971099573145524}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -128,7 +130,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 275122903394631256}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4b203eefa02a9ce4e897b6a188ee843a, type: 3}
   m_Name: 
@@ -143,7 +145,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 275122903394631256}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f028705abb73d5e408c28ab2f11f7738, type: 3}
   m_Name: 
@@ -164,7 +166,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 275122903394631256}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 26a4e3d33917f2242b6f79e538c927ef, type: 3}
   m_Name: 
@@ -180,7 +182,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 275122903394631256}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 85c7a80fec2b40a48b76f4434262e5c2, type: 3}
   m_Name: 
@@ -194,7 +196,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 275122903394631256}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 696175b0826982d4da6544664c45687f, type: 3}
   m_Name: 
@@ -222,6 +224,23 @@ MonoBehaviour:
   isDamaged: 0
   canSwitchColor: 0
   isHealed: 0
+--- !u!114 &5250832116999269460
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 275122903394631256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03143d24a0bd9994cae93e4d6ab9211d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dustStartPoint: {fileID: 2243971099573145524}
+  dustPrefab: {fileID: 7139180160841189128, guid: 40ac69d5a55c38d4596ab757a7e9e6cd,
+    type: 3}
+  amountToSpawn: 5
+  dustParticles: []
 --- !u!95 &275122903394631247
 Animator:
   serializedVersion: 3
@@ -241,7 +260,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!58 &239554542236356377
+--- !u!58 &554705953
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -254,9 +273,39 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.04}
+  m_Offset: {x: 0, y: -0.09}
   serializedVersion: 2
-  m_Radius: 0.13
+  m_Radius: 0.2
+--- !u!1 &3000313372827640127
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2243971099573145524}
+  m_Layer: 11
+  m_Name: DustParticlePosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2243971099573145524
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3000313372827640127}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.046, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 275122903394631238}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &275122904472119590
 PrefabInstance:
   m_ObjectHideFlags: 0

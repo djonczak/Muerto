@@ -7,7 +7,6 @@ public class DeathScreen : MonoBehaviour
 {
     public Image blackScreen;
     public Text endText;
-    public string text;
     public GameObject[] textToActive;
 
     private bool canColor = false;
@@ -56,7 +55,6 @@ public class DeathScreen : MonoBehaviour
     public void PlayerDeath()
     {
         StartCoroutine("BlackScreenShow", 1f);
-        endText.text = text;
     }
 
     private IEnumerator BlackScreenShow(float time)
