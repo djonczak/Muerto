@@ -17,17 +17,13 @@ public class SpriteEffect : MonoBehaviour
     private SpriteRenderer sprite;
     private float t = 0f;
 
-    private void Awake()
-    {
-        sprite = GetComponent<SpriteRenderer>();
-    }
-
     private void Start()
     {
+        sprite = GetComponent<SpriteRenderer>();
         normalColor = sprite.color;
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         if (canSwitchColor)
         {

@@ -48,7 +48,6 @@ public class CharacterSelection : MonoBehaviour
             message.GetComponent<Animator>().SetTrigger("Show");
             message.GetComponentInChildren<UnityEngine.UI.Text>().text = "You have chosen " + character.characterName + ".";
             PlayerPrefs.SetString("Name", character.name);
-            Debug.Log(PlayerPrefs.GetString("Name"));
         }
         else
         {

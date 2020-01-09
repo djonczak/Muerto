@@ -3583,6 +3583,7 @@ MonoBehaviour:
   credtitsWindow: {fileID: 633955995}
   arenaWindow: {fileID: 967158029}
   cursorTexture: {fileID: 2800000, guid: 268eb6265038e9344bc53132015af7a8, type: 3}
+  message: {fileID: 921210269}
 --- !u!1 &686870029
 GameObject:
   m_ObjectHideFlags: 0
@@ -5353,7 +5354,7 @@ MonoBehaviour:
   characterName: Ricardo
   unlockInfo: {fileID: 302460126}
   normalColor: {r: 255, g: 255, b: 255, a: 255}
-  isUnlocked: 1
+  isUnlocked: 0
 --- !u!1 &1104909486
 GameObject:
   m_ObjectHideFlags: 0

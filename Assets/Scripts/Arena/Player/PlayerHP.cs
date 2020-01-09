@@ -11,6 +11,7 @@ public class PlayerHP : MonoBehaviour, IDamage, IHeal
     private int i = -1;
 
     public bool isAlive = true;
+    public bool canBeHurt;
 
 	void Start ()
     {
@@ -21,7 +22,7 @@ public class PlayerHP : MonoBehaviour, IDamage, IHeal
     {
         if (isAlive == true)
         {
-            if (GetComponent<PlayerAttack>().isDashing == false || GetComponent<TableChargeAbility>().isCharging == false)
+            if (canBeHurt == true)
             {
                 currentHP -= amount;
                 i++;

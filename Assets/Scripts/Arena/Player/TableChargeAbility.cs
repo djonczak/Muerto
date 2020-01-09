@@ -72,6 +72,7 @@ public class TableChargeAbility : MonoBehaviour
         anim.SetBool("Run", false);
         anim.SetBool("Idle", false);
         hasCharged = true;
+        GetComponent<PlayerHP>().canBeHurt = false;
     }
 
     private void Charge()
@@ -117,6 +118,7 @@ public class TableChargeAbility : MonoBehaviour
     IEnumerator ChargeDuration(float time)
     {
         yield return new WaitForSeconds(time);
+        GetComponent<PlayerHP>().canBeHurt = true;
         anim.SetBool("Charge", false);
         isCharging = false;
         ArenaEvents.PlayerCharge();

@@ -8,6 +8,7 @@ public class MainMenu : MonoBehaviour {
     public GameObject credtitsWindow;
     public GameObject arenaWindow;
     public Texture2D cursorTexture;
+    public GameObject message;
 
     private void Start()
     {
@@ -22,7 +23,15 @@ public class MainMenu : MonoBehaviour {
 
     public void LoadArena()
     {
-        SceneManager.LoadScene("Arena");
+        if (PlayerPrefs.GetString("Name") == "")
+        {
+            message.GetComponent<Animator>().SetTrigger("Show");
+            message.GetComponentInChildren<UnityEngine.UI.Text>().text = "Choose character !";
+        }
+        else
+        {
+            SceneManager.LoadScene("Arena");
+        }
     }
 
     public void OpenArenaWindow()

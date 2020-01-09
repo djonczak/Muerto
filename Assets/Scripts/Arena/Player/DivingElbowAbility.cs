@@ -54,6 +54,7 @@ public class DivingElbowAbility : MonoBehaviour
         Time.timeScale = 0.5f;
         GetComponent<PlayerAttack>().enabled = false;
         GetComponent<TableChargeAbility>().disable = true;
+        GetComponent<PlayerHP>().canBeHurt = false;
     }
 
     private void Jump()
@@ -62,7 +63,7 @@ public class DivingElbowAbility : MonoBehaviour
         mousePosition = CalculateMousePosition();
         transform.position = new Vector3(mousePosition.x, transform.position.y + 1.7f, transform.position.z);
         Time.timeScale = 1f;
-        GetComponent<BoxCollider2D>().isTrigger = true;
+        GetComponent<PolygonCollider2D>().isTrigger = true;
         GetComponent<ArenaMovement>().enabled = false;
         fallDown = true;
         anim.SetBool("FallAttack", true);
@@ -103,9 +104,10 @@ public class DivingElbowAbility : MonoBehaviour
     IEnumerator Cooldown(float time)
     {
         GetComponent<TableChargeAbility>().disable = false;
-        GetComponent<BoxCollider2D>().isTrigger = false;
+        GetComponent<PolygonCollider2D>().isTrigger = false;
         GetComponent<PlayerAttack>().enabled = true;
         GetComponent<ArenaMovement>().enabled = true;
+        GetComponent<PlayerHP>().canBeHurt = true;
         yield return new WaitForSeconds(time);
         Debug.Log("You can use your first ability.");
         canUse = true;
