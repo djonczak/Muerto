@@ -53,7 +53,11 @@ public class DivingElbowAbility : MonoBehaviour
         hasJumped = true;
         Time.timeScale = 0.5f;
         GetComponent<PlayerAttack>().enabled = false;
-        GetComponent<TableChargeAbility>().disable = true;
+        var secondAbility = GetComponent<TableChargeAbility>();
+        if(secondAbility.disable == false)
+        {
+            secondAbility.enabled = false;
+        }
         GetComponent<PlayerHP>().canBeHurt = false;
     }
 
@@ -103,13 +107,12 @@ public class DivingElbowAbility : MonoBehaviour
 
     IEnumerator Cooldown(float time)
     {
-        GetComponent<TableChargeAbility>().disable = false;
+        GetComponent<TableChargeAbility>().enabled = true;
         GetComponent<PolygonCollider2D>().isTrigger = false;
         GetComponent<PlayerAttack>().enabled = true;
         GetComponent<ArenaMovement>().enabled = true;
         GetComponent<PlayerHP>().canBeHurt = true;
         yield return new WaitForSeconds(time);
-        Debug.Log("You can use your first ability.");
         canUse = true;
     }
 

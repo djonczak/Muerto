@@ -11,7 +11,14 @@ public class BossMovement : MonoBehaviour
 
     private void Awake()
     {
-        target = GameObject.FindGameObjectWithTag("Player");
+        var players = GameObject.FindGameObjectsWithTag("Player");
+        foreach (GameObject player in players)
+        {
+            if (player.activeSelf == true)
+            {
+                target = player;
+            }
+        }
     }
 
     private void FixedUpdate()

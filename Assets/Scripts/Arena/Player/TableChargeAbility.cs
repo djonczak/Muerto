@@ -64,15 +64,15 @@ public class TableChargeAbility : MonoBehaviour
     private void PrepareForCharge()
     {
         canUse = false;
-        Time.timeScale = 0.5f;
         GetComponent<ArenaMovement>().enabled = false;
         GetComponent<PlayerAttack>().enabled = false;
-        GetComponent<DivingElbowAbility>().disable = true;
+        GetComponent<DivingElbowAbility>().enabled = false;
         anim.SetTrigger("ChargeIdle");
         anim.SetBool("Run", false);
         anim.SetBool("Idle", false);
         hasCharged = true;
         GetComponent<PlayerHP>().canBeHurt = false;
+        Time.timeScale = 0.5f;
     }
 
     private void Charge()

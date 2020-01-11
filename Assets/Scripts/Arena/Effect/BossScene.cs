@@ -11,7 +11,7 @@ public class BossScene : MonoBehaviour
     public GameObject boss;
 
     [Header("Player to freeze")]
-    public GameObject player;
+    [SerializeField] private GameObject player;
 
     [Header("Sound change")]
     public AudioSource sceneSound;
@@ -37,6 +37,14 @@ public class BossScene : MonoBehaviour
         blackBars.SetActive(false);
         bossText.SetActive(false);
         oldColor = sunLight.color;
+        var players = GameObject.FindGameObjectsWithTag("Player");
+        foreach (GameObject target in players)
+        {
+            if (target.activeSelf == true)
+            {
+                player = target;
+            }
+        }
     }
 
     private void Update()

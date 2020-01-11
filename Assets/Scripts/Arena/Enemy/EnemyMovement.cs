@@ -15,7 +15,14 @@ public class EnemyMovement : MonoBehaviour
     private void Awake()
     {
         sprite = GetComponent<SpriteRenderer>();
-        target = GameObject.FindGameObjectWithTag("Player");
+        var players = GameObject.FindGameObjectsWithTag("Player");
+        foreach (GameObject player in players)
+        {
+            if (player.activeSelf == true)
+            {
+                target = player;
+            }
+        }
     }
 	
 	private void FixedUpdate ()
