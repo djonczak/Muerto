@@ -128,10 +128,10 @@ TextureImporter:
       name: DeathWalk_0
       rect:
         serializedVersion: 2
-        x: 76
+        x: 75
         y: 151
-        width: 64
-        height: 77
+        width: 65
+        height: 78
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -149,10 +149,10 @@ TextureImporter:
       name: DeathWalk_1
       rect:
         serializedVersion: 2
-        x: 146
+        x: 145
         y: 154
-        width: 64
-        height: 75
+        width: 65
+        height: 76
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -170,10 +170,10 @@ TextureImporter:
       name: DeathWalk_3
       rect:
         serializedVersion: 2
-        x: 78
+        x: 77
         y: 63
-        width: 64
-        height: 78
+        width: 65
+        height: 79
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -194,7 +194,7 @@ TextureImporter:
         x: 4
         y: 150
         width: 64
-        height: 77
+        height: 78
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -212,10 +212,10 @@ TextureImporter:
       name: DeathWalk_2
       rect:
         serializedVersion: 2
-        x: 7
+        x: 6
         y: 66
-        width: 64
-        height: 77
+        width: 65
+        height: 78
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -233,10 +233,10 @@ TextureImporter:
       name: DeathWalk_4
       rect:
         serializedVersion: 2
-        x: 155
+        x: 154
         y: 63
-        width: 64
-        height: 78
+        width: 65
+        height: 79
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}

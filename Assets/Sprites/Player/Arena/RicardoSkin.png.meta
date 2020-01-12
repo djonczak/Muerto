@@ -164,10 +164,10 @@ TextureImporter:
       name: RicardoSkin_Idle0
       rect:
         serializedVersion: 2
-        x: 11
+        x: 10
         y: 59
-        width: 17
-        height: 32
+        width: 19
+        height: 33
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -185,10 +185,10 @@ TextureImporter:
       name: RicardoSkin_Idle1
       rect:
         serializedVersion: 2
-        x: 39
+        x: 38
         y: 59
-        width: 17
-        height: 32
+        width: 19
+        height: 33
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -206,10 +206,10 @@ TextureImporter:
       name: RicardoSkin_Idle2
       rect:
         serializedVersion: 2
-        x: 75
+        x: 74
         y: 59
-        width: 17
-        height: 32
+        width: 19
+        height: 33
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -227,10 +227,10 @@ TextureImporter:
       name: RicardoSkin_Idle3
       rect:
         serializedVersion: 2
-        x: 108
+        x: 107
         y: 59
-        width: 17
-        height: 32
+        width: 19
+        height: 33
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -251,7 +251,7 @@ TextureImporter:
         x: 3
         y: 23
         width: 31
-        height: 24
+        height: 25
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -272,7 +272,7 @@ TextureImporter:
         x: 44
         y: 23
         width: 31
-        height: 24
+        height: 25
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -293,7 +293,7 @@ TextureImporter:
         x: 85
         y: 23
         width: 31
-        height: 24
+        height: 25
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -311,10 +311,10 @@ TextureImporter:
       name: RicardoSkin_Death3
       rect:
         serializedVersion: 2
-        x: 127
+        x: 126
         y: 22
-        width: 31
-        height: 24
+        width: 32
+        height: 25
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -335,7 +335,7 @@ TextureImporter:
         x: 312
         y: 101
         width: 41
-        height: 27
+        height: 28
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -356,7 +356,7 @@ TextureImporter:
         x: 307
         y: 140
         width: 41
-        height: 27
+        height: 28
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -377,7 +377,7 @@ TextureImporter:
         x: 259
         y: 140
         width: 41
-        height: 27
+        height: 28
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -398,7 +398,7 @@ TextureImporter:
         x: 215
         y: 137
         width: 41
-        height: 27
+        height: 28
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -418,8 +418,8 @@ TextureImporter:
         serializedVersion: 2
         x: 4
         y: 102
-        width: 30
-        height: 26
+        width: 31
+        height: 27
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -439,8 +439,8 @@ TextureImporter:
         serializedVersion: 2
         x: 47
         y: 102
-        width: 30
-        height: 26
+        width: 31
+        height: 27
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -458,10 +458,10 @@ TextureImporter:
       name: RicardoSkin_Run2
       rect:
         serializedVersion: 2
-        x: 84
+        x: 83
         y: 102
-        width: 30
-        height: 26
+        width: 31
+        height: 27
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -479,10 +479,10 @@ TextureImporter:
       name: RicardoSkin_Run3
       rect:
         serializedVersion: 2
-        x: 125
+        x: 124
         y: 102
-        width: 30
-        height: 26
+        width: 31
+        height: 27
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -502,8 +502,8 @@ TextureImporter:
         serializedVersion: 2
         x: 160
         y: 102
-        width: 30
-        height: 26
+        width: 31
+        height: 27
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}

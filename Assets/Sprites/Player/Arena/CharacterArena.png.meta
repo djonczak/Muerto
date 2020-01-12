@@ -166,8 +166,8 @@ TextureImporter:
         serializedVersion: 2
         x: 4
         y: 102
-        width: 30
-        height: 25
+        width: 31
+        height: 26
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -187,8 +187,8 @@ TextureImporter:
         serializedVersion: 2
         x: 46
         y: 102
-        width: 30
-        height: 25
+        width: 31
+        height: 26
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -208,8 +208,8 @@ TextureImporter:
         serializedVersion: 2
         x: 84
         y: 102
-        width: 30
-        height: 25
+        width: 31
+        height: 26
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -229,8 +229,8 @@ TextureImporter:
         serializedVersion: 2
         x: 124
         y: 102
-        width: 30
-        height: 25
+        width: 31
+        height: 26
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -250,8 +250,8 @@ TextureImporter:
         serializedVersion: 2
         x: 159
         y: 102
-        width: 30
-        height: 24
+        width: 31
+        height: 26
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -272,7 +272,7 @@ TextureImporter:
         x: 215
         y: 137
         width: 41
-        height: 27
+        height: 28
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -293,7 +293,7 @@ TextureImporter:
         x: 263
         y: 140
         width: 41
-        height: 27
+        height: 28
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -314,7 +314,7 @@ TextureImporter:
         x: 311
         y: 140
         width: 41
-        height: 26
+        height: 28
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -335,7 +335,7 @@ TextureImporter:
         x: 312
         y: 101
         width: 41
-        height: 27
+        height: 28
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -353,10 +353,10 @@ TextureImporter:
       name: CharacterArena_Idle0
       rect:
         serializedVersion: 2
-        x: 11
+        x: 10
         y: 59
-        width: 17
-        height: 31
+        width: 19
+        height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -374,10 +374,10 @@ TextureImporter:
       name: CharacterArena_Idle1
       rect:
         serializedVersion: 2
-        x: 39
+        x: 38
         y: 59
-        width: 17
-        height: 31
+        width: 19
+        height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -395,10 +395,10 @@ TextureImporter:
       name: CharacterArena_Idle2
       rect:
         serializedVersion: 2
-        x: 75
+        x: 74
         y: 59
-        width: 17
-        height: 31
+        width: 19
+        height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -416,10 +416,10 @@ TextureImporter:
       name: CharacterArena_Idle3
       rect:
         serializedVersion: 2
-        x: 108
+        x: 107
         y: 59
-        width: 17
-        height: 31
+        width: 19
+        height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
