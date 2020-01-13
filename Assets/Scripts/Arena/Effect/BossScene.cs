@@ -37,14 +37,7 @@ public class BossScene : MonoBehaviour
         blackBars.SetActive(false);
         bossText.SetActive(false);
         oldColor = sunLight.color;
-        var players = GameObject.FindGameObjectsWithTag("Player");
-        foreach (GameObject target in players)
-        {
-            if (target.activeSelf == true)
-            {
-                player = target;
-            }
-        }
+        player = PlayerObject.GetPlayerObject();
     }
 
     private void Update()

@@ -2,12 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpriteEffect : MonoBehaviour
+public class SpriteEffect : MonoBehaviour, ISpriteEffect
 {
     [Header("Damage effect options:")]
-    public float effectDuration;
+    [SerializeField] private  float effectDuration = 1;
     [SerializeField] private Color normalColor;
-
     [SerializeField] private Color damageColor = Color.white;
 
     [Header("Heal effect options:")]
@@ -17,9 +16,13 @@ public class SpriteEffect : MonoBehaviour
     private SpriteRenderer sprite;
     private float t = 0f;
 
-    private void Start()
+    private void Awake()
     {
         sprite = GetComponent<SpriteRenderer>();
+    }
+
+    private void Start()
+    {
         normalColor = sprite.color;
     }
 

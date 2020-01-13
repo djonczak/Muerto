@@ -1,9 +1,8 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ArenaLoad : MonoBehaviour
+public class ArenaLoadScreen : MonoBehaviour
 {
     public Image blackScreen;
     [SerializeField] private float blackScreenDisperseTime = 1f;

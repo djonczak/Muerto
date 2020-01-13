@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class EnemyMeleeAttack : MonoBehaviour, IReset
 {
@@ -24,7 +22,7 @@ public class EnemyMeleeAttack : MonoBehaviour, IReset
 
     private void Start()
     {
-        target = GetComponent<EnemyMovement>().target;
+        target = PlayerObject.GetPlayerObject();
     }
 
     private void Update()

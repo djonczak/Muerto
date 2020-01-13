@@ -19,11 +19,8 @@ public class EnemyDashAttackCollider : MonoBehaviour
     {
         if(collision.tag == "Player" && GetComponentInParent<EnemyDashAttack>().isDashing == true)
         {
-            if (collision.GetComponent<PlayerHP>().isAlive == true)
-            {
-                collision.GetComponent<IDamage>().TakeDamage(damage, DamageType.Normal);
-                sound.PlayOneShot(sound.clip);
-            }
+             collision.GetComponent<IDamage>().TakeDamage(damage, DamageType.Normal);
+             sound.PlayOneShot(sound.clip);
         }
     }
 }

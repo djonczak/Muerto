@@ -5,24 +5,18 @@ using UnityEngine;
 [RequireComponent(typeof(SpriteRenderer))]
 public class EnemyMovement : MonoBehaviour
 {
-    [SerializeField] private float moveSpeed = 0.7f;
     public bool canMove;
     public bool isRanged;
 
+    [SerializeField] private float moveSpeed = 0.7f;
+    [SerializeField] private GameObject target;
+
     private SpriteRenderer sprite;
-    public GameObject target;
 
     private void Awake()
     {
         sprite = GetComponent<SpriteRenderer>();
-        var players = GameObject.FindGameObjectsWithTag("Player");
-        foreach (GameObject player in players)
-        {
-            if (player.activeSelf == true)
-            {
-                target = player;
-            }
-        }
+        target = PlayerObject.GetPlayerObject(); 
     }
 	
 	private void FixedUpdate ()
@@ -44,6 +38,12 @@ public class EnemyMovement : MonoBehaviour
 
     private void Rotation()
     {
+        Melee();
+        Ranged();
+    }
+
+    private void Melee()
+    {
         if (canMove == true && isRanged == false)
         {
             if (target.transform.position.x > transform.position.x)
@@ -55,7 +55,10 @@ public class EnemyMovement : MonoBehaviour
                 sprite.flipX = true;
             }
         }
+    }
 
+    private void Ranged()
+    {
         if (isRanged == true)
         {
             if (target.transform.position.x > transform.position.x)

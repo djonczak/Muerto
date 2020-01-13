@@ -4,21 +4,13 @@ using UnityEngine;
 
 public class BossMovement : MonoBehaviour
 {
-    [SerializeField] private float moveSpeed = 0.7f;
     public bool canMove;
-
-    public GameObject target;
+    [SerializeField] private float moveSpeed = 0.7f;
+    private GameObject target;
 
     private void Awake()
     {
-        var players = GameObject.FindGameObjectsWithTag("Player");
-        foreach (GameObject player in players)
-        {
-            if (player.activeSelf == true)
-            {
-                target = player;
-            }
-        }
+        target = PlayerObject.GetPlayerObject();
     }
 
     private void FixedUpdate()

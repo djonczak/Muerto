@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,6 +7,7 @@ public class BossHP : MonoBehaviour, IDamage
     [SerializeField] private float maxHP = 15f;
     [SerializeField] private float currentHP = 0f;
     [SerializeField] private float damageCooldown = 0.4f;
+
     private bool isAlive = true;
     private bool isSecondPhase = false;
     private bool isHurt = false;
@@ -26,7 +26,7 @@ public class BossHP : MonoBehaviour, IDamage
         {
             currentHP -= amount;
             healthBar.fillAmount = currentHP / maxHP;
-            GetComponent<SpriteEffect>().DamageEffect();
+            GetComponent<ISpriteEffect>().DamageEffect();
             CheckSecondPhase();
             if (currentHP <= 0)
             {

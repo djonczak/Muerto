@@ -49,12 +49,6 @@ public class PillarDestruction : MonoBehaviour
         }
     }
 
-    private IEnumerator StartParticle(float time)
-    {
-        DestroyPillar();
-        yield return new WaitForSeconds(time);
-    }
-
     private void DestroyPillar()
     {
         GameObject destructionEffect = ObjectPooler.instance.GetPooledObject("DestructionEffect");

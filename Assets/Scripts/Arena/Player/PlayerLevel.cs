@@ -42,14 +42,21 @@ public class PlayerLevel : MonoBehaviour
     {
         if (expPoints >= expPointMaxCap)
         {
+
             levelUpAnim.Play(0);
-            var restExp = expPoints - expPointMaxCap;
-            playerLevel++;
-            expPointMaxCap += 100;
-            expPoints = restExp;
+            GetComponent<ISoundEffect>().PlayLevelUpSound();
+            CalculateAdditionalExperience();
             levelText.text = "Level " + playerLevel;
             UnlockAbility();
-        }      
+        }
+    }
+
+    private void CalculateAdditionalExperience()
+    {
+        var restExp = expPoints - expPointMaxCap;
+        playerLevel++;
+        expPointMaxCap += 100;
+        expPoints = restExp;
     }
 
     void UnlockAbility()

@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class BossBullet : MonoBehaviour
@@ -30,15 +29,20 @@ public class BossBullet : MonoBehaviour
         {
             transform.position = Vector3.MoveTowards(transform.position, target.transform.position, moveSpeed * Time.deltaTime);
 
-            if (target.transform.position.x > transform.position.x)
-            {
-                sprite.flipX = false;
-            }
-            else
-            {
-                sprite.flipX = true;
-            }
-        }        
+            RotateTowardsPlayer();
+        }
+    }
+
+    private void RotateTowardsPlayer()
+    {
+        if (target.transform.position.x > transform.position.x)
+        {
+            sprite.flipX = false;
+        }
+        else
+        {
+            sprite.flipX = true;
+        }
     }
 
     private IEnumerator DisperseCooldown(float time)

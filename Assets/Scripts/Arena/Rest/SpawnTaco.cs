@@ -4,11 +4,16 @@ using UnityEngine;
 
 public class SpawnTaco : MonoBehaviour
 {
-    public Transform spawnPoint;
+    [SerializeField] private Transform spawnPoint;
 
     private void OnEnable()
     {
         ArenaEvents.OnSpawnTaco += TacoSpawn;
+    }
+
+    private void Awake()
+    {
+        spawnPoint = gameObject.transform.GetChild(0);
     }
 
     private void TacoSpawn()

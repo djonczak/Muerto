@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class BossSecondAbility : MonoBehaviour
 {
@@ -8,7 +6,15 @@ public class BossSecondAbility : MonoBehaviour
 
     [SerializeField] private float abilityCooldown = 5f;
 
+    public AudioClip abilitySound;
+
+    private AudioSource sound;
     private float timer;
+
+    private void Awake()
+    {
+        sound = GetComponent<AudioSource>();
+    }
 
     private void Update()
     {
@@ -24,6 +30,7 @@ public class BossSecondAbility : MonoBehaviour
             {
                 timer = 0f;
                 CastAbility();
+                sound.PlayOneShot(abilitySound);
             }
         }
     }
@@ -34,7 +41,7 @@ public class BossSecondAbility : MonoBehaviour
         if (waveAttack != null)
         {
             waveAttack.SetActive(true);
-            waveAttack.GetComponent<BloodPillar>().UsePillar(GetComponent<BossMovement>().target.transform);
+            waveAttack.GetComponent<BloodPillar>().UsePillar(PlayerObject.GetPlayerObject().transform);
         }
     }
 }

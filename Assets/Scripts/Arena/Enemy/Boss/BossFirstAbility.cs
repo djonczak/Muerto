@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class BossFirstAbility : MonoBehaviour
 {
@@ -25,7 +23,7 @@ public class BossFirstAbility : MonoBehaviour
 
     private void Start()
     {
-        target = bossMove.target;
+        target = PlayerObject.GetPlayerObject();
     }
 
     private void Update()
@@ -61,7 +59,7 @@ public class BossFirstAbility : MonoBehaviour
                 projectile.GetComponent<BossBullet>().target = target;
             }
         }
-     //   sound.PlayOneShot(abilitySound);
+        sound.PlayOneShot(abilitySound);
     }
 
     public void EndAbility()

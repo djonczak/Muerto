@@ -1,20 +1,20 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class BossMeleeAttack : MonoBehaviour
 {
     [Header("Melee Attack Settings")]
+    public Transform attackAreaPoint;
+
     [SerializeField] private float attackDamage = 1f;
     [SerializeField] private float attackSpeed = 0.5f;
     [SerializeField] private float attackRange = 0.5f;
     [SerializeField] private GameObject target;
     [SerializeField] private LayerMask playerLayer = 10;
+    [SerializeField] private Animator attackWaveEffect;
 
-    public Transform attackAreaPoint;
+    public AudioClip attackSound;
 
     private Animator anim;
-    [SerializeField] private Animator attackWaveEffect;
     private AudioSource sound;
     private float timer;
     private bool isAttacking;
@@ -28,7 +28,7 @@ public class BossMeleeAttack : MonoBehaviour
 
     private void Start()
     {
-        target = GetComponent<BossMovement>().target;
+        target = PlayerObject.GetPlayerObject();
     }
 
     private void Update()
@@ -77,12 +77,12 @@ public class BossMeleeAttack : MonoBehaviour
 
     public void CastAttack()
     {
+        sound.PlayOneShot(attackSound);
         Collider2D player = Physics2D.OverlapCircle(attackAreaPoint.position, attackRange, playerLayer);
         if (player != null)
         {
             if (player.GetComponent<IDamage>() != null)
             {
-              //  sound.PlayOneShot(sound.clip);
                 player.GetComponent<IDamage>().TakeDamage(attackDamage, DamageType.Normal);
             }
         }

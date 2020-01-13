@@ -10,11 +10,10 @@ public class DivingElbowAbility : MonoBehaviour
     [SerializeField] private float abilityRange = 5f;
     [SerializeField] private float fallSpeed = 10f;
     [SerializeField] private bool canUse = true;
-    [SerializeField] private bool hasJumped = false;
-    [SerializeField] private bool fallDown = false;
+    [SerializeField] private bool preparedToJump = false;
+    [SerializeField] private bool isFalling = false;
     [SerializeField] private LayerMask enemyLayer = 11;
     private Animator anim;
-    private Vector3 mousePosition;
 
     private void Awake()
     {
@@ -38,7 +37,7 @@ public class DivingElbowAbility : MonoBehaviour
             PrepareToJump();
         }
 
-        if (hasJumped == true)
+        if (preparedToJump == true)
         {
             if (UnityEngine.Input.GetKeyDown(KeyCode.Mouse0))
             {
@@ -50,9 +49,10 @@ public class DivingElbowAbility : MonoBehaviour
     private void PrepareToJump()
     {
         canUse = false;
-        hasJumped = true;
+        preparedToJump = true;
         Time.timeScale = 0.5f;
         GetComponent<PlayerAttack>().enabled = false;
+        GetComponent<PolygonCollider2D>().isTrigger = true;
         var secondAbility = GetComponent<TableChargeAbility>();
         if(secondAbility.disable == false)
         {
@@ -64,24 +64,22 @@ public class DivingElbowAbility : MonoBehaviour
     private void Jump()
     {
         PlayerUI.instance.Used1Ability();
-        mousePosition = CalculateMousePosition();
-        transform.position = new Vector3(mousePosition.x, transform.position.y + 1.7f, transform.position.z);
+        transform.position = new Vector3(Vector3Extension.MousePosition().x, transform.position.y + 1.7f, transform.position.z);
         Time.timeScale = 1f;
-        GetComponent<PolygonCollider2D>().isTrigger = true;
         GetComponent<ArenaMovement>().enabled = false;
-        fallDown = true;
+        isFalling = true;
         anim.SetBool("FallAttack", true);
         anim.SetBool("Run", false);
         anim.SetBool("Idle", false);
-        hasJumped = false;
+        preparedToJump = false;
     }
 
     private void FallDawn()
     {
-        if (fallDown == true)
+        if (isFalling == true)
         {
-            transform.position = Vector3.MoveTowards(transform.position, mousePosition, fallSpeed * Time.deltaTime);
-            if (0.01f > DistanceBetween(transform.position, mousePosition))
+            transform.position = Vector3.MoveTowards(transform.position, Vector3Extension.MousePosition(), fallSpeed * Time.deltaTime);
+            if (0.01f > Vector3Extension.DistanceBetweenPlayerMouse(transform.position, Vector3Extension.MousePosition()))
             {
                 PoundAttack();
             }
@@ -99,7 +97,7 @@ public class DivingElbowAbility : MonoBehaviour
             }
         }
         ParticleEffect();
-        fallDown = false;
+        isFalling = false;
         GetComponent<ISoundEffect>().PlayAbility1Sound();
         anim.SetBool("FallAttack", false);
         StartCoroutine("Cooldown", abilityCooldown);
@@ -114,18 +112,6 @@ public class DivingElbowAbility : MonoBehaviour
         GetComponent<PlayerHP>().canBeHurt = true;
         yield return new WaitForSeconds(time);
         canUse = true;
-    }
-
-    private float DistanceBetween(Vector3 player, Vector3 mouse)
-    {
-        return Vector3.Distance(player, mouse);
-    }
-
-    private Vector3 CalculateMousePosition()
-    {
-        var mouse = Camera.main.ScreenToWorldPoint(UnityEngine.Input.mousePosition);
-        mouse.z = 0f;
-        return mouse;
     }
 
     private void ParticleEffect()

@@ -8,18 +8,16 @@ public class WaveSpawner : MonoBehaviour
     public List<string> enemyTag;
     [Header("Additional enemies to add later")]
     public List<string> additionalEnemiesTag;
-    private int enemyNumber;
-    private int additionalEnemyIndex = 0;
+
     [Header("Wave options")]
-    public float timeToSpawn;
-
-    private int totalWaves = 15;
+    [SerializeField] private float timeToSpawn = 4;
     [SerializeField] private int currentWave = 0;
-
     [SerializeField] private int totalEnemyNumber = 3;
     [SerializeField] private int currentEnemy = 0;
-
     [SerializeField] private bool spawnEnemies;
+    [SerializeField] private int additionalEnemyIndex = 0;
+
+    private int totalWaves = 15;
 
     private void OnEnable()
     {
@@ -35,7 +33,6 @@ public class WaveSpawner : MonoBehaviour
     {
         if (spawnEnemies)
         {
-             enemyNumber = Random.Range(0, enemyTag.Capacity);
              SpawnEnemy();
         }
         if (currentEnemy == totalEnemyNumber)
@@ -46,21 +43,34 @@ public class WaveSpawner : MonoBehaviour
 
     private void SpawnEnemy()
     {
+        var enemyNumber = Random.Range(0, enemyTag.Capacity);
+        Debug.Log(enemyNumber);
         GameObject enemy = ObjectPooler.instance.GetPooledObject(enemyTag[enemyNumber]);
         if (enemy != null)
         {
-            Vector3 minScreenBounds = Camera.main.ScreenToWorldPoint(new Vector3(3, 3, 0));
-            Vector3 maxScreenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width - 3f, Screen.height - 3f, 0));
-            Vector3 randomSpawnPoint = new Vector3(Random.Range(minScreenBounds.x, maxScreenBounds.x), Random.Range(minScreenBounds.y, maxScreenBounds.y), 0);
-            enemy.transform.position = randomSpawnPoint;
+            Vector3 spawnPoint = GetRandomSpawnPoint();
+            enemy.transform.position = spawnPoint;
             currentEnemy++;
             enemy.SetActive(true);
-            GameObject summonEffect = ObjectPooler.instance.GetPooledObject("SummonParticle");
-            if (summonEffect != null)
-            {
-                summonEffect.transform.position = enemy.transform.position;
-                summonEffect.SetActive(true);
-            }
+            SummonEffect(enemy);
+        }
+    }
+
+    private static Vector3 GetRandomSpawnPoint()
+    {
+        Vector3 minScreenBounds = Camera.main.ScreenToWorldPoint(new Vector3(3, 3, 0));
+        Vector3 maxScreenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width - 3f, Screen.height - 3f, 0));
+        Vector3 randomSpawnPoint = new Vector3(Random.Range(minScreenBounds.x, maxScreenBounds.x), Random.Range(minScreenBounds.y, maxScreenBounds.y), 0);
+        return randomSpawnPoint;
+    }
+
+    private static void SummonEffect(GameObject enemy)
+    {
+        GameObject summonEffect = ObjectPooler.instance.GetPooledObject("SummonParticle");
+        if (summonEffect != null)
+        {
+            summonEffect.transform.position = enemy.transform.position;
+            summonEffect.SetActive(true);
         }
     }
 
@@ -113,16 +123,15 @@ public class WaveSpawner : MonoBehaviour
         ArenaEvents.SpawnTaco();
     }
 
+    private void SpawnBoss()
+    {
+        ArenaEvents.BossArrive();
+    }
+
     public void EnemyDied()
     {
         currentEnemy--;
         CheckWave();
-    }
-
-    [ContextMenu("SpawnBoss")]
-    private void SpawnBoss()
-    {
-        ArenaEvents.BossArrive();
     }
 
     private IEnumerator CooldownToSpawn(float time)

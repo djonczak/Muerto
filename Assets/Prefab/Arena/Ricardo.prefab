@@ -737,7 +737,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 1
-  mousePosition: {x: 0, y: 0, z: 0}
   canMove: 1
 --- !u!114 &535408196014756028
 MonoBehaviour:
@@ -810,8 +809,8 @@ MonoBehaviour:
   abilityRange: 0.82
   fallSpeed: 4.5
   canUse: 1
-  hasJumped: 0
-  fallDown: 0
+  preparedToJump: 0
+  isFalling: 0
   enemyLayer:
     serializedVersion: 2
     m_Bits: 2048
@@ -870,6 +869,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17072d21a3e6a20489585e9d10fa0668, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  levelUpSound: {fileID: 8300000, guid: 1a884ec8274eb8044be2f70d0d6f7890, type: 3}
+  healSound: {fileID: 8300000, guid: 9169e90cb722f1a42a9913fd6747b462, type: 3}
   ability1Sound: {fileID: 8300000, guid: bd9a91c489ff38c46b6fb756cc87675b, type: 3}
   ability2Sound: {fileID: 8300000, guid: f8a6d17b27e66044e84f552279d33cb9, type: 3}
   deathSound: {fileID: 8300000, guid: 9a29704b4e812b1488284ae7ca1c8830, type: 3}
@@ -1043,7 +1044,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.17, y: 0.32}
+    oldSize: {x: 0.19, y: 0.33}
     newSize: {x: 0.17, y: 0.32}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -1051,14 +1052,16 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.044999998, y: 0.155}
-      - {x: -0.055, y: 0.155}
-      - {x: -0.085, y: 0.105}
-      - {x: -0.085, y: -0.155}
-      - {x: 0.074999996, y: -0.155}
-      - {x: 0.085, y: -0.105}
-      - {x: 0.085, y: 0.065}
-      - {x: 0.055, y: 0.145}
+    - - {x: 0.04812558, y: 0.09164193}
+      - {x: 0.037342705, y: 0.10488042}
+      - {x: -0.02019882, y: 0.10627279}
+      - {x: -0.07456143, y: 0.07158696}
+      - {x: -0.08565902, y: 0.025023617}
+      - {x: -0.08708953, y: -0.09931176}
+      - {x: 0.063168205, y: -0.09652733}
+      - {x: 0.082216255, y: -0.07854809}
+      - {x: 0.06898879, y: 0.052470062}
+      - {x: 0.059874848, y: 0.075389534}
 --- !u!1 &535408196199941248
 GameObject:
   m_ObjectHideFlags: 0

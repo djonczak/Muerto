@@ -5,11 +5,13 @@ using UnityEngine;
 public class EnemyRangeAttack : MonoBehaviour, IReset
 {
     [Header("Range Attack Options")]
+
     [SerializeField] private float attackDamage = 1;
     [SerializeField] private float attackSpeed = 0.8f;
     [SerializeField] private float attackRadius = 1.76f;
-    public Transform barrel;
     [SerializeField] private GameObject target;
+
+    public Transform barrel;
 
     private Animator anim;
     private float timer;
@@ -24,7 +26,7 @@ public class EnemyRangeAttack : MonoBehaviour, IReset
 
     private void Start()
     {
-        target = GetComponent<EnemyMovement>().target;
+        target = PlayerObject.GetPlayerObject();
     }
 
     private void Update()

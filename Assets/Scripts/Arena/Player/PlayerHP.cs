@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class PlayerHP : MonoBehaviour, IDamage, IHeal
@@ -13,7 +11,7 @@ public class PlayerHP : MonoBehaviour, IDamage, IHeal
     public bool isAlive = true;
     public bool canBeHurt;
 
-	void Start ()
+	private void Start ()
     {
         currentHP = maxHP;
 	}
@@ -27,7 +25,7 @@ public class PlayerHP : MonoBehaviour, IDamage, IHeal
                 currentHP -= amount;
                 i++;
                 healthBars[i].enabled = false;
-                GetComponent<SpriteEffect>().DamageEffect();
+                GetComponent<ISpriteEffect>().DamageEffect();
             }
 
             if (currentHP <= 0)
@@ -61,7 +59,8 @@ public class PlayerHP : MonoBehaviour, IDamage, IHeal
             currentHP += amount;
             healthBars[i].enabled = true;
             i--;
-            GetComponent<SpriteEffect>().HealEffect();
+            GetComponent<ISpriteEffect>().HealEffect();
+            GetComponent<ISoundEffect>().PlayHealSound();
             taco.Healed();
         }
     }

@@ -25,7 +25,7 @@ public class EnemyDashAttack : MonoBehaviour, IReset
 
     private void Start()
     {
-        target = GetComponent<EnemyMovement>().target;
+        target = PlayerObject.GetPlayerObject();
     }
 
     private void FixedUpdate()

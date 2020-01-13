@@ -15,7 +15,6 @@ public class TableChargeAbility : MonoBehaviour
     public bool isCharging = false;
     [SerializeField] private LayerMask enemyLayer = 11;
     private Animator anim;
-    private Vector3 mousePosition;
     private Rigidbody2D rb;
 
     private void Awake()
@@ -53,7 +52,7 @@ public class TableChargeAbility : MonoBehaviour
     private void StartCharge()
     {
         Time.timeScale = 1f;
-        rb.velocity = CalculateStartDirection() * chargeSpeed;
+        rb.velocity = Vector3Extension.CalculateDirectionTowardsMouse(transform.position) * chargeSpeed;
         StartCoroutine("ChargeDuration", abilityDuration);
         anim.SetBool("Charge", true);
         isCharging = true;
@@ -111,7 +110,7 @@ public class TableChargeAbility : MonoBehaviour
     {
         if (collision.gameObject.layer == 8)
         {
-            rb.velocity = CalculateStartDirection();
+            rb.velocity = Vector3Extension.CalculateDirectionTowardsMouse(transform.position);
         }
     }
 
@@ -125,7 +124,7 @@ public class TableChargeAbility : MonoBehaviour
         rb.velocity = Vector2.zero;
         GetComponent<ArenaMovement>().enabled = true;
         GetComponent<PlayerAttack>().enabled = true;
-        GetComponent<DivingElbowAbility>().disable = false;
+        GetComponent<DivingElbowAbility>().enabled = true;
         StartCoroutine("AbilityCooldown", abilityCooldown);
     }
 
@@ -133,16 +132,7 @@ public class TableChargeAbility : MonoBehaviour
     {
         PlayerUI.instance.Used2Ability();
         yield return new WaitForSeconds(time);
-        Debug.Log("You can use your second ability.");
         canUse = true;
-    }
-
-    private Vector3 CalculateStartDirection()
-    {
-        var mouse = Camera.main.ScreenToWorldPoint(UnityEngine.Input.mousePosition);
-        mouse.z = 0f;
-        var direction = transform.position - mouse;
-        return -direction;
     }
 
     private void OnDrawGizmos()
