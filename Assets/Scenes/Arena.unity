@@ -3066,7 +3066,7 @@ PrefabInstance:
     - target: {fileID: 7471797268637326169, guid: c731cf1cae335f14587a5d37ee7b57aa,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -35.05114
+      value: -35.052
       objectReference: {fileID: 0}
     - target: {fileID: 7471797268637326169, guid: c731cf1cae335f14587a5d37ee7b57aa,
         type: 3}
@@ -6437,6 +6437,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Tzontemoc
+      objectReference: {fileID: 0}
+    - target: {fileID: 275122903394631256, guid: ad5b72488feba69489ca097aaf08e3d6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 275122903394631238, guid: ad5b72488feba69489ca097aaf08e3d6,
         type: 3}
