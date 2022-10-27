@@ -2,12 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EyeRotation : MonoBehaviour
+namespace Game.VFX
 {
-    public float rotationAmount;
-
-    private void FixedUpdate()
+    public class EyeRotation : MonoBehaviour
     {
-        transform.Rotate(0, 0, rotationAmount * Time.fixedDeltaTime);
+        public float rotationAmount;
+
+        private void FixedUpdate()
+        {
+            transform.Rotate(0, 0, rotationAmount * Time.fixedDeltaTime);
+        }
     }
 }

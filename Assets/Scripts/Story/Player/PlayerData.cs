@@ -2,56 +2,60 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerData : MonoBehaviour {
-
-    public bool hasFlower;
-    public bool hasMask;
-
-    public bool canPass;
-
-    void OnEnable()
+namespace Game.Story
+{
+    public class PlayerData : MonoBehaviour
     {
-        ItemPickEvent.OnItemPick += CheckWhichItem;
-    }
 
-    private void ChecksIfGathered()
-    {
-        if(hasFlower && hasMask )
+        public bool hasFlower;
+        public bool hasMask;
+
+        public bool canPass;
+
+        private void OnEnable()
         {
-            canPass = true;
+            ItemPickEvent.OnItemPick += CheckWhichItem;
         }
-        else
+
+        private void ChecksIfGathered()
         {
-            canPass = false;
+            if (hasFlower && hasMask)
+            {
+                canPass = true;
+            }
+            else
+            {
+                canPass = false;
+            }
         }
-    }
 
-    private void CheckWhichItem(int i)
-    {
-        if(i == 1)
+        private void CheckWhichItem(int i)
         {
-            AddFlowers();
+            if (i == 1)
+            {
+                AddFlowers();
+            }
+            if (i == 2)
+            {
+                AddMask();
+            }
         }
-        if(i == 2)
+
+        public void AddFlowers()
         {
-            AddMask();
+            hasFlower = true;
+            ChecksIfGathered();
         }
-    }
 
-    public void AddFlowers()
-    {
-        hasFlower = true;
-        ChecksIfGathered();
-    }
+        public void AddMask()
+        {
+            hasMask = true;
+            ChecksIfGathered();
+        }
 
-    public void AddMask()
-    {
-        hasMask = true;
-        ChecksIfGathered();
-    }
-
-    private void OnDestroy()
-    {
-        ItemPickEvent.OnItemPick -= CheckWhichItem;
+        private void OnDestroy()
+        {
+            ItemPickEvent.OnItemPick -= CheckWhichItem;
+        }
     }
 }

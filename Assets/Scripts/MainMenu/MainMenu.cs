@@ -3,56 +3,80 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MainMenu : MonoBehaviour {
+namespace Game.Menu {
 
-    public GameObject credtitsWindow;
-    public GameObject arenaWindow;
-    public Texture2D cursorTexture;
-    public GameObject message;
-
-    private void Start()
+    public class MainMenu : MonoBehaviour
     {
-        credtitsWindow.SetActive(false);
-        Cursor.SetCursor(cursorTexture, Vector2.zero, CursorMode.Auto);
-    }
+        public GameObject credtitsWindow;
+        public GameObject arenaWindow;
+        public Texture2D cursorTexture;
+        public GameObject message;
 
-    public void Story()
-    {
-        SceneManager.LoadScene("01_Room");
-    }
+        private bool _canInteract = true;
 
-    public void LoadArena()
-    {
-        if (PlayerPrefs.GetString("Name") == "")
+        private const string StoryLevel = "01_Room";
+        private const string ArenaLevel = "Arena";
+        private const string ShowKey = "Show";
+
+        private void Start()
         {
-            message.GetComponent<Animator>().SetTrigger("Show");
-            message.GetComponentInChildren<UnityEngine.UI.Text>().text = "Choose character !";
+            credtitsWindow.SetActive(false);
+            Cursor.SetCursor(cursorTexture, Vector2.zero, CursorMode.Auto);
         }
-        else
+
+        public void Story()
         {
-            SceneManager.LoadScene("Arena");
+            if (_canInteract)
+            {
+                _canInteract = false;
+                CameraManager.CameraFade.Instance.FadeIn(() => SceneManager.LoadScene(StoryLevel), 2f);
+            }
         }
-    }
 
-    public void OpenArenaWindow()
-    {
-        arenaWindow.SetActive(true);
-    }
+        public void LoadArena()
+        {
+            if (PlayerPrefs.GetString("Name") == "")
+            {
+                message.GetComponent<Animator>().SetTrigger(ShowKey);
+                message.GetComponentInChildren<UnityEngine.UI.Text>().text = "Choose character !";
+            }
+            else
+            {
+                if (_canInteract)
+                {
+                    CameraManager.CameraFade.Instance.FadeIn(() => SceneManager.LoadScene(ArenaLevel), 2);
+                    _canInteract = false;
+                }
+            }
+        }
 
-    public void OpenCreditsWindow()
-    {
-        credtitsWindow.SetActive(true);
-    }
+        public void OpenArenaWindow()
+        {
+            arenaWindow.SetActive(true);
+        }
 
-    public void Quit()
-    {
-        Application.Quit();
-    }
+        public void OpenCreditsWindow()
+        {
+            credtitsWindow.SetActive(true);
+        }
 
-    public void GoBackToMainMenu()
-    {
-        arenaWindow.SetActive(false);
-        credtitsWindow.SetActive(false);
+        public void Quit()
+        {
+            if (_canInteract)
+            {
+                CameraManager.CameraFade.Instance.FadeIn(() => Application.Quit(), 2);
+                _canInteract = false;
+            }
+        }
+
+        public void GoBackToMainMenu()
+        {
+            if (_canInteract)
+            {
+                arenaWindow.SetActive(false);
+                credtitsWindow.SetActive(false);
+            }
+        }
     }
 }
 

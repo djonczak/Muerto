@@ -2,25 +2,31 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CharacterSlot : MonoBehaviour
+namespace Game.Menu 
 {
-    public string characterName = "name";
-    public GameObject unlockInfo;
-    [SerializeField] private Color normalColor = new Color(255,255,255,255);
-
-    public bool isUnlocked;
-
-    public void Start()
+    public class CharacterSlot : MonoBehaviour
     {
-        if(PlayerPrefs.GetString("Boss") == "Yes")
-        {
-            isUnlocked = true;
-        }
+        public string characterName = "name";
+        public GameObject unlockInfo;
+        [SerializeField] private Color normalColor = new Color(255, 255, 255, 255);
 
-        if(isUnlocked == true)
+        public bool IsUnlocked;
+
+        private const string BossKey = "Boss";
+        private const string YesKey = "Yes";
+
+        public void Start()
         {
-            unlockInfo.SetActive(false);
-            GetComponent<UnityEngine.UI.Image>().color = normalColor;
+            if (PlayerPrefs.GetString(BossKey) == YesKey)
+            {
+                IsUnlocked = true;
+            }
+
+            if (IsUnlocked == true)
+            {
+                unlockInfo.SetActive(false);
+                GetComponent<UnityEngine.UI.Image>().color = normalColor;
+            }
         }
     }
 }

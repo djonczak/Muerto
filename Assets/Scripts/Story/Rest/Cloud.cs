@@ -2,19 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Cloud : MonoBehaviour
+namespace Game.VFX
 {
-    public Transform startPoint;
-    public float moveSpeed;
-
-    private void Awake()
+    public class Cloud : MonoBehaviour
     {
-        GetComponent<Rigidbody2D>().velocity = transform.right * moveSpeed;  
-    }
+        public Transform startPoint;
+        public float moveSpeed;
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        transform.position = new Vector3(startPoint.position.x, transform.position.y, transform.position.z);
-    }
+        private void Awake()
+        {
+            GetComponent<Rigidbody2D>().velocity = transform.right * moveSpeed;
+        }
 
+        private void OnTriggerEnter2D(Collider2D collision)
+        {
+            transform.position = new Vector3(startPoint.position.x, transform.position.y, transform.position.z);
+        }
+    }
 }

@@ -2,68 +2,73 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AddItem : MonoBehaviour
+namespace Game.Interactable 
 {
-    public enum Item
+    public class AddItem : MonoBehaviour
     {
-        Flower,
-        Mask,
-    };
-
-    public Item itemToPick;
-    public GameObject button;
-
-    private bool isPlayer;
-
-    private void Start()
-    {
-        button.SetActive(false);
-    }
-
-    private void Update()
-    {
-        PickItem();
-    }
-
-    private void PickItem()
-    {
-        if (isPlayer == true)
+        public enum Item
         {
-            if (Input.GetKeyDown(KeyCode.E))
-            {
-                CollectItem(itemToPick);
-                gameObject.SetActive(false);
-            }
-        }
-    }
+            Flower,
+            Mask,
+        };
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.tag == "Player")
-        {
-            button.SetActive(true);
-            isPlayer = true;
-        }
-    }
+        public Item itemToPick;
+        public GameObject button;
 
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.tag == "Player")
+        private bool _isPlayer;
+
+        private const string PlayerTag = "Player";
+
+        private void Start()
         {
             button.SetActive(false);
-            isPlayer = false;
         }
-    }
 
-    private void CollectItem(Item item)
-    {
-        if(item == Item.Flower)
+        private void Update()
         {
-            ItemPickEvent.ItemPicked(1);
+            PickItem();
         }
-        if(item == Item.Mask)
+
+        private void PickItem()
         {
-            ItemPickEvent.ItemPicked(2);
+            if (_isPlayer == true)
+            {
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    CollectItem(itemToPick);
+                    gameObject.SetActive(false);
+                }
+            }
+        }
+
+        private void OnTriggerEnter2D(Collider2D collision)
+        {
+            if (collision.tag == PlayerTag)
+            {
+                button.SetActive(true);
+                _isPlayer = true;
+            }
+        }
+
+        private void OnTriggerExit2D(Collider2D collision)
+        {
+            if (collision.tag == PlayerTag)
+            {
+                button.SetActive(false);
+                _isPlayer = false;
+            }
+        }
+
+        private void CollectItem(Item item)
+        {
+            if (item == Item.Flower)
+            {
+                ItemPickEvent.ItemPicked(1);
+            }
+            if (item == Item.Mask)
+            {
+                ItemPickEvent.ItemPicked(2);
+            }
         }
     }
 }

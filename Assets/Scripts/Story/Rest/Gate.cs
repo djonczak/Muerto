@@ -4,43 +4,58 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class Gate : MonoBehaviour {
-
-    GameObject player;
-    PlayerData data;
-    public Text text;
-
-    private void Awake ()
+namespace Game.Interactable
+{
+    public class Gate : MonoBehaviour
     {
-        player = GameObject.FindGameObjectWithTag("Manager");
-        data = player.GetComponent<PlayerData>();
-    }
+        private GameObject _player;
+        private Story.PlayerData _data;
+        public Text text;
 
-    private void Start()
-    {
-        text.enabled = false;
-    }
+        private bool _canInteract = true;
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if(collision.collider.tag == "Player")
+        private const string PlayerTag = "Player";
+        private const string CemeteryLevel = "03_Cementery";
+
+        private void Awake()
         {
-            if (data.canPass)
-            {
-                SceneManager.LoadScene("03_Cementery");
-            }
-            else
-            {
-                text.enabled = true;
-            }
+            _player = GameObject.FindGameObjectWithTag("Manager");
+            _data = _player.GetComponent<Story.PlayerData>();
         }
-    }
 
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        if(collision.collider.tag == "Player")
+        private void Start()
         {
             text.enabled = false;
+        }
+
+        private void OnCollisionEnter2D(Collision2D collision)
+        {
+            if (_canInteract)
+            {
+                if (collision.collider.tag == PlayerTag)
+                {
+                    if (_data.canPass)
+                    {
+                        _canInteract = false;
+                        CameraManager.CameraFade.Instance.FadeIn(() => SceneManager.LoadScene(CemeteryLevel), 2f);
+                    }
+                    else
+                    {
+                        text.enabled = true;
+                    }
+                }
+            }
+        }
+
+        private void OnCollisionExit2D(Collision2D collision)
+        {
+            if (_canInteract)
+            {
+                if (collision.collider.tag == PlayerTag)
+                {
+                    text.enabled = false;
+                }
+            }
         }
     }
 }

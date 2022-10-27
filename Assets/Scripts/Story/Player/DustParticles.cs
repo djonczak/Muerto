@@ -2,47 +2,50 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DustParticles : MonoBehaviour
+namespace Game.VFX 
 {
-    public Transform dustStartPoint;
-    public GameObject dustPrefab;
-    public int amountToSpawn;
-    [SerializeField] private List<GameObject> dustParticles = new List<GameObject>();
-
-    private void Start()
+    public class DustParticles : MonoBehaviour
     {
-        InstantiateDirt();
-    }
+        public Transform dustStartPoint;
+        public GameObject dustPrefab;
+        public int amountToSpawn;
+        private List<GameObject> dustParticles = new List<GameObject>();
 
-    private void InstantiateDirt()
-    {
-        for (int i = 0; i <= amountToSpawn; i++)
+        private void Start()
         {
-            var dirt = Instantiate(dustPrefab);
-            dustParticles.Add(dirt);
+            InstantiateDirt();
         }
-    }
 
-    public void SpawnParticle()
-    {
-        GameObject dust = ReturnDirt();
-        if (dust != null)
+        private void InstantiateDirt()
         {
-            dust.transform.position = dustStartPoint.position;
-            dust.SetActive(true);
-            dust.GetComponent<ParticleSystem>().Play();
-        }
-    }
-
-    private GameObject ReturnDirt()
-    {
-        for (int i = 0; i <= dustParticles.Count; i++)
-        {
-            if (dustParticles[i].GetComponent<ParticleSystem>().isPlaying == false)
+            for (int i = 0; i <= amountToSpawn; i++)
             {
-                return dustParticles[i];
+                var dirt = Instantiate(dustPrefab);
+                dustParticles.Add(dirt);
             }
         }
-        return null;
+
+        public void SpawnParticle()
+        {
+            GameObject dust = ReturnDirt();
+            if (dust != null)
+            {
+                dust.transform.position = dustStartPoint.position;
+                dust.SetActive(true);
+                dust.GetComponent<ParticleSystem>().Play();
+            }
+        }
+
+        private GameObject ReturnDirt()
+        {
+            for (int i = 0; i <= dustParticles.Count; i++)
+            {
+                if (dustParticles[i].GetComponent<ParticleSystem>().isPlaying == false)
+                {
+                    return dustParticles[i];
+                }
+            }
+            return null;
+        }
     }
 }

@@ -3,50 +3,48 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class StoryUI : MonoBehaviour
+namespace Game.UI
 {
-    public Color color;
-    public Text flowerText;
-    public Text itemText;
-
-    GameObject manager;
-    PlayerData data;
-
-    void Start()
+    public class StoryUI : MonoBehaviour
     {
-        manager = GameObject.FindGameObjectWithTag("Manager");
-        data = manager.GetComponent<PlayerData>();
-    }
+        public Color color;
+        public Text flowerText;
+        public Text itemText;
 
-    void Update()
-    {
-        SetText();
-    }
+        private GameObject _manager;
+        private Story.PlayerData _data;
 
-    public void SetText()
-    {
-        if (data.hasFlower == true)
+        void Start()
         {
-            flowerText.color = color;
-            flowerText.text = "You got flowers !";
+            _manager = GameObject.FindGameObjectWithTag("Manager");
+            _data = _manager.GetComponent<Story.PlayerData>();
         }
-        else
+
+        void Update()
         {
-            flowerText.text = "Find flowers.";
+            SetText();
         }
-        if (data.hasMask == true)
+
+        public void SetText()
         {
-            itemText.color = color;
-            itemText.text = "You got mask !";
-        }
-        else
-        {
-            itemText.text = "Find mask.";
+            if (_data.hasFlower == true)
+            {
+                flowerText.color = color;
+                flowerText.text = "You got flowers !";
+            }
+            else
+            {
+                flowerText.text = "Find flowers.";
+            }
+            if (_data.hasMask == true)
+            {
+                itemText.color = color;
+                itemText.text = "You got mask !";
+            }
+            else
+            {
+                itemText.text = "Find mask.";
+            }
         }
     }
 }
-
-
-   
-        
-
