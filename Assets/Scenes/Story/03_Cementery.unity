@@ -6970,6 +6970,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   reaper: {fileID: 890223129}
+  _sceneAmbient: {fileID: 2138712023}
   monster: {fileID: 8300000, guid: be098333a8ca6e7429690ffe2c1c93f6, type: 3}
   slash: {fileID: 8300000, guid: ff8c4776deee64847a8b9c7453ffc6e4, type: 3}
   soul: {fileID: 8300000, guid: c94877383b2ada74ea5182f13fc6843b, type: 3}

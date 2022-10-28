@@ -9,6 +9,7 @@ namespace Game.Scene
     public class DeathScene : MonoBehaviour
     {
         public GameObject reaper;
+        public AudioSource _sceneAmbient;
         private AudioSource _audioSource;
         public AudioClip monster;
         public AudioClip slash;
@@ -95,13 +96,26 @@ namespace Game.Scene
             _showText = true;
             _audioSource.PlayOneShot(slash);
             yield return new WaitForSeconds(2f);
+            StartCoroutine(FadeAudio());
             CameraManager.CameraFade.Instance.FadeIn(() => SceneManager.LoadScene(Menu), 2);
         }
 
-        private static void SetPlayer(GameObject player)
+        private IEnumerator FadeAudio()
+        {
+            var time = 0f;
+            var startVolume = _sceneAmbient.volume;
+            while (time < 2f)
+            {
+                var value = Mathf.Lerp(startVolume, 0, time / 2f);
+                _sceneAmbient.volume = value;
+                time += Time.deltaTime;
+                yield return null;
+            }
+        }
+
+        private void SetPlayer(GameObject player)
         {
             player.GetComponent<Player.PlayerMovement>().CanMove = false;
-            player.GetComponent<Player.PlayerMovement>().enabled = false;
             player.GetComponent<SpriteRenderer>().flipX = true;
             player.GetComponent<Animator>().SetFloat(SpeedKey, 0f);
         }

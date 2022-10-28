@@ -16,7 +16,7 @@ namespace Game.Interactable
 
         private const string PlayerTag = "Player";
         private const string CemeteryLevel = "03_Cementery";
-
+        private const string SpeedKey = "Speed";
         private void Awake()
         {
             _player = GameObject.FindGameObjectWithTag("Manager");
@@ -37,6 +37,8 @@ namespace Game.Interactable
                     if (_data.canPass)
                     {
                         _canInteract = false;
+                        collision.gameObject.GetComponent<Player.PlayerMovement>().CanMove = false;
+                        collision.gameObject.GetComponent<Animator>().SetFloat(SpeedKey, 0f);
                         CameraManager.CameraFade.Instance.FadeIn(() => SceneManager.LoadScene(CemeteryLevel), 2f);
                     }
                     else

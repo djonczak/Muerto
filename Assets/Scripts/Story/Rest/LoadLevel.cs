@@ -12,7 +12,15 @@ namespace Game.Interactable
 
         private bool _isColliding = false;
         private bool _canInteract = true;
+        private AudioSource _audioSource;
+        private GameObject _player;
+
         private const string PlayerTag = "Player";
+        private const string SpeedKey = "Speed";
+        private void Awake()
+        {
+            _audioSource = GetComponent<AudioSource>();
+        }
 
         private void Update()
         {
@@ -20,6 +28,9 @@ namespace Game.Interactable
             {
                 if (Input.GetKey(KeyCode.E))
                 {
+                    _audioSource.Play();
+                    _player.GetComponent<Player.PlayerMovement>().CanMove = false;
+                    _player.GetComponent<Animator>().SetFloat(SpeedKey, 0f);
                     CameraManager.CameraFade.Instance.FadeIn(() => SceneManager.LoadScene(Lvl),2);
                     _canInteract = false;
                 }
@@ -31,6 +42,7 @@ namespace Game.Interactable
             if (collision.gameObject.tag == PlayerTag)
             {
                 _isColliding = true;
+                _player = collision.gameObject;
                 button.SetActive(true);
             }
         }
@@ -40,6 +52,7 @@ namespace Game.Interactable
             if (collision.gameObject.tag == PlayerTag)
             {
                 _isColliding = false;
+                _player = null;
                 button.SetActive(false);
             }
         }

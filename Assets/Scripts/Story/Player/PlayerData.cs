@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 namespace Game.Story
 {
@@ -11,6 +12,8 @@ namespace Game.Story
         public bool hasMask;
 
         public bool canPass;
+
+        public Action PickedItem;
 
         private void OnEnable()
         {
@@ -44,12 +47,14 @@ namespace Game.Story
         public void AddFlowers()
         {
             hasFlower = true;
+            PickedItem?.Invoke();
             ChecksIfGathered();
         }
 
         public void AddMask()
         {
             hasMask = true;
+            PickedItem?.Invoke();
             ChecksIfGathered();
         }
 

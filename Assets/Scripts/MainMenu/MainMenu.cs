@@ -12,11 +12,15 @@ namespace Game.Menu {
         public Texture2D cursorTexture;
         public GameObject message;
 
+        [SerializeField] private AudioSource _audioSource;
+
         private bool _canInteract = true;
 
         private const string StoryLevel = "01_Room";
         private const string ArenaLevel = "Arena";
         private const string ShowKey = "Show";
+
+        private const string NameKey = "Name";
 
         private void Start()
         {
@@ -29,13 +33,27 @@ namespace Game.Menu {
             if (_canInteract)
             {
                 _canInteract = false;
+                StartCoroutine(FadeAudio());
                 CameraManager.CameraFade.Instance.FadeIn(() => SceneManager.LoadScene(StoryLevel), 2f);
+            }
+        }
+
+        private IEnumerator FadeAudio()
+        {
+            var time = 0f;
+            var startVolume = _audioSource.volume;
+            while(time < 2f)
+            {
+                var value = Mathf.Lerp(startVolume, 0, time / 2f);
+                _audioSource.volume = value;
+                time += Time.deltaTime;
+                yield return null;
             }
         }
 
         public void LoadArena()
         {
-            if (PlayerPrefs.GetString("Name") == "")
+            if (PlayerPrefs.GetString(NameKey) == "")
             {
                 message.GetComponent<Animator>().SetTrigger(ShowKey);
                 message.GetComponentInChildren<UnityEngine.UI.Text>().text = "Choose character !";
@@ -44,6 +62,7 @@ namespace Game.Menu {
             {
                 if (_canInteract)
                 {
+                    StartCoroutine(FadeAudio());
                     CameraManager.CameraFade.Instance.FadeIn(() => SceneManager.LoadScene(ArenaLevel), 2);
                     _canInteract = false;
                 }
