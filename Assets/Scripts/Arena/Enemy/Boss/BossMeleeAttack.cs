@@ -1,96 +1,101 @@
 ﻿using UnityEngine;
 
-public class BossMeleeAttack : MonoBehaviour
+namespace Game.Arena.AI 
 {
-    [Header("Melee Attack Settings")]
-    public Transform attackAreaPoint;
-
-    [SerializeField] private float attackDamage = 1f;
-    [SerializeField] private float attackSpeed = 0.5f;
-    [SerializeField] private float attackRange = 0.5f;
-    [SerializeField] private GameObject target;
-    [SerializeField] private LayerMask playerLayer = 10;
-    [SerializeField] private Animator attackWaveEffect;
-
-    public AudioClip attackSound;
-
-    private Animator anim;
-    private AudioSource sound;
-    private float timer;
-    private bool isAttacking;
-
-    private void Awake()
+    public class BossMeleeAttack : MonoBehaviour
     {
-        anim = GetComponent<Animator>();
-        sound = GetComponent<AudioSource>();
-        attackWaveEffect = transform.GetChild(1).gameObject.GetComponent<Animator>();
-    }
+        [Header("Melee Attack Settings")]
+        public Transform attackAreaPoint;
 
-    private void Start()
-    {
-        target = PlayerObject.GetPlayerObject();
-    }
+        [SerializeField] private float attackDamage = 1f;
+        [SerializeField] private float attackSpeed = 0.5f;
+        [SerializeField] private float attackRange = 0.5f;
+        [SerializeField] private GameObject target;
+        [SerializeField] private LayerMask playerLayer = 10;
+        [SerializeField] private Animator attackWaveEffect;
 
-    private void Update()
-    {
-        CheckAttack();
-    }
+        public AudioClip attackSound;
 
-    private void CheckAttack()
-    {
-        if (target.GetComponent<PlayerHP>().isAlive == true && isAttacking == false)
+        private Animator _animator;
+        private AudioSource _audioSource;
+        private float _timer;
+        private bool _isAttacking;
+
+        private const string AttackKey = "Attack";
+
+        private void Awake()
         {
-            var distance = Vector3.Distance(transform.position, target.transform.position);
-            if (distance <= attackRange)
+            _animator = GetComponent<Animator>();
+            _audioSource = GetComponent<AudioSource>();
+            attackWaveEffect = transform.GetChild(1).gameObject.GetComponent<Animator>();
+        }
+
+        private void Start()
+        {
+            target = PlayerObject.GetPlayerObject();
+        }
+
+        private void Update()
+        {
+            CheckAttack();
+        }
+
+        private void CheckAttack()
+        {
+            if (target.GetComponent<Player.PlayerHP>().isAlive == true && _isAttacking == false)
             {
-                timer += Time.deltaTime;
-                if (timer >= attackSpeed)
+                var distance = Vector3.Distance(transform.position, target.transform.position);
+                if (distance <= attackRange)
                 {
-                    StartAttack();
+                    _timer += Time.deltaTime;
+                    if (_timer >= attackSpeed)
+                    {
+                        StartAttack();
+                    }
+                }
+                else
+                {
+                    _timer = 0f;
                 }
             }
-            else
-            {
-                timer = 0f;
-            }
         }
-    }
 
-    private void StartAttack()
-    {
-        anim.SetTrigger("Attack");
-        GetComponent<BossMovement>().canMove = false;
-        isAttacking = true;
-        timer = 0f;
-    }
-
-    private void ShowEffect()
-    {
-        attackWaveEffect.gameObject.SetActive(true);
-    }
-
-    public void EndAttack()
-    {
-        isAttacking = false;
-        GetComponent<BossMovement>().canMove = true;
-    }
-
-    public void CastAttack()
-    {
-        sound.PlayOneShot(attackSound);
-        Collider2D player = Physics2D.OverlapCircle(attackAreaPoint.position, attackRange, playerLayer);
-        if (player != null)
+        private void StartAttack()
         {
-            if (player.GetComponent<IDamage>() != null)
+            _animator.SetTrigger(AttackKey);
+            GetComponent<BossMovement>().canMove = false;
+            _isAttacking = true;
+            _timer = 0f;
+        }
+
+        private void ShowEffect()
+        {
+            attackWaveEffect.gameObject.SetActive(true);
+        }
+
+        public void EndAttack()
+        {
+            _isAttacking = false;
+            GetComponent<BossMovement>().canMove = true;
+        }
+
+        public void CastAttack()
+        {
+            _audioSource.PlayOneShot(attackSound);
+            Collider2D player = Physics2D.OverlapCircle(attackAreaPoint.position, attackRange, playerLayer);
+            if (player != null)
             {
-                player.GetComponent<IDamage>().TakeDamage(attackDamage, DamageType.Normal);
+                if (player.GetComponent<IDamage>() != null)
+                {
+                    player.GetComponent<IDamage>().TakeDamage(attackDamage, DamageType.Normal);
+                }
             }
         }
-    }
 
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(attackAreaPoint.position, attackRange);
+        private void OnDrawGizmos()
+        {
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireSphere(attackAreaPoint.position, attackRange);
+        }
     }
 }

@@ -2,22 +2,28 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SettingCharacter : MonoBehaviour
-{ 
-    public GameObject Huan;
-    public GameObject Ricardo;
-
-    private void Awake()
+namespace Game.Arena.Player 
+{
+    public class SettingCharacter : MonoBehaviour
     {
-        var name = PlayerPrefs.GetString("Name");
-        if (name == "Huan")
+        public GameObject Huan;
+        public GameObject Ricardo;
+
+        private const string NameKey = "Name";
+        private const string RicardoKey = "Ricardo";
+        private const string HuanKey = "Huan";
+
+        private void Awake()
         {
-            Huan.SetActive(true);
-        }
-        if (name == "Ricardo")
-        {
-            Ricardo.SetActive(true);
+            var name = PlayerPrefs.GetString(NameKey);
+            if (name == HuanKey)
+            {
+                Huan.SetActive(true);
+            }
+            if (name == RicardoKey)
+            {
+                Ricardo.SetActive(true);
+            }
         }
     }
-
 }

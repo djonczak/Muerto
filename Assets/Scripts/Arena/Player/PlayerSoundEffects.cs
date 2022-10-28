@@ -2,43 +2,45 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerSoundEffects : MonoBehaviour, ISoundEffect
-{
-    public AudioClip levelUpSound;
-    public AudioClip healSound;
-    public AudioClip ability1Sound;
-    public AudioClip ability2Sound;
-    public AudioClip deathSound;
-
-    private AudioSource sound;
-
-    void Awake()
+namespace Game.Arena.Player {
+    public class PlayerSoundEffects : MonoBehaviour, ISoundEffect
     {
-        sound = GetComponent<AudioSource>();
-    }
+        public AudioClip levelUpSound;
+        public AudioClip healSound;
+        public AudioClip ability1Sound;
+        public AudioClip ability2Sound;
+        public AudioClip deathSound;
 
-    public void PlayLevelUpSound()
-    {
-        sound.PlayOneShot(levelUpSound);
-    }
+        private AudioSource _audioSource;
 
-    public void PlayHealSound()
-    {
-        sound.PlayOneShot(healSound);
-    }
-    
-    public void PlayAbility1Sound()
-    {
-        sound.PlayOneShot(ability1Sound);
-    }
+        void Awake()
+        {
+            _audioSource = GetComponent<AudioSource>();
+        }
 
-    public void PlayAbility2Sound()
-    {
-        sound.PlayOneShot(ability2Sound);
-    }
+        public void PlayLevelUpSound()
+        {
+            _audioSource.PlayOneShot(levelUpSound);
+        }
 
-    public void PlayDeathSound()
-    {
-        sound.PlayOneShot(deathSound);
+        public void PlayHealSound()
+        {
+            _audioSource.PlayOneShot(healSound);
+        }
+
+        public void PlayAbility1Sound()
+        {
+            _audioSource.PlayOneShot(ability1Sound);
+        }
+
+        public void PlayAbility2Sound()
+        {
+            _audioSource.PlayOneShot(ability2Sound);
+        }
+
+        public void PlayDeathSound()
+        {
+            _audioSource.PlayOneShot(deathSound);
+        }
     }
 }

@@ -2,114 +2,120 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyDashAttack : MonoBehaviour, IReset
+namespace Game.Arena.AI
 {
-    [Header("Dash Attack Settings")]
-    public float attackDamage = 1;
-    [SerializeField] private float dashCooldown = 2.5f;
-    [SerializeField] private float dashRadius = 2.7f;
-    [SerializeField] private float dashRange = 2.5f;
-    [SerializeField] private float dashSpeed = 0.5f;
-    [SerializeField] private GameObject target;
-
-    private Animator anim;
-    private float timer;
-    private bool canDash = true;
-    public bool isDashing = false;
-    private Vector3 jumpPosition;
-
-    private void Awake()
+    public class EnemyDashAttack : MonoBehaviour, IReset
     {
-        anim = GetComponent<Animator>();
-    }
+        [Header("Dash Attack Settings")]
+        public float attackDamage = 1;
+        [SerializeField] private float dashCooldown = 2.5f;
+        [SerializeField] private float dashRadius = 2.7f;
+        [SerializeField] private float dashRange = 2.5f;
+        [SerializeField] private float dashSpeed = 0.5f;
+        [SerializeField] private GameObject target;
 
-    private void Start()
-    {
-        target = PlayerObject.GetPlayerObject();
-    }
+        private Animator _animator;
+        private float _timer;
+        private bool _canDash = true;
+        public bool isDashing = false;
+        private Vector3 _jumpPosition;
 
-    private void FixedUpdate()
-    {
-        DashCooldown();
-        Dash();
-    }
+        private const string AttackKey = "Attack";
+        private const string RunKey = "Run";
 
-    private void DashCooldown()
-    {
-        if (GetComponent<EnemyHP>().isAlive == true)
+        private void Awake()
         {
-            if (isDashing == false)
+            _animator = GetComponent<Animator>();
+        }
+
+        private void Start()
+        {
+            target = PlayerObject.GetPlayerObject();
+        }
+
+        private void FixedUpdate()
+        {
+            DashCooldown();
+            Dash();
+        }
+
+        private void DashCooldown()
+        {
+            if (GetComponent<EnemyHP>().isAlive == true)
             {
-                timer += Time.deltaTime;
-                if (timer >= dashCooldown && canDash == true)
+                if (isDashing == false)
                 {
-                    var distance = Vector3.Distance(transform.position, target.transform.position);
-                    if (distance <= dashRadius)
+                    _timer += Time.deltaTime;
+                    if (_timer >= dashCooldown && _canDash == true)
                     {
-                        PrepareForDash();
+                        var distance = Vector3.Distance(transform.position, target.transform.position);
+                        if (distance <= dashRadius)
+                        {
+                            PrepareForDash();
+                        }
                     }
                 }
             }
         }
-    }
 
-    private void PrepareForDash()
-    {
-        anim.SetTrigger("Attack");
-        jumpPosition = new Vector3(target.transform.position.x, target.transform.position.y, 0);
-        timer = 0f;
-        GetComponent<EnemyMovement>().canMove = false;
-        anim.SetBool("Run", false);
-        canDash = false;
-    }
-
-    public void StartDash()
-    {
-        isDashing = true;
-    }
-
-    private void Dash()
-    {
-        if (isDashing == true)
+        private void PrepareForDash()
         {
-            float step = (dashSpeed) * Time.fixedDeltaTime;
-            transform.position = Vector3.MoveTowards(transform.position, jumpPosition, step / dashRange);
-            transform.position.Normalize();
+            _animator.SetTrigger(AttackKey);
+            _jumpPosition = new Vector3(target.transform.position.x, target.transform.position.y, 0);
+            _timer = 0f;
+            GetComponent<EnemyMovement>().canMove = false;
+            _animator.SetBool(RunKey, false);
+            _canDash = false;
+        }
 
-            if (0.2f > DistanceBetween(transform.position, jumpPosition))
+        public void StartDash()
+        {
+           isDashing = true;
+        }
+
+        private void Dash()
+        {
+            if (isDashing == true)
             {
-                DashEnd();
+                float step = (dashSpeed) * Time.fixedDeltaTime;
+                transform.position = Vector3.MoveTowards(transform.position, _jumpPosition, step / dashRange);
+                transform.position.Normalize();
+
+                if (0.2f > DistanceBetween(transform.position, _jumpPosition))
+                {
+                    DashEnd();
+                }
             }
         }
-    }
 
-    public void DashEnd()
-    {
-        anim.ResetTrigger("Attack");
-        isDashing = false;
-        canDash = true;
-        anim.SetBool("Run", true);
-        GetComponent<EnemyMovement>().canMove = true;
-    }
+        public void DashEnd()
+        {
+            _animator.ResetTrigger(AttackKey);
+            isDashing = false;
+            _canDash = true;
+            _animator.SetBool(RunKey, true);
+            GetComponent<EnemyMovement>().canMove = true;
+        }
 
-    private float DistanceBetween(Vector3 enemy, Vector3 placeToJump)
-    {
-        var distance = Vector3.Distance(enemy, placeToJump);
-        return distance;
-    }
+        private float DistanceBetween(Vector3 enemy, Vector3 placeToJump)
+        {
+            var distance = Vector3.Distance(enemy, placeToJump);
+            return distance;
+        }
 
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.blue;
-        Gizmos.DrawWireSphere(transform.position, dashRadius);
-    }
+        private void OnDrawGizmos()
+        {
+            Gizmos.color = Color.blue;
+            Gizmos.DrawWireSphere(transform.position, dashRadius);
+        }
 
-    public void OnDeathReset()
-    {
-        timer = 0f;
-        anim.SetBool("Run", true);
-        GetComponent<EnemyMovement>().canMove = true;
-        isDashing = false;
-        canDash = true;
+        public void OnDeathReset()
+        {
+            _timer = 0f;
+            _animator.SetBool(RunKey, true);
+            GetComponent<EnemyMovement>().canMove = true;
+            isDashing = false;
+            _canDash = true;
+        }
     }
 }

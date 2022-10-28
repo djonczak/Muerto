@@ -1,47 +1,53 @@
 ﻿using UnityEngine;
 
-public class BossSecondAbility : MonoBehaviour
+
+namespace Game.Arena.AI 
 {
-    public bool unlock;
-
-    [SerializeField] private float abilityCooldown = 5f;
-
-    public AudioClip abilitySound;
-
-    private AudioSource sound;
-    private float timer;
-
-    private void Awake()
+    public class BossSecondAbility : MonoBehaviour
     {
-        sound = GetComponent<AudioSource>();
-    }
+        public bool unlock;
 
-    private void Update()
-    {
-        CheckTimer();
-    }
+        [SerializeField] private float abilityCooldown = 5f;
 
-    private void CheckTimer()
-    {
-        if (unlock == true)
+        public AudioClip abilitySound;
+
+        private AudioSource _audioSource;
+        private float _timer;
+
+        private const string BossPoolAttackKey = "BossPoolAttack";
+
+        private void Awake()
         {
-            timer += Time.deltaTime;
-            if (timer >= abilityCooldown)
+            _audioSource = GetComponent<AudioSource>();
+        }
+
+        private void Update()
+        {
+            CheckTimer();
+        }
+
+        private void CheckTimer()
+        {
+            if (unlock == true)
             {
-                timer = 0f;
-                CastAbility();
-                sound.PlayOneShot(abilitySound);
+                _timer += Time.deltaTime;
+                if (_timer >= abilityCooldown)
+                {
+                    _timer = 0f;
+                    CastAbility();
+                    _audioSource.PlayOneShot(abilitySound);
+                }
             }
         }
-    }
 
-    private void CastAbility()
-    {
-        GameObject waveAttack = ObjectPooler.instance.GetPooledObject("BossPoolAttack");
-        if (waveAttack != null)
+        private void CastAbility()
         {
-            waveAttack.SetActive(true);
-            waveAttack.GetComponent<BloodPillar>().UsePillar(PlayerObject.GetPlayerObject().transform);
+            GameObject waveAttack = Pooler.ObjectPooler.instance.GetPooledObject(BossPoolAttackKey);
+            if (waveAttack != null)
+            {
+                waveAttack.SetActive(true);
+                waveAttack.GetComponent<BloodPillar>().UsePillar(PlayerObject.GetPlayerObject().transform);
+            }
         }
     }
 }

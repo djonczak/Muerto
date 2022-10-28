@@ -2,75 +2,83 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
-public class DeathScreen : MonoBehaviour
+namespace Game.Arena.UI
 {
-    public Image blackScreen;
-    public Text endText;
-    public GameObject[] textToActive;
 
-    private bool canColor = false;
-    private Color blackScreenMainColor;
-    private Color fontNormalColor;
-    private Color alphaColor = new Color(0f, 0f, 0f, 0f);
-    private float t;
-    private bool canPressButtons = false;
-
-    private void OnEnable()
+    public class DeathScreen : MonoBehaviour
     {
-        ArenaEvents.OnPlayerDeath += PlayerDeath;
-    }
+        public Image blackScreen;
+        public Text endText;
+        public GameObject[] textToActive;
 
-    private void Start()
-    {
-        blackScreenMainColor = blackScreen.color;
-        fontNormalColor = endText.color;
-        endText.color = alphaColor;
-    }
+        private bool _canColor = false;
+        private Color _blackScreenMainColor;
+        private Color _fontNormalColor;
+        private Color _alphaColor = new Color(0f, 0f, 0f, 0f);
+        private float _t;
+        private bool _canPressButtons = false;
 
-    private void Update()
-    {
-        if (canColor)
+        private const string Menu = "Menu";
+        private const string Arena = "Arena";
+
+        private void OnEnable()
         {
-            t += Time.deltaTime / 1f;
-            blackScreen.color = Color.Lerp(alphaColor, blackScreenMainColor, t);
-            endText.color = Color.Lerp(alphaColor, fontNormalColor, t);
+            ArenaEvents.OnPlayerDeath += PlayerDeath;
         }
-        
-        if (canPressButtons == true)
+
+        private void Start()
         {
-            if (Input.GetKeyDown(KeyCode.R))
+            _blackScreenMainColor = blackScreen.color;
+            _fontNormalColor = endText.color;
+            endText.color = _alphaColor;
+        }
+
+        private void Update()
+        {
+            if (_canColor)
             {
-                UnityEngine.SceneManagement.SceneManager.LoadScene("Arena");
+                _t += Time.deltaTime / 1f;
+                blackScreen.color = Color.Lerp(_alphaColor, _blackScreenMainColor, _t);
+                endText.color = Color.Lerp(_alphaColor, _fontNormalColor, _t);
             }
 
-            if (Input.GetKeyDown(KeyCode.M))
+            if (_canPressButtons == true)
             {
-                UnityEngine.SceneManagement.SceneManager.LoadScene("Menu");
+                if (Input.GetKeyDown(KeyCode.R))
+                {
+                    CameraManager.CameraFade.Instance.FadeIn(() => SceneManager.LoadScene(Arena), 2f);
+                }
+
+                if (Input.GetKeyDown(KeyCode.M))
+                {
+                    CameraManager.CameraFade.Instance.FadeIn(() =>SceneManager.LoadScene(Menu), 2f);
+                }
             }
         }
-    }
 
-    [ContextMenu("Show death screen")]
-    public void PlayerDeath()
-    {
-        StartCoroutine("BlackScreenShow", 1f);
-    }
-
-    private IEnumerator BlackScreenShow(float time)
-    {
-        canColor = true;
-        yield return new WaitForSeconds(time);
-        canColor = false;
-        foreach(GameObject button in textToActive)
+        [ContextMenu("Show death screen")]
+        private void PlayerDeath()
         {
-            button.SetActive(true);
+            StartCoroutine(BlackScreenShow(1f));
         }
-        canPressButtons = true;
-    }
 
-    private void OnDestroy()
-    {
-        ArenaEvents.OnPlayerDeath -= PlayerDeath;
+        private IEnumerator BlackScreenShow(float time)
+        {
+            _canColor = true;
+            yield return new WaitForSeconds(time);
+            _canColor = false;
+            foreach (GameObject button in textToActive)
+            {
+                button.SetActive(true);
+            }
+            _canPressButtons = true;
+        }
+
+        private void OnDestroy()
+        {
+            ArenaEvents.OnPlayerDeath -= PlayerDeath;
+        }
     }
 }

@@ -3,72 +3,77 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class VictoryScreen : MonoBehaviour
-{
-    public Image blackScreen;
-    public Text[] endTexts;
-    public GameObject menuText;
+namespace Game.UI {
 
-    private bool canColor = false;
-    private Color blackScreenMainColor;
-    private Color fontNormalColor;
-    private Color alphaColor = new Color(0f, 0f, 0f, 0f);
-    private float t;
-    private bool canPressButtons = false;
-
-    private void OnEnable()
+    public class VictoryScreen : MonoBehaviour
     {
-        ArenaEvents.OnPlayerVictory += PlayerVictory;
-    }
+        public Image blackScreen;
+        public Text[] endTexts;
+        public GameObject menuText;
 
-    private void Start()
-    {
-        blackScreenMainColor = blackScreen.color;
-        fontNormalColor = endTexts[0].color;
-        foreach (Text text in endTexts)
-        { 
-            text.color = alphaColor;
-        }
-    }
+        private bool _canColor = false;
+        private Color _blackScreenMainColor;
+        private Color _fontNormalColor;
+        private Color _alphaColor = new Color(0f, 0f, 0f, 0f);
+        private float _t;
+        private bool _canPressButtons = false;
 
-    private void Update()
-    {   
-        if (canColor)
+        private const string Menu = "Menu";
+
+        private void OnEnable()
         {
-            t += Time.deltaTime / 1f;
-            blackScreen.color = Color.Lerp(alphaColor, blackScreenMainColor, t);
+            ArenaEvents.OnPlayerVictory += PlayerVictory;
+        }
+
+        private void Start()
+        {
+            _blackScreenMainColor = blackScreen.color;
+            _fontNormalColor = endTexts[0].color;
             foreach (Text text in endTexts)
             {
-                text.color = Color.Lerp(alphaColor, fontNormalColor, t);
+                text.color = _alphaColor;
             }
         }
 
-        if (canPressButtons == true)
+        private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.M))
+            if (_canColor)
             {
-                UnityEngine.SceneManagement.SceneManager.LoadScene("Menu");
+                _t += Time.deltaTime / 1f;
+                blackScreen.color = Color.Lerp(_alphaColor, _blackScreenMainColor, _t);
+                foreach (Text text in endTexts)
+                {
+                    text.color = Color.Lerp(_alphaColor, _fontNormalColor, _t);
+                }
+            }
+
+            if (_canPressButtons == true)
+            {
+                if (Input.GetKeyDown(KeyCode.M))
+                {
+                    UnityEngine.SceneManagement.SceneManager.LoadScene(Menu);
+                }
             }
         }
-    }
 
-    [ContextMenu("Show victory screen")]
-    public void PlayerVictory()
-    {
-        StartCoroutine("BlackScreenShow", 1f);
-    }
+        [ContextMenu("Show victory screen")]
+        private void PlayerVictory()
+        {
+            StartCoroutine(BlackScreenShow(1f));
+        }
 
-    private IEnumerator BlackScreenShow(float time)
-    {
-        canColor = true;
-        yield return new WaitForSeconds(time);
-        menuText.SetActive(true);
-        canColor = false;
-        canPressButtons = true;
-    }
+        private IEnumerator BlackScreenShow(float time)
+        {
+            _canColor = true;
+            yield return new WaitForSeconds(time);
+            menuText.SetActive(true);
+            _canColor = false;
+            _canPressButtons = true;
+        }
 
-    private void OnDestroy()
-    {
-        ArenaEvents.OnPlayerVictory -= PlayerVictory;
+        private void OnDestroy()
+        {
+            ArenaEvents.OnPlayerVictory -= PlayerVictory;
+        }
     }
 }

@@ -1,12 +1,15 @@
 ﻿using System.Runtime.InteropServices;
 using UnityEngine;
 
-public class CursorOptions : MonoBehaviour
+namespace Game.VFX
 {
-    public Texture2D cursorTexture;
-
-    private void Start()
+    public class CursorOptions : MonoBehaviour
     {
-        Cursor.SetCursor(cursorTexture, Vector2.zero, CursorMode.Auto);
+        public Texture2D cursorTexture;
+
+        private void Start()
+        {
+            Cursor.SetCursor(cursorTexture, Vector2.zero, CursorMode.Auto);
+        }
     }
 }

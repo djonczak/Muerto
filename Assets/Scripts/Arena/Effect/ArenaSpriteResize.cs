@@ -1,15 +1,17 @@
 ﻿using UnityEngine;
 
-public class ArenaSpriteResize : MonoBehaviour
+namespace Game.Arena
 {
-    public Transform arenaSprite;
-
-    void OnEnable()
+    public class ArenaSpriteResize : MonoBehaviour
     {
-        Vector3 maxScreenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, 0));
-        //Debug.Log(" X: " + maxScreenBounds.x + " Y: " +  maxScreenBounds.y);
+        public Transform arenaSprite;
 
-        arenaSprite.transform.localScale = new Vector3(maxScreenBounds.x / 10f, arenaSprite.localScale.y, 1);
+        private void OnEnable()
+        {
+            Vector3 maxScreenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, 0));
+            //Debug.Log(" X: " + maxScreenBounds.x + " Y: " +  maxScreenBounds.y);
+
+            arenaSprite.transform.localScale = new Vector3(maxScreenBounds.x / 10f, arenaSprite.localScale.y, 1);
+        }
     }
-
 }

@@ -1,26 +1,31 @@
 ﻿using UnityEngine;
 
-public class EnemyDashAttackCollider : MonoBehaviour
+namespace Game.Arena.AI 
 {
-    [SerializeField] private float damage;
-    private AudioSource sound;
-
-    private void Awake()
+    public class EnemyDashAttackCollider : MonoBehaviour
     {
-        sound = GetComponent<AudioSource>();
-    }
+        [SerializeField] private float damage;
+        private AudioSource _audioSource;
 
-    private void Start()
-    {
-        damage = GetComponentInParent<EnemyDashAttack>().attackDamage;
-    }
+        private const string PlayerTag = "Player";
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if(collision.tag == "Player" && GetComponentInParent<EnemyDashAttack>().isDashing == true)
+        private void Awake()
         {
-             collision.GetComponent<IDamage>().TakeDamage(damage, DamageType.Normal);
-             sound.PlayOneShot(sound.clip);
+            _audioSource = GetComponent<AudioSource>();
+        }
+
+        private void Start()
+        {
+            damage = GetComponentInParent<EnemyDashAttack>().attackDamage;
+        }
+
+        private void OnTriggerEnter2D(Collider2D collision)
+        {
+            if (collision.tag == PlayerTag && GetComponentInParent<EnemyDashAttack>().isDashing == true)
+            {
+                collision.GetComponent<IDamage>().TakeDamage(damage, DamageType.Normal);
+                _audioSource.PlayOneShot(_audioSource.clip);
+            }
         }
     }
 }
