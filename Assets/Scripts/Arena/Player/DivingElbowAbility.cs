@@ -23,7 +23,7 @@ namespace Game.Arena.Player
         private const string FallAttackKey = "FallAttack";
         private const string DustWaveKey = "DustWave";
 
-
+        private Vector3 _targetPosition;
         private void Awake()
         {
             _animator = GetComponent<Animator>();
@@ -76,6 +76,7 @@ namespace Game.Arena.Player
             transform.position = new Vector3(Vector3Extension.MousePosition().x, transform.position.y + 1.7f, transform.position.z);
             Time.timeScale = 1f;
             GetComponent<ArenaMovement>().enabled = false;
+            _targetPosition = Vector3Extension.MousePosition();
             isFalling = true;
             _animator.SetBool(FallAttackKey, true);
             _animator.SetBool(RunKey, false);
@@ -87,8 +88,8 @@ namespace Game.Arena.Player
         {
             if (isFalling == true)
             {
-                transform.position = Vector3.MoveTowards(transform.position, Vector3Extension.MousePosition(), fallSpeed * Time.deltaTime);
-                if (0.01f > Vector3Extension.DistanceBetweenPlayerMouse(transform.position, Vector3Extension.MousePosition()))
+                transform.position = Vector3.MoveTowards(transform.position, _targetPosition, fallSpeed * Time.deltaTime);
+                if (0.01f > Vector3Extension.DistanceBetweenPlayerMouse(transform.position, _targetPosition))
                 {
                     PoundAttack();
                 }
@@ -118,8 +119,9 @@ namespace Game.Arena.Player
             GetComponent<PolygonCollider2D>().isTrigger = false;
             GetComponent<PlayerAttack>().enabled = true;
             GetComponent<ArenaMovement>().enabled = true;
+            yield return new WaitForSeconds(1.5f);
             GetComponent<PlayerHP>().canBeHurt = true;
-            yield return new WaitForSeconds(time);
+            yield return new WaitForSeconds(time - 1.5f);
             canUse = true;
         }
 

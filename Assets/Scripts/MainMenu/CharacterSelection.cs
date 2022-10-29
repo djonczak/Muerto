@@ -51,7 +51,7 @@ namespace Game.Menu {
             if (character.IsUnlocked == true)
             {
                 message.GetComponent<Animator>().SetTrigger(ShowKey);
-                message.GetComponentInChildren<UnityEngine.UI.Text>().text = "You have chosen " + character.characterName + ".";
+                message.GetComponentInChildren<UnityEngine.UI.Text>().text = "You have choosen " + character.characterName;
                 PlayerPrefs.SetString(NameKey, character.name);
             }
             else

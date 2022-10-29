@@ -88,6 +88,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -153,7 +154,7 @@ MonoBehaviour:
   attackAreaPoint: {fileID: 275122903083257172}
   attackDamage: 1
   attackSpeed: 0.6
-  attackRange: 0.38
+  attackRange: 0.3
   target: {fileID: 0}
   playerLayer:
     serializedVersion: 2
@@ -205,7 +206,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHP: 15
   currentHP: 0
-  damageCooldown: 0.4
+  damageCooldown: 1.5
   healthBar: {fileID: 0}
 --- !u!114 &275122903394631246
 MonoBehaviour:
@@ -242,7 +243,6 @@ MonoBehaviour:
   dustPrefab: {fileID: 7139180160841189128, guid: 40ac69d5a55c38d4596ab757a7e9e6cd,
     type: 3}
   amountToSpawn: 5
-  dustParticles: []
 --- !u!95 &275122903394631247
 Animator:
   serializedVersion: 3
@@ -411,16 +411,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 275122903394631238}
     m_Modifications:
-    - target: {fileID: 1884848587307187640, guid: fee57ee2237771a40a54cb29f92c163d,
-        type: 3}
-      propertyPath: m_Name
-      value: DustWave
-      objectReference: {fileID: 0}
-    - target: {fileID: 1884848587307187640, guid: fee57ee2237771a40a54cb29f92c163d,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1884848587307187621, guid: fee57ee2237771a40a54cb29f92c163d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -485,6 +475,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.y
       value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1884848587307187640, guid: fee57ee2237771a40a54cb29f92c163d,
+        type: 3}
+      propertyPath: m_Name
+      value: DustWave
+      objectReference: {fileID: 0}
+    - target: {fileID: 1884848587307187640, guid: fee57ee2237771a40a54cb29f92c163d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1884848587307187642, guid: fee57ee2237771a40a54cb29f92c163d,
         type: 3}

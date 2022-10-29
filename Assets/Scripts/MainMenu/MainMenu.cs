@@ -2,15 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
-namespace Game.Menu {
-
+using UnityEngine.UI;
+namespace Game.Menu 
+{
     public class MainMenu : MonoBehaviour
     {
         public GameObject credtitsWindow;
         public GameObject arenaWindow;
         public Texture2D cursorTexture;
         public GameObject message;
+        public Text _versionText;
 
         [SerializeField] private AudioSource _audioSource;
 
@@ -26,6 +27,7 @@ namespace Game.Menu {
         {
             credtitsWindow.SetActive(false);
             Cursor.SetCursor(cursorTexture, Vector2.zero, CursorMode.Auto);
+            _versionText.text = Application.version;
         }
 
         public void Story()

@@ -14,7 +14,7 @@ namespace Game.Arena.UI
         public GameObject[] textToActive;
 
         private bool _canColor = false;
-        private Color _blackScreenMainColor;
+        private Color _blackScreenMainColor = Color.black;
         private Color _fontNormalColor;
         private Color _alphaColor = new Color(0f, 0f, 0f, 0f);
         private float _t;
@@ -30,7 +30,6 @@ namespace Game.Arena.UI
 
         private void Start()
         {
-            _blackScreenMainColor = blackScreen.color;
             _fontNormalColor = endText.color;
             endText.color = _alphaColor;
         }

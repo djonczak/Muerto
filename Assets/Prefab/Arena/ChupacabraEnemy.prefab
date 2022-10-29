@@ -53,7 +53,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1998988353636803305}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
@@ -220,6 +220,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -268,9 +269,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 946ee4fe4e64b104f97d6cb89696df77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 0.5
   canMove: 1
   isRanged: 0
+  moveSpeed: 0.5
   target: {fileID: 0}
 --- !u!114 &8127220844470295680
 MonoBehaviour:
@@ -285,7 +286,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackDamage: 1
-  dashCooldown: 2.5
+  dashCooldown: 2.6
   dashRadius: 2.7
   dashRange: 3
   dashSpeed: 5

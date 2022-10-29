@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
-namespace Game.UI {
-
+namespace Game.UI 
+{
     public class VictoryScreen : MonoBehaviour
     {
         public Image blackScreen;
@@ -12,7 +13,7 @@ namespace Game.UI {
         public GameObject menuText;
 
         private bool _canColor = false;
-        private Color _blackScreenMainColor;
+        private Color _blackScreenMainColor = Color.black;
         private Color _fontNormalColor;
         private Color _alphaColor = new Color(0f, 0f, 0f, 0f);
         private float _t;
@@ -27,7 +28,6 @@ namespace Game.UI {
 
         private void Start()
         {
-            _blackScreenMainColor = blackScreen.color;
             _fontNormalColor = endTexts[0].color;
             foreach (Text text in endTexts)
             {
@@ -51,7 +51,8 @@ namespace Game.UI {
             {
                 if (Input.GetKeyDown(KeyCode.M))
                 {
-                    UnityEngine.SceneManagement.SceneManager.LoadScene(Menu);
+                    _canPressButtons = false;
+                    CameraManager.CameraFade.Instance.FadeIn(() => SceneManager.LoadScene(Menu), 2f);
                 }
             }
         }

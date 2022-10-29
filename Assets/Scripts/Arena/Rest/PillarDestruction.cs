@@ -1,12 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 namespace Game.VFX 
 {
     public class PillarDestruction : MonoBehaviour
     {
         public Sprite destroyedPillar;
+        [SerializeField] private AudioClip _audioClip;
         private bool _isDestroyed = false;
 
         private const string PlayerTag = "Player";
@@ -57,6 +59,7 @@ namespace Game.VFX
 
         private void DestroyPillar()
         {
+            AudioSource.PlayClipAtPoint(_audioClip, transform.position);
             GameObject destructionEffect = Arena.Pooler.ObjectPooler.instance.GetPooledObject(DestructionEffect);
             if (destructionEffect != null)
             {
@@ -64,7 +67,11 @@ namespace Game.VFX
                 destructionEffect.SetActive(true);
             }
             GetComponent<SpriteRenderer>().sprite = destroyedPillar;
-            GetComponent<BoxCollider2D>().enabled = false;
+            var colliders = GetComponents<Collider2D>().ToList();
+            foreach(Collider2D collider in colliders)
+            {
+                collider.enabled = false;
+            }
         }
     }
 }

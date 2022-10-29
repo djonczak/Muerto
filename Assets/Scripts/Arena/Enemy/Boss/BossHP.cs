@@ -26,19 +26,22 @@ namespace Game.Arena.AI
 
         public void TakeDamage(float amount, DamageType type)
         {
-            if (_isAlive == true && _isHurt == false)
+            if (_isAlive == true)
             {
-                currentHP -= amount;
-                healthBar.fillAmount = currentHP / maxHP;
-                GetComponent<ISpriteEffect>().DamageEffect();
-                CheckSecondPhase();
-                if (currentHP <= 0)
+                if (_isHurt == false)
                 {
-                    Death();
-                }
-                else
-                {
-                    StartCoroutine(DamageCooldown(damageCooldown));
+                    currentHP -= amount;
+                    healthBar.fillAmount = currentHP / maxHP;
+                    GetComponent<ISpriteEffect>().DamageEffect();
+                    CheckSecondPhase();
+                    if (currentHP <= 0)
+                    {
+                        Death();
+                    }
+                    else
+                    {
+                        StartCoroutine(DamageCooldown(damageCooldown));
+                    }
                 }
             }
         }

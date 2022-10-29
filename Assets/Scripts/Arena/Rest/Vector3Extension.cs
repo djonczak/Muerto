@@ -14,6 +14,7 @@ public static class Vector3Extension
         var mouse = Camera.main.ScreenToWorldPoint(UnityEngine.Input.mousePosition);
         mouse.z = 0f;
         var direction = playerPosition - mouse;
+        direction.Normalize();
         return -direction;
     }
 

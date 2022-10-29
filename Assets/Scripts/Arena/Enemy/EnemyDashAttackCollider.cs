@@ -21,7 +21,7 @@ namespace Game.Arena.AI
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            if (collision.tag == PlayerTag && GetComponentInParent<EnemyDashAttack>().isDashing == true)
+            if (collision.tag == PlayerTag)
             {
                 collision.GetComponent<IDamage>().TakeDamage(damage, DamageType.Normal);
                 _audioSource.PlayOneShot(_audioSource.clip);

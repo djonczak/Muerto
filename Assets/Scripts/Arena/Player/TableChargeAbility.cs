@@ -91,8 +91,12 @@ namespace Game.Arena.Player
                 {
                     foreach (Collider2D enemy in enemies)
                     {
-                        enemy.GetComponent<IDamage>().TakeDamage(damage, DamageType.Normal);
-                        GetComponent<ISoundEffect>().PlayAbility2Sound();
+                        var enemyDamage = enemy.GetComponent<IDamage>();
+                        if (enemyDamage != null)
+                        {
+                            enemyDamage.TakeDamage(damage, DamageType.Normal);
+                            GetComponent<ISoundEffect>().PlayAbility2Sound();
+                        }
                     }
                 }
 
@@ -118,7 +122,9 @@ namespace Game.Arena.Player
         {
             if (collision.gameObject.layer == 8)
             {
-                _rigidbody.velocity = Vector3Extension.CalculateDirectionTowardsMouse(transform.position);
+                _rigidbody.velocity = Vector2.zero;
+                var direction = Vector3Extension.CalculateDirectionTowardsMouse(transform.position);
+                _rigidbody.velocity = direction * chargeSpeed;
             }
         }
 
@@ -134,6 +140,23 @@ namespace Game.Arena.Player
             GetComponent<PlayerAttack>().enabled = true;
             GetComponent<DivingElbowAbility>().enabled = true;
             StartCoroutine(AbilityCooldown(abilityCooldown));
+        }
+
+        public void CancelTableCharge()
+        {
+            if (isCharging)
+            {
+                StopAllCoroutines();
+                GetComponent<PlayerHP>().canBeHurt = true;
+                _animator.SetBool(ChargeKey, false);
+                isCharging = false;
+                ArenaEvents.PlayerCharge();
+                _rigidbody.velocity = Vector2.zero;
+                GetComponent<ArenaMovement>().enabled = true;
+                GetComponent<PlayerAttack>().enabled = true;
+                GetComponent<DivingElbowAbility>().enabled = true;
+                StartCoroutine(AbilityCooldown(abilityCooldown));
+            }
         }
 
         IEnumerator AbilityCooldown(float time)

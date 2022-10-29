@@ -1,15 +1,15 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using System.Collections;
 
 namespace Game.Arena.Player
 {
     public class PlayerHP : MonoBehaviour, IDamage, IHeal
     {
         [SerializeField] private float currentHP = 0;
-        [SerializeField] private float maxHP = 2;
+        [SerializeField] private float maxHP = 3;
         public Image[] healthBars;
         private int _i = -1;
-
         public bool isAlive = true;
         public bool canBeHurt;
 
@@ -32,6 +32,7 @@ namespace Game.Arena.Player
                     _i++;
                     healthBars[_i].enabled = false;
                     GetComponent<ISpriteEffect>().DamageEffect();
+                    StartCoroutine(DamageCooldown());
                 }
 
                 if (currentHP <= 0)
@@ -39,6 +40,13 @@ namespace Game.Arena.Player
                     Death();
                 }
             }
+        }
+
+        private IEnumerator DamageCooldown()
+        {
+            canBeHurt = false;
+            yield return new WaitForSeconds(1.5f);
+            canBeHurt = true;
         }
 
         private void Death()

@@ -62,7 +62,7 @@ namespace Game.Arena
 
         public void ActivateColliders()
         {
-            if (_isOn == false)
+            if (!_isOn)
             {
                 foreach (KeyValuePair<string, Transform> valPair in _colliders)
                 {

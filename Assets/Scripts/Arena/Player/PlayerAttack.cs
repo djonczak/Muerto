@@ -13,12 +13,13 @@ namespace Game.Arena.Player
         private float _timer = 0;
         public bool isDashing = false;
         private Animator _animator;
-
+        private PlayerHP _playerHP;
         private const string PunchKey = "Punch";
 
         private void Awake()
         {
             _animator = GetComponent<Animator>();
+            _playerHP = GetComponent<PlayerHP>();
         }
 
         private void FixedUpdate()
@@ -33,11 +34,13 @@ namespace Game.Arena.Player
                 isDashing = true;
                 _animator.SetTrigger(PunchKey);
                 _timer = 0;
+                _playerHP.canBeHurt = false;
                 GetComponent<ArenaMovement>().canMove = false;
             }
 
             if (isDashing == true)
             {
+                _playerHP.canBeHurt = false;
                 float step = (1f * dashSpeed) * Time.fixedDeltaTime;
                 transform.position = Vector3.MoveTowards(transform.position, Vector3Extension.MousePosition(), step / dashRange);
                 transform.position.Normalize();
@@ -50,6 +53,7 @@ namespace Game.Arena.Player
 
         public void EndDash()
         {
+            _playerHP.canBeHurt = true;
             isDashing = false;
             GetComponent<ArenaMovement>().canMove = true;
         }

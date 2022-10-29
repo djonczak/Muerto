@@ -23,9 +23,12 @@ namespace Game.Arena.AI
         private const string AttackKey = "Attack";
         private const string RunKey = "Run";
 
+        private EnemyHP _enemyHP;
+
         private void Awake()
         {
             _animator = GetComponent<Animator>();
+            _enemyHP = GetComponent<EnemyHP>();
         }
 
         private void Start()
@@ -41,7 +44,7 @@ namespace Game.Arena.AI
 
         private void DashCooldown()
         {
-            if (GetComponent<EnemyHP>().isAlive == true)
+            if (_enemyHP.isAlive == true)
             {
                 if (isDashing == false)
                 {
@@ -81,7 +84,7 @@ namespace Game.Arena.AI
                 transform.position = Vector3.MoveTowards(transform.position, _jumpPosition, step / dashRange);
                 transform.position.Normalize();
 
-                if (0.2f > DistanceBetween(transform.position, _jumpPosition))
+                if (0.1f > DistanceBetween(transform.position, _jumpPosition))
                 {
                     DashEnd();
                 }

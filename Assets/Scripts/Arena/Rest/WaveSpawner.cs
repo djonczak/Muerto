@@ -48,7 +48,7 @@ namespace Game.Arena.Spawner
 
         private void SpawnEnemy()
         {
-            var enemyNumber = Random.Range(0, enemyTag.Capacity);
+            var enemyNumber = Random.Range(0, enemyTag.Count);
             Debug.Log(enemyNumber);
             GameObject enemy = Pooler.ObjectPooler.instance.GetPooledObject(enemyTag[enemyNumber]);
             if (enemy != null)

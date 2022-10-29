@@ -66,17 +66,18 @@ namespace Game.Scene
             SecondPhaseOfScene();
             yield return new WaitForSeconds(2f);
             ThirdPhaseOfScene();
+            yield return new WaitForSeconds(2f);
+            boss.SetActive(true);
+            this.enabled = false;
         }
 
         private void ThirdPhaseOfScene()
         {
-            UI.BlackBars.Instance.ShowBar(250, 2f);
+            UI.BlackBars.Instance.HideBar(2f);
             player.GetComponent<Arena.Player.ArenaMovement>().enabled = true;
             player.GetComponent<Arena.Player.PlayerAttack>().enabled = true;
             sceneSound.clip = bossFightClip;
             sceneSound.Play();
-            boss.SetActive(true);
-            this.enabled = false;
         }
 
         private void SecondPhaseOfScene()
@@ -88,11 +89,12 @@ namespace Game.Scene
 
         private void FirstPhaseOfScene()
         {
+            UI.BlackBars.Instance.ShowBar(250, 2f);
+            player.GetComponent<Arena.Player.TableChargeAbility>().CancelTableCharge();
             player.GetComponent<Arena.Player.ArenaMovement>().enabled = false;
             player.GetComponent<Arena.Player.PlayerAttack>().enabled = false;
             player.GetComponent<Animator>().SetBool(IdleKey, true);
             player.GetComponent<Animator>().SetBool(RunKey, false);
-            UI.BlackBars.Instance.HideBar(2f);
             sunLight.color = colorToSwitch;
             _canSwitchColor = true;
             foreach (GameObject stuff in hudToHide)
