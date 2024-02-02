@@ -7,11 +7,12 @@ namespace Game.Story
 {
     public class PlayerData : MonoBehaviour
     {
+        public static PlayerData Instance;
 
-        public bool hasFlower;
-        public bool hasMask;
+        public bool HasFlower;
+        public bool HasMask;
 
-        public bool canPass;
+        public bool CanPass;
 
         public Action PickedItem;
 
@@ -20,15 +21,25 @@ namespace Game.Story
             ItemPickEvent.OnItemPick += CheckWhichItem;
         }
 
+        private void Awake()
+        {
+            if(Instance != null)
+            {
+                Destroy(this);
+            }
+
+            Instance = this;
+        }
+
         private void ChecksIfGathered()
         {
-            if (hasFlower && hasMask)
+            if (HasFlower && HasMask)
             {
-                canPass = true;
+                CanPass = true;
             }
             else
             {
-                canPass = false;
+                CanPass = false;
             }
         }
 
@@ -46,14 +57,14 @@ namespace Game.Story
 
         public void AddFlowers()
         {
-            hasFlower = true;
+            HasFlower = true;
             PickedItem?.Invoke();
             ChecksIfGathered();
         }
 
         public void AddMask()
         {
-            hasMask = true;
+            HasMask = true;
             PickedItem?.Invoke();
             ChecksIfGathered();
         }

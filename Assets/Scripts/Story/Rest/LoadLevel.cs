@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Game.UI;
 
 namespace Game.Interactable
 {
     public class LoadLevel : MonoBehaviour
     {
         public string Lvl;
-        public GameObject button;
+        public AppearButton button;
 
         private bool _isColliding = false;
         private bool _canInteract = true;
@@ -17,6 +18,7 @@ namespace Game.Interactable
 
         private const string PlayerTag = "Player";
         private const string SpeedKey = "Speed";
+
         private void Awake()
         {
             _audioSource = GetComponent<AudioSource>();
@@ -39,21 +41,27 @@ namespace Game.Interactable
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            if (collision.gameObject.tag == PlayerTag)
+            if (_canInteract)
             {
-                _isColliding = true;
-                _player = collision.gameObject;
-                button.SetActive(true);
+                if (collision.gameObject.tag == PlayerTag)
+                {
+                    _isColliding = true;
+                    _player = collision.gameObject;
+                    button.ShowButton();
+                }
             }
         }
 
         private void OnTriggerExit2D(Collider2D collision)
         {
-            if (collision.gameObject.tag == PlayerTag)
+            if (_canInteract)
             {
-                _isColliding = false;
-                _player = null;
-                button.SetActive(false);
+                if (collision.gameObject.tag == PlayerTag)
+                {
+                    _isColliding = false;
+                    _player = null;
+                    button.HideButton();
+                }
             }
         }
     }

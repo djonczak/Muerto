@@ -3,13 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using Game.Story;
 
 namespace Game.Interactable
 {
     public class Gate : MonoBehaviour
     {
-        private GameObject _player;
-        private Story.PlayerData _data;
         public Text text;
 
         private bool _canInteract = true;
@@ -17,11 +16,6 @@ namespace Game.Interactable
         private const string PlayerTag = "Player";
         private const string CemeteryLevel = "03_Cementery";
         private const string SpeedKey = "Speed";
-        private void Awake()
-        {
-            _player = GameObject.FindGameObjectWithTag("Manager");
-            _data = _player.GetComponent<Story.PlayerData>();
-        }
 
         private void Start()
         {
@@ -34,7 +28,7 @@ namespace Game.Interactable
             {
                 if (collision.collider.tag == PlayerTag)
                 {
-                    if (_data.canPass)
+                    if (PlayerData.Instance.CanPass)
                     {
                         _canInteract = false;
                         collision.gameObject.GetComponent<Player.PlayerMovement>().CanMove = false;

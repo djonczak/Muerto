@@ -8,15 +8,25 @@ namespace Game.VFX
     {
         public Transform startPoint;
         public float moveSpeed;
+        private const string Catcher = "Catcher";
+        private Rigidbody2D rigidbody2D;
 
         private void Awake()
         {
-            GetComponent<Rigidbody2D>().velocity = transform.right * moveSpeed;
+            rigidbody2D = GetComponent<Rigidbody2D>();
+        }
+
+        void Update()
+        {
+            transform.position += Vector3.right * moveSpeed * Time.deltaTime;
         }
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            transform.position = new Vector3(startPoint.position.x, transform.position.y, transform.position.z);
+            if (collision.gameObject.tag == Catcher)
+            {
+                transform.position = new Vector3(startPoint.position.x, transform.position.y, transform.position.z);
+            }
         }
     }
 }

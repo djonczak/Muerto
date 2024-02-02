@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Threading.Tasks;
+using Game.Story;
 
 namespace Game.UI
 {
@@ -13,51 +14,43 @@ namespace Game.UI
         public Text itemText;
         public Text cemeteryText;
 
-        private GameObject _manager;
-        private Story.PlayerData _data;
-
         private void Start()
         {
-            _manager = GameObject.FindGameObjectWithTag("Manager");
-            _data = _manager.GetComponent<Story.PlayerData>();
-
-            _data.PickedItem += SetText;
+            PlayerData.Instance.PickedItem += SetText;
         }
 
         private void SetText()
         {
-            if (_data.hasFlower == true)
+            if (PlayerData.Instance.HasFlower == true)
             {
                 flowerText.color = color;
-                flowerText.text = "You got flowers !";
-                CheckIfGatheredAll();
+                flowerText.text = "Got flowers !";
             }
-            else
-            {
-                flowerText.text = "Find flowers.";
-            }
-            if (_data.hasMask == true)
+
+            if (PlayerData.Instance.HasMask == true)
             {
                 itemText.color = color;
-                itemText.text = "You got mask !";
-                CheckIfGatheredAll();
+                itemText.text = "Got mask !";
             }
-            else
+
+            CheckIfGatheredAll();
+        }
+
+        private void CheckIfGatheredAll()
+        {
+            if (PlayerData.Instance.HasFlower && PlayerData.Instance.HasMask)
             {
-                itemText.text = "Find mask.";
+                PlayerData.Instance.PickedItem -= SetText;
+                StartCoroutine(ChangeMissionText());
             }
         }
 
-        private async void CheckIfGatheredAll()
+        private IEnumerator ChangeMissionText()
         {
-            if(_data.hasFlower && _data.hasMask)
-            {
-                _data.PickedItem -= SetText;
-                await Task.Delay(3 * 1000);
-                flowerText.text = "";
-                itemText.text = "";
-                cemeteryText.text = "Go to cementery !";
-            }
+            yield return new WaitForSeconds(3f);
+            flowerText.text = "";
+            itemText.text = "";
+            cemeteryText.text = "Visit cementery !";
         }
     }
 }

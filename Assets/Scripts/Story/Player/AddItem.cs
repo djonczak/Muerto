@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using Game.UI;
 namespace Game.Interactable 
 {
     public class AddItem : MonoBehaviour
@@ -13,49 +13,54 @@ namespace Game.Interactable
         };
 
         public Item itemToPick;
-        public GameObject button;
 
-        private bool _isPlayer;
-
+        private bool isPlayer;
+        private bool pickedItem;
+        [SerializeField] private AppearButton appearButton;
         private const string PlayerTag = "Player";
-
-        private void Start()
-        {
-            button.SetActive(false);
-        }
 
         private void Update()
         {
-            PickItem();
+            if (pickedItem == false)
+            {
+                PickItem();
+            }
         }
 
         private void PickItem()
         {
-            if (_isPlayer == true)
+            if (isPlayer == true)
             {
                 if (Input.GetKeyDown(KeyCode.E))
                 {
+                    pickedItem = true;
                     CollectItem(itemToPick);
-                    gameObject.SetActive(false);
+                    appearButton.HideButton();
                 }
             }
         }
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            if (collision.tag == PlayerTag)
+            if (pickedItem == false)
             {
-                button.SetActive(true);
-                _isPlayer = true;
+                if (collision.tag == PlayerTag)
+                {
+                    appearButton.ShowButton();
+                    isPlayer = true;
+                }
             }
         }
 
         private void OnTriggerExit2D(Collider2D collision)
         {
-            if (collision.tag == PlayerTag)
+            if (pickedItem == false)
             {
-                button.SetActive(false);
-                _isPlayer = false;
+                if (collision.tag == PlayerTag)
+                {
+                    appearButton.HideButton();
+                    isPlayer = false;
+                }
             }
         }
 
