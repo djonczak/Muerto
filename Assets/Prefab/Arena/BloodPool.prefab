@@ -47,10 +47,12 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: fe6b592820144b947a42d8ea9aad8df2, type: 2}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -121,6 +123,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4946382064236967541, guid: 3ba105b4c6aed804dbc2f6f9648594f7,
         type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4946382064236967541, guid: 3ba105b4c6aed804dbc2f6f9648594f7,
+        type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.02508545
       objectReference: {fileID: 0}
@@ -136,6 +143,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4946382064236967541, guid: 3ba105b4c6aed804dbc2f6f9648594f7,
         type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4946382064236967541, guid: 3ba105b4c6aed804dbc2f6f9648594f7,
+        type: 3}
       propertyPath: m_LocalRotation.x
       value: -0
       objectReference: {fileID: 0}
@@ -148,16 +160,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalRotation.z
       value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4946382064236967541, guid: 3ba105b4c6aed804dbc2f6f9648594f7,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4946382064236967541, guid: 3ba105b4c6aed804dbc2f6f9648594f7,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4946382064236967541, guid: 3ba105b4c6aed804dbc2f6f9648594f7,
         type: 3}

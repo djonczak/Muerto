@@ -17,7 +17,6 @@ namespace Game.Arena.Spawner
         [SerializeField] private int currentWave = 0;
         [SerializeField] private int totalEnemyNumber = 3;
         [SerializeField] private int currentEnemy = 0;
-        [SerializeField] private bool spawnEnemies;
         [SerializeField] private int additionalEnemyIndex = 0;
 
         private int totalWaves = 15;
@@ -34,22 +33,18 @@ namespace Game.Arena.Spawner
             CameraManager.CameraFade.Instance.FadedScreen += CheckWave;
         }
 
-        private void Update()
+        private IEnumerator SpawnEnemies()
         {
-            if (spawnEnemies)
+            while(currentEnemy <= totalEnemyNumber)
             {
                 SpawnEnemy();
-            }
-            if (currentEnemy == totalEnemyNumber)
-            {
-                spawnEnemies = false;
+                yield return null;
             }
         }
 
         private void SpawnEnemy()
         {
             var enemyNumber = Random.Range(0, enemyTag.Count);
-            Debug.Log(enemyNumber);
             GameObject enemy = Pooler.ObjectPooler.instance.GetPooledObject(enemyTag[enemyNumber]);
             if (enemy != null)
             {
@@ -105,6 +100,7 @@ namespace Game.Arena.Spawner
             if (currentWave == 3)
             {
                 enemyTag.Add(additionalEnemiesTag[additionalEnemyIndex]);
+                SpawnHealPack();
             }
             if (currentWave == 6)
             {
@@ -143,7 +139,7 @@ namespace Game.Arena.Spawner
         private IEnumerator CooldownToSpawn(float time)
         {
             yield return new WaitForSeconds(time);
-            spawnEnemies = true;
+            StartCoroutine(SpawnEnemies());
         }
 
         private void OnDestroy()

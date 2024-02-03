@@ -19,16 +19,17 @@ namespace Game.Arena.AI
         private bool _canDash = true;
         public bool isDashing = false;
         private Vector3 _jumpPosition;
-
+        
         private const string AttackKey = "Attack";
         private const string RunKey = "Run";
 
         private EnemyHP _enemyHP;
-
+        private EnemyMovement enemyMovement;
         private void Awake()
         {
             _animator = GetComponent<Animator>();
             _enemyHP = GetComponent<EnemyHP>();
+            enemyMovement = GetComponent<EnemyMovement>();
         }
 
         private void Start()
@@ -66,7 +67,7 @@ namespace Game.Arena.AI
             _animator.SetTrigger(AttackKey);
             _jumpPosition = new Vector3(target.transform.position.x, target.transform.position.y, 0);
             _timer = 0f;
-            GetComponent<EnemyMovement>().canMove = false;
+            enemyMovement.canMove = false;
             _animator.SetBool(RunKey, false);
             _canDash = false;
         }
@@ -97,7 +98,7 @@ namespace Game.Arena.AI
             isDashing = false;
             _canDash = true;
             _animator.SetBool(RunKey, true);
-            GetComponent<EnemyMovement>().canMove = true;
+            enemyMovement.canMove = true;
         }
 
         private float DistanceBetween(Vector3 enemy, Vector3 placeToJump)
@@ -116,7 +117,7 @@ namespace Game.Arena.AI
         {
             _timer = 0f;
             _animator.SetBool(RunKey, true);
-            GetComponent<EnemyMovement>().canMove = true;
+            enemyMovement.canMove = true;
             isDashing = false;
             _canDash = true;
         }

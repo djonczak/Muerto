@@ -18,6 +18,8 @@ namespace Game.Arena.AI
 
         private Animator _animator;
         private AudioSource _audioSource;
+        private BossMovement bossMovement;
+
         private float _timer;
         private bool _isAttacking;
 
@@ -28,6 +30,7 @@ namespace Game.Arena.AI
             _animator = GetComponent<Animator>();
             _audioSource = GetComponent<AudioSource>();
             attackWaveEffect = transform.GetChild(1).gameObject.GetComponent<Animator>();
+            bossMovement = GetComponent<BossMovement>();
         }
 
         private void Start()
@@ -63,12 +66,12 @@ namespace Game.Arena.AI
         private void StartAttack()
         {
             _animator.SetTrigger(AttackKey);
-            GetComponent<BossMovement>().canMove = false;
+            bossMovement.canMove = false;
             _isAttacking = true;
             _timer = 0f;
         }
 
-        private void ShowEffect()
+        public void ShowEffect()
         {
             attackWaveEffect.gameObject.SetActive(true);
         }
@@ -76,7 +79,7 @@ namespace Game.Arena.AI
         public void EndAttack()
         {
             _isAttacking = false;
-            GetComponent<BossMovement>().canMove = true;
+            bossMovement.canMove = true;
         }
 
         public void CastAttack()

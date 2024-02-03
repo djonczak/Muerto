@@ -5,7 +5,7 @@ using UnityEngine;
 namespace Game.Arena.Interactable {
     public class SpawnTaco : MonoBehaviour
     {
-        [SerializeField] private Transform spawnPoint;
+        [SerializeField] private Transform[] spawnPoints;
 
         private const string TacoKey = "Taco";
 
@@ -14,17 +14,13 @@ namespace Game.Arena.Interactable {
             ArenaEvents.OnSpawnTaco += TacoSpawn;
         }
 
-        private void Awake()
-        {
-            spawnPoint = gameObject.transform.GetChild(0);
-        }
-
         private void TacoSpawn()
         {
             GameObject taco = Pooler.ObjectPooler.instance.GetPooledObject(TacoKey);
             if (taco != null)
             {
-                taco.transform.position = spawnPoint.position;
+                var randomIndex = Random.Range(0, spawnPoints.Length);
+                taco.transform.position = spawnPoints[randomIndex].position;
                 taco.SetActive(true);
             }
         }

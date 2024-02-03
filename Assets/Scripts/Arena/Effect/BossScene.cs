@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Experimental.Rendering.Universal;
 
 namespace Game.Scene 
 {
@@ -10,7 +11,7 @@ namespace Game.Scene
         public GameObject bossText;
         public GameObject bloodCircle;
         public GameObject boss;
-
+        [SerializeField] private GameObject bloodPilar;
         [Header("Player to freeze")]
         [SerializeField] private GameObject player;
 
@@ -22,11 +23,8 @@ namespace Game.Scene
         public GameObject[] hudToHide;
 
         [Header("Light source")]
-        public Light sunLight;
+        public Light2D sunLight;
         public Color colorToSwitch;
-        private float _t;
-        private bool _canSwitchColor;
-        private Color _oldColor;
 
         private const string IdleKey = "Idle";
         private const string RunKey = "Run";
@@ -40,17 +38,20 @@ namespace Game.Scene
         private void Start()
         {
             bossText.SetActive(false);
-            _oldColor = sunLight.color;
             player = PlayerObject.GetPlayerObject();
         }
 
-        private void Update()
+        private IEnumerator ChangeSunColor()
         {
-            if (_canSwitchColor == true)
+            var oldColor = sunLight.color;
+            var timer = 0f;
+            while(timer < 3f)
             {
-                _t += Time.deltaTime / 2f;
-                sunLight.color = Color.Lerp(_oldColor, colorToSwitch, _t);
+                sunLight.color = Color.Lerp(oldColor, colorToSwitch, timer / 3f);
+                timer += Time.deltaTime;
+                yield return null;
             }
+            sunLight.color = colorToSwitch;
         }
 
         [ContextMenu("Test boss scene")]
@@ -67,8 +68,9 @@ namespace Game.Scene
             yield return new WaitForSeconds(2f);
             ThirdPhaseOfScene();
             yield return new WaitForSeconds(2f);
+            bloodPilar.gameObject.SetActive(true);
+            yield return new WaitForSeconds(0.5f);
             boss.SetActive(true);
-            this.enabled = false;
         }
 
         private void ThirdPhaseOfScene()
@@ -83,7 +85,6 @@ namespace Game.Scene
         private void SecondPhaseOfScene()
         {
             bossText.SetActive(true);
-            _canSwitchColor = false;
             bloodCircle.GetComponent<Animator>().SetTrigger(FillKey);
         }
 
@@ -95,8 +96,7 @@ namespace Game.Scene
             player.GetComponent<Arena.Player.PlayerAttack>().enabled = false;
             player.GetComponent<Animator>().SetBool(IdleKey, true);
             player.GetComponent<Animator>().SetBool(RunKey, false);
-            sunLight.color = colorToSwitch;
-            _canSwitchColor = true;
+            StartCoroutine(ChangeSunColor());
             foreach (GameObject stuff in hudToHide)
             {
                 stuff.SetActive(false);

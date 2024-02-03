@@ -9,8 +9,6 @@ namespace Game.UI
         [SerializeField] private Vector3 baseScale;
         [SerializeField] private Vector3 endScale;
         [SerializeField] private float appearDuration;
-        [SerializeField] private float shakeStrenght;
-        [SerializeField] private float shakeDuration;
 
         private Coroutine coroutine;
         private float currentDuration;
@@ -33,10 +31,10 @@ namespace Game.UI
                 timer = 0f;
                 transform.position = oldPosition;
             }
-            coroutine = StartCoroutine(ButtonAppearing(endScale, true));
+            coroutine = StartCoroutine(ButtonAppearing(endScale));
         }
 
-        private IEnumerator ButtonAppearing(Vector3 endValue, bool shakeButton)
+        private IEnumerator ButtonAppearing(Vector3 endValue)
         {
             Vector3 startValue = transform.localScale;
             timer = 0f;
@@ -50,18 +48,6 @@ namespace Game.UI
 
             timer = 0f;
             currentDuration = appearDuration;
-            if (shakeButton)
-            {
-                while (timer < shakeDuration)
-                {
-                    Vector3 offset = Random.insideUnitSphere * shakeStrenght;
-                    transform.localScale += offset;
-                    timer += Time.deltaTime;
-                    yield return null;
-                }
-                timer = 0f;
-                transform.localScale = endScale;
-            }
         }
 
         public void HideButton()
@@ -74,7 +60,7 @@ namespace Game.UI
                 transform.localScale = endScale;
             }
 
-            coroutine = StartCoroutine(ButtonAppearing(baseScale, false));
+            coroutine = StartCoroutine(ButtonAppearing(baseScale));
         }
     }
 }

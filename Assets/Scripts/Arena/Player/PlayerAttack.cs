@@ -14,12 +14,17 @@ namespace Game.Arena.Player
         public bool isDashing = false;
         private Animator _animator;
         private PlayerHP _playerHP;
+        private ArenaMovement arenaMovement;
+        private Rigidbody2D rigidbody2D;
+
         private const string PunchKey = "Punch";
 
         private void Awake()
         {
             _animator = GetComponent<Animator>();
             _playerHP = GetComponent<PlayerHP>();
+            arenaMovement = GetComponent<ArenaMovement>();
+            rigidbody2D = GetComponent<Rigidbody2D>();
         }
 
         private void FixedUpdate()
@@ -29,13 +34,16 @@ namespace Game.Arena.Player
 
         private void Dash()
         {
-            if (Input.GetKeyDown(KeyCode.Mouse0) && _timer > dashCooldown && !isDashing)
+            if (Input.GetKeyDown(KeyCode.Mouse0))
             {
-                isDashing = true;
-                _animator.SetTrigger(PunchKey);
-                _timer = 0;
-                _playerHP.canBeHurt = false;
-                GetComponent<ArenaMovement>().canMove = false;
+                if (_timer > dashCooldown && !isDashing)
+                {
+                    isDashing = true;
+                    _animator.SetTrigger(PunchKey);
+                    _timer = 0;
+                    _playerHP.canBeHurt = false;
+                    arenaMovement.canMove = false;
+                }
             }
 
             if (isDashing == true)
@@ -49,13 +57,15 @@ namespace Game.Arena.Player
             {
                 _timer += Time.fixedDeltaTime;
             }
+
+            rigidbody2D.velocity = Vector2.zero;
         }
 
         public void EndDash()
         {
             _playerHP.canBeHurt = true;
             isDashing = false;
-            GetComponent<ArenaMovement>().canMove = true;
+            arenaMovement.canMove = true;
         }
     }
 }

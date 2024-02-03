@@ -53,10 +53,12 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: fe6b592820144b947a42d8ea9aad8df2, type: 2}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -101,9 +103,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 946ee4fe4e64b104f97d6cb89696df77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 0.7
   canMove: 1
   isRanged: 1
+  moveSpeed: 0.7
   target: {fileID: 0}
 --- !u!114 &1699717661397154056
 MonoBehaviour:
@@ -120,8 +122,8 @@ MonoBehaviour:
   attackDamage: 1
   attackSpeed: 0.8
   attackRadius: 1.76
-  barrel: {fileID: 1699717661869018365}
   target: {fileID: 0}
+  barrel: {fileID: 1699717661869018365}
 --- !u!114 &1699717661397154058
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -174,7 +176,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.24, y: 0.32}
+    oldSize: {x: 0.24, y: 0.33}
     newSize: {x: 0.21, y: 0.3}
     adaptiveTilingThreshold: 0.5
     drawMode: 0

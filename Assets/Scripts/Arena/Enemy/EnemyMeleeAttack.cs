@@ -13,6 +13,7 @@ namespace Game.Arena.Player {
 
         private Animator _animator;
         private AudioSource _audioSource;
+        private EnemyMovement enemyMovement;
         private float _timer;
         private bool _isAttacking;
 
@@ -23,6 +24,7 @@ namespace Game.Arena.Player {
         {
             _animator = GetComponent<Animator>();
             _audioSource = GetComponent<AudioSource>();
+            enemyMovement = GetComponent<EnemyMovement>();
         }
 
         private void Start()
@@ -58,7 +60,7 @@ namespace Game.Arena.Player {
         private void StartAttack()
         {
             _animator.SetTrigger(AttackKey);
-            GetComponent<EnemyMovement>().canMove = false;
+            enemyMovement.canMove = false;
             _isAttacking = true;
             _timer = 0f;
         }
@@ -67,7 +69,7 @@ namespace Game.Arena.Player {
         {
             _animator.SetBool(RunKey, true);
             _isAttacking = false;
-            GetComponent<EnemyMovement>().canMove = true;
+            enemyMovement.canMove = true;
         }
 
         public void CastAttack()
@@ -92,7 +94,7 @@ namespace Game.Arena.Player {
         public void OnDeathReset()
         {
             _timer = 0f;
-            GetComponent<EnemyMovement>().canMove = true;
+            enemyMovement.canMove = true;
             _animator.SetBool(RunKey, true);
             _isAttacking = false;
         }
