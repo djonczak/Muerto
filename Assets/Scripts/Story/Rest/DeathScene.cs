@@ -20,6 +20,7 @@ namespace Game.Scene
         public Image thunder;
         public Image deathScreen;
         public GameObject bloodMoon;
+        public GameObject normalMoon;
         public Text endText;
 
         private Color _thunderColor = new Color(255f, 255f, 255f, 255f);
@@ -87,6 +88,7 @@ namespace Game.Scene
             yield return new WaitForSeconds(timer);
             _showed = true;
             bloodMoon.SetActive(true);
+            normalMoon.SetActive(false);
             reaper.SetActive(true);
             _audioSource.PlayOneShot(soul);
             yield return new WaitForSeconds(timers);

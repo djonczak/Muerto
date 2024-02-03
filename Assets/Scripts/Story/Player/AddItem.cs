@@ -13,7 +13,6 @@ namespace Game.Interactable
         };
 
         public Item itemToPick;
-
         private bool isPlayer;
         private bool pickedItem;
         [SerializeField] private AppearButton appearButton;
