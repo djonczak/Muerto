@@ -13,13 +13,11 @@ namespace Game.UI
         private Coroutine coroutine;
         private float currentDuration;
         private float timer;
-        private Vector3 oldPosition;
 
         private void Start()
         {
             currentDuration = appearDuration;
             transform.localScale = Vector3.zero;
-            oldPosition = transform.position;
         }
 
         public void ShowButton()
@@ -27,9 +25,7 @@ namespace Game.UI
             if(coroutine != null)
             {
                 StopCoroutine(coroutine);
-                currentDuration -= timer;
-                timer = 0f;
-                transform.position = oldPosition;
+               currentDuration = appearDuration - timer;
             }
             coroutine = StartCoroutine(ButtonAppearing(endScale));
         }
@@ -38,14 +34,14 @@ namespace Game.UI
         {
             Vector3 startValue = transform.localScale;
             timer = 0f;
-            while (timer < currentDuration)
+            while (timer <= currentDuration)
             {
                 var value = Vector3.Lerp(startValue, endValue, timer / currentDuration);
                 transform.localScale = value;
                 timer += Time.deltaTime;
                 yield return null;
             }
-
+            transform.localScale = endValue;
             timer = 0f;
             currentDuration = appearDuration;
         }
@@ -55,9 +51,7 @@ namespace Game.UI
             if (coroutine != null)
             {
                 StopCoroutine(coroutine);
-                currentDuration -= timer;
-                timer = 0f;
-                transform.localScale = endScale;
+                currentDuration = appearDuration - timer;
             }
 
             coroutine = StartCoroutine(ButtonAppearing(baseScale));

@@ -35,6 +35,7 @@ namespace Game.Interactable
                     _player.GetComponent<Animator>().SetFloat(SpeedKey, 0f);
                     CameraManager.CameraFade.Instance.FadeIn(() => SceneManager.LoadScene(Lvl),2);
                     _canInteract = false;
+                    button.HideButton();
                 }
             }
         }

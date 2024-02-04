@@ -60,5 +60,11 @@ namespace Game.Menu {
                 message.GetComponentInChildren<UnityEngine.UI.Text>().text = "This character is locked !";
             }
         }
+
+        [ContextMenu("Test")]
+        private void SetRicardo()
+        {
+            PlayerPrefs.SetString(NameKey, "Ricardo");
+        }
     }
 }

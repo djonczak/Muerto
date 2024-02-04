@@ -28,6 +28,9 @@ namespace Game.Menu
             credtitsWindow.SetActive(false);
             Cursor.SetCursor(cursorTexture, Vector2.zero, CursorMode.Auto);
             _versionText.text = Application.version;
+
+            //Application.targetFrameRate = -1;
+            Application.targetFrameRate = 91;
         }
 
         public void Story()
