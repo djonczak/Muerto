@@ -11,30 +11,30 @@ namespace Game.Interactable
         public string Lvl;
         public AppearButton button;
 
-        private bool _isColliding = false;
-        private bool _canInteract = true;
-        private AudioSource _audioSource;
-        private GameObject _player;
+        private bool isColliding = false;
+        private bool canInteract = true;
+        private AudioSource audioSource;
+        private GameObject player;
 
         private const string PlayerTag = "Player";
         private const string SpeedKey = "Speed";
 
         private void Awake()
         {
-            _audioSource = GetComponent<AudioSource>();
+            audioSource = GetComponent<AudioSource>();
         }
 
         private void Update()
         {
-            if (_isColliding == true && _canInteract)
+            if (isColliding == true && canInteract)
             {
                 if (Input.GetKey(KeyCode.E))
                 {
-                    _audioSource.Play();
-                    _player.GetComponent<Player.PlayerMovement>().CanMove = false;
-                    _player.GetComponent<Animator>().SetFloat(SpeedKey, 0f);
+                    audioSource.Play();
+                    player.GetComponent<Player.PlayerMovement>().CanMove = false;
+                    player.GetComponent<Animator>().SetFloat(SpeedKey, 0f);
                     CameraManager.CameraFade.Instance.FadeIn(() => SceneManager.LoadScene(Lvl),2);
-                    _canInteract = false;
+                    canInteract = false;
                     button.HideButton();
                 }
             }
@@ -42,12 +42,12 @@ namespace Game.Interactable
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            if (_canInteract)
+            if (canInteract)
             {
                 if (collision.gameObject.tag == PlayerTag)
                 {
-                    _isColliding = true;
-                    _player = collision.gameObject;
+                    isColliding = true;
+                    player = collision.gameObject;
                     button.ShowButton();
                 }
             }
@@ -55,12 +55,12 @@ namespace Game.Interactable
 
         private void OnTriggerExit2D(Collider2D collision)
         {
-            if (_canInteract)
+            if (canInteract)
             {
                 if (collision.gameObject.tag == PlayerTag)
                 {
-                    _isColliding = false;
-                    _player = null;
+                    isColliding = false;
+                    player = null;
                     button.HideButton();
                 }
             }

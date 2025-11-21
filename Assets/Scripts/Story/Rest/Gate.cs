@@ -11,7 +11,7 @@ namespace Game.Interactable
     {
         public Text text;
 
-        private bool _canInteract = true;
+        private bool canInteract = true;
 
         private const string PlayerTag = "Player";
         private const string CemeteryLevel = "03_Cementery";
@@ -24,13 +24,13 @@ namespace Game.Interactable
 
         private void OnCollisionEnter2D(Collision2D collision)
         {
-            if (_canInteract)
+            if (canInteract)
             {
                 if (collision.collider.tag == PlayerTag)
                 {
                     if (PlayerData.Instance.CanPass)
                     {
-                        _canInteract = false;
+                        canInteract = false;
                         collision.gameObject.GetComponent<Player.PlayerMovement>().CanMove = false;
                         collision.gameObject.GetComponent<Animator>().SetFloat(SpeedKey, 0f);
                         CameraManager.CameraFade.Instance.FadeIn(() => SceneManager.LoadScene(CemeteryLevel), 2f);
@@ -45,7 +45,7 @@ namespace Game.Interactable
 
         private void OnCollisionExit2D(Collision2D collision)
         {
-            if (_canInteract)
+            if (canInteract)
             {
                 if (collision.collider.tag == PlayerTag)
                 {

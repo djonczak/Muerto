@@ -3310,6 +3310,7 @@ GameObject:
   - component: {fileID: 674300261}
   - component: {fileID: 674300266}
   - component: {fileID: 674300262}
+  - component: {fileID: 674300263}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -3337,8 +3338,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6105642eb6cc92344b0afa8ecdf6aa9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fadeTime: 5
-  _fadeColor: {r: 0, g: 0, b: 0, a: 1}
+  fadeTime: 5
+  fadeColor: {r: 255, g: 255, b: 255, a: 1}
+--- !u!114 &674300263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 674300260}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_RenderPostProcessing: 0
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_ClearDepth: 1
+  m_AllowXRRendering: 1
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_Version: 2
 --- !u!20 &674300264
 Camera:
   m_ObjectHideFlags: 0
@@ -3412,8 +3445,8 @@ MonoBehaviour:
   arenaWindow: {fileID: 967158029}
   cursorTexture: {fileID: 2800000, guid: 268eb6265038e9344bc53132015af7a8, type: 3}
   message: {fileID: 921210269}
-  _versionText: {fileID: 1240772863}
-  _audioSource: {fileID: 606516049}
+  versionText: {fileID: 1240772863}
+  audioSource: {fileID: 606516049}
 --- !u!1 &686870029
 GameObject:
   m_ObjectHideFlags: 0

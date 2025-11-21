@@ -10,18 +10,26 @@ namespace Game.Arena.Player {
         public float expPoints = 0;
         public float expPointMaxCap = 100;
         public int playerLevel = 0;
-        private bool _ability1unlock;
-        private bool _ability2unlock;
 
         public Text levelText;
         public Animator levelUpAnim;
 
-        private bool _unlockFirstAbility;
-        private bool _unlockSecondAbility;
+        private DivingElbowAbility divineElbowAbility;
+        private TableChargeAbility tableChargeAbility;
+        private ISoundEffect iSoundEffect;
+        private bool unlockFirstAbility;
+        private bool unlockSecondAbility;
 
         private void OnEnable()
         {
             DeathEvent.OnDeathExp += AddExp;
+        }
+
+        private void Awake()
+        {
+            divineElbowAbility = GetComponent<DivingElbowAbility>();
+            tableChargeAbility = GetComponent<TableChargeAbility>();
+            iSoundEffect = GetComponent<ISoundEffect>();
         }
 
         private void Start()
@@ -44,9 +52,8 @@ namespace Game.Arena.Player {
         {
             if (expPoints >= expPointMaxCap)
             {
-
                 levelUpAnim.Play(0);
-                GetComponent<ISoundEffect>().PlayLevelUpSound();
+                iSoundEffect.PlayLevelUpSound();
                 CalculateAdditionalExperience();
                 levelText.text = "Level " + playerLevel;
                 UnlockAbility();
@@ -63,18 +70,18 @@ namespace Game.Arena.Player {
 
         void UnlockAbility()
         {
-            if (_unlockFirstAbility == false && playerLevel == 4)
+            if (unlockFirstAbility == false && playerLevel == 4)
             {
-                GetComponent<DivingElbowAbility>().disable = false;
-                _unlockFirstAbility = true;
-                Game.UI.PlayerUI.instance.UnlockAbility1(GetComponent<DivingElbowAbility>().abilityCooldown);
+                divineElbowAbility.disable = false;
+                unlockFirstAbility = true;
+                Game.UI.PlayerUI.instance.UnlockAbility1(divineElbowAbility.abilityCooldown);
             }
 
-            if (_unlockSecondAbility == false && playerLevel == 9)
+            if (unlockSecondAbility == false && playerLevel == 9)
             {
-                GetComponent<TableChargeAbility>().disable = false;
-                _unlockSecondAbility = true;
-                Game.UI.PlayerUI.instance.UnlockAbility2(GetComponent<TableChargeAbility>().abilityCooldown);
+                tableChargeAbility.disable = false;
+                unlockSecondAbility = true;
+                Game.UI.PlayerUI.instance.UnlockAbility2(tableChargeAbility.abilityCooldown);
             }
         }
         [ContextMenu("AddLevel")]
@@ -85,19 +92,19 @@ namespace Game.Arena.Player {
         }
 
         [ContextMenu("Unlock first ability")]
-        void Unlock1Ability()
+        private void Unlock1Ability()
         {
-            GetComponent<DivingElbowAbility>().disable = false;
-            _unlockFirstAbility = true;
-            Game.UI.PlayerUI.instance.UnlockAbility1(GetComponent<DivingElbowAbility>().abilityCooldown);
+            divineElbowAbility.disable = false;
+            unlockFirstAbility = true;
+            Game.UI.PlayerUI.instance.UnlockAbility1(divineElbowAbility.abilityCooldown);
         }
 
         [ContextMenu("Unlock second ability")]
-        void Unlock2Ability()
+        private void Unlock2Ability()
         {
-            GetComponent<TableChargeAbility>().disable = false;
-            _unlockSecondAbility = true;
-            Game.UI.PlayerUI.instance.UnlockAbility2(GetComponent<TableChargeAbility>().abilityCooldown);
+            tableChargeAbility.disable = false;
+            unlockSecondAbility = true;
+            Game.UI.PlayerUI.instance.UnlockAbility2(tableChargeAbility.abilityCooldown);
         }
 
         private void OnDestroy()

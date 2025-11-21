@@ -11,14 +11,14 @@ namespace Game.Arena.Player {
 
         public bool canMove;
 
-        private Animator _animator;
+        private Animator animator;
 
         private const string IdleKey = "Idle";
         private const string RunKey = "Run";
 
         void Awake()
         {
-            _animator = GetComponent<Animator>();
+            animator = GetComponent<Animator>();
         }
 
         void Update()
@@ -66,13 +66,13 @@ namespace Game.Arena.Player {
         {
             if (0.01f < Vector3Extension.DistanceBetweenPlayerMouse(transform.position, Vector3Extension.MousePosition()))
             {
-                _animator.SetBool(RunKey, true);
-                _animator.SetBool(IdleKey, false);
+                animator.SetBool(RunKey, true);
+                animator.SetBool(IdleKey, false);
             }
             else
             {
-                _animator.SetBool(RunKey, false);
-                _animator.SetBool(IdleKey, true);
+                animator.SetBool(RunKey, false);
+                animator.SetBool(IdleKey, true);
             }
         }
     }

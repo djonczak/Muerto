@@ -13,18 +13,18 @@ namespace Game.Player
 
         [SerializeField] private float moveSpeed = 20f;
 
-        private SpriteRenderer _spriteRenderer;
-        private Rigidbody2D _rigidbody;
-        private Animator _animator;
+        private SpriteRenderer spriteRenderer;
+        private Rigidbody2D rigidbody2D;
+        private Animator animator;
 
         private const string SpeedKey = "Speed";
         private const string HorizontalInput = "Horizontal";
 
         private void Awake()
         {
-            _spriteRenderer = GetComponent<SpriteRenderer>();
-            _rigidbody = GetComponent<Rigidbody2D>();
-            _animator = GetComponent<Animator>();
+            spriteRenderer = GetComponent<SpriteRenderer>();
+            rigidbody2D = GetComponent<Rigidbody2D>();
+            animator = GetComponent<Animator>();
         }
 
         private void Start()
@@ -49,19 +49,19 @@ namespace Game.Player
             if (CanMove)
             {
                 float axisX = Input.GetAxisRaw(HorizontalInput);
-                Vector2 movement = new Vector2(axisX, _rigidbody.velocity.y);
+                Vector2 movement = new Vector2(axisX, rigidbody2D.velocity.y);
                 var moveVelocity = movement * moveSpeed;
-                _rigidbody.MovePosition(_rigidbody.position + moveVelocity * Time.fixedDeltaTime);
+                rigidbody2D.MovePosition(rigidbody2D.position + moveVelocity * Time.fixedDeltaTime);
 
                 if (movement.x < 0)
                 {
-                    _spriteRenderer.flipX = true;
+                    spriteRenderer.flipX = true;
                 }
                 else if (movement.x > 0)
                 {
-                    _spriteRenderer.flipX = false;
+                    spriteRenderer.flipX = false;
                 }
-                _animator.SetFloat(SpeedKey, Mathf.Abs(movement.magnitude));
+                animator.SetFloat(SpeedKey, Mathf.Abs(movement.magnitude));
             }
         }
     }

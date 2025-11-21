@@ -27,13 +27,13 @@ namespace Game.UI
         [SerializeField] private float ability1Cooldown = 0f;
         [SerializeField] private float ability2Cooldown = 0f;
 
-        private float _ability1End = 0f;
-        private float _ability2End = 0f;
+        private float ability1End = 0f;
+        private float ability2End = 0f;
 
-        private bool _unlockFirstAbility = false;
-        private bool _unlockSecondAbility = false;
+        private bool unlockFirstAbility = false;
+        private bool unlockSecondAbility = false;
 
-        private bool _isPaused = false;
+        private bool isPaused = false;
 
         [SerializeField] private bool usedElbow = false;
         [SerializeField] private bool usedCharge = false;
@@ -52,7 +52,7 @@ namespace Game.UI
 
         public void UnlockAbility1(float cooldown)
         {
-            _unlockFirstAbility = true;
+            unlockFirstAbility = true;
             lockAbility1.enabled = false;
             ability1Image.gameObject.SetActive(true);
             ability1Cooldown = cooldown;
@@ -61,7 +61,7 @@ namespace Game.UI
 
         public void UnlockAbility2(float cooldown)
         {
-            _unlockSecondAbility = true;
+            unlockSecondAbility = true;
             lockAbility2.gameObject.SetActive(false);
             ability2Image.gameObject.SetActive(true);
             ability2Cooldown = cooldown;
@@ -71,14 +71,14 @@ namespace Game.UI
         public void Used1Ability()
         {
             usedElbow = true;
-            _ability1End = Time.time + ability1Cooldown;
+            ability1End = Time.time + ability1Cooldown;
             ability1CooldownImage.gameObject.SetActive(true);
         }
 
         public void Used2Ability()
         {
             usedCharge = true;
-            _ability2End = Time.time + ability2Cooldown;
+            ability2End = Time.time + ability2Cooldown;
             ability2CooldownImage.gameObject.SetActive(true);
         }
 
@@ -86,7 +86,7 @@ namespace Game.UI
         {
             abilityDescriptionFrame.SetActive(true);
             ability1Description.SetActive(true);
-            _isPaused = true;
+            isPaused = true;
             ArenaEvents.StopCamera();
             Time.timeScale = 0.00001f;
         }
@@ -95,7 +95,7 @@ namespace Game.UI
         {
             abilityDescriptionFrame.SetActive(true);
             ability2Description.SetActive(true);
-            _isPaused = true;
+            isPaused = true;
             ArenaEvents.StopCamera();
             Time.timeScale = 0.00001f;
         }
@@ -106,11 +106,11 @@ namespace Game.UI
 
             SecondAbilityCooldown();
 
-            if (_isPaused)
+            if (isPaused)
             {
                 if (Input.GetKeyDown(KeyCode.Mouse0))
                 {
-                    _isPaused = false;
+                    isPaused = false;
                     Time.timeScale = 1;
                     abilityDescriptionFrame.SetActive(false);
                     ability1Description.SetActive(false);
@@ -122,11 +122,11 @@ namespace Game.UI
 
         private void SecondAbilityCooldown()
         {
-            if (_unlockSecondAbility == true)
+            if (unlockSecondAbility == true)
             {
                 if (usedCharge)
                 {
-                    if (Time.time >= _ability2End)
+                    if (Time.time >= ability2End)
                     {
                         usedCharge = false;
                         ability2CooldownImage.color = canUseColor;
@@ -135,7 +135,7 @@ namespace Game.UI
                     else
                     {
                         ability2CooldownImage.color = cooldownColor;
-                        ability2CooldownImage.fillAmount = (_ability2End - Time.time) / ability2Cooldown;
+                        ability2CooldownImage.fillAmount = (ability2End - Time.time) / ability2Cooldown;
                     }
                 }
             }
@@ -143,11 +143,11 @@ namespace Game.UI
 
         private void FirstAbilityCooldown()
         {
-            if (_unlockFirstAbility == true)
+            if (unlockFirstAbility == true)
             {
                 if (usedElbow)
                 {
-                    if (Time.time >= _ability1End)
+                    if (Time.time >= ability1End)
                     {
                         usedElbow = false;
                         ability1CooldownImage.color = canUseColor;
@@ -156,7 +156,7 @@ namespace Game.UI
                     else
                     {
                         ability1CooldownImage.color = cooldownColor;
-                        ability1CooldownImage.fillAmount = (_ability1End - Time.time) / ability1Cooldown;
+                        ability1CooldownImage.fillAmount = (ability1End - Time.time) / ability1Cooldown;
                     }
                 }
             }

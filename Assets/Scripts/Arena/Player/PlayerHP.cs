@@ -9,13 +9,22 @@ namespace Game.Arena.Player
         [SerializeField] private float currentHP = 0;
         [SerializeField] private float maxHP = 3;
         public Image[] healthBars;
-        private int _i = -1;
+        private int i = -1;
         public bool isAlive = true;
         public bool canBeHurt;
+
+        private ISoundEffect iSoundEffect;
+        private ISpriteEffect iSpriteEffect;
 
         private const string RunKey = "Run";
         private const string IdleKey = "Idle";
         private const string DeathKey = "Death";
+
+        private void Awake()
+        {
+            iSoundEffect = GetComponent<ISoundEffect>();
+            iSpriteEffect = GetComponent<ISpriteEffect>();
+        }
 
         private void Start()
         {
@@ -29,9 +38,9 @@ namespace Game.Arena.Player
                 if (canBeHurt == true)
                 {
                     currentHP -= amount;
-                    _i++;
-                    healthBars[_i].enabled = false;
-                    GetComponent<ISpriteEffect>().DamageEffect();
+                    i++;
+                    healthBars[i].enabled = false;
+                    iSpriteEffect.DamageEffect();
                     StartCoroutine(DamageCooldown());
                 }
 
@@ -61,7 +70,7 @@ namespace Game.Arena.Player
             GetComponent<ArenaMovement>().enabled = false;
             GetComponent<TableChargeAbility>().enabled = false;
             GetComponent<DivingElbowAbility>().enabled = false;
-            GetComponent<ISoundEffect>().PlayDeathSound();
+            iSoundEffect.PlayDeathSound();
             this.enabled = false;
             ArenaEvents.PlayerDeath();
         }
@@ -71,10 +80,10 @@ namespace Game.Arena.Player
             if (currentHP < maxHP)
             {
                 currentHP += amount;
-                healthBars[_i].enabled = true;
-                _i--;
-                GetComponent<ISpriteEffect>().HealEffect();
-                GetComponent<ISoundEffect>().PlayHealSound();
+                healthBars[i].enabled = true;
+                i--;
+                iSpriteEffect.HealEffect();
+                iSoundEffect.PlayHealSound();
                 taco.Healed();
             }
         }

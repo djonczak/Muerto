@@ -12,23 +12,24 @@ namespace Game.Arena.AI
         [SerializeField] private float attackRange = 0.5f;
         [SerializeField] private GameObject target;
         [SerializeField] private LayerMask playerLayer = 10;
-        [SerializeField] private Animator attackWaveEffect;
+        private Animator attackWaveEffect;
 
         public AudioClip attackSound;
 
-        private Animator _animator;
-        private AudioSource _audioSource;
+        private Animator animator;
+        private AudioSource audioSource;
         private BossMovement bossMovement;
+        private Player.PlayerHP playerHP;
 
-        private float _timer;
-        private bool _isAttacking;
+        private float timer;
+        private bool isAttacking;
 
         private const string AttackKey = "Attack";
 
         private void Awake()
         {
-            _animator = GetComponent<Animator>();
-            _audioSource = GetComponent<AudioSource>();
+            animator = GetComponent<Animator>();
+            audioSource = GetComponent<AudioSource>();
             attackWaveEffect = transform.GetChild(1).gameObject.GetComponent<Animator>();
             bossMovement = GetComponent<BossMovement>();
         }
@@ -36,6 +37,7 @@ namespace Game.Arena.AI
         private void Start()
         {
             target = PlayerObject.GetPlayerObject();
+            playerHP = target.GetComponent<Player.PlayerHP>();
         }
 
         private void Update()
@@ -45,30 +47,30 @@ namespace Game.Arena.AI
 
         private void CheckAttack()
         {
-            if (target.GetComponent<Player.PlayerHP>().isAlive == true && _isAttacking == false)
+            if (playerHP.isAlive == true && isAttacking == false)
             {
                 var distance = Vector3.Distance(transform.position, target.transform.position);
                 if (distance <= attackRange)
                 {
-                    _timer += Time.deltaTime;
-                    if (_timer >= attackSpeed)
+                    timer += Time.deltaTime;
+                    if (timer >= attackSpeed)
                     {
                         StartAttack();
                     }
                 }
                 else
                 {
-                    _timer = 0f;
+                    timer = 0f;
                 }
             }
         }
 
         private void StartAttack()
         {
-            _animator.SetTrigger(AttackKey);
+            animator.SetTrigger(AttackKey);
             bossMovement.canMove = false;
-            _isAttacking = true;
-            _timer = 0f;
+            isAttacking = true;
+            timer = 0f;
         }
 
         public void ShowEffect()
@@ -78,19 +80,20 @@ namespace Game.Arena.AI
 
         public void EndAttack()
         {
-            _isAttacking = false;
+            isAttacking = false;
             bossMovement.canMove = true;
         }
 
         public void CastAttack()
         {
-            _audioSource.PlayOneShot(attackSound);
+            audioSource.PlayOneShot(attackSound);
             Collider2D player = Physics2D.OverlapCircle(attackAreaPoint.position, attackRange, playerLayer);
             if (player != null)
             {
-                if (player.GetComponent<IDamage>() != null)
+                var iDamage = player.GetComponent<IDamage>();
+                if (iDamage != null)
                 {
-                    player.GetComponent<IDamage>().TakeDamage(attackDamage, DamageType.Normal);
+                    iDamage.TakeDamage(attackDamage, DamageType.Normal);
                 }
             }
         }

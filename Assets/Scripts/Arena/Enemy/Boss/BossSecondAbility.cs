@@ -11,14 +11,14 @@ namespace Game.Arena.AI
 
         public AudioClip abilitySound;
 
-        private AudioSource _audioSource;
-        private float _timer;
+        private AudioSource audioSource;
+        private float timer;
 
         private const string BossPoolAttackKey = "BossPoolAttack";
 
         private void Awake()
         {
-            _audioSource = GetComponent<AudioSource>();
+            audioSource = GetComponent<AudioSource>();
         }
 
         private void Update()
@@ -30,12 +30,12 @@ namespace Game.Arena.AI
         {
             if (unlock == true)
             {
-                _timer += Time.deltaTime;
-                if (_timer >= abilityCooldown)
+                timer += Time.deltaTime;
+                if (timer >= abilityCooldown)
                 {
-                    _timer = 0f;
+                    timer = 0f;
                     CastAbility();
-                    _audioSource.PlayOneShot(abilitySound);
+                    audioSource.PlayOneShot(abilitySound);
                 }
             }
         }

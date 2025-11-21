@@ -15,31 +15,31 @@ namespace Game.VFX
         [SerializeField] private Color healColor = Color.green;
         [SerializeField] private bool isDamaged, canSwitchColor, isHealed;
 
-        private SpriteRenderer _spriteRenderer;
-        private float _t = 0f;
+        private SpriteRenderer spriteRenderer;
+        private float t = 0f;
 
         private void Awake()
         {
-            _spriteRenderer = GetComponent<SpriteRenderer>();
+            spriteRenderer = GetComponent<SpriteRenderer>();
         }
 
         private void Start()
         {
-            normalColor = _spriteRenderer.color;
+            normalColor = spriteRenderer.color;
         }
 
         private void FixedUpdate()
         {
             if (canSwitchColor)
             {
-                _t += Time.deltaTime / 1f;
+                t += Time.deltaTime / 1f;
                 if (isDamaged)
                 {
-                    _spriteRenderer.color = Color.Lerp(damageColor, normalColor, _t);
+                    spriteRenderer.color = Color.Lerp(damageColor, normalColor, t);
                 }
                 if (isHealed)
                 {
-                    _spriteRenderer.color = Color.Lerp(healColor, normalColor, _t);
+                    spriteRenderer.color = Color.Lerp(healColor, normalColor, t);
                 }
             }
         }
@@ -63,7 +63,7 @@ namespace Game.VFX
             if (isHealed == false)
             {
                 canSwitchColor = false;
-                _t = 0f;
+                t = 0f;
             }
         }
 
@@ -76,7 +76,7 @@ namespace Game.VFX
             if (isDamaged == false)
             {
                 canSwitchColor = false;
-                _t = 0f;
+                t = 0f;
             }
         }
     }

@@ -11,11 +11,11 @@ namespace Game.Menu
         public GameObject arenaWindow;
         public Texture2D cursorTexture;
         public GameObject message;
-        public Text _versionText;
+        public Text versionText;
 
-        [SerializeField] private AudioSource _audioSource;
+        [SerializeField] private AudioSource audioSource;
 
-        private bool _canInteract = true;
+        private bool canInteract = true;
 
         private const string StoryLevel = "01_Room";
         private const string ArenaLevel = "Arena";
@@ -27,7 +27,7 @@ namespace Game.Menu
         {
             credtitsWindow.SetActive(false);
             Cursor.SetCursor(cursorTexture, Vector2.zero, CursorMode.Auto);
-            _versionText.text = Application.version;
+            versionText.text = Application.version;
 
             //Application.targetFrameRate = -1;
             Application.targetFrameRate = 91;
@@ -35,9 +35,9 @@ namespace Game.Menu
 
         public void Story()
         {
-            if (_canInteract)
+            if (canInteract)
             {
-                _canInteract = false;
+                canInteract = false;
                 StartCoroutine(FadeAudio());
                 CameraManager.CameraFade.Instance.FadeIn(() => SceneManager.LoadScene(StoryLevel), 2f);
             }
@@ -46,11 +46,11 @@ namespace Game.Menu
         private IEnumerator FadeAudio()
         {
             var time = 0f;
-            var startVolume = _audioSource.volume;
+            var startVolume = audioSource.volume;
             while(time < 2f)
             {
                 var value = Mathf.Lerp(startVolume, 0, time / 2f);
-                _audioSource.volume = value;
+                audioSource.volume = value;
                 time += Time.deltaTime;
                 yield return null;
             }
@@ -65,11 +65,11 @@ namespace Game.Menu
             }
             else
             {
-                if (_canInteract)
+                if (canInteract)
                 {
                     StartCoroutine(FadeAudio());
                     CameraManager.CameraFade.Instance.FadeIn(() => SceneManager.LoadScene(ArenaLevel), 2);
-                    _canInteract = false;
+                    canInteract = false;
                 }
             }
         }
@@ -86,16 +86,16 @@ namespace Game.Menu
 
         public void Quit()
         {
-            if (_canInteract)
+            if (canInteract)
             {
                 CameraManager.CameraFade.Instance.FadeIn(() => Application.Quit(), 2);
-                _canInteract = false;
+                canInteract = false;
             }
         }
 
         public void GoBackToMainMenu()
         {
-            if (_canInteract)
+            if (canInteract)
             {
                 arenaWindow.SetActive(false);
                 credtitsWindow.SetActive(false);
