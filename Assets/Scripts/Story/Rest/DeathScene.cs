@@ -10,6 +10,7 @@ namespace Game.Scene
     {
         public GameObject reaper;
         public AudioSource sceneAmbient;
+        public AudioSource leafAmbient;
         private AudioSource audioSource;
         public AudioClip monster;
         public AudioClip slash;
@@ -98,18 +99,19 @@ namespace Game.Scene
             showText = true;
             audioSource.PlayOneShot(slash);
             yield return new WaitForSeconds(2f);
-            StartCoroutine(FadeAudio());
+            StartCoroutine(FadeAudio(sceneAmbient));
+            StartCoroutine(FadeAudio(leafAmbient));
             CameraManager.CameraFade.Instance.FadeIn(() => SceneManager.LoadScene(Menu), 2);
         }
 
-        private IEnumerator FadeAudio()
+        private IEnumerator FadeAudio(AudioSource audioSource)
         {
             var time = 0f;
-            var startVolume = sceneAmbient.volume;
+            var startVolume = audioSource.volume;
             while (time < 2f)
             {
                 var value = Mathf.Lerp(startVolume, 0, time / 2f);
-                sceneAmbient.volume = value;
+                audioSource.volume = value;
                 time += Time.deltaTime;
                 yield return null;
             }

@@ -10,7 +10,7 @@ namespace Game.Interactable
     {
         public string Lvl;
         public AppearButton button;
-
+        public AudioSource ambientBackground;
         private bool isColliding = false;
         private bool canInteract = true;
         private AudioSource audioSource;
@@ -36,8 +36,26 @@ namespace Game.Interactable
                     CameraManager.CameraFade.Instance.FadeIn(() => SceneManager.LoadScene(Lvl),2);
                     canInteract = false;
                     button.HideButton();
+                    if (ambientBackground != null)
+                    {
+                        StartCoroutine(MuteAmbient());
+                    }
                 }
             }
+        }
+
+        private IEnumerator MuteAmbient()
+        {
+            var timer = 0f;
+            var startValue = ambientBackground.volume;
+            while(timer < 1.5f)
+            {
+                var value = Mathf.Lerp(startValue, 0, timer / 1.5f);
+                ambientBackground.volume = value;
+                timer += Time.deltaTime;
+                yield return null;
+            }
+            ambientBackground.volume = 0f;
         }
 
         private void OnTriggerEnter2D(Collider2D collision)
