@@ -8,6 +8,7 @@ namespace Game.Menu {
     {
         [SerializeField] private List<GameObject> characterList = new List<GameObject>();
         private int _index = 0;
+        [SerializeField] private AudioSource audioSourcePress;
         public GameObject message;
 
         private const string NameKey = "Name";
@@ -31,6 +32,7 @@ namespace Game.Menu {
             {
                 _index = characterList.Count - 1;
             }
+            audioSourcePress.Play();
             characterList[_index].gameObject.SetActive(true);
         }
 
@@ -42,11 +44,13 @@ namespace Game.Menu {
             {
                 _index = 0;
             }
+            audioSourcePress.Play();
             characterList[_index].gameObject.SetActive(true);
         }
 
         public void SelectCharacter()
         {
+            audioSourcePress.Play();
             var character = characterList[_index].GetComponent<CharacterSlot>();
             if (character.IsUnlocked == true)
             {

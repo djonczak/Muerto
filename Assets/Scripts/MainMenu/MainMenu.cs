@@ -14,6 +14,7 @@ namespace Game.Menu
         public Text versionText;
 
         [SerializeField] private AudioSource audioSource;
+        [SerializeField] private AudioSource audioSourcePress;
 
         private bool canInteract = true;
 
@@ -37,6 +38,7 @@ namespace Game.Menu
         {
             if (canInteract)
             {
+                audioSourcePress.Play();
                 canInteract = false;
                 StartCoroutine(FadeAudio());
                 CameraManager.CameraFade.Instance.FadeIn(() => SceneManager.LoadScene(StoryLevel), 2f);
@@ -60,6 +62,7 @@ namespace Game.Menu
         {
             if (PlayerPrefs.GetString(NameKey) == "")
             {
+                audioSourcePress.Play();
                 message.GetComponent<Animator>().SetTrigger(ShowKey);
                 message.GetComponentInChildren<UnityEngine.UI.Text>().text = "Choose character !";
             }
@@ -67,6 +70,7 @@ namespace Game.Menu
             {
                 if (canInteract)
                 {
+                    audioSourcePress.Play();
                     StartCoroutine(FadeAudio());
                     CameraManager.CameraFade.Instance.FadeIn(() => SceneManager.LoadScene(ArenaLevel), 2);
                     canInteract = false;
@@ -76,11 +80,13 @@ namespace Game.Menu
 
         public void OpenArenaWindow()
         {
+            audioSourcePress.Play();
             arenaWindow.SetActive(true);
         }
 
         public void OpenCreditsWindow()
         {
+            audioSourcePress.Play();
             credtitsWindow.SetActive(true);
         }
 
@@ -88,6 +94,7 @@ namespace Game.Menu
         {
             if (canInteract)
             {
+                audioSourcePress.Play();
                 CameraManager.CameraFade.Instance.FadeIn(() => Application.Quit(), 2);
                 canInteract = false;
             }
@@ -97,6 +104,7 @@ namespace Game.Menu
         {
             if (canInteract)
             {
+                audioSourcePress.Play();
                 arenaWindow.SetActive(false);
                 credtitsWindow.SetActive(false);
             }
