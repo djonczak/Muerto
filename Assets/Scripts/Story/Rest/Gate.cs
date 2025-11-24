@@ -10,7 +10,8 @@ namespace Game.Interactable
     public class Gate : MonoBehaviour
     {
         public Text text;
-
+        public AudioSource treeAudio;
+        public AudioSource mariachiAudio;
         private bool canInteract = true;
 
         private const string PlayerTag = "Player";
@@ -34,6 +35,8 @@ namespace Game.Interactable
                         collision.gameObject.GetComponent<Player.PlayerMovement>().CanMove = false;
                         collision.gameObject.GetComponent<Animator>().SetFloat(SpeedKey, 0f);
                         CameraManager.CameraFade.Instance.FadeIn(() => SceneManager.LoadScene(CemeteryLevel), 2f);
+                        StartCoroutine(FadeAudio(treeAudio));
+                        StartCoroutine(FadeAudio(mariachiAudio));
                     }
                     else
                     {
@@ -52,6 +55,20 @@ namespace Game.Interactable
                     text.enabled = false;
                 }
             }
+        }
+
+        private IEnumerator FadeAudio(AudioSource audioSource)
+        {
+            var time = 0f;
+            var startVolume = audioSource.volume;
+            while (time < 2f)
+            {
+                var value = Mathf.Lerp(startVolume, 0, time / 1.5f);
+                audioSource.volume = value;
+                time += Time.deltaTime;
+                yield return null;
+            }
+            audioSource.volume = 0;
         }
     }
 }

@@ -695,7 +695,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -3, y: -231}
+  m_AnchoredPosition: {x: -3, y: -323}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &125634632
@@ -711,7 +711,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -720,7 +720,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.149055, g: 1, b: 0, a: 1}
+    m_HighlightedColor: {r: 0.77254903, g: 1, b: 0.73333335, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
@@ -846,7 +846,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -27.4}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -454.5, y: -16.800003}
+  m_AnchoredPosition: {x: -461.9, y: -31.1}
   m_SizeDelta: {x: 14.100006, y: 54}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &130691043
@@ -2492,8 +2492,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -133, y: 390}
-  m_SizeDelta: {x: 1670.44, y: 571.7}
+  m_AnchoredPosition: {x: -144.952, y: 292.45755}
+  m_SizeDelta: {x: 1694.344, y: 766.785}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &583104433
 MonoBehaviour:
@@ -2726,7 +2726,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -223, y: -323}
+  m_AnchoredPosition: {x: -223, y: -414.99997}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &586244664
@@ -4161,7 +4161,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -957, y: -279}
+  m_AnchoredPosition: {x: -957, y: -370.99997}
   m_SizeDelta: {x: 161.5, y: 154.99}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &881189196
@@ -4890,8 +4890,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -224.7, y: 171.1}
-  m_SizeDelta: {x: 1764.2, y: 1176}
+  m_AnchoredPosition: {x: -224.7, y: 119.730774}
+  m_SizeDelta: {x: 1764.2, y: 1278.7385}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &997347105
 MonoBehaviour:
@@ -5105,6 +5105,7 @@ GameObject:
   - component: {fileID: 1063337754}
   - component: {fileID: 1063337753}
   - component: {fileID: 1063337755}
+  - component: {fileID: 1063337757}
   m_Layer: 0
   m_Name: Ricardo
   m_TagString: Untagged
@@ -5188,6 +5189,20 @@ MonoBehaviour:
   unlockInfo: {fileID: 302460126}
   normalColor: {r: 255, g: 255, b: 255, a: 255}
   IsUnlocked: 0
+--- !u!114 &1063337757
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1063337751}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fad7543bd29362743a82cc71565cea7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controller: {fileID: 9100000, guid: cba0c9b742eb2f74f98c9e36bf982cc2, type: 2}
+  sprite: {fileID: -6502365060993923410, guid: 017213416b145eb40952ccce966399dd, type: 3}
 --- !u!1 &1104909486
 GameObject:
   m_ObjectHideFlags: 0
@@ -5690,7 +5705,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -225.05717, y: -103.6221}
+  m_AnchoredPosition: {x: -225.05717, y: -195.62207}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1166610324
@@ -6510,7 +6525,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -421, y: -231}
+  m_AnchoredPosition: {x: -421, y: -322.99997}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1382187537
@@ -6526,7 +6541,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -6535,7 +6550,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.149055, g: 1, b: 0, a: 1}
+    m_HighlightedColor: {r: 0.77253664, g: 1, b: 0.7327044, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
@@ -6948,7 +6963,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 472, y: -279}
+  m_AnchoredPosition: {x: 472, y: -370.99997}
   m_SizeDelta: {x: 161.5, y: 154.99}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1574677160
@@ -7873,6 +7888,7 @@ GameObject:
   - component: {fileID: 1770556069}
   - component: {fileID: 1770556068}
   - component: {fileID: 1770556070}
+  - component: {fileID: 1770556071}
   m_Layer: 0
   m_Name: Huan
   m_TagString: Untagged
@@ -7956,6 +7972,20 @@ MonoBehaviour:
   unlockInfo: {fileID: 989143603}
   normalColor: {r: 255, g: 255, b: 255, a: 255}
   IsUnlocked: 1
+--- !u!114 &1770556071
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1770556066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fad7543bd29362743a82cc71565cea7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controller: {fileID: 9100000, guid: 6a0728508affba94cb3f61ce7bd28f2d, type: 2}
+  sprite: {fileID: 2005157832412973850, guid: 20229d4e4c960b7499933f28dfeeaa5c, type: 3}
 --- !u!850595691 &1826859586
 LightingSettings:
   m_ObjectHideFlags: 0

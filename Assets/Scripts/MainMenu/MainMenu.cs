@@ -56,6 +56,7 @@ namespace Game.Menu
                 time += Time.deltaTime;
                 yield return null;
             }
+            audioSource.volume = 0;
         }
 
         public void LoadArena()
