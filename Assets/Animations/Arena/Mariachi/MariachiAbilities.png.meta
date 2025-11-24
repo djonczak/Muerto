@@ -13,36 +13,45 @@ TextureImporter:
     second: RicardoAbilityArena_FallAttack3
   - first:
       213: 7120503401350134732
-    second: RicardoAbilityArena_ChargePreparations0
+    second: Mariachi_FirstAbility0
   - first:
       213: -6760396786389981331
-    second: RicardoAbilityArena_ChargePreparations1
+    second: Mariachi_FirstAbility1
   - first:
       213: 7591145223722639306
-    second: RicardoAbilityArena_ChargePreparations2
+    second: Mariachi_FirstAbility2
   - first:
       213: 2933204973496571891
-    second: RicardoAbilityArena_ChargePreparations3
+    second: Mariachi_FirstAbility3
   - first:
       213: -3952726692834322326
-    second: RicardoAbilityArena_ChargePreparations4
+    second: Mariachi_FirstAbility4
   - first:
       213: -7174561789983995898
-    second: RicardoAbilityArena_Charge0
+    second: Mariachi_SecondAbility0
   - first:
       213: -4997315039725464034
-    second: RicardoAbilityArena_Charge1
+    second: Mariachi_SecondAbility2
   - first:
       213: 4144411938568640991
-    second: RicardoAbilityArena_Charge2
+    second: Mariachi_SecondAbility3
   - first:
       213: -7743826286050722228
     second: RicardoAbilityArena_Charge3
   - first:
       213: -3235858910803176864
     second: RicardoAbilityArena_Charge4
+  - first:
+      213: -2397517284865229131
+    second: Mariachi_Marakesh_Grenade
+  - first:
+      213: 7929366233470281179
+    second: Mariachi_SecondAbility1
+  - first:
+      213: -1735651745383436774
+    second: Mariachi_FirstAbility6
   externalObjects: {}
-  serializedVersion: 10
+  serializedVersion: 11
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -62,6 +71,7 @@ TextureImporter:
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
+  vTOnly: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -93,9 +103,13 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -149,76 +163,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: RicardoAbilityArena_FallAttack0
+      name: Mariachi_FirstAbility0
       rect:
         serializedVersion: 2
-        x: 19
-        y: 145
-        width: 26
-        height: 18
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6e73ef715403af0468cf5f10b7b11140
-      internalID: 3935196583151508489
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: RicardoAbilityArena_FallAttack1
-      rect:
-        serializedVersion: 2
-        x: 71
-        y: 144
-        width: 26
-        height: 18
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d7f7141709c40e94c9e29cf35e929b15
-      internalID: -5467840130327957457
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: RicardoAbilityArena_FallAttack3
-      rect:
-        serializedVersion: 2
-        x: 127
-        y: 144
-        width: 26
-        height: 18
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4f810ac6161304a4a91dbfbb6b012b38
-      internalID: 1100261978553523153
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: RicardoAbilityArena_ChargePreparations0
-      rect:
-        serializedVersion: 2
-        x: 8
-        y: 59
-        width: 28
-        height: 34
+        x: 11
+        y: 51
+        width: 19
+        height: 35
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -233,13 +184,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RicardoAbilityArena_ChargePreparations1
+      name: Mariachi_FirstAbility1
       rect:
         serializedVersion: 2
-        x: 44
-        y: 59
-        width: 28
-        height: 34
+        x: 40
+        y: 51
+        width: 19
+        height: 35
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -254,13 +205,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RicardoAbilityArena_ChargePreparations2
+      name: Mariachi_FirstAbility2
       rect:
         serializedVersion: 2
-        x: 84
-        y: 60
-        width: 28
-        height: 34
+        x: 69
+        y: 51
+        width: 19
+        height: 35
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -275,13 +226,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RicardoAbilityArena_ChargePreparations3
+      name: Mariachi_FirstAbility3
       rect:
         serializedVersion: 2
-        x: 122
-        y: 60
-        width: 28
-        height: 34
+        x: 96
+        y: 51
+        width: 19
+        height: 35
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -296,13 +247,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RicardoAbilityArena_ChargePreparations4
+      name: Mariachi_FirstAbility4
       rect:
         serializedVersion: 2
-        x: 162
-        y: 56
-        width: 28
-        height: 34
+        x: 123
+        y: 51
+        width: 30
+        height: 35
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -317,13 +268,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RicardoAbilityArena_Charge0
+      name: Mariachi_SecondAbility0
       rect:
         serializedVersion: 2
-        x: 1
-        y: 100
-        width: 36
-        height: 28
+        x: 8
+        y: 99
+        width: 19
+        height: 35
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -338,13 +289,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RicardoAbilityArena_Charge1
+      name: Mariachi_SecondAbility2
       rect:
         serializedVersion: 2
-        x: 57
+        x: 62
         y: 99
-        width: 36
-        height: 28
+        width: 23
+        height: 35
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -359,13 +310,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RicardoAbilityArena_Charge2
+      name: Mariachi_SecondAbility3
       rect:
         serializedVersion: 2
-        x: 107
+        x: 93
         y: 99
-        width: 36
-        height: 29
+        width: 22
+        height: 35
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -380,13 +331,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RicardoAbilityArena_Charge3
+      name: Mariachi_Marakesh_Grenade
       rect:
         serializedVersion: 2
-        x: 158
-        y: 97
-        width: 36
-        height: 28
+        x: 261
+        y: 70
+        width: 7
+        height: 11
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -394,20 +345,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8c3521ba0243df94cb1f7dc0b84fb392
-      internalID: -7743826286050722228
+      spriteID: 5bebfb46bbe4abed0800000000000000
+      internalID: -2397517284865229131
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RicardoAbilityArena_Charge4
+      name: Mariachi_SecondAbility1
       rect:
         serializedVersion: 2
-        x: 208
-        y: 97
-        width: 36
-        height: 28
+        x: 35
+        y: 99
+        width: 20
+        height: 35
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -415,8 +366,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 646ad3514bf043b499c66a57e6e9f1fa
-      internalID: -3235858910803176864
+      spriteID: bd529f7e394ca0e60800000000000000
+      internalID: 7929366233470281179
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mariachi_FirstAbility6
+      rect:
+        serializedVersion: 2
+        x: 164
+        y: 52
+        width: 35
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1e22a6fee9b9e7e0800000000000000
+      internalID: -1735651745383436774
       vertices: []
       indices: 
       edges: []
