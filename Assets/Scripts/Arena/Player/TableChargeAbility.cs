@@ -4,7 +4,6 @@ using UnityEngine;
 
 namespace Game.Arena.Player
 {
-
     public class TableChargeAbility : MonoBehaviour
     {
         public bool disable = false;
@@ -26,7 +25,6 @@ namespace Game.Arena.Player
         private PlayerHP playerHP;
 
         private ISoundEffect iSoundEffect;
-
 
         private const string IdleKey = "Idle";
         private const string RunKey = "Run";
