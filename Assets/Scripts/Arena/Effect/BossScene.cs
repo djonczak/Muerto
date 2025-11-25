@@ -91,7 +91,7 @@ namespace Game.Scene
         private void FirstPhaseOfScene()
         {
             UI.BlackBars.Instance.ShowBar(250, 2f);
-            player.GetComponent<Arena.Player.TableChargeAbility>().CancelTableCharge();
+            player.GetComponent<Arena.Player.TableChargeAbility>().CancelAbility();
             player.GetComponent<Arena.Player.ArenaMovement>().enabled = false;
             player.GetComponent<Arena.Player.PlayerAttack>().enabled = false;
             player.GetComponent<Animator>().SetBool(IdleKey, true);

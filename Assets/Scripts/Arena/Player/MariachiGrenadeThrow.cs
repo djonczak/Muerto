@@ -2,17 +2,109 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MariachiGrenadeThrow : MonoBehaviour
+namespace Game.Arena.Player 
 {
-    // Start is called before the first frame update
-    void Start()
+    public class MariachiGrenadeThrow : MonoBehaviour
     {
-        
-    }
+        public bool disable = false;
+        public float abilityCooldown = 15f;
+        [SerializeField] private bool canUse = true;
+        [SerializeField] private MariachiGrenade mariachiGrenade;
+        private bool canThrow;
+        private Animator animator;
+        private PlayerAttack playerAttack;
+        private ArenaMovement arenaMovement;
+        private PlayerHP playerHP;
+        private Vector3 throwPoint;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        private ISoundEffect iSoundEffect;
+
+        private const string IdleKey = "Idle";
+        private const string RunKey = "Run";
+        private const string ThrowKey = "Throw";
+        private const string FirstAbilityKey = "FirstAbility";
+
+        private void Awake()
+        {
+            animator = GetComponent<Animator>();
+            playerAttack = GetComponent<PlayerAttack>();
+            iSoundEffect = GetComponent<ISoundEffect>();
+            arenaMovement = GetComponent<ArenaMovement>();
+            playerHP = GetComponent<PlayerHP>();
+        }
+
+        private void Update()
+        {
+            if (disable == false)
+            {
+                Input();
+            }
+        }
+
+        private void Input()
+        {
+            if (UnityEngine.Input.GetKeyDown(KeyCode.W) && canUse == true)
+            {
+                PrepareForThrow();
+            }
+
+            if (canThrow == true)
+            {
+                if (UnityEngine.Input.GetKeyDown(KeyCode.Mouse0))
+                {
+                    var mouse = Camera.main.ScreenToWorldPoint(UnityEngine.Input.mousePosition);
+                    mouse.z = 0f;
+                    throwPoint = mouse;
+                    Time.timeScale = 1f;
+                    canThrow = false;
+                    animator.SetTrigger(ThrowKey);
+                }
+            }
+        }
+
+        public void Throw()
+        {
+            ArenaEvents.PlayerCharge();
+            playerHP.canBeHurt = true;
+            arenaMovement.enabled = true;
+            playerAttack.enabled = true;
+            mariachiGrenade.ThrowGrenade(throwPoint);
+            StartCoroutine(AbilityCooldown(abilityCooldown));
+        }
+
+        private void PrepareForThrow()
+        {
+            canUse = false;
+            arenaMovement.enabled = false;
+            playerAttack.enabled = false;
+            animator.SetTrigger(FirstAbilityKey);
+            animator.SetBool(RunKey, false);
+            animator.SetBool(IdleKey, false);
+            canThrow = true;
+            playerHP.canBeHurt = false;
+            Time.timeScale = 0.5f;
+        }
+
+
+        public void CancelAbility()
+        {
+            if (canThrow)
+            {
+                StopAllCoroutines();
+                playerHP.canBeHurt = true;
+                ArenaEvents.PlayerCharge();
+                GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+                arenaMovement.enabled = true;
+                playerAttack.enabled = true;
+                canThrow = false;
+            }
+        }
+
+        IEnumerator AbilityCooldown(float time)
+        {
+            Game.UI.PlayerUI.instance.Used2Ability();
+            yield return new WaitForSeconds(time);
+            canUse = true;
+        }
     }
 }

@@ -153,7 +153,7 @@ namespace Game.Arena.Player
             StartCoroutine(AbilityCooldown(abilityCooldown));
         }
 
-        public void CancelTableCharge()
+        public void CancelAbility()
         {
             if (isCharging)
             {

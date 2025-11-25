@@ -19,7 +19,7 @@ namespace Game.VFX
         {
             if (collision.gameObject.tag == PlayerTag && isDestroyed == false)
             {
-                if (collision.gameObject.GetComponent<Arena.Player.PlayerAttack>().isDashing == true || collision.gameObject.GetComponent<Arena.Player.TableChargeAbility>().isCharging == true)
+                if (DetectedDamagable(collision.gameObject))
                 {
                     DestroyPillar();
                     isDestroyed = true;
@@ -28,7 +28,7 @@ namespace Game.VFX
 
             if (collision.gameObject.tag == ChupacabraTag && isDestroyed == false)
             {
-                if (collision.gameObject.GetComponent<Arena.AI.EnemyDashAttack>().isDashing == true)
+                if (DetectedDamagable(collision.gameObject))
                 {
                     DestroyPillar();
                     isDestroyed = true;
@@ -40,7 +40,7 @@ namespace Game.VFX
         {
             if (collision.gameObject.tag == PlayerTag && isDestroyed == false)
             {
-                if (collision.gameObject.GetComponent<Arena.Player.PlayerAttack>().isDashing == true || collision.gameObject.GetComponent<Arena.Player.TableChargeAbility>().isCharging == true)
+                if (DetectedDamagable(collision.gameObject))
                 {
                     DestroyPillar();
                     isDestroyed = true;
@@ -49,12 +49,44 @@ namespace Game.VFX
 
             if (collision.gameObject.tag == ChupacabraTag && isDestroyed == false)
             {
-                if (collision.gameObject.GetComponent<Arena.AI.EnemyDashAttack>().isDashing == true)
+                if (DetectedDamagable(collision.gameObject))
                 {
                     DestroyPillar();
                     isDestroyed = true;
                 }
             }
+        }
+
+        private bool DetectedDamagable(GameObject detectedObject)
+        {
+            var normalAttack = detectedObject.GetComponent<Arena.Player.PlayerAttack>();
+            if (normalAttack != null)
+            {
+                if (normalAttack.isDashing)
+                {
+                    return true;
+                }
+            }
+
+            var normalAttackEnemy = detectedObject.GetComponent<Arena.AI.EnemyDashAttack>();
+            if (normalAttackEnemy != null)
+            {
+                if (normalAttackEnemy.isDashing)
+                {
+                    return true;
+                }
+            }
+
+            var tableAttack = detectedObject.GetComponent<Arena.Player.TableChargeAbility>();
+            if(tableAttack != null)
+            {
+                if (tableAttack.isCharging)
+                {
+                    return true;
+                }
+            }
+
+            return false;
         }
 
         private void DestroyPillar()
