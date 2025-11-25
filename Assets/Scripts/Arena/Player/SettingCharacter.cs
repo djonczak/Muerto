@@ -8,10 +8,12 @@ namespace Game.Arena.Player
     {
         public GameObject Huan;
         public GameObject Ricardo;
+        public GameObject Sanchez;
 
         private const string NameKey = "Name";
         private const string RicardoKey = "Ricardo";
         private const string HuanKey = "Huan";
+        private const string MariachiKey = "Mariachi";
 
         private void Awake()
         {
@@ -20,9 +22,15 @@ namespace Game.Arena.Player
             {
                 Huan.SetActive(true);
             }
+
             if (name == RicardoKey)
             {
                 Ricardo.SetActive(true);
+            }
+
+            if (name == MariachiKey)
+            {
+                Sanchez.SetActive(true);
             }
         }
     }

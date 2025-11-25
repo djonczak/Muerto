@@ -9,10 +9,17 @@ namespace Game.Arena.Player
         [SerializeField] private float explosionRange;
         [SerializeField] private Transform throwPoint;
         [SerializeField] private float speed;
-        [SerializeField] private ParticleSystem explosionParticle;
-        [SerializeField] private AudioSource explosionSound;
         [SerializeField] private LayerMask enemyLayer = 11;
         [SerializeField] private Transform grenade;
+
+        private ParticleSystem explosionParticle;
+        private AudioSource explosionSound;
+
+        private void Awake()
+        {
+            explosionSound = GetComponent<AudioSource>();
+            explosionParticle = GetComponentInChildren<ParticleSystem>();
+        }
 
         private void Start()
         {

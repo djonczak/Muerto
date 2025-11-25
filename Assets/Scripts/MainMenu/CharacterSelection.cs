@@ -1,13 +1,13 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
-namespace Game.Menu {
+namespace Game.Menu
+{
 
     public class CharacterSelection : MonoBehaviour
     {
         [SerializeField] private List<GameObject> characterList = new List<GameObject>();
-        private int _index = 0;
+        private int index = 0;
         [SerializeField] private AudioSource audioSourcePress;
         public GameObject message;
 
@@ -21,37 +21,39 @@ namespace Game.Menu {
                 characterList.Add(child.gameObject);
             }
 
-            characterList[_index].SetActive(true);
+            characterList[index].SetActive(true);
+
+            Debug.Log(PlayerPrefs.GetString(NameKey));
         }
 
         public void IndexDown()
         {
-            characterList[_index].gameObject.SetActive(false);
-            _index--;
-            if (_index < 0)
+            characterList[index].gameObject.SetActive(false);
+            index--;
+            if (index < 0)
             {
-                _index = characterList.Count - 1;
+                index = characterList.Count - 1;
             }
             audioSourcePress.Play();
-            characterList[_index].gameObject.SetActive(true);
+            characterList[index].gameObject.SetActive(true);
         }
 
         public void IndexUp()
         {
-            characterList[_index].gameObject.SetActive(false);
-            _index++;
-            if (_index == characterList.Count)
+            characterList[index].gameObject.SetActive(false);
+            index++;
+            if (index == characterList.Count)
             {
-                _index = 0;
+                index = 0;
             }
             audioSourcePress.Play();
-            characterList[_index].gameObject.SetActive(true);
+            characterList[index].gameObject.SetActive(true);
         }
 
         public void SelectCharacter()
         {
             audioSourcePress.Play();
-            var character = characterList[_index].GetComponent<CharacterSlot>();
+            var character = characterList[index].GetComponent<CharacterSlot>();
             if (character.IsUnlocked == true)
             {
                 message.GetComponent<Animator>().SetTrigger(ShowKey);

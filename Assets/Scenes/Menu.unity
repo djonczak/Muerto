@@ -8673,7 +8673,7 @@ MonoBehaviour:
   characterName: Sanchez
   unlockInfo: {fileID: 984175889}
   normalColor: {r: 255, g: 255, b: 255, a: 255}
-  IsUnlocked: 0
+  IsUnlocked: 1
 --- !u!114 &2067568197
 MonoBehaviour:
   m_ObjectHideFlags: 0

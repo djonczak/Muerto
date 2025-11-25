@@ -10,13 +10,20 @@ namespace Game.Arena.Player {
         public AudioClip ability1Sound;
         public AudioClip ability2Sound;
         public AudioClip deathSound;
+        public AudioClip specialSound;
 
         private AudioSource audioSource;
         private bool canPlayAbility2 = true;
+        private bool isPlayingSpecial;
 
         void Awake()
         {
             audioSource = GetComponent<AudioSource>();
+        }
+
+        private void Start()
+        {
+            OnAnimationSwitch.EndAnimation += StopPlayingSpecial;
         }
 
         public void PlayLevelUpSound()
@@ -53,6 +60,27 @@ namespace Game.Arena.Player {
         {
             yield return new WaitForSeconds(1.5f);
             canPlayAbility2 = true;
+        }
+
+        public void PlaySpecialSound()
+        {
+            if (isPlayingSpecial == false)
+            {
+                isPlayingSpecial = true;
+                audioSource.clip = specialSound;
+                audioSource.Play();
+            }
+        }
+
+        public void StopPlayingSpecial()
+        {
+            isPlayingSpecial = false;
+            audioSource.Stop();
+        }
+
+        private void OnDestroy()
+        {
+            OnAnimationSwitch.EndAnimation -= StopPlayingSpecial;
         }
     }
 }
