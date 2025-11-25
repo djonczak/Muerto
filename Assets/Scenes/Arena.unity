@@ -5072,7 +5072,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explosionRange: 0.35
   throwPoint: {fileID: 453804792}
-  speed: 3
+  speed: 2
   enemyLayer:
     serializedVersion: 2
     m_Bits: 2048
@@ -21551,6 +21551,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 820506164410488853, guid: ac05657fb2a30ef41824260c74af92a7,
+        type: 3}
+      propertyPath: disable
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 820506164410488853, guid: ac05657fb2a30ef41824260c74af92a7,
+        type: 3}
+      propertyPath: mariachiGrenade
+      value: 
+      objectReference: {fileID: 1051296549}
     - target: {fileID: 4180232404934687393, guid: ac05657fb2a30ef41824260c74af92a7,
         type: 3}
       propertyPath: m_RootOrder

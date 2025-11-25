@@ -56,8 +56,21 @@ namespace Game.Arena.Player
                     mouse.z = 0f;
                     throwPoint = mouse;
                     Time.timeScale = 1f;
-                    canThrow = false;
                     animator.SetTrigger(ThrowKey);
+                    canThrow = false;
+                }
+                else
+                {
+                    if(Vector3Extension.MousePosition().x > transform.position.x)
+                        {
+                        transform.rotation = Quaternion.Euler(0, 0, 0);
+                        transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y, 1);
+                    }
+                        else
+                    {
+                        transform.rotation = Quaternion.Euler(0, 180, 0);
+                        transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y, -1);
+                    }
                 }
             }
         }

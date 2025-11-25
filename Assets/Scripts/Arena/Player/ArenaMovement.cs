@@ -70,6 +70,16 @@ namespace Game.Arena.Player {
             transform.position = new Vector3(Mathf.Clamp(transform.position.x, minScreenBounds.x + 0.2f, maxScreenBounds.x - 0.2f), Mathf.Clamp(transform.position.y, minScreenBounds.y + 0.2f, maxScreenBounds.y - 0.2f), transform.position.z);
         }
 
+        private void OnDisable()
+        {
+            isRunning = false;
+            if (coroutine != null)
+            {
+                StopCoroutine(coroutine);
+                coroutine = null;
+            }
+        }
+
         private void AnimationsControll()
         {
             if (0.01f < Vector3Extension.DistanceBetweenPlayerMouse(transform.position, Vector3Extension.MousePosition()))

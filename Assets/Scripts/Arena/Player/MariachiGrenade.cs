@@ -71,9 +71,9 @@ namespace Game.Arena.Player
         {
             float timer = 0f;
             Vector3 startScale = grenade.localScale;
-            while (timer < 1F)
+            while (timer < 0.2F)
             {
-                var value = Mathf.Lerp(startScale.x, 1f, timer / 1f);
+                var value = Mathf.Lerp(startScale.x, 1f, timer / 0.2F);
                 grenade.localScale = new Vector3(value, value, value);
                 timer += Time.deltaTime;
                 yield return null;
