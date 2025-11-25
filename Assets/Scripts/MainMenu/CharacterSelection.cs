@@ -6,24 +6,48 @@ namespace Game.Menu
 
     public class CharacterSelection : MonoBehaviour
     {
-        [SerializeField] private List<GameObject> characterList = new List<GameObject>();
+        [SerializeField] private List<CharacterSlot> characterList = new List<CharacterSlot>();
         private int index = 0;
         [SerializeField] private AudioSource audioSourcePress;
         public GameObject message;
+        private UnityEngine.UI.Text messageText;
 
         private const string NameKey = "Name";
         private const string ShowKey = "Show";
+
+        private void Awake()
+        {
+            messageText = message.GetComponentInChildren<UnityEngine.UI.Text>();
+        }
 
         private void Start()
         {
             foreach (Transform child in transform)
             {
-                characterList.Add(child.gameObject);
+                var character = child.GetComponent<CharacterSlot>();
+                if (character != null)
+                {
+                    characterList.Add(character);
+                }
             }
 
-            characterList[index].SetActive(true);
+            bool gotCharacter = false;
+            for(int i = 0; i < characterList.Count; i++)
+            {
+                var name = PlayerPrefs.GetString(NameKey);
+                if (name == characterList[i].name)
+                {
+                    index = i;
+                    characterList[i].gameObject.SetActive(true);
+                    gotCharacter = true;
+                    return;
+                }
+            } 
 
-            Debug.Log(PlayerPrefs.GetString(NameKey));
+            if(gotCharacter == false)
+            {
+                characterList[index].gameObject.SetActive(true);
+            }
         }
 
         public void IndexDown()
@@ -53,17 +77,16 @@ namespace Game.Menu
         public void SelectCharacter()
         {
             audioSourcePress.Play();
-            var character = characterList[index].GetComponent<CharacterSlot>();
-            if (character.IsUnlocked == true)
+            if (characterList[index].IsUnlocked == true)
             {
                 message.GetComponent<Animator>().SetTrigger(ShowKey);
-                message.GetComponentInChildren<UnityEngine.UI.Text>().text = "You have choosen " + character.characterName;
-                PlayerPrefs.SetString(NameKey, character.name);
+                messageText.text = "You have choosen " + characterList[index].characterName;
+                PlayerPrefs.SetString(NameKey, characterList[index].name);
             }
             else
             {
                 message.GetComponent<Animator>().SetTrigger(ShowKey);
-                message.GetComponentInChildren<UnityEngine.UI.Text>().text = "This character is locked !";
+                messageText.text = "This character is locked !";
             }
         }
 
