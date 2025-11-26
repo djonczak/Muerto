@@ -43,7 +43,7 @@ namespace Game.Arena.Player
 
         private void Input()
         {
-            if (UnityEngine.Input.GetKeyDown(KeyCode.W) && canUse == true)
+            if (UnityEngine.Input.GetKeyDown(KeyCode.Q) && canUse == true)
             {
                 PrepareForThrow();
             }
@@ -66,7 +66,7 @@ namespace Game.Arena.Player
                         transform.rotation = Quaternion.Euler(0, 0, 0);
                         transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y, 1);
                     }
-                        else
+                    else
                     {
                         transform.rotation = Quaternion.Euler(0, 180, 0);
                         transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y, -1);
@@ -77,7 +77,8 @@ namespace Game.Arena.Player
 
         public void Throw()
         {
-            ArenaEvents.PlayerCharge();
+            iSoundEffect.PlayAbility1Sound();
+            //ArenaEvents.PlayerCharge();
             playerHP.canBeHurt = true;
             arenaMovement.enabled = true;
             playerAttack.enabled = true;
