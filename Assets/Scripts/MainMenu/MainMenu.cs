@@ -7,16 +7,15 @@ namespace Game.Menu
 {
     public class MainMenu : MonoBehaviour
     {
-        public GameObject credtitsWindow;
         public GameObject arenaWindow;
+        public ButtonController menuButtons;
+        public ButtonController arenaButton;
         public Texture2D cursorTexture;
         public GameObject message;
         public Text versionText;
 
         [SerializeField] private AudioSource audioSource;
         [SerializeField] private AudioSource audioSourcePress;
-
-        private bool canInteract = true;
 
         private const string StoryLevel = "01_Room";
         private const string ArenaLevel = "Arena";
@@ -26,7 +25,6 @@ namespace Game.Menu
 
         private void Start()
         {
-            credtitsWindow.SetActive(false);
             Cursor.SetCursor(cursorTexture, Vector2.zero, CursorMode.Auto);
             versionText.text = Application.version;
 
@@ -36,13 +34,10 @@ namespace Game.Menu
 
         public void Story()
         {
-            if (canInteract)
-            {
-                audioSourcePress.Play();
-                canInteract = false;
-                StartCoroutine(FadeAudio());
-                CameraManager.CameraFade.Instance.FadeIn(() => SceneManager.LoadScene(StoryLevel), 2f);
-            }
+            menuButtons.DeactivateButtons();
+            audioSourcePress.Play();
+            StartCoroutine(FadeAudio());
+            CameraManager.CameraFade.Instance.FadeIn(() => SceneManager.LoadScene(StoryLevel), 2f);
         }
 
         private IEnumerator FadeAudio()
@@ -69,47 +64,42 @@ namespace Game.Menu
             }
             else
             {
-                if (canInteract)
-                {
-                    audioSourcePress.Play();
-                    StartCoroutine(FadeAudio());
-                    CameraManager.CameraFade.Instance.FadeIn(() => SceneManager.LoadScene(ArenaLevel), 2);
-                    canInteract = false;
-                }
+                arenaButton.DeactivateButtons();
+                audioSourcePress.Play();
+                StartCoroutine(FadeAudio());
+                CameraManager.CameraFade.Instance.FadeIn(() => SceneManager.LoadScene(ArenaLevel), 2);
             }
         }
 
         public void OpenArenaWindow()
         {
             audioSourcePress.Play();
+            menuButtons.DeactivateButtons();
+            StartCoroutine(ShowArena());
+        }
+
+        private IEnumerator ShowArena()
+        {
+            yield return new WaitForSeconds(0.5F);
             arenaWindow.SetActive(true);
-        }
-
-        public void OpenCreditsWindow()
-        {
-            audioSourcePress.Play();
-            credtitsWindow.SetActive(true);
-        }
-
-        public void Quit()
-        {
-            if (canInteract)
-            {
-                audioSourcePress.Play();
-                CameraManager.CameraFade.Instance.FadeIn(() => Application.Quit(), 2);
-                canInteract = false;
-            }
+            arenaButton.ActivateButtons();
         }
 
         public void GoBackToMainMenu()
         {
-            if (canInteract)
-            {
-                audioSourcePress.Play();
-                arenaWindow.SetActive(false);
-                credtitsWindow.SetActive(false);
-            }
+            arenaButton.DeactivateButtons();
+            audioSourcePress.Play();
+            StartCoroutine(HideArena());
         }
+
+
+        private IEnumerator HideArena()
+        {
+            yield return new WaitForSeconds(0.5F);
+            arenaWindow.SetActive(false);
+            menuButtons.ActivateButtons();
+        }
+
     }
 }
 

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Game.Arena.Playerp
+namespace Game.Arena.Player
 {
     public class MariachiTrumpetAbility : MonoBehaviour
     {

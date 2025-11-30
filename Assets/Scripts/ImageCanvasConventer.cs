@@ -9,6 +9,7 @@ namespace Game.Menu
     {
         [SerializeField] private RuntimeAnimatorController controller;
         [SerializeField] private Sprite sprite;
+        [SerializeField] private bool switchSprite = true;
 
         private Image image;
         private SpriteRenderer fakeRenderer;
@@ -31,7 +32,10 @@ namespace Game.Menu
         {
             if (animator.runtimeAnimatorController)
             {
-                sprite = fakeRenderer.sprite;
+                if (switchSprite)
+                {
+                    sprite = fakeRenderer.sprite;
+                }
                 image.sprite = fakeRenderer.sprite;
             }
         }
