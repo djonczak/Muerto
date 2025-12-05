@@ -51,6 +51,19 @@ namespace Game.Arena.Player {
             }
         }
 
+        public void PlayAbility2SoundLoop()
+        {
+            audioSource.clip = ability2Sound;
+            audioSource.loop = true;
+            audioSource.Play();
+        }
+
+        public void StopAbility2Sound()
+        {
+            audioSource.Stop();
+            audioSource.loop = false;
+        }
+
         public void PlayDeathSound()
         {
             audioSource.PlayOneShot(deathSound);

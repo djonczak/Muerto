@@ -7,6 +7,14 @@ namespace Game.Arena.Player
     public class MariachiGrenadeThrow : MonoBehaviour
     {
         public bool disable = false;
+        [SerializeField] private bool canUseAbility = true;
+
+        public bool CanUseAbility
+        {
+            set => canUseAbility = value;
+        }
+
+
         public float abilityCooldown = 15f;
         [SerializeField] private bool canUse = true;
         [SerializeField] private MariachiGrenade mariachiGrenade;
@@ -14,6 +22,7 @@ namespace Game.Arena.Player
         private Animator animator;
         private PlayerAttack playerAttack;
         private ArenaMovement arenaMovement;
+        private MariachiTrumpetAbility mariachiTrumpetAbility;
         private PlayerHP playerHP;
         private Vector3 throwPoint;
 
@@ -31,13 +40,17 @@ namespace Game.Arena.Player
             iSoundEffect = GetComponent<ISoundEffect>();
             arenaMovement = GetComponent<ArenaMovement>();
             playerHP = GetComponent<PlayerHP>();
+            mariachiTrumpetAbility = GetComponent<MariachiTrumpetAbility>();
         }
 
         private void Update()
         {
             if (disable == false)
             {
-                Input();
+                if (canUseAbility)
+                {
+                    Input();
+                }
             }
         }
 
@@ -78,16 +91,18 @@ namespace Game.Arena.Player
         public void Throw()
         {
             iSoundEffect.PlayAbility1Sound();
-            //ArenaEvents.PlayerCharge();
+            Game.UI.PlayerUI.instance.Used1Ability();
             playerHP.canBeHurt = true;
             arenaMovement.enabled = true;
             playerAttack.enabled = true;
             mariachiGrenade.ThrowGrenade(throwPoint);
+            mariachiTrumpetAbility.CanUseAbility = true;
             StartCoroutine(AbilityCooldown(abilityCooldown));
         }
 
         private void PrepareForThrow()
         {
+            mariachiTrumpetAbility.CanUseAbility = false;
             canUse = false;
             arenaMovement.enabled = false;
             playerAttack.enabled = false;
@@ -116,7 +131,6 @@ namespace Game.Arena.Player
 
         IEnumerator AbilityCooldown(float time)
         {
-            Game.UI.PlayerUI.instance.Used2Ability();
             yield return new WaitForSeconds(time);
             canUse = true;
         }
