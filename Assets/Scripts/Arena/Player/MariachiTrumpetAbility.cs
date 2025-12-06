@@ -20,7 +20,9 @@ namespace Game.Arena.Player
         public float abilityCooldown = 15f;
         [SerializeField] private bool canUse = true;
         [SerializeField] private LayerMask enemyLayer = 11;
-        [SerializeField] private ParticleSystem notesParticles;
+        [Header("Effect")]
+        [SerializeField] private ParticleSystem[] notesParticles;
+        [SerializeField] private Animator notesAnimator;
         [SerializeField] private Transform notesPoint;
         private Animator animator;
         private PlayerAttack playerAttack;
@@ -33,6 +35,7 @@ namespace Game.Arena.Player
         private const string IdleKey = "Idle";
         private const string RunKey = "Run";
         private const string SecondAbility = "SecondAbility";
+        private const string Spread = "Spread";
 
         private void Awake()
         {
@@ -74,8 +77,12 @@ namespace Game.Arena.Player
 
         private IEnumerator AbilityActive()
         {
-            notesParticles.transform.position = notesPoint.position;
-            notesParticles.Play();
+            notesAnimator.SetTrigger(Spread);
+            notesParticles[1].loop = true;
+            notesParticles[2].loop = true;
+
+            notesParticles[0].transform.position = notesPoint.position;
+            notesParticles[0].Play();
             var timer = 0f;
             var startValue = minAttackRange;
             while (timer < abilityActiveTime)
@@ -93,6 +100,8 @@ namespace Game.Arena.Player
                 timer += Time.deltaTime;
                 yield return null;
             }
+            notesParticles[1].loop = false;
+            notesParticles[2].loop = false;
             iSoundEffect.StopAbility2Sound();
             playerHP.canBeHurt = true;
             arenaMovement.enabled = true;
