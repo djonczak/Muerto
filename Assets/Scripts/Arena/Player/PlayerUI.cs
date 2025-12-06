@@ -17,11 +17,9 @@ namespace Game.UI
         public Image ability1CooldownImage;
         public Image ability2CooldownImage;
 
-        public GameObject abilityDescriptionFrame;
-        public GameObject ability1Description;
-        public Text ability1DescriptionText;
-        public GameObject ability2Description;
-        public Text ability2DescriptionText;
+        public GameObject abilityFrame;
+        public Text abilityInputText;
+        public Text abilityDescriptionText;
 
         [SerializeField] private Color cooldownColor = new Color(255f, 0f, 0f, 184f);
         [SerializeField] private Color canUseColor = new Color(0f, 255f, 0f, 184f);
@@ -40,6 +38,9 @@ namespace Game.UI
         [SerializeField] private bool usedFirst = false;
         [SerializeField] private bool usedSecond = false;
 
+        private const string InputFirst = "Press Q to activate";
+        private const string InputSecond = "Press W to activate";
+
         private void Awake()
         {
             if (instance == null)
@@ -56,6 +57,9 @@ namespace Game.UI
         {
             unlockFirstAbility = true;
             lockAbility1.enabled = false;
+            ability1Image.sprite = icon;
+            abilityDescriptionText.text = text;
+            abilityInputText.text = InputFirst;
             ability1Image.gameObject.SetActive(true);
             ability1Cooldown = cooldown;
             PauseGameAbility1();
@@ -64,7 +68,10 @@ namespace Game.UI
         public void UnlockAbility2(float cooldown, Sprite icon, string text)
         {
             unlockSecondAbility = true;
-            lockAbility2.gameObject.SetActive(false);
+            lockAbility2.enabled = false;
+            ability2Image.sprite = icon;
+            abilityDescriptionText.text = text;
+            abilityInputText.text = InputSecond;
             ability2Image.gameObject.SetActive(true);
             ability2Cooldown = cooldown;
             PauseGameAbility2();
@@ -86,8 +93,7 @@ namespace Game.UI
 
         private void PauseGameAbility1()
         {
-            abilityDescriptionFrame.SetActive(true);
-            ability1Description.SetActive(true);
+            abilityFrame.SetActive(true);
             isPaused = true;
             ArenaEvents.StopCamera();
             Time.timeScale = 0.00001f;
@@ -95,8 +101,7 @@ namespace Game.UI
 
         private void PauseGameAbility2()
         {
-            abilityDescriptionFrame.SetActive(true);
-            ability2Description.SetActive(true);
+            abilityFrame.SetActive(true);
             isPaused = true;
             ArenaEvents.StopCamera();
             Time.timeScale = 0.00001f;
@@ -114,12 +119,9 @@ namespace Game.UI
                 {
                     isPaused = false;
                     Time.timeScale = 1;
-                    abilityDescriptionFrame.SetActive(false);
-                    ability1Description.SetActive(false);
-                    ability2Description.SetActive(false);
+                    abilityFrame.SetActive(false);
                 }
             }
-
         }
 
         private void SecondAbilityCooldown()

@@ -2924,12 +2924,12 @@ GameObject:
   - component: {fileID: 501171555}
   - component: {fileID: 501171554}
   m_Layer: 5
-  m_Name: Ability1Text
+  m_Name: AbilityDescriptionText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &501171553
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2942,12 +2942,12 @@ RectTransform:
   m_LocalScale: {x: 0.02, y: 0.02, z: 1}
   m_Children: []
   m_Father: {fileID: 1012328285}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -43.6, y: 14.8}
-  m_SizeDelta: {x: 84.9, y: 52.9}
+  m_AnchoredPosition: {x: -0.011124, y: -13.083706}
+  m_SizeDelta: {x: 4653.9, y: 2338.5872}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &501171554
 MonoBehaviour:
@@ -2979,10 +2979,10 @@ MonoBehaviour:
     m_Alignment: 0
     m_AlignByGeometry: 1
     m_RichText: 1
-    m_HorizontalOverflow: 1
+    m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: "Press Q to trigger.\nLuchador will launch himself up in \nthe air, then 
+  m_Text: "Press Q to trigger.\nLuchador will launch himself up in  the air, then 
     press LMB, to dive \ndown on your enemies and deal \nAOE damage."
 --- !u!222 &501171555
 CanvasRenderer:
@@ -3552,6 +3552,87 @@ Transform:
   m_Father: {fileID: 55072705}
   m_RootOrder: 24
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &620988120
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 620988121}
+  - component: {fileID: 620988123}
+  - component: {fileID: 620988122}
+  m_Layer: 5
+  m_Name: AbilityInputText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &620988121
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 620988120}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.02, y: 0.02, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1012328285}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -0.011124, y: -9.8021}
+  m_SizeDelta: {x: 4653.9, y: 2666.7542}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &620988122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 620988120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 7fb9e421e82694c4cbbaffa89c00628f, type: 3}
+    m_FontSize: 300
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 300
+    m_Alignment: 0
+    m_AlignByGeometry: 1
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 1
+    m_LineSpacing: 1
+  m_Text: 'Press Q to trigger.
+
+'
+--- !u!222 &620988123
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 620988120}
+  m_CullTransparentMesh: 0
 --- !u!1 &689294227
 GameObject:
   m_ObjectHideFlags: 0
@@ -3760,14 +3841,14 @@ MonoBehaviour:
   ability2Image: {fileID: 1090830469}
   ability1CooldownImage: {fileID: 1096773069}
   ability2CooldownImage: {fileID: 7320715}
-  abilityDescriptionFrame: {fileID: 1012328284}
-  ability1Description: {fileID: 501171552}
-  ability2Description: {fileID: 1657959077}
+  abilityFrame: {fileID: 1012328284}
+  abilityInputText: {fileID: 620988122}
+  abilityDescriptionText: {fileID: 501171554}
   cooldownColor: {r: 255, g: 0, b: 0, a: 0.54509807}
   canUseColor: {r: 0, g: 255, b: 0, a: 0.54509807}
   ability1Cooldown: 0
   ability2Cooldown: 0
-  usendFirst: 0
+  usedFirst: 0
   usedSecond: 0
 --- !u!1 &819210219
 GameObject:
@@ -9823,8 +9904,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 10, y: 8, z: 1}
   m_Children:
+  - {fileID: 620988121}
   - {fileID: 501171553}
-  - {fileID: 1657959078}
   - {fileID: 590306532}
   m_Father: {fileID: 1722483104}
   m_RootOrder: 0
@@ -10647,14 +10728,14 @@ PrefabInstance:
     - target: {fileID: 7471797268637326147, guid: c731cf1cae335f14587a5d37ee7b57aa,
         type: 3}
       propertyPath: ability1Text
-      value: Press Q to trigger. Luchador will launch himself up in  the air, then 
-        press LMB, to dive  down on your enemies and deal  AOE damage.
+      value: Luchador will launch himself up in  the air, then  press LMB, to dive 
+        down on your enemies and deal  AOE damage.
       objectReference: {fileID: 0}
     - target: {fileID: 7471797268637326147, guid: c731cf1cae335f14587a5d37ee7b57aa,
         type: 3}
       propertyPath: ability2Text
-      value: Press W to trigger. Luchador will run straight and  bounce from walls
-        use mouse to direct his charge.
+      value: Luchador will run straight and  bounce from walls use mouse to direct
+        his charge.
       objectReference: {fileID: 0}
     - target: {fileID: 7471797268637326147, guid: c731cf1cae335f14587a5d37ee7b57aa,
         type: 3}
@@ -23709,14 +23790,14 @@ PrefabInstance:
     - target: {fileID: 535408196014756030, guid: 3ab1b8a7bb06cf446ae6db8c9a426a11,
         type: 3}
       propertyPath: ability1Text
-      value: Press Q to trigger. Luchador will launch himself up in  the air, then 
-        press LMB, to dive  down on your enemies and deal  AOE damage.
+      value: Luchador will launch himself up in  the air, then  press LMB, to dive 
+        down on your enemies and deal  AOE damage.
       objectReference: {fileID: 0}
     - target: {fileID: 535408196014756030, guid: 3ab1b8a7bb06cf446ae6db8c9a426a11,
         type: 3}
       propertyPath: ability2Text
-      value: Press W to trigger. Luchador will run straight and  bounce from walls
-        use mouse to direct his charge.
+      value: Luchador will run straight and  bounce from walls use mouse to direct
+        his charge.
       objectReference: {fileID: 0}
     - target: {fileID: 535408196014756030, guid: 3ab1b8a7bb06cf446ae6db8c9a426a11,
         type: 3}
@@ -24171,86 +24252,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!1 &1657959077
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1657959078}
-  - component: {fileID: 1657959080}
-  - component: {fileID: 1657959079}
-  m_Layer: 5
-  m_Name: Ability2Text
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!224 &1657959078
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1657959077}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.02, y: 0.02, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1012328285}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -43.6, y: 14.8}
-  m_SizeDelta: {x: 84.9, y: 52.9}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1657959079
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1657959077}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_FontData:
-    m_Font: {fileID: 12800000, guid: 7fb9e421e82694c4cbbaffa89c00628f, type: 3}
-    m_FontSize: 300
-    m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 10
-    m_MaxSize: 300
-    m_Alignment: 0
-    m_AlignByGeometry: 1
-    m_RichText: 1
-    m_HorizontalOverflow: 1
-    m_VerticalOverflow: 1
-    m_LineSpacing: 1
-  m_Text: "Press W to trigger.\nLuchador will run straight and \nbounce from walls
-    use mouse to\ndirect his charge."
---- !u!222 &1657959080
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1657959077}
-  m_CullTransparentMesh: 0
 --- !u!1 &1659559323
 GameObject:
   m_ObjectHideFlags: 0
@@ -36208,6 +36209,16 @@ PrefabInstance:
       propertyPath: levelText
       value: 
       objectReference: {fileID: 1919732165}
+    - target: {fileID: 4180232404934687419, guid: ac05657fb2a30ef41824260c74af92a7,
+        type: 3}
+      propertyPath: ability1Text
+      value: Test
+      objectReference: {fileID: 0}
+    - target: {fileID: 4180232404934687419, guid: ac05657fb2a30ef41824260c74af92a7,
+        type: 3}
+      propertyPath: ability2Text
+      value: Test
+      objectReference: {fileID: 0}
     - target: {fileID: 4180232404934687419, guid: ac05657fb2a30ef41824260c74af92a7,
         type: 3}
       propertyPath: abilityImage1

@@ -13,7 +13,7 @@ namespace Game.Arena.Player
             set => disable = value;
             get => disable;
         }
-        private bool disable = false;
+        private bool disable = true;
 
 
         public float AbilityCooldown
