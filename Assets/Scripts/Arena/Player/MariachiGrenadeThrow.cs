@@ -4,18 +4,8 @@ using UnityEngine;
 
 namespace Game.Arena.Player 
 {
-    public class MariachiGrenadeThrow : MonoBehaviour
+    public class MariachiGrenadeThrow : PlayerAbility
     {
-        public bool disable = false;
-        [SerializeField] private bool canUseAbility = true;
-
-        public bool CanUseAbility
-        {
-            set => canUseAbility = value;
-        }
-
-
-        public float abilityCooldown = 15f;
         [SerializeField] private bool canUse = true;
         [SerializeField] private MariachiGrenade mariachiGrenade;
         private bool canThrow;
@@ -45,9 +35,9 @@ namespace Game.Arena.Player
 
         private void Update()
         {
-            if (disable == false)
+            if (Disabled == false)
             {
-                if (canUseAbility)
+                if (CanUseAbility)
                 {
                     Input();
                 }
@@ -97,7 +87,7 @@ namespace Game.Arena.Player
             playerAttack.enabled = true;
             mariachiGrenade.ThrowGrenade(throwPoint);
             mariachiTrumpetAbility.CanUseAbility = true;
-            StartCoroutine(AbilityCooldown(abilityCooldown));
+            StartCoroutine(AbilityCooldownTimer());
         }
 
         private void PrepareForThrow()
@@ -129,9 +119,9 @@ namespace Game.Arena.Player
             }
         }
 
-        IEnumerator AbilityCooldown(float time)
+        IEnumerator AbilityCooldownTimer()
         {
-            yield return new WaitForSeconds(time);
+            yield return new WaitForSeconds(AbilityCooldown);
             canUse = true;
         }
     }

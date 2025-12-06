@@ -14,8 +14,8 @@ namespace Game.Arena.Player {
         public Text levelText;
         public Animator levelUpAnim;
 
-        private DivingElbowAbility divineElbowAbility;
-        private TableChargeAbility tableChargeAbility;
+        [SerializeField] private PlayerAbility ability1;
+        [SerializeField] private PlayerAbility ability2;
         private ISoundEffect iSoundEffect;
         private bool unlockFirstAbility;
         private bool unlockSecondAbility;
@@ -27,8 +27,6 @@ namespace Game.Arena.Player {
 
         private void Awake()
         {
-            divineElbowAbility = GetComponent<DivingElbowAbility>();
-            tableChargeAbility = GetComponent<TableChargeAbility>();
             iSoundEffect = GetComponent<ISoundEffect>();
         }
 
@@ -68,20 +66,20 @@ namespace Game.Arena.Player {
             expPoints = restExp;
         }
 
-        void UnlockAbility()
+        private void UnlockAbility()
         {
             if (unlockFirstAbility == false && playerLevel == 4)
             {
-                divineElbowAbility.disable = false;
+                ability1.Disabled = false;
                 unlockFirstAbility = true;
-                Game.UI.PlayerUI.instance.UnlockAbility1(divineElbowAbility.abilityCooldown);
+                Game.UI.PlayerUI.instance.UnlockAbility1(ability1.AbilityCooldown);
             }
 
             if (unlockSecondAbility == false && playerLevel == 9)
             {
-                tableChargeAbility.disable = false;
+                ability2.Disabled = false;
                 unlockSecondAbility = true;
-                Game.UI.PlayerUI.instance.UnlockAbility2(tableChargeAbility.abilityCooldown);
+                Game.UI.PlayerUI.instance.UnlockAbility2(ability2.AbilityCooldown);
             }
         }
         [ContextMenu("AddLevel")]
@@ -94,17 +92,17 @@ namespace Game.Arena.Player {
         [ContextMenu("Unlock first ability")]
         private void Unlock1Ability()
         {
-            divineElbowAbility.disable = false;
+            ability1.Disabled = false;
             unlockFirstAbility = true;
-            Game.UI.PlayerUI.instance.UnlockAbility1(divineElbowAbility.abilityCooldown);
+            Game.UI.PlayerUI.instance.UnlockAbility1(ability1.AbilityCooldown);
         }
 
         [ContextMenu("Unlock second ability")]
         private void Unlock2Ability()
         {
-            tableChargeAbility.disable = false;
+            ability2.Disabled = false;
             unlockSecondAbility = true;
-            Game.UI.PlayerUI.instance.UnlockAbility2(tableChargeAbility.abilityCooldown);
+            Game.UI.PlayerUI.instance.UnlockAbility2(ability2.AbilityCooldown);
         }
 
         private void OnDestroy()

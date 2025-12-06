@@ -4,20 +4,11 @@ using UnityEngine;
 
 namespace Game.Arena.Player
 {
-    public class MariachiTrumpetAbility : MonoBehaviour
+    public class MariachiTrumpetAbility : PlayerAbility
     {
-        public bool disable = false;
-        [SerializeField] private bool canUseAbility = true;
-
-        public bool CanUseAbility
-        {
-            set => canUseAbility = value;
-        }
-
         [SerializeField] private float minAttackRange;
         [SerializeField] private float maxAttackRange;
         [SerializeField] private float abilityActiveTime;
-        public float abilityCooldown = 15f;
         [SerializeField] private bool canUse = true;
         [SerializeField] private LayerMask enemyLayer = 11;
         [Header("Effect")]
@@ -49,9 +40,9 @@ namespace Game.Arena.Player
 
         private void Update()
         {
-            if (disable == false)
+            if (Disabled == false)
             {
-                if (canUseAbility)
+                if (CanUseAbility)
                 {
                     if (Input.GetKeyDown(KeyCode.W) && canUse == true)
                     {
@@ -107,13 +98,13 @@ namespace Game.Arena.Player
             arenaMovement.enabled = true;
             playerAttack.enabled = true;
             mariachiGrenadeThrow.CanUseAbility = true;
-            StartCoroutine(AbilityCooldown());
+            StartCoroutine(AbilityCooldownTimer());
         }
 
-        private IEnumerator AbilityCooldown()
+        private IEnumerator AbilityCooldownTimer()
         {
             Game.UI.PlayerUI.instance.Used2Ability();
-            yield return new WaitForSeconds(abilityCooldown);
+            yield return new WaitForSeconds(AbilityCooldown);
             canUse = true;
         }
 

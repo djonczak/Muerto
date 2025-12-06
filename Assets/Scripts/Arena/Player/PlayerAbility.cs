@@ -2,17 +2,34 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerAbility : MonoBehaviour
-{
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
+namespace Game.Arena.Player
+{
+
+    public abstract class PlayerAbility : MonoBehaviour
     {
-        
+        public bool Disabled
+        {
+            set => disable = value;
+            get => disable;
+        }
+        private bool disable = false;
+
+
+        public float AbilityCooldown
+        {
+            get => abilityCooldown;
+            set => abilityCooldown = value;
+        }
+        private float abilityCooldown = 15f;
+
+        public bool CanUseAbility
+        {
+            set => canUseAbility = value;
+            get => canUseAbility;
+        }
+
+        private bool canUseAbility = true;
+
     }
 }

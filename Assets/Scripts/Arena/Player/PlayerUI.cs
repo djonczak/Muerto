@@ -35,8 +35,8 @@ namespace Game.UI
 
         private bool isPaused = false;
 
-        [SerializeField] private bool usedElbow = false;
-        [SerializeField] private bool usedCharge = false;
+        [SerializeField] private bool usendFirst = false;
+        [SerializeField] private bool usedSecond = false;
 
         private void Awake()
         {
@@ -70,14 +70,14 @@ namespace Game.UI
 
         public void Used1Ability()
         {
-            usedElbow = true;
+            usendFirst = true;
             ability1End = Time.time + ability1Cooldown;
             ability1CooldownImage.gameObject.SetActive(true);
         }
 
         public void Used2Ability()
         {
-            usedCharge = true;
+            usedSecond = true;
             ability2End = Time.time + ability2Cooldown;
             ability2CooldownImage.gameObject.SetActive(true);
         }
@@ -124,11 +124,11 @@ namespace Game.UI
         {
             if (unlockSecondAbility == true)
             {
-                if (usedCharge)
+                if (usedSecond)
                 {
                     if (Time.time >= ability2End)
                     {
-                        usedCharge = false;
+                        usedSecond = false;
                         ability2CooldownImage.color = canUseColor;
                         ability2CooldownImage.fillAmount = 0f;
                     }
@@ -145,11 +145,11 @@ namespace Game.UI
         {
             if (unlockFirstAbility == true)
             {
-                if (usedElbow)
+                if (usendFirst)
                 {
                     if (Time.time >= ability1End)
                     {
-                        usedElbow = false;
+                        usendFirst = false;
                         ability1CooldownImage.color = canUseColor;
                         ability1CooldownImage.fillAmount = 0f;
                     }

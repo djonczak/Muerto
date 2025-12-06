@@ -325,7 +325,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &535408196014756004
 Transform:
   m_ObjectHideFlags: 0
@@ -408,6 +408,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 1
+  useSpecialIdle: 0
   canMove: 1
 --- !u!114 &535408196014756028
 MonoBehaviour:
@@ -442,6 +443,8 @@ MonoBehaviour:
   playerLevel: 0
   levelText: {fileID: 0}
   levelUpAnim: {fileID: 535408194638564275}
+  ability1: {fileID: 4466257637360575379}
+  ability2: {fileID: 4843545513816570115}
 --- !u!114 &535408196014756024
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -474,9 +477,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5b34b14f4583c74c8f1ce3c8519b11f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  disable: 1
   damage: 1
-  abilityCooldown: 10
   abilityRange: 0.82
   fallSpeed: 4.5
   canUse: 1
@@ -497,8 +498,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9accd275bf049b949a91d33e55f9da3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  disable: 1
-  abilityCooldown: 20
   damage: 1
   abilityRange: 0.28
   abilityDuration: 10
@@ -545,6 +544,7 @@ MonoBehaviour:
   ability1Sound: {fileID: 8300000, guid: bd9a91c489ff38c46b6fb756cc87675b, type: 3}
   ability2Sound: {fileID: 8300000, guid: f8a6d17b27e66044e84f552279d33cb9, type: 3}
   deathSound: {fileID: 8300000, guid: 9a29704b4e812b1488284ae7ca1c8830, type: 3}
+  specialSound: {fileID: 0}
 --- !u!114 &5746828247938297603
 MonoBehaviour:
   m_ObjectHideFlags: 0

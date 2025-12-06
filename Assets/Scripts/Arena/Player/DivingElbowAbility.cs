@@ -4,11 +4,9 @@ using UnityEngine;
 
 namespace Game.Arena.Player
 {
-    public class DivingElbowAbility : MonoBehaviour
+    public class DivingElbowAbility : PlayerAbility
     {
-        public bool disable = false;
         [SerializeField] private float damage = 1f;
-        public float abilityCooldown = 5f;
         [SerializeField] private float abilityRange = 5f;
         [SerializeField] private float fallSpeed = 10f;
         [SerializeField] private bool canUse = true;
@@ -45,11 +43,14 @@ namespace Game.Arena.Player
 
         public void Update()
         {
-            if (disable == false)
+            if (Disabled == false)
             {
-                Input();
+                if (CanUseAbility)
+                {
+                    Input();
 
-                FallDawn();
+                    FallDawn();
+                }
             }
         }
 
@@ -76,10 +77,7 @@ namespace Game.Arena.Player
             Time.timeScale = 0.5f;
             playerAttack.enabled = false;
             polygonCollider2D.isTrigger = true;
-            if (tableChargeAbility.disable == false)
-            {
-                tableChargeAbility.enabled = false;
-            }
+            tableChargeAbility.CanUseAbility = false;
             playerHP.canBeHurt = false;
         }
 
@@ -109,7 +107,7 @@ namespace Game.Arena.Player
             }
         }
 
-        void PoundAttack()
+        private void PoundAttack()
         {
             Collider2D[] enemies = Physics2D.OverlapCircleAll(transform.position, abilityRange, enemyLayer);
             foreach (Collider2D enemy in enemies)
@@ -124,18 +122,18 @@ namespace Game.Arena.Player
             isFalling = false;
             iSoundEffect.PlayAbility1Sound();
             animator.SetBool(FallAttackKey, false);
-            StartCoroutine(Cooldown(abilityCooldown));
+            StartCoroutine(AbilityCooldownTimer());
         }
 
-        IEnumerator Cooldown(float time)
+        private IEnumerator AbilityCooldownTimer()
         {
-            tableChargeAbility.enabled = true;
+            tableChargeAbility.CanUseAbility = false;
             polygonCollider2D.isTrigger = false;
             playerAttack.enabled = true;
             arenaMovement.enabled = true;
             yield return new WaitForSeconds(1.5f);
             playerHP.canBeHurt = true;
-            yield return new WaitForSeconds(time - 1.5f);
+            yield return new WaitForSeconds(AbilityCooldown - 1.5f);
             canUse = true;
         }
 

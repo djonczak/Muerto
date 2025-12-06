@@ -4,10 +4,8 @@ using UnityEngine;
 
 namespace Game.Arena.Player
 {
-    public class TableChargeAbility : MonoBehaviour
+    public class TableChargeAbility : PlayerAbility
     {
-        public bool disable = false;
-        public float abilityCooldown = 15f;
         [SerializeField] private float damage = 1f;
         [SerializeField] private float abilityRange = 1f;
         [SerializeField] private float abilityDuration = 5f;
@@ -44,11 +42,14 @@ namespace Game.Arena.Player
 
         private void Update()
         {
-            if (disable == false)
+            if (Disabled == false)
             {
-                Input();
+                if (CanUseAbility)
+                {
+                    Input();
 
-                Charge();
+                    Charge();
+                }
             }
         }
 
@@ -84,7 +85,7 @@ namespace Game.Arena.Player
             canUse = false;
             arenaMovement.enabled = false;
             playerAttack.enabled = false;
-            divineElbowAbility.enabled = false;
+            divineElbowAbility.CanUseAbility = false;
             animator.SetTrigger(ChargeIdleKey);
             animator.SetBool(RunKey, false);
             animator.SetBool(IdleKey, false);
@@ -149,8 +150,8 @@ namespace Game.Arena.Player
             rigidbody2D.velocity = Vector2.zero;
             arenaMovement.enabled = true;
             playerAttack.enabled = true;
-            divineElbowAbility.enabled = true;
-            StartCoroutine(AbilityCooldown(abilityCooldown));
+            divineElbowAbility.CanUseAbility = true;
+            StartCoroutine(AbilityCooldownTimer());
         }
 
         public void CancelAbility()
@@ -165,15 +166,15 @@ namespace Game.Arena.Player
                 rigidbody2D.velocity = Vector2.zero;
                 arenaMovement.enabled = true;
                 playerAttack.enabled = true;
-                divineElbowAbility.enabled = true;
-                StartCoroutine(AbilityCooldown(abilityCooldown));
+                divineElbowAbility.CanUseAbility = true;
+                StartCoroutine(AbilityCooldownTimer());
             }
         }
 
-        IEnumerator AbilityCooldown(float time)
+        IEnumerator AbilityCooldownTimer()
         {
             Game.UI.PlayerUI.instance.Used2Ability();
-            yield return new WaitForSeconds(time);
+            yield return new WaitForSeconds(AbilityCooldown);
             canUse = true;
         }
 

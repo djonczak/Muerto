@@ -30,6 +30,36 @@ Transform:
   m_Father: {fileID: 4180232404934687393}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1688973455
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1688973456}
+  m_Layer: 10
+  m_Name: TrumpetPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1688973456
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1688973455}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4180232404934687393}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &820506164410488853
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -42,9 +72,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55eafe0ef12b8134793a257acbb23342, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  disable: 0
-  canUseAbility: 1
-  abilityCooldown: 5
   canUse: 1
   mariachiGrenade: {fileID: 0}
 --- !u!114 &4426209211683477997
@@ -59,16 +86,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7705cc75fb3493e449985efdd514f884, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  disable: 0
-  canUseAbility: 1
   minAttackRange: 0.1
   maxAttackRange: 1.15
   abilityActiveTime: 7
-  abilityCooldown: 15
   canUse: 1
   enemyLayer:
     serializedVersion: 2
     m_Bits: 2048
+  notesParticles:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  notesAnimator: {fileID: 0}
+  notesPoint: {fileID: 1688973456}
 --- !u!1001 &4426209211147332101
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -207,6 +237,16 @@ PrefabInstance:
       propertyPath: normalColor.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 535408196014756030, guid: 3ab1b8a7bb06cf446ae6db8c9a426a11,
+        type: 3}
+      propertyPath: ability1
+      value: 
+      objectReference: {fileID: 820506164410488853}
+    - target: {fileID: 535408196014756030, guid: 3ab1b8a7bb06cf446ae6db8c9a426a11,
+        type: 3}
+      propertyPath: ability2
+      value: 
+      objectReference: {fileID: 4426209211683477997}
     - target: {fileID: 535408196014756030, guid: 3ab1b8a7bb06cf446ae6db8c9a426a11,
         type: 3}
       propertyPath: levelText
