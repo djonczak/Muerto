@@ -2924,7 +2924,7 @@ GameObject:
   - component: {fileID: 501171555}
   - component: {fileID: 501171554}
   m_Layer: 5
-  m_Name: ElbowAbilityText
+  m_Name: Ability1Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10644,6 +10644,30 @@ PrefabInstance:
       propertyPath: levelText
       value: 
       objectReference: {fileID: 1919732165}
+    - target: {fileID: 7471797268637326147, guid: c731cf1cae335f14587a5d37ee7b57aa,
+        type: 3}
+      propertyPath: ability1Text
+      value: Press Q to trigger. Luchador will launch himself up in  the air, then 
+        press LMB, to dive  down on your enemies and deal  AOE damage.
+      objectReference: {fileID: 0}
+    - target: {fileID: 7471797268637326147, guid: c731cf1cae335f14587a5d37ee7b57aa,
+        type: 3}
+      propertyPath: ability2Text
+      value: Press W to trigger. Luchador will run straight and  bounce from walls
+        use mouse to direct his charge.
+      objectReference: {fileID: 0}
+    - target: {fileID: 7471797268637326147, guid: c731cf1cae335f14587a5d37ee7b57aa,
+        type: 3}
+      propertyPath: abilityImage1
+      value: 
+      objectReference: {fileID: -1678676197546184788, guid: aa7d971370ca5d84a9cce8b66d5bff57,
+        type: 3}
+    - target: {fileID: 7471797268637326147, guid: c731cf1cae335f14587a5d37ee7b57aa,
+        type: 3}
+      propertyPath: abilityImage2
+      value: 
+      objectReference: {fileID: 7881873600376309347, guid: aa7d971370ca5d84a9cce8b66d5bff57,
+        type: 3}
     - target: {fileID: 7471797268637326149, guid: c731cf1cae335f14587a5d37ee7b57aa,
         type: 3}
       propertyPath: healthBars.Array.data[0]
@@ -23682,6 +23706,30 @@ PrefabInstance:
       propertyPath: levelText
       value: 
       objectReference: {fileID: 1919732165}
+    - target: {fileID: 535408196014756030, guid: 3ab1b8a7bb06cf446ae6db8c9a426a11,
+        type: 3}
+      propertyPath: ability1Text
+      value: Press Q to trigger. Luchador will launch himself up in  the air, then 
+        press LMB, to dive  down on your enemies and deal  AOE damage.
+      objectReference: {fileID: 0}
+    - target: {fileID: 535408196014756030, guid: 3ab1b8a7bb06cf446ae6db8c9a426a11,
+        type: 3}
+      propertyPath: ability2Text
+      value: Press W to trigger. Luchador will run straight and  bounce from walls
+        use mouse to direct his charge.
+      objectReference: {fileID: 0}
+    - target: {fileID: 535408196014756030, guid: 3ab1b8a7bb06cf446ae6db8c9a426a11,
+        type: 3}
+      propertyPath: abilityImage1
+      value: 
+      objectReference: {fileID: -1678676197546184788, guid: aa7d971370ca5d84a9cce8b66d5bff57,
+        type: 3}
+    - target: {fileID: 535408196014756030, guid: 3ab1b8a7bb06cf446ae6db8c9a426a11,
+        type: 3}
+      propertyPath: abilityImage2
+      value: 
+      objectReference: {fileID: 7881873600376309347, guid: aa7d971370ca5d84a9cce8b66d5bff57,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3ab1b8a7bb06cf446ae6db8c9a426a11, type: 3}
 --- !u!1 &1586693466 stripped
@@ -24135,7 +24183,7 @@ GameObject:
   - component: {fileID: 1657959080}
   - component: {fileID: 1657959079}
   m_Layer: 5
-  m_Name: ChargeAbilityText
+  m_Name: Ability2Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -36160,6 +36208,18 @@ PrefabInstance:
       propertyPath: levelText
       value: 
       objectReference: {fileID: 1919732165}
+    - target: {fileID: 4180232404934687419, guid: ac05657fb2a30ef41824260c74af92a7,
+        type: 3}
+      propertyPath: abilityImage1
+      value: 
+      objectReference: {fileID: -6869325624984279803, guid: aa7d971370ca5d84a9cce8b66d5bff57,
+        type: 3}
+    - target: {fileID: 4180232404934687419, guid: ac05657fb2a30ef41824260c74af92a7,
+        type: 3}
+      propertyPath: abilityImage2
+      value: 
+      objectReference: {fileID: -2205522050570982886, guid: aa7d971370ca5d84a9cce8b66d5bff57,
+        type: 3}
     - target: {fileID: 4180232404934687421, guid: ac05657fb2a30ef41824260c74af92a7,
         type: 3}
       propertyPath: healthBars.Array.data[0]

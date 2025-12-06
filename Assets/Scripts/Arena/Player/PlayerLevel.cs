@@ -7,13 +7,18 @@ namespace Game.Arena.Player {
 
     public class PlayerLevel : MonoBehaviour
     {
+        [Header("Level up options")]
         public float expPoints = 0;
         public float expPointMaxCap = 100;
         public int playerLevel = 0;
-
         public Text levelText;
         public Animator levelUpAnim;
-
+        [Header("UI Data")]
+        [SerializeField] private Sprite abilityImage1;
+        [SerializeField] private string ability1Text;
+        [SerializeField] private Sprite abilityImage2;
+        [SerializeField] private string ability2Text;
+        [Header("Abilities")]
         [SerializeField] private PlayerAbility ability1;
         [SerializeField] private PlayerAbility ability2;
         private ISoundEffect iSoundEffect;
@@ -72,14 +77,14 @@ namespace Game.Arena.Player {
             {
                 ability1.Disabled = false;
                 unlockFirstAbility = true;
-                Game.UI.PlayerUI.instance.UnlockAbility1(ability1.AbilityCooldown);
+                Game.UI.PlayerUI.instance.UnlockAbility1(ability1.AbilityCooldown, abilityImage1, ability1Text);
             }
 
             if (unlockSecondAbility == false && playerLevel == 9)
             {
                 ability2.Disabled = false;
                 unlockSecondAbility = true;
-                Game.UI.PlayerUI.instance.UnlockAbility2(ability2.AbilityCooldown);
+                Game.UI.PlayerUI.instance.UnlockAbility2(ability2.AbilityCooldown, abilityImage2, ability2Text);
             }
         }
         [ContextMenu("AddLevel")]
@@ -94,7 +99,7 @@ namespace Game.Arena.Player {
         {
             ability1.Disabled = false;
             unlockFirstAbility = true;
-            Game.UI.PlayerUI.instance.UnlockAbility1(ability1.AbilityCooldown);
+            Game.UI.PlayerUI.instance.UnlockAbility1(ability1.AbilityCooldown, abilityImage1, ability1Text);
         }
 
         [ContextMenu("Unlock second ability")]
@@ -102,7 +107,7 @@ namespace Game.Arena.Player {
         {
             ability2.Disabled = false;
             unlockSecondAbility = true;
-            Game.UI.PlayerUI.instance.UnlockAbility2(ability2.AbilityCooldown);
+            Game.UI.PlayerUI.instance.UnlockAbility2(ability2.AbilityCooldown, abilityImage2, ability2Text);
         }
 
         private void OnDestroy()

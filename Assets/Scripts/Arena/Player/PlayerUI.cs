@@ -19,7 +19,9 @@ namespace Game.UI
 
         public GameObject abilityDescriptionFrame;
         public GameObject ability1Description;
+        public Text ability1DescriptionText;
         public GameObject ability2Description;
+        public Text ability2DescriptionText;
 
         [SerializeField] private Color cooldownColor = new Color(255f, 0f, 0f, 184f);
         [SerializeField] private Color canUseColor = new Color(0f, 255f, 0f, 184f);
@@ -35,7 +37,7 @@ namespace Game.UI
 
         private bool isPaused = false;
 
-        [SerializeField] private bool usendFirst = false;
+        [SerializeField] private bool usedFirst = false;
         [SerializeField] private bool usedSecond = false;
 
         private void Awake()
@@ -50,7 +52,7 @@ namespace Game.UI
             }
         }
 
-        public void UnlockAbility1(float cooldown)
+        public void UnlockAbility1(float cooldown, Sprite icon, string text)
         {
             unlockFirstAbility = true;
             lockAbility1.enabled = false;
@@ -59,7 +61,7 @@ namespace Game.UI
             PauseGameAbility1();
         }
 
-        public void UnlockAbility2(float cooldown)
+        public void UnlockAbility2(float cooldown, Sprite icon, string text)
         {
             unlockSecondAbility = true;
             lockAbility2.gameObject.SetActive(false);
@@ -70,7 +72,7 @@ namespace Game.UI
 
         public void Used1Ability()
         {
-            usendFirst = true;
+            usedFirst = true;
             ability1End = Time.time + ability1Cooldown;
             ability1CooldownImage.gameObject.SetActive(true);
         }
@@ -145,11 +147,11 @@ namespace Game.UI
         {
             if (unlockFirstAbility == true)
             {
-                if (usendFirst)
+                if (usedFirst)
                 {
                     if (Time.time >= ability1End)
                     {
-                        usendFirst = false;
+                        usedFirst = false;
                         ability1CooldownImage.color = canUseColor;
                         ability1CooldownImage.fillAmount = 0f;
                     }
