@@ -127,7 +127,7 @@ namespace Game.Arena.Player
 
         private IEnumerator AbilityCooldownTimer()
         {
-            tableChargeAbility.CanUseAbility = false;
+            tableChargeAbility.CanUseAbility = true;
             polygonCollider2D.isTrigger = false;
             playerAttack.enabled = true;
             arenaMovement.enabled = true;

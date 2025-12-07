@@ -2649,8 +2649,10 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Welcome, brave luchadore into Arena !! \nFight your way through 15 waves,
-    level up and unlock two\nabilities.\n\nCONTROLS:\nCharacter follow mouse cursor,
+  m_Text: "Welcome, brave luchadore into Arena !! \nYou must fight your way through
+    15 increasingly difficult waves of enemies. As you defeat foes, you will gain
+    experience and level up, allowing you to unlock two powerful new abilities. See
+    if you can complete all 15 waves!\nCONTROLS:\nCharacter follow mouse cursor,
     when you press LMB you \nwill attack enemies.\nQ - to use first ability                         
     W - to use second one \n\n"
 --- !u!222 &583104434
@@ -5322,6 +5324,7 @@ MonoBehaviour:
   characterName: Ricardo
   unlockInfo: {fileID: 302460126}
   normalColor: {r: 255, g: 255, b: 255, a: 255}
+  unlockType: 1
   IsUnlocked: 0
 --- !u!114 &1063337757
 MonoBehaviour:
@@ -8148,6 +8151,7 @@ MonoBehaviour:
   characterName: Huan
   unlockInfo: {fileID: 989143603}
   normalColor: {r: 255, g: 255, b: 255, a: 255}
+  unlockType: 0
   IsUnlocked: 1
 --- !u!114 &1770556071
 MonoBehaviour:
@@ -8693,7 +8697,8 @@ MonoBehaviour:
   characterName: Sanchez
   unlockInfo: {fileID: 984175889}
   normalColor: {r: 255, g: 255, b: 255, a: 255}
-  IsUnlocked: 1
+  unlockType: 0
+  IsUnlocked: 0
 --- !u!114 &2067568197
 MonoBehaviour:
   m_ObjectHideFlags: 0

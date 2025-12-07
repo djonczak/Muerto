@@ -39,6 +39,9 @@ namespace Game.Scene
         private const string Menu = "Menu";
         private const string PlayerTag = "Player";
 
+        private const string StoryKey = "Story";
+        private const string YesKey = "Yes";
+
         private void Awake()
         {
             audioSource = GetComponent<AudioSource>();
@@ -81,6 +84,7 @@ namespace Game.Scene
             audioSource.PlayOneShot(monster);
             var player = collision.gameObject;
             SetPlayer(player);
+            PlayerPrefs.SetString(StoryKey, YesKey);
             StartCoroutine(Action(timeForThuner, timeToSlash));
         }
 
