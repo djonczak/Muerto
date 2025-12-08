@@ -61,6 +61,7 @@ namespace Game.Arena.Player
         private void Death()
         {
             isAlive = false;
+            DisableAbilities();
             var animator = GetComponent<Animator>();
             animator.SetTrigger(DeathKey);
             animator.SetBool(IdleKey, false);
@@ -68,8 +69,6 @@ namespace Game.Arena.Player
             GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
             GetComponent<PlayerAttack>().enabled = false;
             GetComponent<ArenaMovement>().enabled = false;
-            GetComponent<TableChargeAbility>().enabled = false;
-            GetComponent<DivingElbowAbility>().enabled = false;
             iSoundEffect.PlayDeathSound();
             this.enabled = false;
             ArenaEvents.PlayerDeath();
@@ -85,6 +84,17 @@ namespace Game.Arena.Player
                 iSpriteEffect.HealEffect();
                 iSoundEffect.PlayHealSound();
                 taco.Healed();
+            }
+        }
+
+        private void DisableAbilities()
+        {
+            PlayerAbility[] abilities = GetComponents<PlayerAbility>();
+
+            foreach (PlayerAbility ability in abilities)
+            {
+                ability.CancelAbility();
+                ability.enabled = false;
             }
         }
     }

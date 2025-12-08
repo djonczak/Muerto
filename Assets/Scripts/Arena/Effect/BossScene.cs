@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Experimental.Rendering.Universal;
+using Game.Arena.Player;
 
 namespace Game.Scene 
 {
@@ -17,6 +18,7 @@ namespace Game.Scene
 
         [Header("Sound change")]
         public AudioSource sceneSound;
+        public AudioSource sceneSound2;
         public AudioClip bossFightClip;
 
         [Header("Objects to hide")]
@@ -60,7 +62,7 @@ namespace Game.Scene
             StartCoroutine(Scene());
         }
 
-        IEnumerator Scene()
+        private IEnumerator Scene()
         {
             FirstPhaseOfScene();
             yield return new WaitForSeconds(2f);
@@ -73,13 +75,19 @@ namespace Game.Scene
             boss.SetActive(true);
         }
 
-        private void ThirdPhaseOfScene()
+        private void FirstPhaseOfScene()
         {
-            UI.BlackBars.Instance.HideBar(2f);
-            player.GetComponent<Arena.Player.ArenaMovement>().enabled = true;
-            player.GetComponent<Arena.Player.PlayerAttack>().enabled = true;
-            sceneSound.clip = bossFightClip;
-            sceneSound.Play();
+            UI.BlackBars.Instance.ShowBar(250, 2f);
+            DisableAbilities();
+            player.GetComponent<ArenaMovement>().enabled = false;
+            player.GetComponent<PlayerAttack>().enabled = false;
+            player.GetComponent<Animator>().SetBool(IdleKey, true);
+            player.GetComponent<Animator>().SetBool(RunKey, false);
+            StartCoroutine(ChangeSunColor());
+            foreach (GameObject stuff in hudToHide)
+            {
+                stuff.SetActive(false);
+            }
         }
 
         private void SecondPhaseOfScene()
@@ -88,18 +96,35 @@ namespace Game.Scene
             bloodCircle.GetComponent<Animator>().SetTrigger(FillKey);
         }
 
-        private void FirstPhaseOfScene()
+        private void ThirdPhaseOfScene()
         {
-            UI.BlackBars.Instance.ShowBar(250, 2f);
-            player.GetComponent<Arena.Player.TableChargeAbility>().CancelAbility();
-            player.GetComponent<Arena.Player.ArenaMovement>().enabled = false;
-            player.GetComponent<Arena.Player.PlayerAttack>().enabled = false;
-            player.GetComponent<Animator>().SetBool(IdleKey, true);
-            player.GetComponent<Animator>().SetBool(RunKey, false);
-            StartCoroutine(ChangeSunColor());
-            foreach (GameObject stuff in hudToHide)
+            UI.BlackBars.Instance.HideBar(2f);
+            EnableAbilities();
+            player.GetComponent<ArenaMovement>().enabled = true;
+            player.GetComponent<PlayerAttack>().enabled = true;
+            sceneSound.clip = bossFightClip;
+            sceneSound.Play();
+        }
+
+
+        private void DisableAbilities()
+        {
+            PlayerAbility[] abilities = player.GetComponents<PlayerAbility>();
+
+            foreach (PlayerAbility ability in abilities)
             {
-                stuff.SetActive(false);
+                ability.CancelAbility();
+                ability.enabled = false;
+            }
+        }
+
+        private void EnableAbilities()
+        {
+            PlayerAbility[] abilities = player.GetComponents<PlayerAbility>();
+
+            foreach (PlayerAbility ability in abilities)
+            {
+                ability.enabled = true;
             }
         }
 

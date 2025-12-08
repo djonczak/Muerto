@@ -125,6 +125,18 @@ namespace Game.Arena.Player
             StartCoroutine(AbilityCooldownTimer());
         }
 
+        public override void CancelAbility()
+        {
+            if (preparedToJump)
+            {
+                playerHP.canBeHurt = true;
+                polygonCollider2D.isTrigger = false;
+                canUse = true;
+                preparedToJump = false;
+                Time.timeScale = 1f;
+            }
+        }
+
         private IEnumerator AbilityCooldownTimer()
         {
             tableChargeAbility.CanUseAbility = true;

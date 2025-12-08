@@ -5,6 +5,7 @@ using UnityEngine;
 public class PunchAttackCollider : MonoBehaviour
 {
     private AudioSource source;
+    [SerializeField] private LayerMask enemyLayer;
 
     private void Awake()
     {
@@ -13,12 +14,16 @@ public class PunchAttackCollider : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Bat" || collision.tag == "Chupacabra" || collision.tag == "SkeletonNormal" || collision.tag == "SkeletonGunner"|| collision.tag == "Enemy")
+        if (GameObjectExtension.CompareLayerMask(collision.gameObject.gameObject, enemyLayer))
         {
-            collision.GetComponent<IDamage>().TakeDamage(1, DamageType.Normal);
-            if (!source.isPlaying)
+            var iDamage = collision.GetComponent<IDamage>();
+            if(iDamage != null)
             {
-                source.Play();
+                iDamage.TakeDamage(1, DamageType.Normal);
+                if (!source.isPlaying)
+                {
+                    source.Play();
+                }
             }
         }
     }

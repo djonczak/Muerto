@@ -31,5 +31,10 @@ namespace Game.Arena.Player
 
         private bool canUseAbility = true;
 
+        public virtual void CancelAbility()
+        {
+
+        }
+
     }
 }

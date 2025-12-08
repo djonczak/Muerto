@@ -22,6 +22,8 @@ namespace Game.Arena.Player
         private ArenaMovement arenaMovement;
         private PlayerHP playerHP;
 
+        private Coroutine coroutine;
+
         private ISoundEffect iSoundEffect;
 
         private const string IdleKey = "Idle";
@@ -73,7 +75,7 @@ namespace Game.Arena.Player
         {
             Time.timeScale = 1f;
             rigidbody2D.velocity = Vector3Extension.CalculateDirectionTowardsMouse(transform.position) * chargeSpeed;
-            StartCoroutine(ChargeDuration(abilityDuration));
+            coroutine = StartCoroutine(ChargeDuration(abilityDuration));
             animator.SetBool(ChargeKey, true);
             isCharging = true;
             ArenaEvents.PlayerCharge();
@@ -154,19 +156,16 @@ namespace Game.Arena.Player
             StartCoroutine(AbilityCooldownTimer());
         }
 
-        public void CancelAbility()
+        public override void CancelAbility()
         {
             if (isCharging)
             {
-                StopAllCoroutines();
+                StopCoroutine(coroutine);
                 playerHP.canBeHurt = true;
                 animator.SetBool(ChargeKey, false);
                 isCharging = false;
                 ArenaEvents.PlayerCharge();
                 rigidbody2D.velocity = Vector2.zero;
-                arenaMovement.enabled = true;
-                playerAttack.enabled = true;
-                divineElbowAbility.CanUseAbility = true;
                 StartCoroutine(AbilityCooldownTimer());
             }
         }

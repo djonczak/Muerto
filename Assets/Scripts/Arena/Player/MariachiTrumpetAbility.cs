@@ -21,7 +21,10 @@ namespace Game.Arena.Player
         private PlayerHP playerHP;
         private MariachiGrenadeThrow mariachiGrenadeThrow;
 
+        private Coroutine coroutine;
         private ISoundEffect iSoundEffect;
+
+        private bool isSinging;
 
         private const string IdleKey = "Idle";
         private const string RunKey = "Run";
@@ -63,11 +66,12 @@ namespace Game.Arena.Player
             animator.SetBool(RunKey, false);
             animator.SetBool(IdleKey, false);
             playerHP.canBeHurt = false;
-            StartCoroutine(AbilityActive());
+            coroutine = StartCoroutine(AbilityActive());
         }
 
         private IEnumerator AbilityActive()
         {
+            isSinging = true;
             notesAnimator.SetTrigger(Spread);
             notesParticles[1].loop = true;
             notesParticles[2].loop = true;
@@ -91,6 +95,7 @@ namespace Game.Arena.Player
                 timer += Time.deltaTime;
                 yield return null;
             }
+            isSinging = false;
             notesParticles[1].loop = false;
             notesParticles[2].loop = false;
             iSoundEffect.StopAbility2Sound();
@@ -99,6 +104,20 @@ namespace Game.Arena.Player
             playerAttack.enabled = true;
             mariachiGrenadeThrow.CanUseAbility = true;
             StartCoroutine(AbilityCooldownTimer());
+        }
+
+        public override void CancelAbility()
+        {
+            if (isSinging)
+            {
+                StopCoroutine(coroutine);
+                notesParticles[1].loop = false;
+                notesParticles[2].loop = false;
+                iSoundEffect.StopAbility2Sound();
+                playerHP.canBeHurt = true;
+                isSinging = false;
+                StartCoroutine(AbilityCooldownTimer());
+            }
         }
 
         private IEnumerator AbilityCooldownTimer()

@@ -22,6 +22,8 @@ namespace Game.Arena.Player
         private const string RunKey = "Run";
         private const string ThrowKey = "Throw";
         private const string FirstAbilityKey = "FirstAbility";
+        private const string ResetKey = "Reset";
+
 
         private void Awake()
         {
@@ -65,7 +67,7 @@ namespace Game.Arena.Player
                 else
                 {
                     if(Vector3Extension.MousePosition().x > transform.position.x)
-                        {
+                    {
                         transform.rotation = Quaternion.Euler(0, 0, 0);
                         transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y, 1);
                     }
@@ -105,16 +107,15 @@ namespace Game.Arena.Player
         }
 
 
-        public void CancelAbility()
+        public override void CancelAbility()
         {
             if (canThrow)
             {
-                StopAllCoroutines();
                 playerHP.canBeHurt = true;
-                ArenaEvents.PlayerCharge();
-                GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-                arenaMovement.enabled = true;
-                playerAttack.enabled = true;
+                animator.SetBool(IdleKey, true);
+                animator.SetTrigger(ResetKey);
+                Time.timeScale = 1f;
+                canUse = true;
                 canThrow = false;
             }
         }
