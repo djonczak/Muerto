@@ -45,7 +45,7 @@ namespace Game.Arena.AI
 
         private void CheckAttack()
         {
-            if (GetComponent<EnemyHP>().isAlive == true)
+            if (GetComponent<EnemyHP>().isAlive == true && target.GetComponent<Player.PlayerHP>().isAlive)
             {
                 if (_canAttack == true)
                 {

@@ -73,6 +73,8 @@ namespace Game.Arena.Player {
         private void OnDisable()
         {
             isRunning = false;
+            animator.SetBool(IdleKey, false);
+            animator.SetBool(RunKey, false);
             if (coroutine != null)
             {
                 StopCoroutine(coroutine);
