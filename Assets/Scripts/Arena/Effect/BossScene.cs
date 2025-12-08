@@ -19,7 +19,6 @@ namespace Game.Scene
         [Header("Sound change")]
         public AudioSource sceneSound;
         public AudioSource sceneSound2;
-        public AudioClip bossFightClip;
 
         [Header("Objects to hide")]
         public GameObject[] hudToHide;
@@ -88,12 +87,15 @@ namespace Game.Scene
             {
                 stuff.SetActive(false);
             }
+            StartCoroutine(AudioFade(sceneSound, 0f, 4f));
         }
 
         private void SecondPhaseOfScene()
         {
             bossText.SetActive(true);
             bloodCircle.GetComponent<Animator>().SetTrigger(FillKey);
+            sceneSound2.Play();
+            StartCoroutine(AudioFade(sceneSound2, 0.25f, 3f));
         }
 
         private void ThirdPhaseOfScene()
@@ -102,8 +104,20 @@ namespace Game.Scene
             EnableAbilities();
             player.GetComponent<ArenaMovement>().enabled = true;
             player.GetComponent<PlayerAttack>().enabled = true;
-            sceneSound.clip = bossFightClip;
-            sceneSound.Play();
+        }
+
+        private IEnumerator AudioFade(AudioSource audioSource, float endValue, float duration)
+        {
+            var timer = 0f;
+            var startValue = audioSource.volume;
+            while(timer < duration)
+            {
+                var value = Mathf.Lerp(startValue, endValue, timer / duration);
+                audioSource.volume = value;
+                timer += Time.deltaTime;
+                yield return null;
+            }
+            audioSource.volume = endValue;
         }
 
 

@@ -9675,7 +9675,6 @@ MonoBehaviour:
   player: {fileID: 0}
   sceneSound: {fileID: 1159080250}
   sceneSound2: {fileID: 1008217885}
-  bossFightClip: {fileID: 8300000, guid: 7c5a9b21fd0798d4787d2e76766982ce, type: 3}
   hudToHide:
   - {fileID: 2057584832}
   - {fileID: 223783308}
@@ -9919,7 +9918,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 7c5a9b21fd0798d4787d2e76766982ce, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.05
+  m_Volume: 0
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -10128,7 +10127,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd4816f5f6c66624f880eca81f5b41e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRange: 0.35
+  explosionRange: 0.55
   throwPoint: {fileID: 453804792}
   speed: 2
   enemyLayer:
