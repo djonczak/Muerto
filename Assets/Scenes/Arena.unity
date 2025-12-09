@@ -3847,6 +3847,7 @@ MonoBehaviour:
   abilityDescriptionText: {fileID: 501171554}
   cooldownColor: {r: 255, g: 0, b: 0, a: 0.54509807}
   canUseColor: {r: 0, g: 255, b: 0, a: 0.54509807}
+  activeColor: {r: 0, g: 0.54649216, b: 0.7490196, a: 0.57254905}
   ability1Cooldown: 0
   ability2Cooldown: 0
   usedFirst: 0
@@ -4432,8 +4433,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shakeTime: 0.1
-  shakeStrenght: 20
-  bossShakeTime: 1.5
+  shakeStrenght: 1
+  bossShakeTime: 6.5
 --- !u!20 &887937376
 Camera:
   m_ObjectHideFlags: 0

@@ -23,6 +23,7 @@ namespace Game.UI
 
         [SerializeField] private Color cooldownColor = new Color(255f, 0f, 0f, 184f);
         [SerializeField] private Color canUseColor = new Color(0f, 255f, 0f, 184f);
+        [SerializeField] private Color activeColor = new Color(0f, 255f, 0f, 184f);
 
         [SerializeField] private float ability1Cooldown = 0f;
         [SerializeField] private float ability2Cooldown = 0f;
@@ -53,6 +54,12 @@ namespace Game.UI
             }
         }
 
+        private void Start()
+        {
+            ArenaEvents.ActivatedFirstAbility += Pressed1Ability;
+            ArenaEvents.ActivatedSecondAbility += Pressed2Ability;
+        }
+
         public void UnlockAbility1(float cooldown, Sprite icon, string text)
         {
             unlockFirstAbility = true;
@@ -76,6 +83,21 @@ namespace Game.UI
             ability2Cooldown = cooldown;
             PauseGameAbility2();
         }
+
+        private void Pressed1Ability()
+        {
+            ability1CooldownImage.gameObject.SetActive(true);
+            ability1CooldownImage.fillAmount = 1f;
+            ability1CooldownImage.color = activeColor;
+        }
+
+        private void Pressed2Ability()
+        {
+            ability2CooldownImage.gameObject.SetActive(true);
+            ability2CooldownImage.fillAmount = 1f;
+            ability2CooldownImage.color = activeColor;
+        }
+
 
         public void Used1Ability()
         {
@@ -164,6 +186,12 @@ namespace Game.UI
                     }
                 }
             }
+        }
+
+        private void OnDisable()
+        {
+            ArenaEvents.ActivatedFirstAbility -= Pressed1Ability;
+            ArenaEvents.ActivatedSecondAbility -= Pressed2Ability;
         }
     }
 }

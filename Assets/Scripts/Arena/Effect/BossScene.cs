@@ -128,7 +128,7 @@ namespace Game.Scene
             foreach (PlayerAbility ability in abilities)
             {
                 ability.CancelAbility();
-                ability.enabled = false;
+                ability.CanUseAbility = false;
             }
         }
 
@@ -138,7 +138,7 @@ namespace Game.Scene
 
             foreach (PlayerAbility ability in abilities)
             {
-                ability.enabled = true;
+                ability.CanUseAbility = true;
             }
         }
 

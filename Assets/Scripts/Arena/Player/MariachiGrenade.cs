@@ -53,7 +53,6 @@ namespace Game.Arena.Player
             grenade.localScale = Vector3.zero;
             explosionSound.Play();
             explosionParticle.Play();
-            grenade.Rotate(0, 0, 0);
             Collider2D[] enemies = Physics2D.OverlapCircleAll(transform.position, explosionRange, enemyLayer);
             if (enemies != null)
             {

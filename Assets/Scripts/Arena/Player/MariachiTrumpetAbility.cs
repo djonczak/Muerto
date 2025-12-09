@@ -66,11 +66,13 @@ namespace Game.Arena.Player
             animator.SetBool(RunKey, false);
             animator.SetBool(IdleKey, false);
             playerHP.canBeHurt = false;
+            ArenaEvents.SecondAbility();
             coroutine = StartCoroutine(AbilityActive());
         }
 
         private IEnumerator AbilityActive()
         {
+            playerHP.canBeHurt = false; 
             isSinging = true;
             notesAnimator.SetTrigger(Spread);
             notesParticles[1].loop = true;

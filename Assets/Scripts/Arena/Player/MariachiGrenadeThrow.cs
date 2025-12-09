@@ -94,6 +94,7 @@ namespace Game.Arena.Player
 
         private void PrepareForThrow()
         {
+            ArenaEvents.FirstAbility();
             mariachiTrumpetAbility.CanUseAbility = false;
             canUse = false;
             arenaMovement.enabled = false;

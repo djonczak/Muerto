@@ -56,9 +56,13 @@ public class BossBullet : MonoBehaviour
     {
         if(collision.tag == "Player")
         {
-            collision.GetComponent<IDamage>().TakeDamage(damage,DamageType.Normal);
-            anim.SetTrigger("Hit");
-            canFollow = false;
+            var iDamage = collision.GetComponent<IDamage>();
+            if(iDamage != null)
+            {
+                iDamage.TakeDamage(damage, DamageType.Normal);
+                anim.SetTrigger("Hit");
+                canFollow = false;
+            }
         }
     }
 

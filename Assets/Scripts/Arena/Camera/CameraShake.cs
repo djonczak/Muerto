@@ -16,7 +16,7 @@ public class CameraShake : MonoBehaviour
 
     private void OnEnable()
     {
-        DeathEvent.OnEnemyDeath += Shake;
+        ArenaEvents.OnPlayerHurt += Shake;
         ArenaEvents.OnBossShow += BossShake;
         ArenaEvents.OnCameraStop += StopCamerShake;
     }
@@ -30,13 +30,13 @@ public class CameraShake : MonoBehaviour
     {
         if (canShake == true)
         {
-            StartCoroutine("ShakeDuration");
+            StartCoroutine(ShakeDuration());
         }
     }
 
     public void BossShake()
     {
-        StartCoroutine("BossShakeDuration");
+        StartCoroutine(BossShakeDuration());
     }
 
     private IEnumerator ShakeDuration()
@@ -68,7 +68,7 @@ public class CameraShake : MonoBehaviour
         transform.position = oldPosition;
         StopAllCoroutines();
         canShake = false;
-        StartCoroutine("ShakeCooldown", 5f);
+        StartCoroutine(ShakeCooldown(5f));
     }
 
     private IEnumerator ShakeCooldown(float time)
@@ -79,7 +79,7 @@ public class CameraShake : MonoBehaviour
 
     private void OnDestroy()
     {
-        DeathEvent.OnEnemyDeath -= Shake;
+        ArenaEvents.OnPlayerHurt -= Shake;
         ArenaEvents.OnBossShow -= BossShake;
         ArenaEvents.OnCameraStop -= StopCamerShake;
     }

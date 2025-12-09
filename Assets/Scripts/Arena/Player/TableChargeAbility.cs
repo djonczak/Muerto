@@ -75,15 +75,17 @@ namespace Game.Arena.Player
         {
             Time.timeScale = 1f;
             rigidbody2D.velocity = Vector3Extension.CalculateDirectionTowardsMouse(transform.position) * chargeSpeed;
-            coroutine = StartCoroutine(ChargeDuration(abilityDuration));
+            coroutine = StartCoroutine(ChargeDuration());
             animator.SetBool(ChargeKey, true);
             isCharging = true;
             ArenaEvents.PlayerCharge();
+            playerHP.canBeHurt = false;
             hasCharged = false;
         }
 
         private void PrepareForCharge()
         {
+            ArenaEvents.SecondAbility();
             canUse = false;
             arenaMovement.enabled = false;
             playerAttack.enabled = false;
@@ -142,9 +144,9 @@ namespace Game.Arena.Player
             }
         }
 
-        IEnumerator ChargeDuration(float time)
+        IEnumerator ChargeDuration()
         {
-            yield return new WaitForSeconds(time);
+            yield return new WaitForSeconds(abilityDuration);
             playerHP.canBeHurt = true;
             animator.SetBool(ChargeKey, false);
             isCharging = false;

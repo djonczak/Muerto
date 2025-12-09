@@ -41,7 +41,14 @@ namespace Game.Arena.Player
                     i++;
                     healthBars[i].enabled = false;
                     iSpriteEffect.DamageEffect();
+                    ArenaEvents.PlayerGotHurt();
+                    if (currentHP <= 0)
+                    {
+                        Death();
+                        return;
+                    }
                     StartCoroutine(DamageCooldown());
+
                 }
 
                 if (currentHP <= 0)
@@ -94,7 +101,7 @@ namespace Game.Arena.Player
             foreach (PlayerAbility ability in abilities)
             {
                 ability.CancelAbility();
-                ability.enabled = false;
+                ability.CanUseAbility = false;
             }
         }
     }

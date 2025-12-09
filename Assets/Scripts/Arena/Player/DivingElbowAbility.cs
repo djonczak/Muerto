@@ -72,6 +72,7 @@ namespace Game.Arena.Player
 
         private void PrepareToJump()
         {
+            ArenaEvents.FirstAbility();
             canUse = false;
             preparedToJump = true;
             Time.timeScale = 0.5f;
