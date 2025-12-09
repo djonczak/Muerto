@@ -66,7 +66,7 @@ namespace Game.Arena.Player
             animator.SetBool(RunKey, false);
             animator.SetBool(IdleKey, false);
             playerHP.canBeHurt = false;
-            ArenaEvents.SecondAbility();
+            ArenaEvents.SecondAbility(true);
             coroutine = StartCoroutine(AbilityActive());
         }
 
@@ -112,6 +112,7 @@ namespace Game.Arena.Player
         {
             if (isSinging)
             {
+                ArenaEvents.SecondAbility(false);
                 StopCoroutine(coroutine);
                 notesParticles[1].loop = false;
                 notesParticles[2].loop = false;

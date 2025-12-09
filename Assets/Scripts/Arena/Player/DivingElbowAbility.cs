@@ -72,7 +72,7 @@ namespace Game.Arena.Player
 
         private void PrepareToJump()
         {
-            ArenaEvents.FirstAbility();
+            ArenaEvents.FirstAbility(true);
             canUse = false;
             preparedToJump = true;
             Time.timeScale = 0.5f;
@@ -130,11 +130,12 @@ namespace Game.Arena.Player
         {
             if (preparedToJump)
             {
+                ArenaEvents.FirstAbility(false);
+                Time.timeScale = 1f;
                 playerHP.canBeHurt = true;
                 polygonCollider2D.isTrigger = false;
                 canUse = true;
                 preparedToJump = false;
-                Time.timeScale = 1f;
             }
         }
 

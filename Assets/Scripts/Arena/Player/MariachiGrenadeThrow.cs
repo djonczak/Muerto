@@ -94,7 +94,7 @@ namespace Game.Arena.Player
 
         private void PrepareForThrow()
         {
-            ArenaEvents.FirstAbility();
+            ArenaEvents.FirstAbility(true);
             mariachiTrumpetAbility.CanUseAbility = false;
             canUse = false;
             arenaMovement.enabled = false;
@@ -112,6 +112,7 @@ namespace Game.Arena.Player
         {
             if (canThrow)
             {
+                ArenaEvents.FirstAbility(false);
                 playerHP.canBeHurt = true;
                 animator.SetBool(IdleKey, true);
                 animator.SetTrigger(ResetKey);

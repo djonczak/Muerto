@@ -32,10 +32,10 @@ public class ArenaEvents : MonoBehaviour
     public delegate void SpawningTacoEventHandler();
     public static event SpawningTacoEventHandler OnSpawnTaco;
 
-    public delegate void PressedFirstAbility();
+    public delegate void PressedFirstAbility(bool activate);
     public static event PressedFirstAbility ActivatedFirstAbility;
 
-    public delegate void PressedSecondAbility();
+    public delegate void PressedSecondAbility(bool activate);
     public static event PressedSecondAbility ActivatedSecondAbility;
 
     public static void PlayerDeath()
@@ -73,14 +73,14 @@ public class ArenaEvents : MonoBehaviour
         OnSpawnTaco?.Invoke();
     }
 
-    public static void FirstAbility()
+    public static void FirstAbility(bool value)
     {
-        ActivatedFirstAbility?.Invoke();
+        ActivatedFirstAbility?.Invoke(value);
     }
 
-    public static void SecondAbility()
+    public static void SecondAbility(bool value)
     {
-        ActivatedSecondAbility?.Invoke();
+        ActivatedSecondAbility?.Invoke(value);
     }
 }
 

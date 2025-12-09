@@ -85,7 +85,7 @@ namespace Game.Arena.Player
 
         private void PrepareForCharge()
         {
-            ArenaEvents.SecondAbility();
+            ArenaEvents.SecondAbility(true);
             canUse = false;
             arenaMovement.enabled = false;
             playerAttack.enabled = false;
@@ -162,6 +162,7 @@ namespace Game.Arena.Player
         {
             if (isCharging)
             {
+                ArenaEvents.SecondAbility(true);
                 StopCoroutine(coroutine);
                 playerHP.canBeHurt = true;
                 animator.SetBool(ChargeKey, false);

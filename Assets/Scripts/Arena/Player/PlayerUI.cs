@@ -84,18 +84,32 @@ namespace Game.UI
             PauseGameAbility2();
         }
 
-        private void Pressed1Ability()
+        private void Pressed1Ability(bool activation)
         {
-            ability1CooldownImage.gameObject.SetActive(true);
-            ability1CooldownImage.fillAmount = 1f;
-            ability1CooldownImage.color = activeColor;
+            if (activation)
+            {
+                ability1CooldownImage.gameObject.SetActive(true);
+                ability1CooldownImage.fillAmount = 1f;
+                ability1CooldownImage.color = activeColor;
+            }
+            else
+            {
+                ability1CooldownImage.gameObject.SetActive(false);
+            }
         }
 
-        private void Pressed2Ability()
+        private void Pressed2Ability(bool activation)
         {
-            ability2CooldownImage.gameObject.SetActive(true);
-            ability2CooldownImage.fillAmount = 1f;
-            ability2CooldownImage.color = activeColor;
+            if (activation)
+            {
+                ability2CooldownImage.gameObject.SetActive(true);
+                ability2CooldownImage.fillAmount = 1f;
+                ability2CooldownImage.color = activeColor;
+            }
+            else
+            {
+                ability2CooldownImage.gameObject.SetActive(false);
+            }
         }
 
 
