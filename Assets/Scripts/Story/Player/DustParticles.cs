@@ -40,9 +40,13 @@ namespace Game.VFX
         {
             for (int i = 0; i <= dustParticles.Count; i++)
             {
-                if (dustParticles[i].GetComponent<ParticleSystem>().isPlaying == false)
+                var dust = dustParticles[i].GetComponent<ParticleSystem>();
+                if (dust != null)
                 {
-                    return dustParticles[i];
+                    if (dust.isPlaying == false)
+                    {
+                        return dustParticles[i];
+                    }
                 }
             }
             return null;

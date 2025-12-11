@@ -9,8 +9,9 @@ namespace Game.Scene
     public class DeathScene : MonoBehaviour
     {
         public GameObject reaper;
-        public AudioSource _sceneAmbient;
-        private AudioSource _audioSource;
+        public AudioSource sceneAmbient;
+        public AudioSource leafAmbient;
+        private AudioSource audioSource;
         public AudioClip monster;
         public AudioClip slash;
         public AudioClip soul;
@@ -23,14 +24,14 @@ namespace Game.Scene
         public GameObject normalMoon;
         public Text endText;
 
-        private Color _thunderColor = new Color(255f, 255f, 255f, 255f);
-        private Color _deadColor = new Color(0f, 0f, 0f, 255f);
-        private Color _fadeColor = new Color(0f, 0f, 0f, 0f);
-        private Color _textColor = new Color(171f, 45f, 45f, 255f);
+        private Color thunderColor = new Color(255f, 255f, 255f, 255f);
+        private Color deadColor = new Color(0f, 0f, 0f, 255f);
+        private Color fadeColor = new Color(0f, 0f, 0f, 0f);
+        private Color textColor = new Color(171f, 45f, 45f, 255f);
 
-        private bool _showed = false;
-        private bool _isDead = false;
-        private bool _showText = false;
+        private bool showed = false;
+        private bool isDead = false;
+        private bool showText = false;
 
         private const string AttackKey = "Attack";
         private const string SpeedKey = "Speed";
@@ -38,9 +39,12 @@ namespace Game.Scene
         private const string Menu = "Menu";
         private const string PlayerTag = "Player";
 
+        private const string StoryKey = "Story";
+        private const string YesKey = "Yes";
+
         private void Awake()
         {
-            _audioSource = GetComponent<AudioSource>();
+            audioSource = GetComponent<AudioSource>();
         }
 
         private void Update()
@@ -50,19 +54,19 @@ namespace Game.Scene
 
         private void SceneEffect()
         {
-            if (_showed)
+            if (showed)
             {
-                thunder.color = Color.Lerp(thunder.color, _fadeColor, 7f * Time.deltaTime);
+                thunder.color = Color.Lerp(thunder.color, fadeColor, 7f * Time.deltaTime);
             }
 
-            if (_isDead)
+            if (isDead)
             {
-                deathScreen.color = Color.Lerp(deathScreen.color, _deadColor, Time.deltaTime / 200f);
+                deathScreen.color = Color.Lerp(deathScreen.color, deadColor, Time.deltaTime / 200f);
             }
 
-            if (_showText)
+            if (showText)
             {
-                endText.color = Color.Lerp(endText.color, _textColor, Time.deltaTime * 300f);
+                endText.color = Color.Lerp(endText.color, textColor, Time.deltaTime * 300f);
             }
         }
 
@@ -76,40 +80,42 @@ namespace Game.Scene
 
         private void StartScene(Collider2D collision)
         {
-            thunder.color = _thunderColor;
-            _audioSource.PlayOneShot(monster);
+            thunder.color = thunderColor;
+            audioSource.PlayOneShot(monster);
             var player = collision.gameObject;
             SetPlayer(player);
+            PlayerPrefs.SetString(StoryKey, YesKey);
             StartCoroutine(Action(timeForThuner, timeToSlash));
         }
 
         private IEnumerator Action(float timer, float timers)
         {
             yield return new WaitForSeconds(timer);
-            _showed = true;
+            showed = true;
             bloodMoon.SetActive(true);
             normalMoon.SetActive(false);
             reaper.SetActive(true);
-            _audioSource.PlayOneShot(soul);
+            audioSource.PlayOneShot(soul);
             yield return new WaitForSeconds(timers);
-            _isDead = true;
+            isDead = true;
             reaper.GetComponent<Animator>().SetTrigger(AttackKey);
             yield return new WaitForSeconds(timer);
-            _showText = true;
-            _audioSource.PlayOneShot(slash);
+            showText = true;
+            audioSource.PlayOneShot(slash);
             yield return new WaitForSeconds(2f);
-            StartCoroutine(FadeAudio());
+            StartCoroutine(FadeAudio(sceneAmbient));
+            StartCoroutine(FadeAudio(leafAmbient));
             CameraManager.CameraFade.Instance.FadeIn(() => SceneManager.LoadScene(Menu), 2);
         }
 
-        private IEnumerator FadeAudio()
+        private IEnumerator FadeAudio(AudioSource audioSource)
         {
             var time = 0f;
-            var startVolume = _sceneAmbient.volume;
+            var startVolume = audioSource.volume;
             while (time < 2f)
             {
                 var value = Mathf.Lerp(startVolume, 0, time / 2f);
-                _sceneAmbient.volume = value;
+                audioSource.volume = value;
                 time += Time.deltaTime;
                 yield return null;
             }

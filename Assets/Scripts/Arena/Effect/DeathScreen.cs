@@ -13,12 +13,12 @@ namespace Game.Arena.UI
         public Text endText;
         public GameObject[] textToActive;
 
-        private bool _canColor = false;
-        private Color _blackScreenMainColor = Color.black;
-        private Color _fontNormalColor;
-        private Color _alphaColor = new Color(0f, 0f, 0f, 0f);
-        private float _t;
-        private bool _canPressButtons = false;
+        private bool canColor = false;
+        private Color blackScreenMainColor = Color.black;
+        private Color fontNormalColor;
+        private Color alphaColor = new Color(0f, 0f, 0f, 0f);
+        private float t;
+        private bool canPressButtons = false;
 
         private const string Menu = "Menu";
         private const string Arena = "Arena";
@@ -30,20 +30,20 @@ namespace Game.Arena.UI
 
         private void Start()
         {
-            _fontNormalColor = endText.color;
-            endText.color = _alphaColor;
+            fontNormalColor = endText.color;
+            endText.color = alphaColor;
         }
 
         private void Update()
         {
-            if (_canColor)
+            if (canColor)
             {
-                _t += Time.deltaTime / 1f;
-                blackScreen.color = Color.Lerp(_alphaColor, _blackScreenMainColor, _t);
-                endText.color = Color.Lerp(_alphaColor, _fontNormalColor, _t);
+                t += Time.deltaTime / 1f;
+                blackScreen.color = Color.Lerp(alphaColor, blackScreenMainColor, t);
+                endText.color = Color.Lerp(alphaColor, fontNormalColor, t);
             }
 
-            if (_canPressButtons == true)
+            if (canPressButtons == true)
             {
                 if (Input.GetKeyDown(KeyCode.R))
                 {
@@ -65,14 +65,14 @@ namespace Game.Arena.UI
 
         private IEnumerator BlackScreenShow(float time)
         {
-            _canColor = true;
+            canColor = true;
             yield return new WaitForSeconds(time);
-            _canColor = false;
+            canColor = false;
             foreach (GameObject button in textToActive)
             {
                 button.SetActive(true);
             }
-            _canPressButtons = true;
+            canPressButtons = true;
         }
 
         private void OnDestroy()

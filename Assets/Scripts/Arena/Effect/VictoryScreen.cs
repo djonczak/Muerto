@@ -12,12 +12,12 @@ namespace Game.UI
         public Text[] endTexts;
         public GameObject menuText;
 
-        private bool _canColor = false;
-        private Color _blackScreenMainColor = Color.black;
-        private Color _fontNormalColor;
-        private Color _alphaColor = new Color(0f, 0f, 0f, 0f);
-        private float _t;
-        private bool _canPressButtons = false;
+        private bool canColor = false;
+        private Color blackScreenMainColor = Color.black;
+        private Color fontNormalColor;
+        private Color alphaColor = new Color(0f, 0f, 0f, 0f);
+        private float t;
+        private bool canPressButtons = false;
 
         private const string Menu = "Menu";
 
@@ -28,30 +28,30 @@ namespace Game.UI
 
         private void Start()
         {
-            _fontNormalColor = endTexts[0].color;
+            fontNormalColor = endTexts[0].color;
             foreach (Text text in endTexts)
             {
-                text.color = _alphaColor;
+                text.color = alphaColor;
             }
         }
 
         private void Update()
         {
-            if (_canColor)
+            if (canColor)
             {
-                _t += Time.deltaTime / 1f;
-                blackScreen.color = Color.Lerp(_alphaColor, _blackScreenMainColor, _t);
+                t += Time.deltaTime / 1f;
+                blackScreen.color = Color.Lerp(alphaColor, blackScreenMainColor, t);
                 foreach (Text text in endTexts)
                 {
-                    text.color = Color.Lerp(_alphaColor, _fontNormalColor, _t);
+                    text.color = Color.Lerp(alphaColor, fontNormalColor, t);
                 }
             }
 
-            if (_canPressButtons == true)
+            if (canPressButtons == true)
             {
                 if (Input.GetKeyDown(KeyCode.M))
                 {
-                    _canPressButtons = false;
+                    canPressButtons = false;
                     CameraManager.CameraFade.Instance.FadeIn(() => SceneManager.LoadScene(Menu), 2f);
                 }
             }
@@ -65,11 +65,11 @@ namespace Game.UI
 
         private IEnumerator BlackScreenShow(float time)
         {
-            _canColor = true;
+            canColor = true;
             yield return new WaitForSeconds(time);
             menuText.SetActive(true);
-            _canColor = false;
-            _canPressButtons = true;
+            canColor = false;
+            canPressButtons = true;
         }
 
         private void OnDestroy()

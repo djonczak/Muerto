@@ -4,11 +4,9 @@ using UnityEngine;
 
 namespace Game.Arena.Player
 {
-    public class DivingElbowAbility : MonoBehaviour
+    public class DivingElbowAbility : PlayerAbility
     {
-        public bool disable = false;
         [SerializeField] private float damage = 1f;
-        public float abilityCooldown = 5f;
         [SerializeField] private float abilityRange = 5f;
         [SerializeField] private float fallSpeed = 10f;
         [SerializeField] private bool canUse = true;
@@ -16,26 +14,43 @@ namespace Game.Arena.Player
         [SerializeField] private bool isFalling = false;
         [SerializeField] private LayerMask enemyLayer = 11;
 
-        private Animator _animator;
+        private Animator animator;
+        private PlayerAttack playerAttack;
+        private TableChargeAbility tableChargeAbility;
+        private ArenaMovement arenaMovement;
+        private PolygonCollider2D polygonCollider2D;
+        private PlayerHP playerHP;
+
+        private ISoundEffect iSoundEffect;
 
         private const string RunKey = "Run";
         private const string IdleKey = "Idle";
         private const string FallAttackKey = "FallAttack";
         private const string DustWaveKey = "DustWave";
 
-        private Vector3 _targetPosition;
+        private Vector3 targetPosition;
+
         private void Awake()
         {
-            _animator = GetComponent<Animator>();
+            animator = GetComponent<Animator>();
+            playerAttack = GetComponent<PlayerAttack>();
+            iSoundEffect = GetComponent<ISoundEffect>();
+            tableChargeAbility = GetComponent<TableChargeAbility>();
+            arenaMovement = GetComponent<ArenaMovement>();
+            polygonCollider2D = GetComponent<PolygonCollider2D>();
+            playerHP = GetComponent<PlayerHP>();
         }
 
         public void Update()
         {
-            if (disable == false)
+            if (Disabled == false)
             {
-                Input();
+                if (CanUseAbility)
+                {
+                    Input();
 
-                FallDawn();
+                    FallDawn();
+                }
             }
         }
 
@@ -57,17 +72,14 @@ namespace Game.Arena.Player
 
         private void PrepareToJump()
         {
+            ArenaEvents.FirstAbility(true);
             canUse = false;
             preparedToJump = true;
             Time.timeScale = 0.5f;
-            GetComponent<PlayerAttack>().enabled = false;
-            GetComponent<PolygonCollider2D>().isTrigger = true;
-            var secondAbility = GetComponent<TableChargeAbility>();
-            if (secondAbility.disable == false)
-            {
-                secondAbility.enabled = false;
-            }
-            GetComponent<PlayerHP>().canBeHurt = false;
+            playerAttack.enabled = false;
+            polygonCollider2D.isTrigger = true;
+            tableChargeAbility.CanUseAbility = false;
+            playerHP.canBeHurt = false;
         }
 
         private void Jump()
@@ -75,12 +87,12 @@ namespace Game.Arena.Player
             Game.UI.PlayerUI.instance.Used1Ability();
             transform.position = new Vector3(Vector3Extension.MousePosition().x, transform.position.y + 1.7f, transform.position.z);
             Time.timeScale = 1f;
-            GetComponent<ArenaMovement>().enabled = false;
-            _targetPosition = Vector3Extension.MousePosition();
+            arenaMovement.enabled = false;
+            targetPosition = Vector3Extension.MousePosition();
             isFalling = true;
-            _animator.SetBool(FallAttackKey, true);
-            _animator.SetBool(RunKey, false);
-            _animator.SetBool(IdleKey, false);
+            animator.SetBool(FallAttackKey, true);
+            animator.SetBool(RunKey, false);
+            animator.SetBool(IdleKey, false);
             preparedToJump = false;
         }
 
@@ -88,40 +100,54 @@ namespace Game.Arena.Player
         {
             if (isFalling == true)
             {
-                transform.position = Vector3.MoveTowards(transform.position, _targetPosition, fallSpeed * Time.deltaTime);
-                if (0.01f > Vector3Extension.DistanceBetweenPlayerMouse(transform.position, _targetPosition))
+                transform.position = Vector3.MoveTowards(transform.position, targetPosition, fallSpeed * Time.deltaTime);
+                if (0.01f > Vector3Extension.DistanceBetweenPlayerMouse(transform.position, targetPosition))
                 {
                     PoundAttack();
                 }
             }
         }
 
-        void PoundAttack()
+        private void PoundAttack()
         {
             Collider2D[] enemies = Physics2D.OverlapCircleAll(transform.position, abilityRange, enemyLayer);
             foreach (Collider2D enemy in enemies)
             {
-                if (enemy.GetComponent<IDamage>() != null)
+                var iDamage = enemy.GetComponent<IDamage>();
+                if (iDamage != null)
                 {
-                    enemy.GetComponent<IDamage>().TakeDamage(damage, DamageType.Normal);
+                    iDamage.TakeDamage(damage, DamageType.Normal);
                 }
             }
             ParticleEffect();
             isFalling = false;
-            GetComponent<ISoundEffect>().PlayAbility1Sound();
-            _animator.SetBool(FallAttackKey, false);
-            StartCoroutine(Cooldown(abilityCooldown));
+            iSoundEffect.PlayAbility1Sound();
+            animator.SetBool(FallAttackKey, false);
+            StartCoroutine(AbilityCooldownTimer());
         }
 
-        IEnumerator Cooldown(float time)
+        public override void CancelAbility()
         {
-            GetComponent<TableChargeAbility>().enabled = true;
-            GetComponent<PolygonCollider2D>().isTrigger = false;
-            GetComponent<PlayerAttack>().enabled = true;
-            GetComponent<ArenaMovement>().enabled = true;
+            if (preparedToJump)
+            {
+                ArenaEvents.FirstAbility(false);
+                Time.timeScale = 1f;
+                playerHP.canBeHurt = true;
+                polygonCollider2D.isTrigger = false;
+                canUse = true;
+                preparedToJump = false;
+            }
+        }
+
+        private IEnumerator AbilityCooldownTimer()
+        {
+            tableChargeAbility.CanUseAbility = true;
+            polygonCollider2D.isTrigger = false;
+            playerAttack.enabled = true;
+            arenaMovement.enabled = true;
             yield return new WaitForSeconds(1.5f);
-            GetComponent<PlayerHP>().canBeHurt = true;
-            yield return new WaitForSeconds(time - 1.5f);
+            playerHP.canBeHurt = true;
+            yield return new WaitForSeconds(AbilityCooldown - 1.5f);
             canUse = true;
         }
 

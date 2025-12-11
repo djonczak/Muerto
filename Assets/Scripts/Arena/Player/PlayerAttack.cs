@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Game.Arena.Player 
 {
@@ -9,11 +10,13 @@ namespace Game.Arena.Player
         [SerializeField] private float dashSpeed = 0.0001f;
         [SerializeField] private float dashCooldown = 0.5f;
         [SerializeField] private float dashRange = 2.5f;
-
-        private float _timer = 0;
+        [SerializeField] private float dashTime = 0.9f;
+        [SerializeField] private Image cooldownBar;
+        private bool canDash = true;
         public bool isDashing = false;
-        private Animator _animator;
-        private PlayerHP _playerHP;
+
+        private Animator animator;
+        private PlayerHP playerHP;
         private ArenaMovement arenaMovement;
         private Rigidbody2D rigidbody2D;
 
@@ -21,8 +24,8 @@ namespace Game.Arena.Player
 
         private void Awake()
         {
-            _animator = GetComponent<Animator>();
-            _playerHP = GetComponent<PlayerHP>();
+            animator = GetComponent<Animator>();
+            playerHP = GetComponent<PlayerHP>();
             arenaMovement = GetComponent<ArenaMovement>();
             rigidbody2D = GetComponent<Rigidbody2D>();
         }
@@ -34,38 +37,51 @@ namespace Game.Arena.Player
 
         private void Dash()
         {
-            if (Input.GetKeyDown(KeyCode.Mouse0))
+            if (Input.GetKey(KeyCode.Mouse0))
             {
-                if (_timer > dashCooldown && !isDashing)
+                if (canDash && isDashing == false)
                 {
-                    isDashing = true;
-                    _animator.SetTrigger(PunchKey);
-                    _timer = 0;
-                    _playerHP.canBeHurt = false;
-                    arenaMovement.canMove = false;
+                    StartCoroutine(DashTimer());
                 }
             }
+        }
 
-            if (isDashing == true)
+        private IEnumerator DashTimer()
+        {
+            canDash = false;
+            isDashing = true;
+            playerHP.canBeHurt = false;
+            arenaMovement.canMove = false;
+            animator.SetTrigger(PunchKey);
+
+            Vector2 mousePosition = Vector3Extension.MousePosition();
+            Vector2 currentPosition = transform.position;
+            Vector2 direction = (mousePosition - currentPosition).normalized;
+            Vector2 targetPosition = currentPosition + direction * dashRange;
+            float timer = 0f;
+            while (timer < dashTime)
             {
-                _playerHP.canBeHurt = false;
-                float step = (1f * dashSpeed) * Time.fixedDeltaTime;
-                transform.position = Vector3.MoveTowards(transform.position, Vector3Extension.MousePosition(), step / dashRange);
-                transform.position.Normalize();
-            }
-            else
-            {
-                _timer += Time.fixedDeltaTime;
+                rigidbody2D.MovePosition(Vector2.MoveTowards(rigidbody2D.position, targetPosition, dashSpeed * Time.fixedDeltaTime));
+                timer += Time.deltaTime;
+                yield return new WaitForFixedUpdate(); 
             }
 
             rigidbody2D.velocity = Vector2.zero;
-        }
-
-        public void EndDash()
-        {
-            _playerHP.canBeHurt = true;
             isDashing = false;
+            playerHP.canBeHurt = true;
             arenaMovement.canMove = true;
+            cooldownBar.fillAmount = 0;
+            cooldownBar.enabled = true;
+            timer = 0f;
+            while(timer <= dashCooldown)
+            {
+                var value = Mathf.Lerp(0f, 1f, timer / dashCooldown);
+                cooldownBar.fillAmount = value;
+                timer += Time.deltaTime;
+                yield return null;
+            }
+            cooldownBar.enabled = false;
+           canDash = true;
         }
     }
 }

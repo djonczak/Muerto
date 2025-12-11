@@ -8,17 +8,25 @@ namespace Game.Arena.Player {
     public class ArenaMovement : MonoBehaviour
     {
         [SerializeField] private float moveSpeed = 1f;
-
+        [SerializeField] private bool useSpecialIdle;
         public bool canMove;
 
-        private Animator _animator;
+        private Animator animator;
+        private bool isRunning;
+        private Coroutine coroutine;
 
         private const string IdleKey = "Idle";
         private const string RunKey = "Run";
+        private const string IdleSpecialKey = "Idle Special";
 
         void Awake()
         {
-            _animator = GetComponent<Animator>();
+            animator = GetComponent<Animator>();
+        }
+
+        private void Start()
+        {
+            animator.SetBool(IdleKey, true);
         }
 
         void Update()
@@ -62,18 +70,58 @@ namespace Game.Arena.Player {
             transform.position = new Vector3(Mathf.Clamp(transform.position.x, minScreenBounds.x + 0.2f, maxScreenBounds.x - 0.2f), Mathf.Clamp(transform.position.y, minScreenBounds.y + 0.2f, maxScreenBounds.y - 0.2f), transform.position.z);
         }
 
+        private void OnDisable()
+        {
+            isRunning = false;
+            animator.SetBool(IdleKey, false);
+            animator.SetBool(RunKey, false);
+            if (coroutine != null)
+            {
+                StopCoroutine(coroutine);
+                coroutine = null;
+            }
+        }
+
         private void AnimationsControll()
         {
             if (0.01f < Vector3Extension.DistanceBetweenPlayerMouse(transform.position, Vector3Extension.MousePosition()))
             {
-                _animator.SetBool(RunKey, true);
-                _animator.SetBool(IdleKey, false);
+                if (isRunning == false)
+                {
+                    isRunning = true;
+                    animator.SetBool(RunKey, true);
+                    animator.SetBool(IdleKey, false);
+
+                    if(coroutine != null)
+                    {
+                        StopCoroutine(coroutine);
+                        coroutine = null;
+                    }
+                }
             }
             else
             {
-                _animator.SetBool(RunKey, false);
-                _animator.SetBool(IdleKey, true);
+                if (isRunning)
+                {
+                    animator.SetBool(RunKey, false);
+                    animator.SetBool(IdleKey, true);
+                    isRunning = false;
+                    if (useSpecialIdle)
+                    {
+                        if(coroutine == null)
+                        {
+                            coroutine = StartCoroutine(WaitForSpecial());
+                        }
+                    }
+                }
             }
+        }
+
+        private IEnumerator WaitForSpecial()
+        {
+            yield return new WaitForSeconds(6f);
+            animator.SetTrigger(IdleSpecialKey);
+            coroutine = null;
         }
     }
 }

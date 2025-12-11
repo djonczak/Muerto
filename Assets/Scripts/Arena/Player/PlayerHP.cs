@@ -9,13 +9,22 @@ namespace Game.Arena.Player
         [SerializeField] private float currentHP = 0;
         [SerializeField] private float maxHP = 3;
         public Image[] healthBars;
-        private int _i = -1;
+        private int i = -1;
         public bool isAlive = true;
         public bool canBeHurt;
+
+        private ISoundEffect iSoundEffect;
+        private ISpriteEffect iSpriteEffect;
 
         private const string RunKey = "Run";
         private const string IdleKey = "Idle";
         private const string DeathKey = "Death";
+
+        private void Awake()
+        {
+            iSoundEffect = GetComponent<ISoundEffect>();
+            iSpriteEffect = GetComponent<ISpriteEffect>();
+        }
 
         private void Start()
         {
@@ -29,10 +38,17 @@ namespace Game.Arena.Player
                 if (canBeHurt == true)
                 {
                     currentHP -= amount;
-                    _i++;
-                    healthBars[_i].enabled = false;
-                    GetComponent<ISpriteEffect>().DamageEffect();
+                    i++;
+                    healthBars[i].enabled = false;
+                    iSpriteEffect.DamageEffect();
+                    ArenaEvents.PlayerGotHurt();
+                    if (currentHP <= 0)
+                    {
+                        Death();
+                        return;
+                    }
                     StartCoroutine(DamageCooldown());
+
                 }
 
                 if (currentHP <= 0)
@@ -52,6 +68,7 @@ namespace Game.Arena.Player
         private void Death()
         {
             isAlive = false;
+            DisableAbilities();
             var animator = GetComponent<Animator>();
             animator.SetTrigger(DeathKey);
             animator.SetBool(IdleKey, false);
@@ -59,9 +76,7 @@ namespace Game.Arena.Player
             GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
             GetComponent<PlayerAttack>().enabled = false;
             GetComponent<ArenaMovement>().enabled = false;
-            GetComponent<TableChargeAbility>().enabled = false;
-            GetComponent<DivingElbowAbility>().enabled = false;
-            GetComponent<ISoundEffect>().PlayDeathSound();
+            iSoundEffect.PlayDeathSound();
             this.enabled = false;
             ArenaEvents.PlayerDeath();
         }
@@ -71,11 +86,22 @@ namespace Game.Arena.Player
             if (currentHP < maxHP)
             {
                 currentHP += amount;
-                healthBars[_i].enabled = true;
-                _i--;
-                GetComponent<ISpriteEffect>().HealEffect();
-                GetComponent<ISoundEffect>().PlayHealSound();
+                healthBars[i].enabled = true;
+                i--;
+                iSpriteEffect.HealEffect();
+                iSoundEffect.PlayHealSound();
                 taco.Healed();
+            }
+        }
+
+        private void DisableAbilities()
+        {
+            PlayerAbility[] abilities = GetComponents<PlayerAbility>();
+
+            foreach (PlayerAbility ability in abilities)
+            {
+                ability.CancelAbility();
+                ability.CanUseAbility = false;
             }
         }
     }

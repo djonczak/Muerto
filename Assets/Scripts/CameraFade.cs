@@ -9,16 +9,16 @@ namespace Game.CameraManager
     {
         public static CameraFade Instance;
 
-        [SerializeField] private float _fadeTime = 5.0f;
+        [SerializeField] private float fadeTime = 5.0f;
 
-        [SerializeField] private Color _fadeColor = new Color(255.0f, 255.0f, 255.0f, 1.0f);
+        [SerializeField] private Color fadeColor = new Color(255.0f, 255.0f, 255.0f, 1.0f);
 
 
-        private float _alpha = 1.0f;
-        private Texture2D _texture;
+        private float alpha = 1.0f;
+        private Texture2D texture;
 
-        private bool _isFadingIn = false;
-        private bool _isFadingOut = false;
+        private bool isFadingIn = false;
+        private bool isFadingOut = false;
 
         public Action FadedScreen;
 
@@ -36,33 +36,33 @@ namespace Game.CameraManager
 
         private void Start()
         {
-            _texture = new Texture2D(1, 1);
-            _texture.SetPixel(0, 0, new Color(_fadeColor.r, _fadeColor.g, _fadeColor.b, _alpha));
-            _texture.Apply();
+            texture = new Texture2D(1, 1);
+            texture.SetPixel(0, 0, new Color(fadeColor.r, fadeColor.g, fadeColor.b, alpha));
+            texture.Apply();
             FadeOut(null, 2);
         }
 
         [ContextMenu("FadeIn")]
         public void FadeIn(Action action, float time, float alpha = 1.0f)
         {
-            _isFadingIn = true;
-            _isFadingOut = false;
-            _alpha = alpha;
+            isFadingIn = true;
+            isFadingOut = false;
+            this.alpha = alpha;
             StartCoroutine(StartFading(action, 0, 1, time));
         }
 
         [ContextMenu("FadeOut")]
         public void FadeOut(Action action, float time, float alpha = 0f)
         {
-            _isFadingIn = false;
-            _isFadingOut = true;
-            _alpha = alpha;
+            isFadingIn = false;
+            isFadingOut = true;
+            this.alpha = alpha;
             StartCoroutine(StartFading(action, 1, 0, time));
         }
 
         public void OnGUI()
         {
-            if (_isFadingIn || _isFadingOut)
+            if (isFadingIn || isFadingOut)
             {
                 ShowBlackScreen();
             }
@@ -73,7 +73,7 @@ namespace Game.CameraManager
             var timer = 0f;
             while (timer < duration)
             {
-                _alpha = Mathf.Lerp(min, max, timer / duration);
+                alpha = Mathf.Lerp(min, max, timer / duration);
                 timer += Time.deltaTime;
                 yield return null;
             }
@@ -86,14 +86,14 @@ namespace Game.CameraManager
 
         private void ShowBlackScreen()
         {
-            GUI.DrawTexture(new Rect(0, 0, Screen.width, Screen.height), _texture);
+            GUI.DrawTexture(new Rect(0, 0, Screen.width, Screen.height), texture);
             CalculateTexture();
         }
 
         private void CalculateTexture()
         {
-            _texture.SetPixel(0, 0, new Color(_fadeColor.r, _fadeColor.g, _fadeColor.b, _alpha));
-            _texture.Apply();
+            texture.SetPixel(0, 0, new Color(fadeColor.r, fadeColor.g, fadeColor.b, alpha));
+            texture.Apply();
         }
     }
 }

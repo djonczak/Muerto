@@ -10,6 +10,7 @@ namespace Game.UI
     public class StoryUI : MonoBehaviour
     {
         public Color color;
+        public Text mainText;
         public Text flowerText;
         public Text itemText;
         public Text cemeteryText;
@@ -47,7 +48,8 @@ namespace Game.UI
 
         private IEnumerator ChangeMissionText()
         {
-            yield return new WaitForSeconds(3f);
+            yield return new WaitForSeconds(1.8f);
+            mainText.text = "";
             flowerText.text = "";
             itemText.text = "";
             cemeteryText.text = "Visit cementery !";

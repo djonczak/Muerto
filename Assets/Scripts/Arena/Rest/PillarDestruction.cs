@@ -8,8 +8,8 @@ namespace Game.VFX
     public class PillarDestruction : MonoBehaviour
     {
         public Sprite destroyedPillar;
-        [SerializeField] private AudioClip _audioClip;
-        private bool _isDestroyed = false;
+        [SerializeField] private AudioClip audioClip;
+        private bool isDestroyed = false;
 
         private const string PlayerTag = "Player";
         private const string ChupacabraTag = "Chupacabra";
@@ -17,49 +17,81 @@ namespace Game.VFX
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            if (collision.gameObject.tag == PlayerTag && _isDestroyed == false)
+            if (collision.gameObject.tag == PlayerTag && isDestroyed == false)
             {
-                if (collision.gameObject.GetComponent<Arena.Player.PlayerAttack>().isDashing == true || collision.gameObject.GetComponent<Arena.Player.TableChargeAbility>().isCharging == true)
+                if (DetectedDamagable(collision.gameObject))
                 {
                     DestroyPillar();
-                    _isDestroyed = true;
+                    isDestroyed = true;
                 }
             }
 
-            if (collision.gameObject.tag == ChupacabraTag && _isDestroyed == false)
+            if (collision.gameObject.tag == ChupacabraTag && isDestroyed == false)
             {
-                if (collision.gameObject.GetComponent<Arena.AI.EnemyDashAttack>().isDashing == true)
+                if (DetectedDamagable(collision.gameObject))
                 {
                     DestroyPillar();
-                    _isDestroyed = true;
+                    isDestroyed = true;
                 }
             }
         }
 
         private void OnTriggerStay2D(Collider2D collision)
         {
-            if (collision.gameObject.tag == PlayerTag && _isDestroyed == false)
+            if (collision.gameObject.tag == PlayerTag && isDestroyed == false)
             {
-                if (collision.gameObject.GetComponent<Arena.Player.PlayerAttack>().isDashing == true || collision.gameObject.GetComponent<Arena.Player.TableChargeAbility>().isCharging == true)
+                if (DetectedDamagable(collision.gameObject))
                 {
                     DestroyPillar();
-                    _isDestroyed = true;
+                    isDestroyed = true;
                 }
             }
 
-            if (collision.gameObject.tag == ChupacabraTag && _isDestroyed == false)
+            if (collision.gameObject.tag == ChupacabraTag && isDestroyed == false)
             {
-                if (collision.gameObject.GetComponent<Arena.AI.EnemyDashAttack>().isDashing == true)
+                if (DetectedDamagable(collision.gameObject))
                 {
                     DestroyPillar();
-                    _isDestroyed = true;
+                    isDestroyed = true;
                 }
             }
         }
 
+        private bool DetectedDamagable(GameObject detectedObject)
+        {
+            var normalAttack = detectedObject.GetComponent<Arena.Player.PlayerAttack>();
+            if (normalAttack != null)
+            {
+                if (normalAttack.isDashing)
+                {
+                    return true;
+                }
+            }
+
+            var normalAttackEnemy = detectedObject.GetComponent<Arena.AI.EnemyDashAttack>();
+            if (normalAttackEnemy != null)
+            {
+                if (normalAttackEnemy.isDashing)
+                {
+                    return true;
+                }
+            }
+
+            var tableAttack = detectedObject.GetComponent<Arena.Player.TableChargeAbility>();
+            if(tableAttack != null)
+            {
+                if (tableAttack.isCharging)
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
         private void DestroyPillar()
         {
-            AudioSource.PlayClipAtPoint(_audioClip, transform.position);
+            AudioSource.PlayClipAtPoint(audioClip, transform.position);
             GameObject destructionEffect = Arena.Pooler.ObjectPooler.instance.GetPooledObject(DestructionEffect);
             if (destructionEffect != null)
             {

@@ -10,13 +10,20 @@ namespace Game.Arena.AI
         [SerializeField] private float currentHP = 0f;
         [SerializeField] private float damageCooldown = 0.4f;
 
-        private bool _isAlive = true;
-        private bool _isSecondPhase = false;
-        private bool _isHurt = false;
+        private bool isAlive = true;
+        private bool isSecondPhase = false;
+        private bool isHurt = false;
 
         public Image healthBar;
+        private ISpriteEffect iSpriteEffect;
 
         private const string BossKey = "Boss";
+        private const string YesKey = "Yes";
+
+        private void Awake()
+        {
+            iSpriteEffect = GetComponent<ISpriteEffect>();
+        }
 
         private void Start()
         {
@@ -26,13 +33,13 @@ namespace Game.Arena.AI
 
         public void TakeDamage(float amount, DamageType type)
         {
-            if (_isAlive == true)
+            if (isAlive == true)
             {
-                if (_isHurt == false)
+                if (isHurt == false)
                 {
                     currentHP -= amount;
                     healthBar.fillAmount = currentHP / maxHP;
-                    GetComponent<ISpriteEffect>().DamageEffect();
+                    iSpriteEffect.DamageEffect();
                     CheckSecondPhase();
                     if (currentHP <= 0)
                     {
@@ -54,26 +61,26 @@ namespace Game.Arena.AI
             GetComponent<BossFirstAbility>().enabled = false;
             GetComponent<BossSecondAbility>().enabled = false;
             ArenaEvents.PlayerVictory();
-            PlayerPrefs.SetString(BossKey, "Yes");
+            PlayerPrefs.SetString(BossKey, YesKey);
             enabled = false;
             this.gameObject.SetActive(false);
         }
 
         private void CheckSecondPhase()
         {
-            if (currentHP <= 8 && _isSecondPhase == false)
+            if (currentHP <= 8 && isSecondPhase == false)
             {
                 GetComponent<BossSecondAbility>().unlock = true;
                 ArenaEvents.SpawnTaco();
-                _isSecondPhase = true;
+                isSecondPhase = true;
             }
         }
 
         private IEnumerator DamageCooldown(float time)
         {
-            _isHurt = true;
+            isHurt = true;
             yield return new WaitForSeconds(time);
-            _isHurt = false;
+            isHurt = false;
         }
     }
 }

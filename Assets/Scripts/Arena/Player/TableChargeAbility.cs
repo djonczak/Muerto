@@ -4,11 +4,8 @@ using UnityEngine;
 
 namespace Game.Arena.Player
 {
-
-    public class TableChargeAbility : MonoBehaviour
+    public class TableChargeAbility : PlayerAbility
     {
-        public bool disable = false;
-        public float abilityCooldown = 15f;
         [SerializeField] private float damage = 1f;
         [SerializeField] private float abilityRange = 1f;
         [SerializeField] private float abilityDuration = 5f;
@@ -17,8 +14,17 @@ namespace Game.Arena.Player
         [SerializeField] private bool hasCharged = false;
         public bool isCharging = false;
         [SerializeField] private LayerMask enemyLayer = 11;
-        private Animator _animator;
-        private Rigidbody2D _rigidbody;
+
+        private Animator animator;
+        private Rigidbody2D rigidbody2D;
+        private PlayerAttack playerAttack;
+        private DivingElbowAbility divineElbowAbility;
+        private ArenaMovement arenaMovement;
+        private PlayerHP playerHP;
+
+        private Coroutine coroutine;
+
+        private ISoundEffect iSoundEffect;
 
         private const string IdleKey = "Idle";
         private const string RunKey = "Run";
@@ -27,17 +33,25 @@ namespace Game.Arena.Player
 
         private void Awake()
         {
-            _animator = GetComponent<Animator>();
-            _rigidbody = GetComponent<Rigidbody2D>();
+            animator = GetComponent<Animator>();
+            rigidbody2D = GetComponent<Rigidbody2D>();
+            playerAttack = GetComponent<PlayerAttack>();
+            iSoundEffect = GetComponent<ISoundEffect>();
+            divineElbowAbility = GetComponent<DivingElbowAbility>();
+            arenaMovement = GetComponent<ArenaMovement>();
+            playerHP = GetComponent<PlayerHP>();
         }
 
         private void Update()
         {
-            if (disable == false)
+            if (Disabled == false)
             {
-                Input();
+                if (CanUseAbility)
+                {
+                    Input();
 
-                Charge();
+                    Charge();
+                }
             }
         }
 
@@ -60,25 +74,27 @@ namespace Game.Arena.Player
         private void StartCharge()
         {
             Time.timeScale = 1f;
-            _rigidbody.velocity = Vector3Extension.CalculateDirectionTowardsMouse(transform.position) * chargeSpeed;
-            StartCoroutine(ChargeDuration(abilityDuration));
-            _animator.SetBool(ChargeKey, true);
+            rigidbody2D.velocity = Vector3Extension.CalculateDirectionTowardsMouse(transform.position) * chargeSpeed;
+            coroutine = StartCoroutine(ChargeDuration());
+            animator.SetBool(ChargeKey, true);
             isCharging = true;
             ArenaEvents.PlayerCharge();
+            playerHP.canBeHurt = false;
             hasCharged = false;
         }
 
         private void PrepareForCharge()
         {
+            ArenaEvents.SecondAbility(true);
             canUse = false;
-            GetComponent<ArenaMovement>().enabled = false;
-            GetComponent<PlayerAttack>().enabled = false;
-            GetComponent<DivingElbowAbility>().enabled = false;
-            _animator.SetTrigger(ChargeIdleKey);
-            _animator.SetBool(RunKey, false);
-            _animator.SetBool(IdleKey, false);
+            arenaMovement.enabled = false;
+            playerAttack.enabled = false;
+            divineElbowAbility.CanUseAbility = false;
+            animator.SetTrigger(ChargeIdleKey);
+            animator.SetBool(RunKey, false);
+            animator.SetBool(IdleKey, false);
             hasCharged = true;
-            GetComponent<PlayerHP>().canBeHurt = false;
+            playerHP.canBeHurt = false;
             Time.timeScale = 0.5f;
         }
 
@@ -91,11 +107,11 @@ namespace Game.Arena.Player
                 {
                     foreach (Collider2D enemy in enemies)
                     {
-                        var enemyDamage = enemy.GetComponent<IDamage>();
-                        if (enemyDamage != null)
+                        var iDamage = enemy.GetComponent<IDamage>();
+                        if (iDamage != null)
                         {
-                            enemyDamage.TakeDamage(damage, DamageType.Normal);
-                            GetComponent<ISoundEffect>().PlayAbility2Sound();
+                            iDamage.TakeDamage(damage, DamageType.Normal);
+                            iSoundEffect.PlayAbility2Sound();
                         }
                     }
                 }
@@ -106,7 +122,7 @@ namespace Game.Arena.Player
 
         private void ChargeRotation()
         {
-            if (_rigidbody.velocity.x > 0.1f)
+            if (rigidbody2D.velocity.x > 0.1f)
             {
                 transform.rotation = Quaternion.Euler(0, 0, 0);
                 transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y, 1);
@@ -122,47 +138,45 @@ namespace Game.Arena.Player
         {
             if (collision.gameObject.layer == 8)
             {
-                _rigidbody.velocity = Vector2.zero;
+                rigidbody2D.velocity = Vector2.zero;
                 var direction = Vector3Extension.CalculateDirectionTowardsMouse(transform.position);
-                _rigidbody.velocity = direction * chargeSpeed;
+                rigidbody2D.velocity = direction * chargeSpeed;
             }
         }
 
-        IEnumerator ChargeDuration(float time)
+        IEnumerator ChargeDuration()
         {
-            yield return new WaitForSeconds(time);
-            GetComponent<PlayerHP>().canBeHurt = true;
-            _animator.SetBool(ChargeKey, false);
+            yield return new WaitForSeconds(abilityDuration);
+            playerHP.canBeHurt = true;
+            animator.SetBool(ChargeKey, false);
             isCharging = false;
             ArenaEvents.PlayerCharge();
-            _rigidbody.velocity = Vector2.zero;
-            GetComponent<ArenaMovement>().enabled = true;
-            GetComponent<PlayerAttack>().enabled = true;
-            GetComponent<DivingElbowAbility>().enabled = true;
-            StartCoroutine(AbilityCooldown(abilityCooldown));
+            rigidbody2D.velocity = Vector2.zero;
+            arenaMovement.enabled = true;
+            playerAttack.enabled = true;
+            divineElbowAbility.CanUseAbility = true;
+            StartCoroutine(AbilityCooldownTimer());
         }
 
-        public void CancelTableCharge()
+        public override void CancelAbility()
         {
             if (isCharging)
             {
-                StopAllCoroutines();
-                GetComponent<PlayerHP>().canBeHurt = true;
-                _animator.SetBool(ChargeKey, false);
+                ArenaEvents.SecondAbility(true);
+                StopCoroutine(coroutine);
+                playerHP.canBeHurt = true;
+                animator.SetBool(ChargeKey, false);
                 isCharging = false;
                 ArenaEvents.PlayerCharge();
-                _rigidbody.velocity = Vector2.zero;
-                GetComponent<ArenaMovement>().enabled = true;
-                GetComponent<PlayerAttack>().enabled = true;
-                GetComponent<DivingElbowAbility>().enabled = true;
-                StartCoroutine(AbilityCooldown(abilityCooldown));
+                rigidbody2D.velocity = Vector2.zero;
+                StartCoroutine(AbilityCooldownTimer());
             }
         }
 
-        IEnumerator AbilityCooldown(float time)
+        IEnumerator AbilityCooldownTimer()
         {
             Game.UI.PlayerUI.instance.Used2Ability();
-            yield return new WaitForSeconds(time);
+            yield return new WaitForSeconds(AbilityCooldown);
             canUse = true;
         }
 

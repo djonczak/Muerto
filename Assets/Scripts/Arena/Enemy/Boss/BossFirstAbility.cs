@@ -11,19 +11,19 @@ namespace Game.Arena.AI
 
         public AudioClip abilitySound;
 
-        private Animator _animator;
-        private bool _canUseAbility = true;
-        private AudioSource _audioSource;
-        private BossMovement _bossMove;
+        private Animator animator;
+        private bool canUseAbility = true;
+        private AudioSource audioSource;
+        private BossMovement bossMove;
 
         private const string AbilityKey = "Ability";
         private const string BossBulletKey = "BossBullet";
 
         private void Awake()
         {
-            _animator = GetComponent<Animator>();
-            _audioSource = GetComponent<AudioSource>();
-            _bossMove = GetComponent<BossMovement>();
+            animator = GetComponent<Animator>();
+            audioSource = GetComponent<AudioSource>();
+            bossMove = GetComponent<BossMovement>();
         }
 
         private void Start()
@@ -38,14 +38,14 @@ namespace Game.Arena.AI
 
         private void CheckAbility()
         {
-            if (_canUseAbility == true)
+            if (canUseAbility == true)
             {
                 var distance = Vector3.Distance(transform.position, target.transform.position);
                 if (distance > activateRadius)
                 {
-                    _bossMove.canMove = false;
-                    _canUseAbility = false;
-                    _animator.SetTrigger(AbilityKey);
+                    bossMove.canMove = false;
+                    canUseAbility = false;
+                    animator.SetTrigger(AbilityKey);
                 }
             }
         }
@@ -64,13 +64,13 @@ namespace Game.Arena.AI
                     projectile.GetComponent<BossBullet>().target = target;
                 }
             }
-            _audioSource.PlayOneShot(abilitySound);
+            audioSource.PlayOneShot(abilitySound);
         }
 
         public void EndAbility()
         {
-            _canUseAbility = true;
-            _bossMove.canMove = true;
+            canUseAbility = true;
+            bossMove.canMove = true;
         }
 
         private void OnDrawGizmos()
