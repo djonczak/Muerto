@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Experimental.Rendering.Universal;
+
 using Game.Arena.Player;
 
 namespace Game.Scene 
@@ -24,7 +24,7 @@ namespace Game.Scene
         public GameObject[] hudToHide;
 
         [Header("Light source")]
-        public Light2D sunLight;
+        public UnityEngine.Rendering.Universal.Light2D sunLight;
         public Color colorToSwitch;
 
         private const string IdleKey = "Idle";

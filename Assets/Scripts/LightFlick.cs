@@ -1,13 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Experimental.Rendering.Universal;
+
 
 namespace Game.Effect 
 {
     public class LightFlick : MonoBehaviour
     {
-        [SerializeField] private Light2D _lightFlick;
+        [SerializeField] private UnityEngine.Rendering.Universal.Light2D _lightFlick;
 
         [SerializeField] private float _minIntensity = 0f;
 
