@@ -65,7 +65,6 @@ namespace Game.Arena.Player
             animator.SetTrigger(SecondAbility);
             animator.SetBool(RunKey, false);
             animator.SetBool(IdleKey, false);
-            playerHP.canBeHurt = false;
             ArenaEvents.SecondAbility(true);
             coroutine = StartCoroutine(AbilityActive());
         }
@@ -95,6 +94,7 @@ namespace Game.Arena.Player
                     }
                 }
                 timer += Time.deltaTime;
+                playerHP.canBeHurt = false;
                 yield return null;
             }
             isSinging = false;

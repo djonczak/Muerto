@@ -29,7 +29,7 @@ namespace Game.Arena.Player
         public void ThrowGrenade(Vector3 throwPoint)
         {
             StartCoroutine(ThrowGrenadeCalculation(throwPoint));
-            StartCoroutine(AppearGrenade());
+            StartCoroutine(AppearGrenade(1f));
         }
 
         IEnumerator ThrowGrenadeCalculation(Vector3 targetPosition)
@@ -50,7 +50,8 @@ namespace Game.Arena.Player
                 yield return null;
             }
             transform.position = targetPosition;
-            grenade.localScale = Vector3.zero;
+            StartCoroutine(AppearGrenade(0f));
+
             explosionSound.Play();
             explosionParticle.Play();
             Collider2D[] enemies = Physics2D.OverlapCircleAll(transform.position, explosionRange, enemyLayer);
@@ -67,18 +68,18 @@ namespace Game.Arena.Player
             }
         }
 
-        private IEnumerator AppearGrenade()
+        private IEnumerator AppearGrenade(float end)
         {
             float timer = 0f;
             Vector3 startScale = grenade.localScale;
             while (timer < 0.2F)
             {
-                var value = Mathf.Lerp(startScale.x, 1f, timer / 0.2F);
+                var value = Mathf.Lerp(startScale.x, end, timer / 0.2F);
                 grenade.localScale = new Vector3(value, value, value);
                 timer += Time.deltaTime;
                 yield return null;
             }
-            grenade.localScale = new Vector3(1,1,1);
+            grenade.localScale = new Vector3(end, end, end);
         }
 
         private void OnDrawGizmos()
