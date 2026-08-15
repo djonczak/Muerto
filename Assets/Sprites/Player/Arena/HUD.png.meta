@@ -30,7 +30,7 @@ TextureImporter:
       213: 1229794671371557974
     second: IconBackground
   externalObjects: {}
-  serializedVersion: 12
+  serializedVersion: 13
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -364,6 +364,27 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: RicardoAbility2
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 93
+        width: 13
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 970f8d79bfa0333418f90d0506f409bd
+      internalID: 2041386107
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -383,6 +404,7 @@ TextureImporter:
       IconBackground: 1229794671371557974
       MariachiAbility1: -6869325624984279803
       MariachiAbility2: -2205522050570982886
+      RicardoAbility2: 2041386107
       TopBar: 4089091261712388332
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
