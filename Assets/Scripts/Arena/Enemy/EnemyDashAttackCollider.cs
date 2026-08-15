@@ -5,13 +5,13 @@ namespace Game.Arena.AI
     public class EnemyDashAttackCollider : MonoBehaviour
     {
         [SerializeField] private float damage;
-        private AudioSource _audioSource;
+        private AudioSource audioSource;
 
         private const string PlayerTag = "Player";
 
         private void Awake()
         {
-            _audioSource = GetComponent<AudioSource>();
+            audioSource = GetComponent<AudioSource>();
         }
 
         private void Start()
@@ -24,7 +24,7 @@ namespace Game.Arena.AI
             if (collision.tag == PlayerTag)
             {
                 collision.GetComponent<IDamage>().TakeDamage(damage, DamageType.Normal);
-                _audioSource.PlayOneShot(_audioSource.clip);
+                audioSource.PlayOneShot(audioSource.clip);
             }
         }
     }

@@ -2,20 +2,23 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DeathEvent : MonoBehaviour
+namespace Game.Arena.Events 
 {
-    public delegate void EnemyEventHandler(float i);
-    public delegate void EnemyEventHandlerShake();
-    public static event EnemyEventHandlerShake OnEnemyDeath;
-    public static event EnemyEventHandler OnDeathExp;
-
-    public static void EnemyDied(float i)
+    public class DeathEvent : MonoBehaviour
     {
-        OnDeathExp?.Invoke(i);
-    }
+        public delegate void EnemyEventHandler(float i);
+        public delegate void EnemyEventHandlerShake();
+        public static event EnemyEventHandlerShake OnEnemyDeath;
+        public static event EnemyEventHandler OnDeathExp;
 
-    public static void EnemyDiedShake()
-    {
-        OnEnemyDeath?.Invoke();
+        public static void EnemyDied(float i)
+        {
+            OnDeathExp?.Invoke(i);
+        }
+
+        public static void EnemyDiedShake()
+        {
+            OnEnemyDeath?.Invoke();
+        }
     }
 }

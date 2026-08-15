@@ -1,86 +1,90 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Game.Arena.Events;
 
-public class CameraShake : MonoBehaviour
-{
-    [Header("Normal camera shake")]
-    [SerializeField] private float shakeTime = 0.1f;
-    [SerializeField] private float shakeStrenght = 20f;
+namespace Game.CameraManager {
 
-    [Header("Boss camera shake")]
-    [SerializeField] private float bossShakeTime = 0.4f;
-
-    private Vector3 oldPosition;
-    private bool canShake = true;
-
-    private void OnEnable()
+    public class CameraShake : MonoBehaviour
     {
-        ArenaEvents.OnPlayerHurt += Shake;
-        ArenaEvents.OnBossShow += BossShake;
-        ArenaEvents.OnCameraStop += StopCamerShake;
-    }
+        [Header("Normal camera shake")]
+        [SerializeField] private float shakeTime = 0.1f;
+        [SerializeField] private float shakeStrenght = 20f;
 
-    private void Start()
-    {
-        oldPosition = transform.position;
-    }
+        [Header("Boss camera shake")]
+        [SerializeField] private float bossShakeTime = 0.4f;
 
-    public void Shake()
-    {
-        if (canShake == true)
+        private Vector3 oldPosition;
+        private bool canShake = true;
+
+        private void OnEnable()
         {
-            StartCoroutine(ShakeDuration());
+            ArenaEvents.OnPlayerHurt += Shake;
+            ArenaEvents.OnBossShow += BossShake;
+            ArenaEvents.OnCameraStop += StopCamerShake;
         }
-    }
 
-    public void BossShake()
-    {
-        StartCoroutine(BossShakeDuration());
-    }
-
-    private IEnumerator ShakeDuration()
-    {
-        var timer = 0f;
-        while (timer < shakeTime)
+        private void Start()
         {
-            transform.position = Vector3.Lerp(transform.position, transform.position + Random.insideUnitSphere * 0.1f, shakeStrenght);
-            timer += Time.deltaTime;
-            yield return null;
+            oldPosition = transform.position;
         }
-        transform.position = oldPosition;
-    }
 
-    private IEnumerator BossShakeDuration()
-    {
-        var timerBoss = 0f;
-        while (timerBoss < bossShakeTime)
+        public void Shake()
         {
-            transform.position = Vector3.Lerp(transform.position, transform.position + Random.insideUnitSphere * 0.01f, shakeStrenght);
-            timerBoss += Time.deltaTime;
-            yield return null;
+            if (canShake == true)
+            {
+                StartCoroutine(ShakeDuration());
+            }
         }
-        transform.position = oldPosition;
-    }
 
-    private void StopCamerShake()
-    {
-        transform.position = oldPosition;
-        StopAllCoroutines();
-        canShake = false;
-        StartCoroutine(ShakeCooldown(5f));
-    }
+        public void BossShake()
+        {
+            StartCoroutine(BossShakeDuration());
+        }
 
-    private IEnumerator ShakeCooldown(float time)
-    {
-        yield return new WaitForSeconds(time);
-        canShake = true;
-    }
+        private IEnumerator ShakeDuration()
+        {
+            var timer = 0f;
+            while (timer < shakeTime)
+            {
+                transform.position = Vector3.Lerp(transform.position, transform.position + Random.insideUnitSphere * 0.1f, shakeStrenght);
+                timer += Time.deltaTime;
+                yield return null;
+            }
+            transform.position = oldPosition;
+        }
 
-    private void OnDestroy()
-    {
-        ArenaEvents.OnPlayerHurt -= Shake;
-        ArenaEvents.OnBossShow -= BossShake;
-        ArenaEvents.OnCameraStop -= StopCamerShake;
+        private IEnumerator BossShakeDuration()
+        {
+            var timerBoss = 0f;
+            while (timerBoss < bossShakeTime)
+            {
+                transform.position = Vector3.Lerp(transform.position, transform.position + Random.insideUnitSphere * 0.01f, shakeStrenght);
+                timerBoss += Time.deltaTime;
+                yield return null;
+            }
+            transform.position = oldPosition;
+        }
+
+        private void StopCamerShake()
+        {
+            transform.position = oldPosition;
+            StopAllCoroutines();
+            canShake = false;
+            StartCoroutine(ShakeCooldown(5f));
+        }
+
+        private IEnumerator ShakeCooldown(float time)
+        {
+            yield return new WaitForSeconds(time);
+            canShake = true;
+        }
+
+        private void OnDestroy()
+        {
+            ArenaEvents.OnPlayerHurt -= Shake;
+            ArenaEvents.OnBossShow -= BossShake;
+            ArenaEvents.OnCameraStop -= StopCamerShake;
+        }
     }
 }

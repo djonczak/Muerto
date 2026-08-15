@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Game.Arena.Events;
 
-namespace Game.Arena.Player {
-
+namespace Game.Arena.Player 
+{
     public class PlayerLevel : MonoBehaviour
     {
         [Header("Level up options")]

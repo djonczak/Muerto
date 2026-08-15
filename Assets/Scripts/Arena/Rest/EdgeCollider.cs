@@ -1,10 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Game.Arena.Events;
 
 namespace Game.Arena
 {
-
     public class EdgeCollider : MonoBehaviour
     {
         public float colThickness = 4f;

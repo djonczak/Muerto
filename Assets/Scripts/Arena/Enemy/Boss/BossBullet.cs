@@ -1,74 +1,104 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public class BossBullet : MonoBehaviour
-{
-    [SerializeField] private float moveSpeed = 4f;
-    [SerializeField] private float bulletDuration = 10f;
-    [SerializeField] private float damage = 1f;
-    public GameObject target;
-    private bool canFollow = false;
-    private Animator anim;
-    private SpriteRenderer sprite;
+namespace Game.Arena.AI {
 
-    private void OnEnable()
+    public class BossBullet : MonoBehaviour
     {
-        canFollow = true;
-        StartCoroutine("DisperseCooldown", bulletDuration);
-    }
+        [SerializeField] private float moveSpeed = 4f;
+        [SerializeField] private float bulletDuration = 10f;
+        [SerializeField] private float damage = 1f;
+        [SerializeField] private ParticleSystem trailParticle;
 
-    private void Awake()
-    {
-        anim = GetComponent<Animator>();
-        sprite = GetComponent<SpriteRenderer>();
-    }
+        public GameObject target;
+        private bool canFollow = false;
 
-    private void Update()
-    {
-        if(canFollow == true && target != null)
+        private Animator anim;
+        private SpriteRenderer sprite;
+        private AudioSource audioSource;
+
+        Coroutine coroutine;
+
+        private const string Disperse = "Disperse";
+        private const string Hit = "Hit";
+        private const string Player = "Player";
+
+        private void OnEnable()
         {
-            transform.position = Vector3.MoveTowards(transform.position, target.transform.position, moveSpeed * Time.deltaTime);
-
-            RotateTowardsPlayer();
+            canFollow = true;
+            audioSource.Play();
+            coroutine = StartCoroutine(DisperseCooldown(bulletDuration));
+            trailParticle.loop = true;
+            trailParticle.Play();
         }
-    }
 
-    private void RotateTowardsPlayer()
-    {
-        if (target.transform.position.x > transform.position.x)
+        private void Awake()
         {
-            sprite.flipX = false;
+            anim = GetComponent<Animator>();
+            sprite = GetComponentInChildren<SpriteRenderer>();
+            trailParticle = GetComponentInChildren<ParticleSystem>();
+            audioSource = GetComponent<AudioSource>();
         }
-        else
-        {
-            sprite.flipX = true;
-        }
-    }
 
-    private IEnumerator DisperseCooldown(float time)
-    {
-        yield return new WaitForSeconds(time);
-        canFollow = false;
-        anim.SetTrigger("Disperse");
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if(collision.tag == "Player")
+        private void Update()
         {
-            var iDamage = collision.GetComponent<IDamage>();
-            if(iDamage != null)
+            if (canFollow == true && target != null)
             {
-                iDamage.TakeDamage(damage, DamageType.Normal);
-                anim.SetTrigger("Hit");
-                canFollow = false;
+                transform.position = Vector3.MoveTowards(transform.position, target.transform.position, moveSpeed * Time.deltaTime);
+
+                RotateTowardsPlayer();
             }
         }
-    }
 
-    private void OnDisable()
-    {
-        canFollow = false;
-        StopCoroutine("DisperseCooldown");
+        private void RotateTowardsPlayer()
+        {
+            if (target.transform.position.x > transform.position.x)
+            {
+                sprite.flipX = false;
+            }
+            else
+            {
+                sprite.flipX = true;
+            }
+        }
+
+        private IEnumerator DisperseCooldown(float time)
+        {
+            yield return new WaitForSeconds(time);
+            coroutine = null;
+            canFollow = false;
+            anim.SetTrigger(Disperse);
+            trailParticle.loop = false;
+        }
+
+        private void OnTriggerEnter2D(Collider2D collision)
+        {
+            if (collision.tag == Player)
+            {
+                var iDamage = collision.GetComponent<IDamage>();
+                if (iDamage != null)
+                {
+                    iDamage.TakeDamage(damage, DamageType.Normal);
+                    anim.SetTrigger(Hit);
+                    trailParticle.loop = false;
+                    if (coroutine != null)
+                    {
+                        StopCoroutine(coroutine);
+                        coroutine = null;
+                    }
+                    canFollow = false;
+                }
+            }
+        }
+
+        private void OnDisable()
+        {
+            canFollow = false;
+            if (coroutine != null)
+            {
+                StopCoroutine(coroutine);
+                coroutine = null;
+            }
+        }
     }
 }

@@ -4,7 +4,6 @@ using UnityEngine;
 
 namespace Game.Arena.AI
 {
-
     public class EnemyRangeAttack : MonoBehaviour, IReset
     {
         [Header("Range Attack Options")]
@@ -16,10 +15,12 @@ namespace Game.Arena.AI
 
         public Transform barrel;
 
-        private Animator _animator;
-        private float _timer;
-        private bool _canAttack = true;
-        private AudioSource _audioSource;
+        private Animator animator;
+        private float timer;
+        public bool canAttack = true;
+        private AudioSource audioSource;
+        private Player.PlayerHP playerHP;
+        private EnemyHP enemyHP;
 
         private const string AttackKey = "Attack";
         private const string IdleKey = "Idle";
@@ -29,13 +30,15 @@ namespace Game.Arena.AI
 
         private void Awake()
         {
-            _animator = GetComponent<Animator>();
-            _audioSource = GetComponent<AudioSource>();
+            animator = GetComponent<Animator>();
+            audioSource = GetComponent<AudioSource>();
+            enemyHP = GetComponent<EnemyHP>();
         }
 
         private void Start()
         {
             target = PlayerObject.GetPlayerObject();
+            playerHP = target.GetComponent<Player.PlayerHP>();
         }
 
         private void Update()
@@ -45,30 +48,30 @@ namespace Game.Arena.AI
 
         private void CheckAttack()
         {
-            if (GetComponent<EnemyHP>().isAlive == true && target.GetComponent<Player.PlayerHP>().isAlive)
+            if (playerHP.isAlive == true && enemyHP.isAlive)
             {
-                if (_canAttack == true)
+                if (canAttack == true)
                 {
                     var distance = Vector3.Distance(transform.position, target.transform.position);
                     if (distance <= attackRadius)
                     {
-                        _timer += Time.deltaTime;
+                        timer += Time.deltaTime;
                         GetComponent<EnemyMovement>().canMove = false;
-                        _animator.SetBool(IdleKey, true);
-                        _animator.SetBool(RunKey, false);
+                        animator.SetBool(IdleKey, true);
+                        animator.SetBool(RunKey, false);
 
-                        if (_timer >= attackSpeed)
+                        if (timer >= attackSpeed)
                         {
-                            _animator.SetTrigger(AttackKey);
-                            _canAttack = false;
-                            _timer = 0f;
+                            animator.SetTrigger(AttackKey);
+                            canAttack = false;
+                            timer = 0f;
                         }
                     }
                     else
                     {
-                        _timer = 0f;
-                        _animator.SetBool(IdleKey, false);
-                        _animator.SetBool(RunKey, true);
+                        timer = 0f;
+                        animator.SetBool(IdleKey, false);
+                        animator.SetBool(RunKey, true);
                         GetComponent<EnemyMovement>().canMove = true;
                     }
                 }
@@ -87,7 +90,7 @@ namespace Game.Arena.AI
                 projectile.SetActive(true);
                 projectile.GetComponent<EnemyBullet>().damage = attackDamage;
             }
-            _audioSource.PlayOneShot(_audioSource.clip);
+            audioSource.PlayOneShot(audioSource.clip);
         }
 
         private Quaternion CalculateDirection()
@@ -99,9 +102,9 @@ namespace Game.Arena.AI
 
         public void EndAttack()
         {
-            _animator.SetBool(RunKey, true);
-            _animator.SetBool(IdleKey, false);
-            _canAttack = true;
+            animator.SetBool(RunKey, true);
+            animator.SetBool(IdleKey, false);
+            canAttack = true;
             GetComponent<EnemyMovement>().canMove = true;
         }
 
@@ -123,10 +126,10 @@ namespace Game.Arena.AI
 
         public void OnDeathReset()
         {
-            _timer = 0f;
-            _animator.SetBool(RunKey, true);
-            _animator.SetBool(IdleKey, false);
-            _canAttack = true;
+            timer = 0f;
+            animator.SetBool(RunKey, true);
+            animator.SetBool(IdleKey, false);
+            canAttack = true;
             GetComponent<EnemyMovement>().canMove = true;
         }
     }

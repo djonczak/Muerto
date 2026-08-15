@@ -14,21 +14,22 @@ namespace Game.Arena.AI
         [SerializeField] private float dashSpeed = 0.5f;
         [SerializeField] private GameObject target;
 
-        private Animator _animator;
-        private float _timer;
-        private bool _canDash = true;
+        private Animator animator;
+        private float timer;
+        public bool canDash = true;
         public bool isDashing = false;
-        private Vector3 _jumpPosition;
+        private Vector3 jumpPosition;
         
         private const string AttackKey = "Attack";
         private const string RunKey = "Run";
 
-        private EnemyHP _enemyHP;
+        private EnemyHP enemyHP;
         private EnemyMovement enemyMovement;
+
         private void Awake()
         {
-            _animator = GetComponent<Animator>();
-            _enemyHP = GetComponent<EnemyHP>();
+            animator = GetComponent<Animator>();
+            enemyHP = GetComponent<EnemyHP>();
             enemyMovement = GetComponent<EnemyMovement>();
         }
 
@@ -45,12 +46,12 @@ namespace Game.Arena.AI
 
         private void DashCooldown()
         {
-            if (_enemyHP.isAlive == true)
+            if (enemyHP.isAlive == true)
             {
                 if (isDashing == false)
                 {
-                    _timer += Time.deltaTime;
-                    if (_timer >= dashCooldown && _canDash == true)
+                    timer += Time.deltaTime;
+                    if (timer >= dashCooldown && canDash == true)
                     {
                         var distance = Vector3.Distance(transform.position, target.transform.position);
                         if (distance <= dashRadius)
@@ -64,12 +65,12 @@ namespace Game.Arena.AI
 
         private void PrepareForDash()
         {
-            _animator.SetTrigger(AttackKey);
-            _jumpPosition = new Vector3(target.transform.position.x, target.transform.position.y, 0);
-            _timer = 0f;
+            animator.SetTrigger(AttackKey);
+            jumpPosition = new Vector3(target.transform.position.x, target.transform.position.y, 0);
+            timer = 0f;
             enemyMovement.canMove = false;
-            _animator.SetBool(RunKey, false);
-            _canDash = false;
+            animator.SetBool(RunKey, false);
+            canDash = false;
         }
 
         public void StartDash()
@@ -82,10 +83,10 @@ namespace Game.Arena.AI
             if (isDashing == true)
             {
                 float step = (dashSpeed) * Time.fixedDeltaTime;
-                transform.position = Vector3.MoveTowards(transform.position, _jumpPosition, step / dashRange);
+                transform.position = Vector3.MoveTowards(transform.position, jumpPosition, step / dashRange);
                 transform.position.Normalize();
 
-                if (0.1f > DistanceBetween(transform.position, _jumpPosition))
+                if (0.1f > DistanceBetween(transform.position, jumpPosition))
                 {
                     DashEnd();
                 }
@@ -94,10 +95,10 @@ namespace Game.Arena.AI
 
         public void DashEnd()
         {
-            _animator.ResetTrigger(AttackKey);
+            animator.ResetTrigger(AttackKey);
             isDashing = false;
-            _canDash = true;
-            _animator.SetBool(RunKey, true);
+            canDash = true;
+            animator.SetBool(RunKey, true);
             enemyMovement.canMove = true;
         }
 
@@ -115,11 +116,11 @@ namespace Game.Arena.AI
 
         public void OnDeathReset()
         {
-            _timer = 0f;
-            _animator.SetBool(RunKey, true);
+            timer = 0f;
+            animator.SetBool(RunKey, true);
             enemyMovement.canMove = true;
             isDashing = false;
-            _canDash = true;
+            canDash = true;
         }
     }
 }

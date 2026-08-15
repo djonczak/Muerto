@@ -1,9 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Game.Arena.Extensions;
 
-namespace Game.Arena.Player {
-
+namespace Game.Arena.Player 
+{
     [RequireComponent(typeof(Animator))]
     public class ArenaMovement : MonoBehaviour
     {

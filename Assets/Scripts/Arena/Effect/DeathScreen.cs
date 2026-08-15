@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using Game.Arena.Events;
 
 namespace Game.Arena.UI
 {
-
     public class DeathScreen : MonoBehaviour
     {
         public Image blackScreen;

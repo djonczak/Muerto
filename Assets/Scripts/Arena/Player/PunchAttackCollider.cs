@@ -1,28 +1,32 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Game.Arena.Extensions;
 
-public class PunchAttackCollider : MonoBehaviour
+namespace Game 
 {
-    private AudioSource source;
-    [SerializeField] private LayerMask enemyLayer;
-
-    private void Awake()
+    public class PunchAttackCollider : MonoBehaviour
     {
-        source = GetComponent<AudioSource>();
-    }
+        private AudioSource source;
+        [SerializeField] private LayerMask enemyLayer;
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (GameObjectExtension.CompareLayerMask(collision.gameObject.gameObject, enemyLayer))
+        private void Awake()
         {
-            var iDamage = collision.GetComponent<IDamage>();
-            if(iDamage != null)
+            source = GetComponent<AudioSource>();
+        }
+
+        private void OnTriggerEnter2D(Collider2D collision)
+        {
+            if (GameObjectExtension.CompareLayerMask(collision.gameObject.gameObject, enemyLayer))
             {
-                iDamage.TakeDamage(1, DamageType.Normal);
-                if (!source.isPlaying)
+                var iDamage = collision.GetComponent<IDamage>();
+                if (iDamage != null)
                 {
-                    source.Play();
+                    iDamage.TakeDamage(1, DamageType.Normal);
+                    if (!source.isPlaying)
+                    {
+                        source.Play();
+                    }
                 }
             }
         }

@@ -2,74 +2,82 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(SpriteRenderer))]
-public class EnemyMovement : MonoBehaviour
+namespace Game.Arena.AI
 {
-    public bool canMove;
-    public bool isRanged;
-
-    [SerializeField] private float moveSpeed = 0.7f;
-    [SerializeField] private GameObject target;
-
-    private SpriteRenderer sprite;
-
-    private void Awake()
+    [RequireComponent(typeof(SpriteRenderer))]
+    public class EnemyMovement : MonoBehaviour
     {
-        sprite = GetComponent<SpriteRenderer>();
-        target = PlayerObject.GetPlayerObject(); 
-    }
-	
-	private void FixedUpdate ()
-    {
-        Move();
-        Rotation();
-	}
+        public bool canMove;
+        public bool isRanged;
 
-    private void Move()
-    {
-        if (canMove == true)
+        [SerializeField] private float moveSpeed = 0.7f;
+        [SerializeField] private GameObject target;
+
+        private SpriteRenderer sprite;
+
+        private void Awake()
         {
-            if (target != null)
+            sprite = GetComponent<SpriteRenderer>();
+            target = PlayerObject.GetPlayerObject();
+        }
+
+        private void OnEnable()
+        {
+            canMove = true;
+        }
+
+        private void FixedUpdate()
+        {
+            Move();
+            Rotation();
+        }
+
+        private void Move()
+        {
+            if (canMove == true)
             {
-                transform.position = Vector3.MoveTowards(transform.position, target.transform.position, moveSpeed * Time.deltaTime);
+                if (target != null)
+                {
+                    transform.position = Vector3.MoveTowards(transform.position, target.transform.position, moveSpeed * Time.deltaTime);
+                }
             }
         }
-    }
 
-    private void Rotation()
-    {
-        Melee();
-        Ranged();
-    }
-
-    private void Melee()
-    {
-        if (canMove == true && isRanged == false)
+        private void Rotation()
         {
-            if (target.transform.position.x > transform.position.x)
+            Melee();
+            Ranged();
+        }
+
+        private void Melee()
+        {
+            if (canMove == true && isRanged == false)
             {
-                sprite.flipX = false;
-            }
-            else
-            {
-                sprite.flipX = true;
+                if (target.transform.position.x > transform.position.x)
+                {
+                    sprite.flipX = false;
+                }
+                else
+                {
+                    sprite.flipX = true;
+                }
             }
         }
-    }
 
-    private void Ranged()
-    {
-        if (isRanged == true)
+        private void Ranged()
         {
-            if (target.transform.position.x > transform.position.x)
+            if (isRanged == true)
             {
-                transform.rotation = Quaternion.Euler(0, 0, 0);
-                transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y, 1);
-            }
-            else
-            {
-                transform.rotation = Quaternion.Euler(0, 180, 0);
-                transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y, -1);
+                if (target.transform.position.x > transform.position.x)
+                {
+                    transform.rotation = Quaternion.Euler(0, 0, 0);
+                    transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y, 1);
+                }
+                else
+                {
+                    transform.rotation = Quaternion.Euler(0, 180, 0);
+                    transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y, -1);
+                }
             }
         }
     }

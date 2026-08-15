@@ -23,12 +23,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7471797267798413799}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.017, y: -0.148, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7471797268637326169}
-  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7471797268267761730
 GameObject:
@@ -59,9 +60,9 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.002, y: 0.02, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7471797268853739385}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -112,7 +113,7 @@ MonoBehaviour:
   m_Text: LEVEL UP
 --- !u!95 &7471797268267761742
 Animator:
-  serializedVersion: 3
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -125,10 +126,12 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &7471797268303797108
 GameObject:
   m_ObjectHideFlags: 0
@@ -155,12 +158,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7471797268303797108}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7471797268637326169}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7471797268303797106
 MonoBehaviour:
@@ -174,6 +178,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96eec7f4c66126241aca34aebe4a4c0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 2048
 --- !u!82 &7471797268303797107
 AudioSource:
   m_ObjectHideFlags: 0
@@ -280,6 +287,25 @@ BoxCollider2D:
   m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -333,15 +359,16 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7471797268637326171}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.056, y: -0.9022568, z: 0}
   m_LocalScale: {x: 1.2, y: 1.2, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7471797268303797109}
   - {fileID: 7471797268853739385}
   - {fileID: 7471797267798413796}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7471797268637326168
 SpriteRenderer:
@@ -354,6 +381,7 @@ SpriteRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -408,6 +436,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 1
+  useSpecialIdle: 0
   canMove: 1
 --- !u!114 &7471797268637326145
 MonoBehaviour:
@@ -421,9 +450,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e972917627c706944973e6a9f8c709af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dashSpeed: 10
-  dashCooldown: 0.5
+  dashSpeed: 2
+  dashCooldown: 1
   dashRange: 3
+  dashTime: 0.8
+  cooldownBar: {fileID: 0}
   isDashing: 0
 --- !u!114 &7471797268637326147
 MonoBehaviour:
@@ -442,6 +473,15 @@ MonoBehaviour:
   playerLevel: 0
   levelText: {fileID: 0}
   levelUpAnim: {fileID: 7471797268267761742}
+  abilityImage1: {fileID: -1678676197546184788, guid: aa7d971370ca5d84a9cce8b66d5bff57,
+    type: 3}
+  ability1Text: Luchador will launch himself up in  the air, then  press LMB, to
+    dive  down on your enemies and deal  AOE damage.
+  abilityImage2: {fileID: 7881873600376309347, guid: aa7d971370ca5d84a9cce8b66d5bff57,
+    type: 3}
+  ability2Text: Luchador will run towards mouse direction and bounce from wall.
+  ability1: {fileID: 6711589699918948462}
+  ability2: {fileID: 2587515993176634110}
 --- !u!114 &7471797268637326149
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -474,9 +514,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5b34b14f4583c74c8f1ce3c8519b11f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  disable: 1
   damage: 1
-  abilityCooldown: 10
   abilityRange: 0.82
   fallSpeed: 4.5
   canUse: 1
@@ -497,8 +535,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9accd275bf049b949a91d33e55f9da3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  disable: 1
-  abilityCooldown: 20
   damage: 1
   abilityRange: 0.28
   abilityDuration: 10
@@ -545,6 +581,7 @@ MonoBehaviour:
   ability1Sound: {fileID: 8300000, guid: bd9a91c489ff38c46b6fb756cc87675b, type: 3}
   ability2Sound: {fileID: 8300000, guid: f8a6d17b27e66044e84f552279d33cb9, type: 3}
   deathSound: {fileID: 8300000, guid: 9a29704b4e812b1488284ae7ca1c8830, type: 3}
+  specialSound: {fileID: 0}
 --- !u!114 &3395673687357957374
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -578,13 +615,19 @@ Rigidbody2D:
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
 --- !u!95 &7471797268637326146
 Animator:
-  serializedVersion: 3
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -597,10 +640,12 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!82 &1535763737
 AudioSource:
   m_ObjectHideFlags: 0
@@ -707,6 +752,25 @@ PolygonCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -730,6 +794,7 @@ PolygonCollider2D:
       - {x: 0.085, y: -0.105}
       - {x: 0.085, y: 0.065}
       - {x: 0.055, y: 0.145}
+  m_UseDelaunayMesh: 0
 --- !u!1 &7471797268853739389
 GameObject:
   m_ObjectHideFlags: 0
@@ -759,10 +824,10 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.43333328, y: 0.08333333, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7471797268267761731}
   m_Father: {fileID: 7471797268637326169}
-  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -786,7 +851,9 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 0
+  m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 1321069501
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -812,7 +879,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!114 &7471797268853739386
 MonoBehaviour:
   m_ObjectHideFlags: 0

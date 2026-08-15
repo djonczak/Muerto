@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+using Game.Arena.Events;
 
 namespace Game.Arena.AI
 {
@@ -29,6 +30,11 @@ namespace Game.Arena.AI
         {
             currentHP = maxHP;
             healthBar.fillAmount = currentHP / maxHP;
+        }
+
+        public void DeathOverTime(float duration)
+        {
+
         }
 
         public void TakeDamage(float amount, DamageType type)

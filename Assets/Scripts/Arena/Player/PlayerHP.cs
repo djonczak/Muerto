@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using Game.Arena.Events;
 
 namespace Game.Arena.Player
 {
@@ -56,6 +57,11 @@ namespace Game.Arena.Player
                     Death();
                 }
             }
+        }
+
+        public void DeathOverTime(float duration)
+        {
+
         }
 
         private IEnumerator DamageCooldown()

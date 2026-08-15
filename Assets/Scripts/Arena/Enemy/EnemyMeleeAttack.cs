@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 
-namespace Game.Arena.Player {
+namespace Game.Arena.AI
+{
 
     public class EnemyMeleeAttack : MonoBehaviour, IReset
     {
@@ -11,26 +12,31 @@ namespace Game.Arena.Player {
         [SerializeField] private GameObject target;
         [SerializeField] private LayerMask playerLayer = 10;
 
-        private Animator _animator;
-        private AudioSource _audioSource;
+        private Animator animator;
+        private AudioSource audioSource;
         private EnemyMovement enemyMovement;
-        private float _timer;
-        private bool _isAttacking;
+        private Player.PlayerHP playerHP;
+
+        private float timer;
+        private bool isAttacking;
+        public bool canAttack = true;
 
         private const string RunKey = "Run";
         private const string AttackKey = "Attack";
 
         private void Awake()
         {
-            _animator = GetComponent<Animator>();
-            _audioSource = GetComponent<AudioSource>();
+            animator = GetComponent<Animator>();
+            audioSource = GetComponent<AudioSource>();
             enemyMovement = GetComponent<EnemyMovement>();
         }
 
         private void Start()
         {
             target = PlayerObject.GetPlayerObject();
+            playerHP = target.GetComponent<Player.PlayerHP>();
         }
+
 
         private void Update()
         {
@@ -39,36 +45,39 @@ namespace Game.Arena.Player {
 
         private void CheckAttack()
         {
-            if (target.GetComponent<Player.PlayerHP>().isAlive == true && _isAttacking == false)
+            if (canAttack)
             {
-                var distance = Vector3.Distance(transform.position, target.transform.position);
-                if (distance <= attackRadius)
+                if (playerHP.isAlive == true && isAttacking == false)
                 {
-                    _timer += Time.deltaTime;
-                    if (_timer >= attackSpeed)
+                    var distance = Vector3.Distance(transform.position, target.transform.position);
+                    if (distance <= attackRadius)
                     {
-                        StartAttack();
+                        timer += Time.deltaTime;
+                        if (timer >= attackSpeed)
+                        {
+                            StartAttack();
+                        }
                     }
-                }
-                else
-                {
-                    _timer = 0f;
+                    else
+                    {
+                        timer = 0f;
+                    }
                 }
             }
         }
 
         private void StartAttack()
         {
-            _animator.SetTrigger(AttackKey);
+            animator.SetTrigger(AttackKey);
             enemyMovement.canMove = false;
-            _isAttacking = true;
-            _timer = 0f;
+            isAttacking = true;
+            timer = 0f;
         }
 
         public void EndAttack()
         {
-            _animator.SetBool(RunKey, true);
-            _isAttacking = false;
+            animator.SetBool(RunKey, true);
+            isAttacking = false;
             enemyMovement.canMove = true;
         }
 
@@ -79,7 +88,7 @@ namespace Game.Arena.Player {
             {
                 if (player.GetComponent<IDamage>() != null)
                 {
-                    _audioSource.PlayOneShot(_audioSource.clip);
+                    audioSource.PlayOneShot(audioSource.clip);
                     player.GetComponent<IDamage>().TakeDamage(attackDamage, DamageType.Normal);
                 }
             }
@@ -93,10 +102,11 @@ namespace Game.Arena.Player {
 
         public void OnDeathReset()
         {
-            _timer = 0f;
+            timer = 0f;
             enemyMovement.canMove = true;
-            _animator.SetBool(RunKey, true);
-            _isAttacking = false;
+            animator.SetBool(RunKey, true);
+            isAttacking = false;
+            canAttack = true;
         }
     }
 }

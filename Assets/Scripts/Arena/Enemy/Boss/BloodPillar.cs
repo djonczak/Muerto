@@ -1,19 +1,26 @@
 ﻿using UnityEngine;
 
-public class BloodPillar : MonoBehaviour
+namespace Game.Arena.AI 
 {
-    [SerializeField] private float damage = 1f;
 
-    public void UsePillar(Transform target)
+    public class BloodPillar : MonoBehaviour
     {
-        transform.position = target.transform.position;
-    }
+        [SerializeField] private float damage = 1f;
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if(collision.tag == "Player")
+        private const string Player = "Player";
+
+        public void UsePillar(Transform target)
         {
-            collision.GetComponent<IDamage>().TakeDamage(damage, DamageType.Normal);
+            transform.position = target.transform.position;
+        }
+
+        private void OnTriggerEnter2D(Collider2D collision)
+        {
+            if (collision.tag == "Player")
+            {
+                collision.GetComponent<IDamage>().TakeDamage(damage, DamageType.Normal);
+
+            }
         }
     }
 }

@@ -2,40 +2,67 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyBullet : MonoBehaviour
+namespace Game.Arena.AI 
 {
-    public float damage = 0f;
-    [SerializeField] private float timeToDisperse = 4f;
-    [SerializeField] private float projectileSpeed = 3.5f;
-
-    private void OnEnable()
+    public class EnemyBullet : MonoBehaviour
     {
-        Invoke("DisableObject", timeToDisperse);
-        GetComponent<Rigidbody2D>().velocity = transform.right * projectileSpeed;
-    }
+        public float damage = 0f;
+        [SerializeField] private float timeToDisperse = 4f;
+        [SerializeField] private float projectileSpeed = 3.5f;
+        [SerializeField] private ParticleSystem trailParticle;
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.tag == "Player")
+        private Coroutine coroutine;
+
+        private const string Player = "Player";
+
+        private void OnEnable()
         {
-            collision.GetComponent<IDamage>().TakeDamage(damage, DamageType.Normal);
-            gameObject.SetActive(false);
+            coroutine = StartCoroutine(DisappearBullet());
+            GetComponent<Rigidbody2D>().velocity = transform.right * projectileSpeed;
+            trailParticle.loop = true;
+            trailParticle.Play();
         }
-        else
+
+        private void OnTriggerEnter2D(Collider2D collision)
         {
-            gameObject.SetActive(false);
+            if (collision.tag == Player)
+            {
+                collision.GetComponent<IDamage>().TakeDamage(damage, DamageType.Normal);
+                trailParticle.loop = false;
+                gameObject.SetActive(false);
+                if (coroutine != null)
+                {
+                    StopCoroutine(coroutine);
+                    coroutine = null;
+                }
+            }
+            else
+            {
+                trailParticle.loop = false;
+                gameObject.SetActive(false);
+                if (coroutine != null)
+                {
+                    StopCoroutine(coroutine);
+                    coroutine = null;
+                }
+            }
         }
-        CancelInvoke();
-    }
 
-    private void DisableObject()
-    {
-        gameObject.SetActive(false);
-    }
+        private IEnumerator DisappearBullet()
+        {
+            yield return new WaitForSeconds(timeToDisperse);
+            trailParticle.loop = false;
+            gameObject.SetActive(false);
+            coroutine = null;
+        }
 
-    private void OnDisable()
-    {
-        CancelInvoke();
+        private void OnDisable()
+        {
+            if(coroutine != null)
+            {
+                StopCoroutine(coroutine);
+                coroutine = null;
+            }
+        }
     }
-
 }

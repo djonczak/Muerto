@@ -1,8 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Game.Arena.Events;
 
-namespace Game.Arena.Interactable {
+namespace Game.Arena.Interactable 
+{
     public class SpawnTaco : MonoBehaviour
     {
         [SerializeField] private Transform[] spawnPoints;
