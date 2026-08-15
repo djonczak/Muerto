@@ -56,7 +56,7 @@ namespace Game.Arena.Player
 
         private void StartDance()
         {
-            iSoundEffect.PlayAbility2SoundLoop();
+            iSoundEffect.PlayAbility2Sound();
           //  mariachiGrenadeThrow.CanUseAbility = false;
             canUse = false;
             arenaMovement.enabled = false;
@@ -107,7 +107,6 @@ namespace Game.Arena.Player
             isDancing = false;
             vortexParticles[0].loop = false;
             vortexParticles[1].loop = false;
-            iSoundEffect.StopAbility2Sound();
             playerHP.canBeHurt = true;
             arenaMovement.enabled = true;
             playerAttack.enabled = true;
