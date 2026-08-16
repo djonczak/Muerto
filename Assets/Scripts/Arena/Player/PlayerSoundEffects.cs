@@ -64,6 +64,12 @@ namespace Game.Arena.Player {
             audioSource.loop = false;
         }
 
+        public void StopAbility1Sound()
+        {
+            audioSource.Stop();
+            audioSource.loop = false;
+        }
+
         public void PlayDeathSound()
         {
             audioSource.PlayOneShot(deathSound);

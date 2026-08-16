@@ -1,8 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public interface ISoundEffect
+﻿public interface ISoundEffect
 {
     void PlayLevelUpSound();
     void PlayHealSound();
@@ -11,6 +7,7 @@ public interface ISoundEffect
     void PlayDeathSound();
 
     void StopAbility2Sound();
+    void StopAbility1Sound();
     void PlayAbility2SoundLoop();
 
 }

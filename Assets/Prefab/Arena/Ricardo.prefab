@@ -336,7 +336,7 @@ GameObject:
   - component: {fileID: 535408196014756028}
   - component: {fileID: 535408196014756030}
   - component: {fileID: 535408196014756024}
-  - component: {fileID: 4466257637360575379}
+  - component: {fileID: 8327217976955080703}
   - component: {fileID: 4011504653894298877}
   - component: {fileID: 535408196014756029}
   - component: {fileID: 4426184137176019816}
@@ -437,7 +437,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 1
-  useSpecialIdle: 0
+  useSpecialIdle: 1
   canMove: 1
 --- !u!114 &535408196014756028
 MonoBehaviour:
@@ -480,7 +480,7 @@ MonoBehaviour:
   abilityImage2: {fileID: 2041386107, guid: aa7d971370ca5d84a9cce8b66d5bff57, type: 3}
   ability2Text: Ricardo will stand in place and use his dance, to mesmerize enemies,
     that will move closer to him and will be taking damage.
-  ability1: {fileID: 4466257637360575379}
+  ability1: {fileID: 8327217976955080703}
   ability2: {fileID: 4011504653894298877}
 --- !u!114 &535408196014756024
 MonoBehaviour:
@@ -502,7 +502,7 @@ MonoBehaviour:
   - {fileID: 0}
   isAlive: 1
   canBeHurt: 1
---- !u!114 &4466257637360575379
+--- !u!114 &8327217976955080703
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -511,18 +511,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 535408196014756006}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e5b34b14f4583c74c8f1ce3c8519b11f, type: 3}
+  m_Script: {fileID: 11500000, guid: ea4cd65699ff05343947bf374ce05950, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 1
-  abilityRange: 0.82
-  fallSpeed: 4.5
+  attackRange: 0.27
+  abilityActiveTime: 6
   canUse: 1
-  preparedToJump: 0
-  isFalling: 0
   enemyLayer:
     serializedVersion: 2
     m_Bits: 2048
+  empoweredAbilityParticle: {fileID: 2765091370512099865}
 --- !u!114 &4011504653894298877
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -577,8 +575,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelUpSound: {fileID: 8300000, guid: 1a884ec8274eb8044be2f70d0d6f7890, type: 3}
-  healSound: {fileID: 8300000, guid: 9169e90cb722f1a42a9913fd6747b462, type: 3}
-  ability1Sound: {fileID: 8300000, guid: bd9a91c489ff38c46b6fb756cc87675b, type: 3}
+  healSound: {fileID: 8300000, guid: b3c5652548a5bdd42813d10683019cda, type: 3}
+  ability1Sound: {fileID: 8300000, guid: 0f3c486db058da544a35cf42ea4914a3, type: 3}
   ability2Sound: {fileID: 8300000, guid: 9ff47798f40a1694b9598cb8386c37b5, type: 3}
   deathSound: {fileID: 8300000, guid: 9a29704b4e812b1488284ae7ca1c8830, type: 3}
   specialSound: {fileID: 0}

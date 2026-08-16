@@ -152,7 +152,7 @@ namespace Game.UI
 
             if (isPaused)
             {
-                if (Input.GetKeyDown(KeyCode.Mouse0))
+                if (Input.GetKeyDown(KeyCode.Space))
                 {
                     isPaused = false;
                     Time.timeScale = 1;
