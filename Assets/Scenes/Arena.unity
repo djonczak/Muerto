@@ -29145,6 +29145,11 @@ PrefabInstance:
       propertyPath: healthBars.Array.data[2]
       value: 
       objectReference: {fileID: 2035833503}
+    - target: {fileID: 535408196014756027, guid: 3ab1b8a7bb06cf446ae6db8c9a426a11,
+        type: 3}
+      propertyPath: useSpecialIdle
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 535408196014756028, guid: 3ab1b8a7bb06cf446ae6db8c9a426a11,
         type: 3}
       propertyPath: cooldownBar
@@ -29157,19 +29162,9 @@ PrefabInstance:
       objectReference: {fileID: 1919732165}
     - target: {fileID: 4011504653894298877, guid: 3ab1b8a7bb06cf446ae6db8c9a426a11,
         type: 3}
-      propertyPath: abilityActiveTime
-      value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 4011504653894298877, guid: 3ab1b8a7bb06cf446ae6db8c9a426a11,
-        type: 3}
       propertyPath: vortexParticles.Array.data[1]
       value: 
       objectReference: {fileID: 519294266}
-    - target: {fileID: 4426184137176019816, guid: 3ab1b8a7bb06cf446ae6db8c9a426a11,
-        type: 3}
-      propertyPath: ability2Sound
-      value: 
-      objectReference: {fileID: 8300000, guid: 9ff47798f40a1694b9598cb8386c37b5, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

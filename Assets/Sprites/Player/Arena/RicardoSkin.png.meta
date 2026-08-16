@@ -54,7 +54,7 @@ TextureImporter:
       213: -5270972692658079616
     second: RicardoSkin_Run4
   externalObjects: {}
-  serializedVersion: 12
+  serializedVersion: 13
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -556,6 +556,258 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Ricardo_SpecialDance0
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 59
+        width: 23
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6fcee0475788ce49b279012d2a18ac0
+      internalID: 1837716702
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ricardo_SpecialDance1
+      rect:
+        serializedVersion: 2
+        x: 179
+        y: 59
+        width: 23
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf55e3f79b070754291e49e44f869941
+      internalID: 941380184
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ricardo_SpecialDance2
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 59
+        width: 23
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af5629fdbb3aef54a8738b9e21d8adeb
+      internalID: -1253729567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ricardo_SpecialDance3
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 59
+        width: 23
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae29b9bcd23c2084d9951cef4bd841b6
+      internalID: -621925454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ricardo_SpecialDance4
+      rect:
+        serializedVersion: 2
+        x: 246
+        y: 59
+        width: 23
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff5b5e7d43f20d447a51f8faafd60f02
+      internalID: 1793867382
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ricardo_SpecialDance5
+      rect:
+        serializedVersion: 2
+        x: 270
+        y: 59
+        width: 23
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a7919b8c0830c540afb5d6b528f3502
+      internalID: -564255287
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ricardo_SpecialDance7
+      rect:
+        serializedVersion: 2
+        x: 175
+        y: 21
+        width: 23
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9eba041b7125b2409876f88dfef242a
+      internalID: 2104026111
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ricardo_SpecialDance8
+      rect:
+        serializedVersion: 2
+        x: 205
+        y: 21
+        width: 23
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 14c570a4182c71c4babaae15ed55e0d4
+      internalID: -955872939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ricardo_SpecialDance9
+      rect:
+        serializedVersion: 2
+        x: 229
+        y: 21
+        width: 23
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b9310ccbba269f428b51310e85b1bba
+      internalID: -643769304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ricardo_SpecialDance10
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 21
+        width: 23
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da1b77c4760ca2340affc4b6077ab5f9
+      internalID: -938867954
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ricardo_SpecialDance11
+      rect:
+        serializedVersion: 2
+        x: 284
+        y: 21
+        width: 23
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6cb2c904361b4ff489d03e15806a5d4f
+      internalID: -1882894379
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ricardo_SpecialDance12
+      rect:
+        serializedVersion: 2
+        x: 313
+        y: 21
+        width: 23
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a8990ae69b3ab1d49aff11529e1ceac4
+      internalID: 567841463
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -584,6 +836,18 @@ TextureImporter:
       RicardoSkin_Run2: -6784108356361446455
       RicardoSkin_Run3: 8047590843833469718
       RicardoSkin_Run4: -5270972692658079616
+      Ricardo_SpecialDance0: 1837716702
+      Ricardo_SpecialDance1: 941380184
+      Ricardo_SpecialDance10: -938867954
+      Ricardo_SpecialDance11: -1882894379
+      Ricardo_SpecialDance12: 567841463
+      Ricardo_SpecialDance2: -1253729567
+      Ricardo_SpecialDance3: -621925454
+      Ricardo_SpecialDance4: 1793867382
+      Ricardo_SpecialDance5: -564255287
+      Ricardo_SpecialDance7: 2104026111
+      Ricardo_SpecialDance8: -955872939
+      Ricardo_SpecialDance9: -643769304
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -536,7 +536,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackRange: 1.93
-  abilityActiveTime: 10
+  abilityActiveTime: 11
   pullForce: 500
   canUse: 1
   enemyLayer:
@@ -579,7 +579,7 @@ MonoBehaviour:
   levelUpSound: {fileID: 8300000, guid: 1a884ec8274eb8044be2f70d0d6f7890, type: 3}
   healSound: {fileID: 8300000, guid: 9169e90cb722f1a42a9913fd6747b462, type: 3}
   ability1Sound: {fileID: 8300000, guid: bd9a91c489ff38c46b6fb756cc87675b, type: 3}
-  ability2Sound: {fileID: 8300000, guid: c6617237488c5544eb6f547cd2119725, type: 3}
+  ability2Sound: {fileID: 8300000, guid: 9ff47798f40a1694b9598cb8386c37b5, type: 3}
   deathSound: {fileID: 8300000, guid: 9a29704b4e812b1488284ae7ca1c8830, type: 3}
   specialSound: {fileID: 0}
 --- !u!114 &5746828247938297603
