@@ -17,6 +17,8 @@ namespace Game.Menu
         [SerializeField] private AudioSource audioSource;
         [SerializeField] private AudioSource audioSourcePress;
 
+        private CharacterSelection characterSelection;
+
         private const string StoryLevel = "01_Room";
         private const string ArenaLevel = "Arena";
         private const string ShowKey = "Show";
@@ -34,6 +36,7 @@ namespace Game.Menu
 
             //Application.targetFrameRate = -1;
             Application.targetFrameRate = 91;
+            characterSelection = arenaWindow.GetComponentInChildren<CharacterSelection>();
         }
 
         public void Story()
@@ -93,6 +96,7 @@ namespace Game.Menu
         {
             yield return new WaitForSeconds(0.5F);
             arenaWindow.SetActive(true);
+            characterSelection.UpdateCache();
             arenaButton.ActivateButtons();
         }
 

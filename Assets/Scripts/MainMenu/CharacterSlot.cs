@@ -12,12 +12,15 @@ namespace Game.Menu
 
         [SerializeField] private UnlockType unlockType;
 
+        private UnityEngine.UI.Image characterSprite;
+
         public bool IsUnlocked;
 
         public enum UnlockType
         {
             Story = 0,
             Arena = 1,
+            Rest = 2,
         }
 
         private const string BossKey = "Boss";
@@ -25,7 +28,17 @@ namespace Game.Menu
         private const string YesKey = "Yes";
 
 
-        public void Start()
+        private void Awake()
+        {
+            characterSprite = GetComponent<UnityEngine.UI.Image>();
+        }
+
+        private void Start()
+        {
+            UpdateCharacter();
+        }
+
+        public void UpdateCharacter()
         {
             switch (unlockType)
             {
@@ -34,6 +47,10 @@ namespace Game.Menu
                     {
                         IsUnlocked = true;
                     }
+                    else
+                    {
+                        IsUnlocked = false;
+                    }
                     break;
 
                 case UnlockType.Arena:
@@ -41,13 +58,25 @@ namespace Game.Menu
                     {
                         IsUnlocked = true;
                     }
+                    else
+                    {
+                        IsUnlocked = false;
+                    }
+                    break;
+                case UnlockType.Rest:
+                    IsUnlocked = true;
                     break;
             }
 
             if (IsUnlocked == true)
             {
                 unlockInfo.SetActive(false);
-                GetComponent<UnityEngine.UI.Image>().color = normalColor;
+                characterSprite.color = normalColor;
+            }
+            else
+            {
+                unlockInfo.SetActive(true);
+                characterSprite.color = Color.black;
             }
         }
     }

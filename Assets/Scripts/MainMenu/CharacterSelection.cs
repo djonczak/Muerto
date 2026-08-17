@@ -90,6 +90,14 @@ namespace Game.Menu
             }
         }
 
+        public void UpdateCache()
+        {
+            foreach(var character in characterList)
+            {
+                character.UpdateCharacter();
+            }
+        }
+
         [ContextMenu("Test")]
         private void SetRicardo()
         {
