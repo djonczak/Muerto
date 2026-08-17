@@ -91,6 +91,11 @@ namespace Game.Arena.Player {
             }
         }
 
+        public void PlaySpecialSoundOnce()
+        {
+            audioSource.PlayOneShot(specialSound);
+        }
+
         public void StopPlayingSpecial()
         {
             isPlayingSpecial = false;

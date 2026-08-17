@@ -474,8 +474,7 @@ MonoBehaviour:
   playerLevel: 0
   levelText: {fileID: 0}
   levelUpAnim: {fileID: 535408194638564275}
-  abilityImage1: {fileID: -1678676197546184788, guid: aa7d971370ca5d84a9cce8b66d5bff57,
-    type: 3}
+  abilityImage1: {fileID: -2082056945, guid: aa7d971370ca5d84a9cce8b66d5bff57, type: 3}
   ability1Text: Ricardo will something
   abilityImage2: {fileID: 2041386107, guid: aa7d971370ca5d84a9cce8b66d5bff57, type: 3}
   ability2Text: Ricardo will stand in place and use his dance, to mesmerize enemies,
@@ -575,11 +574,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelUpSound: {fileID: 8300000, guid: 1a884ec8274eb8044be2f70d0d6f7890, type: 3}
-  healSound: {fileID: 8300000, guid: b3c5652548a5bdd42813d10683019cda, type: 3}
+  healSound: {fileID: 8300000, guid: e7e1bbfbd97211047a5086355d5a74d8, type: 3}
   ability1Sound: {fileID: 8300000, guid: 0f3c486db058da544a35cf42ea4914a3, type: 3}
   ability2Sound: {fileID: 8300000, guid: 9ff47798f40a1694b9598cb8386c37b5, type: 3}
   deathSound: {fileID: 8300000, guid: 9a29704b4e812b1488284ae7ca1c8830, type: 3}
-  specialSound: {fileID: 0}
+  specialSound: {fileID: 8300000, guid: 473ff74dba6c59e4b8a03248cb69c318, type: 3}
 --- !u!114 &5746828247938297603
 MonoBehaviour:
   m_ObjectHideFlags: 0
