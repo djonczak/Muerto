@@ -86,6 +86,11 @@ namespace Game.Arena.Player
                     var enemyEntity = enemy.GetComponent<EnemyTagger>();
                     if (enemyEntity != null)
                     {
+                        var iDamage = enemy.GetComponent<IDamage>();
+                        if (iDamage != null)
+                        {
+                            iDamage.DeathOverTime(2f);
+                        }
                         Rigidbody2D rb = enemy.GetComponent<Rigidbody2D>();
                         if (rb != null)
                         {
@@ -93,11 +98,13 @@ namespace Game.Arena.Player
                             rb.AddForce(direction * pullForce * Time.deltaTime, ForceMode2D.Force);
                         }
                     }
-
-                    var iDamage = enemy.GetComponent<IDamage>();
-                    if (iDamage != null)
+                    else
                     {
-                        iDamage.DeathOverTime(2f);
+                        var iDamage = enemy.GetComponent<IDamage>();
+                        if (iDamage != null)
+                        {
+                            iDamage.TakeDamage(1F, DamageType.Normal);
+                        }
                     }
                 }
                 timer += Time.deltaTime;

@@ -23,6 +23,10 @@ namespace Game.Menu
 
         private const string NameKey = "Name";
 
+        private const string BossKey = "Boss";
+        private const string StoryKey = "Story";
+        private const string NoKey = "No";
+
         private void Start()
         {
             Cursor.SetCursor(cursorTexture, Vector2.zero, CursorMode.Auto);
@@ -54,13 +58,20 @@ namespace Game.Menu
             audioSource.volume = 0;
         }
 
+        public void ClearPlayerPrefs()
+        {
+            audioSourcePress.Play();
+            PlayerPrefs.SetString(BossKey, NoKey);
+            PlayerPrefs.SetString(StoryKey, NoKey);
+        }
+
         public void LoadArena()
         {
             if (PlayerPrefs.GetString(NameKey) == "")
             {
                 audioSourcePress.Play();
                 message.GetComponent<Animator>().SetTrigger(ShowKey);
-                message.GetComponentInChildren<UnityEngine.UI.Text>().text = "Choose character !";
+                message.GetComponentInChildren<Text>().text = "Choose character !";
             }
             else
             {
