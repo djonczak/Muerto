@@ -19,37 +19,6 @@ namespace Game.Menu
         {
             messageText = message.GetComponentInChildren<UnityEngine.UI.Text>();
         }
-
-        private void Start()
-        {
-            foreach (Transform child in transform)
-            {
-                var character = child.GetComponent<CharacterSlot>();
-                if (character != null)
-                {
-                    characterList.Add(character);
-                }
-            }
-
-            bool gotCharacter = false;
-            for(int i = 0; i < characterList.Count; i++)
-            {
-                var name = PlayerPrefs.GetString(NameKey);
-                if (name == characterList[i].name)
-                {
-                    index = i;
-                    characterList[i].gameObject.SetActive(true);
-                    gotCharacter = true;
-                    return;
-                }
-            } 
-
-            if(gotCharacter == false)
-            {
-                characterList[index].gameObject.SetActive(true);
-            }
-        }
-
         public void IndexDown()
         {
             characterList[index].gameObject.SetActive(false);
@@ -92,9 +61,35 @@ namespace Game.Menu
 
         public void UpdateCache()
         {
-            foreach(var character in characterList)
+            foreach (var character in characterList)
             {
                 character.UpdateCharacter();
+            }
+
+            if (characterList.Count == 0)
+            {
+                foreach (Transform child in transform)
+                {
+                    var character = child.GetComponent<CharacterSlot>();
+                    if (character != null)
+                    {
+                        characterList.Add(character);
+                    }
+                }
+            }
+
+            for (int i = 0; i < characterList.Count; i++)
+            {
+                var name = PlayerPrefs.GetString(NameKey);
+                if (name == characterList[i].name)
+                {
+                    index = i;
+                    characterList[i].gameObject.SetActive(true);
+                }
+                else
+                {
+                    characterList[i].gameObject.SetActive(false);
+                }
             }
         }
 

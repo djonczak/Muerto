@@ -5568,6 +5568,7 @@ MonoBehaviour:
   unlockInfo: {fileID: 302460126}
   normalColor: {r: 255, g: 255, b: 255, a: 255}
   unlockType: 1
+  characterSprite: {fileID: 1063337753}
   IsUnlocked: 0
 --- !u!114 &1063337757
 MonoBehaviour:
@@ -8395,6 +8396,7 @@ MonoBehaviour:
   unlockInfo: {fileID: 989143603}
   normalColor: {r: 255, g: 255, b: 255, a: 255}
   unlockType: 2
+  characterSprite: {fileID: 1770556068}
   IsUnlocked: 1
 --- !u!114 &1770556071
 MonoBehaviour:
@@ -8946,6 +8948,7 @@ MonoBehaviour:
   unlockInfo: {fileID: 984175889}
   normalColor: {r: 255, g: 255, b: 255, a: 255}
   unlockType: 0
+  characterSprite: {fileID: 2067568197}
   IsUnlocked: 0
 --- !u!114 &2067568197
 MonoBehaviour:

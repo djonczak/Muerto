@@ -12,7 +12,7 @@ namespace Game.Menu
 
         [SerializeField] private UnlockType unlockType;
 
-        private UnityEngine.UI.Image characterSprite;
+        [SerializeField] private UnityEngine.UI.Image characterSprite;
 
         public bool IsUnlocked;
 
@@ -26,12 +26,6 @@ namespace Game.Menu
         private const string BossKey = "Boss";
         private const string StoryKey = "Story";
         private const string YesKey = "Yes";
-
-
-        private void Awake()
-        {
-            characterSprite = GetComponent<UnityEngine.UI.Image>();
-        }
 
         private void Start()
         {

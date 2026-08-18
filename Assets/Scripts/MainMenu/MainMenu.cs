@@ -66,6 +66,7 @@ namespace Game.Menu
             audioSourcePress.Play();
             PlayerPrefs.SetString(BossKey, NoKey);
             PlayerPrefs.SetString(StoryKey, NoKey);
+            PlayerPrefs.SetString(NameKey, "Huan");
         }
 
         public void LoadArena()
