@@ -15,14 +15,13 @@ namespace Game.Scene
         [SerializeField] private GameObject bloodPilar;
         [Header("Player to freeze")]
         [SerializeField] private GameObject player;
-
         [Header("Sound change")]
         public AudioSource sceneSound;
         public AudioSource sceneSound2;
 
         [Header("Objects to hide")]
         public GameObject[] hudToHide;
-
+        [SerializeField] private Animator uiAnimator;
         [Header("Light source")]
         public UnityEngine.Rendering.Universal.Light2D sunLight;
         public Color colorToSwitch;
@@ -72,6 +71,7 @@ namespace Game.Scene
             bloodPilar.gameObject.SetActive(true);
             yield return new WaitForSeconds(0.5f);
             boss.SetActive(true);
+            uiAnimator.enabled = false;
         }
 
         private void FirstPhaseOfScene()

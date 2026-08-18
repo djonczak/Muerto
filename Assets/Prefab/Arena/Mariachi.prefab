@@ -29,7 +29,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &183294772457077325
 Transform:
   m_ObjectHideFlags: 0
@@ -157,12 +157,12 @@ MonoBehaviour:
   levelUpAnim: {fileID: 7999827551005576008}
   abilityImage1: {fileID: -6869325624984279803, guid: aa7d971370ca5d84a9cce8b66d5bff57,
     type: 3}
-  ability1Text: He will bring out his trusty maracas time will slow down time/ Use
-    your mouse to aim towards desired location and throw by pressing the LMB. On
-    impact it will explode and deal AOE damage.
+  ability1Text: Sanchez will bring out his trusty maracas time will slow down time/
+    Use your mouse to aim towards desired location and throw by pressing the LMB.
+    On impact it will explode and deal AOE damage.
   abilityImage2: {fileID: -2205522050570982886, guid: aa7d971370ca5d84a9cce8b66d5bff57,
     type: 3}
-  ability2Text: 'He stand in place, raising his trumpet. For the next 7 seconds,
+  ability2Text: 'Sanchez stand in place, raising his trumpet. For the next 7 seconds,
     a protective ring rapidly expand from his position. Enemies crossing into this
     suffer continuous damage. '
   ability1: {fileID: 8073760379044176708}

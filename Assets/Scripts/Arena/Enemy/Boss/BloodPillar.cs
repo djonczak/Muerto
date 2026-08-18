@@ -2,7 +2,6 @@
 
 namespace Game.Arena.AI 
 {
-
     public class BloodPillar : MonoBehaviour
     {
         [SerializeField] private float damage = 1f;
@@ -16,10 +15,13 @@ namespace Game.Arena.AI
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            if (collision.tag == "Player")
+            if (collision.tag == Player)
             {
-                collision.GetComponent<IDamage>().TakeDamage(damage, DamageType.Normal);
-
+                var iDamage = collision.GetComponent<IDamage>();
+                if (iDamage != null)
+                {
+                    iDamage.TakeDamage(damage, DamageType.Normal);
+                }
             }
         }
     }

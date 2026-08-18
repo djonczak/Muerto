@@ -36,16 +36,6 @@ namespace Game.Arena.AI
                     coroutine = null;
                 }
             }
-            else
-            {
-                trailParticle.loop = false;
-                gameObject.SetActive(false);
-                if (coroutine != null)
-                {
-                    StopCoroutine(coroutine);
-                    coroutine = null;
-                }
-            }
         }
 
         private IEnumerator DisappearBullet()

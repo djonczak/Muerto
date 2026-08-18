@@ -2,7 +2,6 @@
 
 namespace Game.Arena.AI
 {
-
     public class EnemyMeleeAttack : MonoBehaviour, IReset
     {
         [Header("Melee Attack Settings")]

@@ -475,10 +475,13 @@ MonoBehaviour:
   levelText: {fileID: 0}
   levelUpAnim: {fileID: 535408194638564275}
   abilityImage1: {fileID: -2082056945, guid: aa7d971370ca5d84a9cce8b66d5bff57, type: 3}
-  ability1Text: Ricardo will something
+  ability1Text: Ricardo begins the dance, gaining immediate immunity to attacks.
+    Upon its conclusion, he remains invulnerable for 6 seconds, and everything in
+    close proximity takes damage.
   abilityImage2: {fileID: 2041386107, guid: aa7d971370ca5d84a9cce8b66d5bff57, type: 3}
-  ability2Text: Ricardo will stand in place and use his dance, to mesmerize enemies,
-    that will move closer to him and will be taking damage.
+  ability2Text: Ricardo begins dancing that lasts for 11 seconds. During this time,
+    he is unable to any action. The dance generates a gravitational field that pulls
+    nearby enemies into the center, dealing constant damage.
   ability1: {fileID: 8327217976955080703}
   ability2: {fileID: 4011504653894298877}
 --- !u!114 &535408196014756024
