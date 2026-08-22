@@ -78,6 +78,7 @@ namespace Game.Menu
                 }
             }
 
+            var gotName = false;
             for (int i = 0; i < characterList.Count; i++)
             {
                 var name = PlayerPrefs.GetString(NameKey);
@@ -85,10 +86,17 @@ namespace Game.Menu
                 {
                     index = i;
                     characterList[i].gameObject.SetActive(true);
+                    gotName = true;
                 }
                 else
                 {
                     characterList[i].gameObject.SetActive(false);
+                }
+
+                if(gotName == false)
+                {
+                    index = 0;
+                    characterList[0].gameObject.SetActive(true);
                 }
             }
         }

@@ -18,7 +18,7 @@ namespace Game.Arena.Player
         private void Awake()
         {
             var name = PlayerPrefs.GetString(NameKey);
-            if (name == HuanKey)
+            if (name == HuanKey || name == "")
             {
                 Huan.SetActive(true);
             }
